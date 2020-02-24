@@ -456,7 +456,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         public Coordenates followObjective() {
             if (this.location.getX() == currentObjective.getLocation().getX() && this.location.getY() == this.currentObjective.getLocation().getY()) {
                 //at objective
-                if (path.lastIndexOf(currentObjective) < path.size() - 1) {
+                if (objectiveIdx < path.size() - 1) {
                     currentObjective = path.get(objectiveIdx + 1);
                     objectiveIdx++;
                     if (path.get(objectiveIdx - 1).getType() == GraphNodeType.PRODUCT) {
