@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AlgoritmoGenetico:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Graphs/AgentGraphNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Graphs/Edge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Graphs/EnvironmentNodeGraph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Graphs/FitnessResults.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Graphs/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Graphs/GraphNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Graphs/GraphNodeType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/Area.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/Coordenates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/Device.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/Prefab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/PrefabType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/Rack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/Shelf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/Size.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/SmallArea.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/Structure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/WarehouseParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/warehouse/XMLInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgoritmoGenetico.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AlgoritmoGenetico.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSets/Armazem/DataSet1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSets/Armazem/DataSet2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSets/Armazem/DataSet3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSets/Armazem/DataSet4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSets/Armazem/DataSet5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSets/Armazem/Empty_1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSets/Armazem/Empty_2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSets/Armazem/Empty_3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeneticAlgorithm_completo/.idea/GeneticAlgorithm_completo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeneticAlgorithm_completo/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeneticAlgorithm_completo/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeneticAlgorithm_completo/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeneticAlgorithm_completo/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/New Text Document.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/META-INF/AlgoritmoGenetico.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/AStar$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/AStar$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/AStar.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/AStar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Agent.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Agent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Encomenda.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Encomenda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Environment$Collision.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Environment$Collision.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Environment.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Environment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/EnvironmentListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/EnvironmentListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Perception.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Perception.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Prateleira.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Prateleira.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Robo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Robo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Saida.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/armazem/Saida.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/experiments/Experiment.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/experiments/Experiment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/experiments/ExperimentEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/experiments/ExperimentEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/experiments/ExperimentListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/experiments/ExperimentListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/experiments/ExperimentsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/experiments/ExperimentsFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/experiments/Parameter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/experiments/Parameter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/GAEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/GAEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/GAListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/GAListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/GASingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/GASingleton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/GeneticAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/Individual.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/Population.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/Population.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/Problem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/Problem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/VectorIndividual.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/VectorIndividual.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/GeneticOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/GeneticOperator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/Mutation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/Mutation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/MutationFirstLast.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/MutationFirstLast.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/MutationInversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/MutationInversion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/MutationSwap.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/MutationSwap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/Recombination.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/Recombination.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationCX.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationCX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationOX.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationOX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationOneCut.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationOneCut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationPMX.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationPMX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/selectionMethods/Ranking.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/selectionMethods/Ranking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/selectionMethods/RouletteWheel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/selectionMethods/RouletteWheel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/selectionMethods/SelectionMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/selectionMethods/SelectionMethod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/ga/selectionMethods/Tournament.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/selectionMethods/Tournament.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonDataSet_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonDataSet_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonExperiments_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonExperiments_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonRunExperiments_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonRunExperiments_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonRun_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonRun_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonStop_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonStop_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelAtributesValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelAtributesValue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters$IntegerTextField_KeyAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelParameters$IntegerTextField_KeyAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxFitnessFunction_ActionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxFitnessFunction_ActionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxSelectionMethods_ActionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxSelectionMethods_ActionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelParameters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelTextArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelTextArea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRunFromFile_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRunFromFile_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/picking/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/picking/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/picking/Picking.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/picking/Picking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/picking/PickingExperimentsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/picking/PickingExperimentsFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/picking/PickingIndividual.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/picking/PickingIndividual.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/statistics/StatisticBestAverage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/statistics/StatisticBestAverage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/statistics/StatisticBestInRun.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/statistics/StatisticBestInRun.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/utils/AlgoritmoOrdenacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/AlgoritmoOrdenacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/utils/Comparacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/Comparacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/utils/ComparacaoDoubleDesc.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/ComparacaoDoubleDesc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/utils/FileOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/FileOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/utils/Maths.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/Maths.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/utils/QuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/QuickSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_selection.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config_selection.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_tournament_size.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/armazem/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/armazem/AStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/armazem/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/armazem/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/armazem/Robo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/armazem/Robo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ga/GASingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ga/GASingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ga/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ga/GeneticAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ga/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ga/Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ga/VectorIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ga/VectorIndividual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ga/selectionMethods/Ranking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ga/selectionMethods/Ranking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SimulationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/picking/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/picking/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/picking/PickingIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/picking/PickingIndividual.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/AlgoritmoGenetico$Main.ic" NAME="Main Coverage Results" MODIFIED="1558437552022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>gui.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="271" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1RHlkpSz65rQVVu202nTazq4Jy6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560734764181" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../I&amp;D/XML/com.ipl.datamodel.planner" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\ga\geneticOperators\Crossover" />
+      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\ga\geneticOperators" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="utils.warehouse" />
+      <recent name="ga.geneticOperators" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="utils.warehouse" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="utils.warehouse" />
+      <recent name="ga.geneticOperators" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\" />
+      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo" />
+      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\gui" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.Main" />
+      <module name="AlgoritmoGenetico" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="" />
+      <created>1520937154431</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1520937154431</updated>
+      <workItem from="1520937158107" duration="71000" />
+      <workItem from="1550574319637" duration="6372000" />
+      <workItem from="1550759142022" duration="5133000" />
+      <workItem from="1551110719742" duration="2170000" />
+      <workItem from="1551135199021" duration="11688000" />
+      <workItem from="1551281374062" duration="9256000" />
+      <workItem from="1551439803356" duration="15282000" />
+      <workItem from="1551715633467" duration="3493000" />
+      <workItem from="1551745268356" duration="1037000" />
+      <workItem from="1551746406478" duration="578000" />
+      <workItem from="1551807050903" duration="1707000" />
+      <workItem from="1551883052386" duration="639000" />
+      <workItem from="1552060118063" duration="98000" />
+      <workItem from="1552325895736" duration="106000" />
+      <workItem from="1552326219652" duration="3268000" />
+      <workItem from="1552488498203" duration="7960000" />
+      <workItem from="1552515865949" duration="1886000" />
+      <workItem from="1552518142482" duration="939000" />
+      <workItem from="1552574955834" duration="6368000" />
+      <workItem from="1552846678502" duration="599000" />
+      <workItem from="1553008337400" duration="6506000" />
+      <workItem from="1553090179790" duration="9862000" />
+      <workItem from="1553166364970" duration="2008000" />
+      <workItem from="1553261207702" duration="5322000" />
+      <workItem from="1553439424218" duration="4146000" />
+      <workItem from="1553530191977" duration="403000" />
+      <workItem from="1553696415746" duration="10406000" />
+      <workItem from="1553781996407" duration="1188000" />
+      <workItem from="1555090652426" duration="50000" />
+      <workItem from="1555090810529" duration="30000" />
+      <workItem from="1555091510409" duration="33000" />
+      <workItem from="1556708781872" duration="7547000" />
+      <workItem from="1557329474618" duration="2372000" />
+      <workItem from="1557395330751" duration="10255000" />
+      <workItem from="1557507946926" duration="3837000" />
+      <workItem from="1557611586050" duration="10000" />
+      <workItem from="1557919400650" duration="6313000" />
+      <workItem from="1558001762754" duration="1114000" />
+      <workItem from="1558182758363" duration="11388000" />
+      <workItem from="1558270442307" duration="5057000" />
+      <workItem from="1558435994259" duration="2326000" />
+      <workItem from="1558603483761" duration="1299000" />
+      <workItem from="1559218072660" duration="4469000" />
+      <workItem from="1559485513249" duration="8882000" />
+      <workItem from="1559594693156" duration="10751000" />
+      <workItem from="1559655166396" duration="6884000" />
+      <workItem from="1559814083688" duration="1971000" />
+      <workItem from="1559839345870" duration="9617000" />
+      <workItem from="1559915370235" duration="11198000" />
+      <workItem from="1560264511310" duration="6525000" />
+      <workItem from="1560351410006" duration="3195000" />
+      <workItem from="1560434947931" duration="8509000" />
+      <workItem from="1560514894956" duration="9754000" />
+      <workItem from="1560699932643" duration="1303000" />
+      <workItem from="1560726233149" duration="883000" />
+      <workItem from="1560734240481" duration="560000" />
+      <workItem from="1560782867189" duration="1988000" />
+      <workItem from="1560792642912" duration="607000" />
+      <workItem from="1560800549859" duration="10178000" />
+      <workItem from="1560874047416" duration="92000" />
+      <workItem from="1560958642347" duration="5060000" />
+      <workItem from="1561132097112" duration="1214000" />
+      <workItem from="1561314272956" duration="272000" />
+      <workItem from="1561639916048" duration="4243000" />
+      <workItem from="1561730624006" duration="1060000" />
+      <workItem from="1562161111192" duration="1528000" />
+      <workItem from="1562238422301" duration="1297000" />
+      <workItem from="1562246078147" duration="143000" />
+      <workItem from="1562460641638" duration="23000" />
+      <workItem from="1569332054651" duration="1202000" />
+      <workItem from="1569447182147" duration="369000" />
+      <workItem from="1569503926604" duration="903000" />
+      <workItem from="1569940140328" duration="138000" />
+      <workItem from="1570527954191" duration="15311000" />
+      <workItem from="1570734107986" duration="713000" />
+      <workItem from="1570820138637" duration="6801000" />
+      <workItem from="1574435004826" duration="6924000" />
+      <workItem from="1574715906777" duration="3782000" />
+      <workItem from="1574768888169" duration="468000" />
+      <workItem from="1574781063611" duration="7665000" />
+      <workItem from="1575543696383" duration="14838000" />
+      <workItem from="1575631104692" duration="14549000" />
+      <workItem from="1575821507293" duration="627000" />
+      <workItem from="1575992803951" duration="1305000" />
+      <workItem from="1576075941112" duration="6000" />
+      <workItem from="1576338227650" duration="8020000" />
+      <workItem from="1576423818255" duration="701000" />
+      <workItem from="1576504841820" duration="4980000" />
+      <workItem from="1577203897240" duration="8512000" />
+      <workItem from="1577308270740" duration="3247000" />
+      <workItem from="1577372377227" duration="14384000" />
+      <workItem from="1577466047215" duration="1917000" />
+      <workItem from="1577721315951" duration="9617000" />
+      <workItem from="1577979797825" duration="14233000" />
+      <workItem from="1578063412580" duration="11044000" />
+      <workItem from="1578079425958" duration="6756000" />
+      <workItem from="1578150097924" duration="16922000" />
+      <workItem from="1578319978300" duration="1609000" />
+      <workItem from="1578418135541" duration="10965000" />
+      <workItem from="1579527219411" duration="2620000" />
+      <workItem from="1579707759994" duration="11062000" />
+      <workItem from="1579880214959" duration="602000" />
+      <workItem from="1580055475245" duration="9380000" />
+      <workItem from="1580133352947" duration="2860000" />
+      <workItem from="1580222327137" duration="815000" />
+      <workItem from="1580294762957" duration="1844000" />
+      <workItem from="1580315805987" duration="269000" />
+      <workItem from="1580399178056" duration="4692000" />
+      <workItem from="1580493840867" duration="317000" />
+      <workItem from="1580569487076" duration="6379000" />
+      <workItem from="1580737593408" duration="2047000" />
+      <workItem from="1580937689474" duration="702000" />
+      <workItem from="1580938439200" duration="6000" />
+      <workItem from="1580938480652" duration="6617000" />
+      <workItem from="1580945895523" duration="157000" />
+      <workItem from="1580947079548" duration="4090000" />
+      <workItem from="1580998567856" duration="96000" />
+      <workItem from="1581102970311" duration="3722000" />
+      <workItem from="1581118939926" duration="2459000" />
+      <workItem from="1581367922298" duration="461000" />
+      <workItem from="1581412693060" duration="5097000" />
+      <workItem from="1581430020051" duration="2019000" />
+      <workItem from="1581608075952" duration="4500000" />
+      <workItem from="1581777292816" duration="2302000" />
+      <workItem from="1582297265070" duration="3002000" />
+      <workItem from="1582326328107" duration="4888000" />
+      <workItem from="1582469217467" duration="13786000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1582474842093">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1582474842093" />
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1581421038056">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1581421038056" />
+    <state width="1493" height="225" key="GridCell.Tab.0.bottom" timestamp="1582503004832">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="225" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582503004832" />
+    <state width="1493" height="225" key="GridCell.Tab.0.center" timestamp="1582503004831">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="225" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582503004831" />
+    <state width="1493" height="225" key="GridCell.Tab.0.left" timestamp="1582503004831">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="225" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582503004831" />
+    <state width="1493" height="225" key="GridCell.Tab.0.right" timestamp="1582503004832">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="225" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582503004832" />
+    <state width="1493" height="190" key="GridCell.Tab.1.bottom" timestamp="1582479406795">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="190" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582479406795" />
+    <state width="1493" height="190" key="GridCell.Tab.1.center" timestamp="1582479406795">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="190" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1582479406795" />
+    <state width="1493" height="190" key="GridCell.Tab.1.left" timestamp="1582479406795">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="190" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1582479406795" />
+    <state width="1493" height="190" key="GridCell.Tab.1.right" timestamp="1582479406795">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="190" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582479406795" />
+    <state x="277" y="56" key="SettingsEditor" timestamp="1580938371777">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1580938371777" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580937731801">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580937731801" />
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup" timestamp="1582327420162">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1582327420162" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="ga.bestInRun" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+</project>

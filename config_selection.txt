@@ -1,0 +1,41 @@
+Runs: 30
+
+Population size: 100
+
+Max generations: 100
+
+Num Picks: 25,30,35
+
+Num Agents: 1,2,3,4,5
+//--------------------------------
+
+Selection: tournament
+
+Tournament size: 2
+
+//--------------------------------
+
+Recombination: PMX
+
+Recombination probability: 0.8
+
+//--------------------------------
+
+Mutation: inversion
+
+Mutation probability: 0.01
+
+//--------------------------------
+
+Probability of 1s: 0.05
+
+Fitness type: 0
+
+//--------------------------------
+
+Problem file: ./Empty_1.txt
+//--------------------------------
+
+Statistic: BestIndividual
+Statistic: BestAverage
+

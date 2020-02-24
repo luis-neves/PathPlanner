@@ -1,0 +1,6663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<warehouse>
+  <xmlInfo>
+    <created>07.11.2019 09:30:00</created>
+    <modified>07.11.2019 09:30:01</modified>
+    <Updating>0</Updating>
+  </xmlInfo>
+  <config>
+    <width>40</width>
+    <height>0.0</height>
+    <depth>21.07</depth>
+    <startConfig>
+      <positionX>1</positionX>
+      <positionZ>1</positionZ>
+    </startConfig>
+  </config>
+  <!-- PREFABS -->
+  <prefabs>
+    <!-- RACK -->
+    <entry>
+      <ID>0</ID>
+      <type>0</type>
+      <name>Rack 1.60x6x0.8</name>
+      <sizeX>1.60</sizeX>
+      <sizeY>6</sizeY>
+      <sizeZ>0.8</sizeZ>
+      <shelves>
+        <entry>
+          <sID>0</sID>
+          <sThick>0.1</sThick>
+          <sHeight>0</sHeight>
+          <areas>
+            <gridType>1</gridType>
+            <gridNumber>3</gridNumber>
+            <entry>
+              <aID>0</aID>
+              <sizeX>0.8</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+            <entry>
+              <aID>1</aID>
+              <sizeX>0.4</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+            <entry>
+              <aID>2</aID>
+              <sizeX>0.4</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sID>1</sID>
+          <sThick>0.1</sThick>
+          <sHeight>3</sHeight>
+          <areas>
+            <gridType>1</gridType>
+            <gridNumber>3</gridNumber>
+            <entry>
+              <aID>0</aID>
+              <sizeX>0.8</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+            <entry>
+              <aID>1</aID>
+              <sizeX>0.4</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+            <entry>
+              <aID>2</aID>
+              <sizeX>0.4</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sID>2</sID>
+          <sThick>0.1</sThick>
+          <sHeight>6</sHeight>
+          <areas>
+            <gridType>1</gridType>
+            <gridNumber>3</gridNumber>
+            <entry>
+              <aID>0</aID>
+              <sizeX>0.8</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+            <entry>
+              <aID>1</aID>
+              <sizeX>0.4</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+            <entry>
+              <aID>2</aID>
+              <sizeX>0.4</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <ID>1</ID>
+      <type>0</type>
+      <name>Rack 2.4x6x0.8</name>
+      <sizeX>2.40</sizeX>
+      <sizeY>6</sizeY>
+      <sizeZ>0.8</sizeZ>
+      <shelves>
+        <entry>
+          <sID>0</sID>
+          <sThick>0.1</sThick>
+          <sHeight>0</sHeight>
+          <areas>
+            <gridType>1</gridType>
+            <gridNumber>2</gridNumber>
+            <entry>
+              <aID>0</aID>
+              <sizeX>1.20</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+            <entry>
+              <aID>1</aID>
+              <sizeX>1.20</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sID>1</sID>
+          <sThick>0.1</sThick>
+          <sHeight>3</sHeight>
+          <areas>
+            <gridType>1</gridType>
+            <gridNumber>2</gridNumber>
+            <entry>
+              <aID>0</aID>
+              <sizeX>1.20</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+            <entry>
+              <aID>1</aID>
+              <sizeX>1.20</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sID>2</sID>
+          <sThick>0.1</sThick>
+          <sHeight>6</sHeight>
+          <areas>
+            <gridType>1</gridType>
+            <gridNumber>2</gridNumber>
+            <entry>
+              <aID>0</aID>
+              <sizeX>1.2</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+            <entry>
+              <aID>1</aID>
+              <sizeX>1.2</sizeX>
+              <sizeZ>0.8</sizeZ>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Structure -->
+    <entry>
+      <ID>2</ID>
+      <type>1</type>
+      <sType>4</sType>
+      <name>Gabinete</name>
+      <sizeX>5.33</sizeX>
+      <sizeY>10</sizeY>
+      <sizeZ>12.80</sizeZ>
+    </entry>
+    <entry>
+      <ID>3</ID>
+      <type>1</type>
+      <sType>4</sType>
+      <name>Cais</name>
+      <sizeX>1.07</sizeX>
+      <sizeY>10</sizeY>
+      <sizeZ>6.40</sizeZ>
+    </entry>
+    <entry>
+      <ID>4</ID>
+      <type>1</type>
+      <sType>2</sType>
+      <name>Area</name>
+      <sizeX>3.73</sizeX>
+      <sizeY>0.01</sizeY>
+      <sizeZ>3</sizeZ>
+    </entry>
+    <entry>
+      <ID>5</ID>
+      <type>1</type>
+      <sType>3</sType>
+      <name>Maquina</name>
+      <sizeX>3.73</sizeX>
+      <sizeY>1.20</sizeY>
+      <sizeZ>1.07</sizeZ>
+    </entry>
+    <!-- Device -->
+    <entry>
+      <ID>6</ID>
+      <type>2</type>
+      <devType>0</devType>
+      <name>Glasses VR001</name>
+      <sizeX>1.60</sizeX>
+      <sizeY>6</sizeY>
+      <sizeZ>0.8</sizeZ>
+    </entry>
+    <entry>
+      <ID>7</ID>
+      <type>2</type>
+      <devType>1</devType>
+      <name>Truck VR002</name>
+      <sizeX>4</sizeX>
+      <sizeY>3</sizeY>
+      <sizeZ>1.2</sizeZ>
+    </entry>
+    <entry>
+      <ID>8</ID>
+      <type>2</type>
+      <devType>2</devType>
+      <name>User VR003</name>
+      <sizeX>2</sizeX>
+      <sizeY>1.7</sizeY>
+      <sizeZ>40</sizeZ>
+    </entry>
+    <!-- teste -->
+    <entry>
+      <ID>9</ID>
+      <type>0</type>
+      <name>Rack 3x6x2</name>
+      <sizeX>3</sizeX>
+      <sizeY>6</sizeY>
+      <sizeZ>2</sizeZ>
+      <shelves>
+        <entry>
+          <sID>0</sID>
+          <sThick>0.1</sThick>
+          <sHeight>0</sHeight>
+          <areas>
+            <gridType>2</gridType>
+            <gridNumber>3</gridNumber>
+            <entry>
+              <aID>0</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>0.7</sizeZ>
+            </entry>
+            <entry>
+              <aID>1</aID>
+              <sizeX>0.5</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>2</aID>
+              <sizeX>1.5</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>3</aID>
+              <sizeX>0.5</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>4</aID>
+              <sizeX>1.5</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>5</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1.3</sizeZ>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sID>1</sID>
+          <sThick>0.1</sThick>
+          <sHeight>3</sHeight>
+          <areas>
+            <gridType>2</gridType>
+            <gridNumber>3</gridNumber>
+            <entry>
+              <aID>0</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>1</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>2</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>3</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>4</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>5</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sID>2</sID>
+          <sThick>0.1</sThick>
+          <sHeight>6</sHeight>
+          <areas>
+            <gridType>2</gridType>
+            <gridNumber>3</gridNumber>
+            <entry>
+              <aID>0</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>1</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>2</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>3</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>4</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+            <entry>
+              <aID>5</aID>
+              <sizeX>1</sizeX>
+              <sizeZ>1</sizeZ>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+  </prefabs>
+  <racks>
+    <!-- Fila 1-->
+    <entry>
+      <prefabID>0</prefabID>
+      <rCode>RC0000</rCode>
+      <rCodeD>rack 0000</rCodeD>
+      <positionX>6.4</positionX>
+      <positionY>0</positionY>
+      <positionZ>8.27</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 1</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>0</prefabID>
+      <rCode>RC0001</rCode>
+      <rCodeD>rack 0001</rCodeD>
+      <positionX>6.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.87</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 1</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>0</prefabID>
+      <rCode>RC0002</rCode>
+      <rCodeD>rack 0002</rCodeD>
+      <positionX>6.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>11.47</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 1</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>0</prefabID>
+      <rCode>RC0003</rCode>
+      <rCodeD>rack 0003</rCodeD>
+      <positionX>6.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>13.07</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 1</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>0</prefabID>
+      <rCode>RC0004</rCode>
+      <rCodeD>rack 0004</rCodeD>
+      <positionX>6.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.67</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 1</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 2 -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0005</rCode>
+      <rCodeD>rack 0005</rCodeD>
+      <positionX>8.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 2</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0006</rCode>
+      <rCodeD>rack 0006</rCodeD>
+      <positionX>8.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 2</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0007</rCode>
+      <rCodeD>rack 0007</rCodeD>
+      <positionX>8.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 2</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0008</rCode>
+      <rCodeD>rack 0008</rCodeD>
+      <positionX>8.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>16.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 2</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 3 -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0009</rCode>
+      <rCodeD>rack 0009</rCodeD>
+      <positionX>10.67</positionX>
+      <positionY>0</positionY>
+      <positionZ>0.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 3</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0010</rCode>
+      <rCodeD>rack 0010</rCodeD>
+      <positionX>10.67</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 3</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0011</rCode>
+      <rCodeD>rack 0011</rCodeD>
+      <positionX>10.67</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 3</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0012</rCode>
+      <rCodeD>rack 0012</rCodeD>
+      <positionX>10.67</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 3</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0013</rCode>
+      <rCodeD>rack 0013</rCodeD>
+      <positionX>10.67</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 3</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0014</rCode>
+      <rCodeD>rack 0014</rCodeD>
+      <positionX>10.67</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 3</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0015</rCode>
+      <rCodeD>rack 0015</rCodeD>
+      <positionX>10.67</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 3</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 4-->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0016</rCode>
+      <rCodeD>rack 0016</rCodeD>
+      <positionX>13.60</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 4</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0017</rCode>
+      <rCodeD>rack 0017</rCodeD>
+      <positionX>13.60</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 4</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0018</rCode>
+      <rCodeD>rack 0018</rCodeD>
+      <positionX>13.60</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 4</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0019</rCode>
+      <rCodeD>rack 0019</rCodeD>
+      <positionX>13.60</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 4</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0020</rCode>
+      <rCodeD>rack 0020</rCodeD>
+      <positionX>13.60</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 4</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0021</rCode>
+      <rCodeD>rack 0021</rCodeD>
+      <positionX>13.60</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 4</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0022</rCode>
+      <rCodeD>rack 0022</rCodeD>
+      <positionX>13.60</positionX>
+      <positionY>0</positionY>
+      <positionZ>16.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 4</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 5 -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0023</rCode>
+      <rCodeD>rack 0023</rCodeD>
+      <positionX>15.47</positionX>
+      <positionY>0</positionY>
+      <positionZ>0.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 5</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0024</rCode>
+      <rCodeD>rack 0024</rCodeD>
+      <positionX>15.47</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 5</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0025</rCode>
+      <rCodeD>rack 0025</rCodeD>
+      <positionX>15.47</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 5</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0026</rCode>
+      <rCodeD>rack 0026</rCodeD>
+      <positionX>15.47</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 5</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0027</rCode>
+      <rCodeD>rack 0027</rCodeD>
+      <positionX>15.47</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 5</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0028</rCode>
+      <rCodeD>rack 0028</rCodeD>
+      <positionX>15.47</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 5</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0029</rCode>
+      <rCodeD>rack 0029</rCodeD>
+      <positionX>15.47</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 5</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 6 -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0030</rCode>
+      <rCodeD>rack 030</rCodeD>
+      <positionX>17.87</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 6</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0031</rCode>
+      <rCodeD>rack 0031</rCodeD>
+      <positionX>17.87</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 6</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0032</rCode>
+      <rCodeD>rack 0032</rCodeD>
+      <positionX>17.87</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 6</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0033</rCode>
+      <rCodeD>rack 0033</rCodeD>
+      <positionX>17.87</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 6</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0034</rCode>
+      <rCodeD>rack 0034</rCodeD>
+      <positionX>17.87</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 6</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0035</rCode>
+      <rCodeD>rack 0035</rCodeD>
+      <positionX>17.87</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 6</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0036</rCode>
+      <rCodeD>rack 0036</rCodeD>
+      <positionX>17.87</positionX>
+      <positionY>0</positionY>
+      <positionZ>16.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 6</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 7 -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0037</rCode>
+      <rCodeD>rack 0037</rCodeD>
+      <positionX>20</positionX>
+      <positionY>0</positionY>
+      <positionZ>0.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 7</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0038</rCode>
+      <rCodeD>rack 0038</rCodeD>
+      <positionX>20</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 7</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0039</rCode>
+      <rCodeD>rack 0039</rCodeD>
+      <positionX>20</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 7</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0040</rCode>
+      <rCodeD>rack 0040</rCodeD>
+      <positionX>20</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 7</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0041</rCode>
+      <rCodeD>rack 0041</rCodeD>
+      <positionX>20</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 7</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0042</rCode>
+      <rCodeD>rack 0042</rCodeD>
+      <positionX>20</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 7</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0043</rCode>
+      <rCodeD>rack 0043</rCodeD>
+      <positionX>20</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 7</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 8 -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0044</rCode>
+      <rCodeD>rack 0044</rCodeD>
+      <positionX>22.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 8</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0045</rCode>
+      <rCodeD>rack 0045</rCodeD>
+      <positionX>22.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 8</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0046</rCode>
+      <rCodeD>rack 0046</rCodeD>
+      <positionX>22.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 8</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0047</rCode>
+      <rCodeD>rack 0047</rCodeD>
+      <positionX>22.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 8</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0048</rCode>
+      <rCodeD>rack 0048</rCodeD>
+      <positionX>22.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 8</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0049</rCode>
+      <rCodeD>rack 0049</rCodeD>
+      <positionX>22.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 8</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0050</rCode>
+      <rCodeD>rack 0050</rCodeD>
+      <positionX>22.40</positionX>
+      <positionY>0</positionY>
+      <positionZ>16.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 8</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 9 -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0051</rCode>
+      <rCodeD>rack 0051</rCodeD>
+      <positionX>24.26</positionX>
+      <positionY>0</positionY>
+      <positionZ>0.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 9</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0052</rCode>
+      <rCodeD>rack 0052</rCodeD>
+      <positionX>24.26</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 9</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0053</rCode>
+      <rCodeD>rack 0053</rCodeD>
+      <positionX>24.26</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 9</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0054</rCode>
+      <rCodeD>rack 0054</rCodeD>
+      <positionX>24.26</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 9</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0055</rCode>
+      <rCodeD>rack 0055</rCodeD>
+      <positionX>24.26</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 9</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0056</rCode>
+      <rCodeD>rack 0056</rCodeD>
+      <positionX>24.26</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 9</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0057</rCode>
+      <rCodeD>rack 0057</rCodeD>
+      <positionX>24.26</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 9</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 10 -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0058</rCode>
+      <rCodeD>rack 0058</rCodeD>
+      <positionX>26.93</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 10</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0059</rCode>
+      <rCodeD>rack 0059</rCodeD>
+      <positionX>26.93</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 10</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0060</rCode>
+      <rCodeD>rack 0060</rCodeD>
+      <positionX>26.93</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 10</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0061</rCode>
+      <rCodeD>rack 0061</rCodeD>
+      <positionX>26.93</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 10</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0062</rCode>
+      <rCodeD>rack 0062</rCodeD>
+      <positionX>26.93</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 10</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0063</rCode>
+      <rCodeD>rack 0063</rCodeD>
+      <positionX>26.93</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 10</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0064</rCode>
+      <rCodeD>rack 0064</rCodeD>
+      <positionX>26.93</positionX>
+      <positionY>0</positionY>
+      <positionZ>16.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 10</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 11-->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0065</rCode>
+      <rCodeD>rack 0065</rCodeD>
+      <positionX>28.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>0.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 11</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0066</rCode>
+      <rCodeD>rack 0066</rCodeD>
+      <positionX>28.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 11</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0067</rCode>
+      <rCodeD>rack 0067</rCodeD>
+      <positionX>28.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 11</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0068</rCode>
+      <rCodeD>rack 0068</rCodeD>
+      <positionX>28.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 11</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0069</rCode>
+      <rCodeD>rack 0069</rCodeD>
+      <positionX>28.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 11</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0070</rCode>
+      <rCodeD>rack 0070</rCodeD>
+      <positionX>28.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 11</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0071</rCode>
+      <rCodeD>rack 0071</rCodeD>
+      <positionX>28.80</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 11</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila 12 -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0072</rCode>
+      <rCodeD>rack 0072</rCodeD>
+      <positionX>31.20</positionX>
+      <positionY>0</positionY>
+      <positionZ>2.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 12</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0073</rCode>
+      <rCodeD>rack 0073</rCodeD>
+      <positionX>31.20</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 12</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0074</rCode>
+      <rCodeD>rack 0074</rCodeD>
+      <positionX>31.20</positionX>
+      <positionY>0</positionY>
+      <positionZ>7.33</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 12</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0075</rCode>
+      <rCodeD>rack 0075</rCodeD>
+      <positionX>31.20</positionX>
+      <positionY>0</positionY>
+      <positionZ>9.73</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 12</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0076</rCode>
+      <rCodeD>rack 0076</rCodeD>
+      <positionX>31.20</positionX>
+      <positionY>0</positionY>
+      <positionZ>12.13</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 12</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0077</rCode>
+      <rCodeD>rack 0077</rCodeD>
+      <positionX>31.20</positionX>
+      <positionY>0</positionY>
+      <positionZ>14.53</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 12</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0078</rCode>
+      <rCodeD>rack 0078</rCodeD>
+      <positionX>31.20</positionX>
+      <positionY>0</positionY>
+      <positionZ>16.93</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 12</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- Fila Topo -->
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0079</rCode>
+      <rCodeD>rack 0079</rCodeD>
+      <positionX>7.73</positionX>
+      <positionY>0</positionY>
+      <positionZ>20</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila Topo</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0080</rCode>
+      <rCodeD>rack 0080</rCodeD>
+      <positionX>17.87</positionX>
+      <positionY>0</positionY>
+      <positionZ>20</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila Topo</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0081</rCode>
+      <rCodeD>rack 0081</rCodeD>
+      <positionX>20.27</positionX>
+      <positionY>0</positionY>
+      <positionZ>20</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila Topo</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0082</rCode>
+      <rCodeD>rack 0082</rCodeD>
+      <positionX>22.67</positionX>
+      <positionY>0</positionY>
+      <positionZ>20</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila Topo</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <entry>
+      <prefabID>1</prefabID>
+      <rCode>RC0083</rCode>
+      <rCodeD>rack 0083</rCodeD>
+      <positionX>25.07</positionX>
+      <positionY>0</positionY>
+      <positionZ>20</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila Topo</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC001</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>
+    <!-- teste -->
+    <!--<entry>
+      <prefabID>9</prefabID>
+      <rCode>teste</rCode>
+      <rCodeD>rack teste</rCodeD>
+      <positionX>2.4</positionX>
+      <positionY>0</positionY>
+      <positionZ>4.27</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>-90</rotationY>
+      <rotationZ>0</rotationZ>
+      <row>Fila 1</row>
+      <shelves>
+        <entry>
+          <sPrefabID>0</sPrefabID>
+          <sCode>SF000</sCode>
+          <sCodeD>shelf 000</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>3</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 4</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>4</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 5</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>5</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 6</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>1</sPrefabID>
+          <sCode>SF001</sCode>
+          <sCodeD>shelf 001</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>3</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 4</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>4</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 5</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>5</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 6</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+        <entry>
+          <sPrefabID>2</sPrefabID>
+          <sCode>SF002</sCode>
+          <sCodeD>shelf 002</sCodeD>
+          <areas>
+            <entry>
+              <aPrefabID>0</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 1</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>1</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 2</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>2</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 3</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>3</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 4</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>4</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 5</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+            <entry>
+              <aPrefabID>5</aPrefabID>
+              <aCode>AC000</aCode>
+              <aCodeD>area 6</aCodeD>
+              <aProduct>0</aProduct>
+            </entry>
+          </areas>
+        </entry>
+      </shelves>
+    </entry>-->
+  </racks>
+  <structures>
+    <entry>
+      <prefabID>2</prefabID>
+      <stCode>ST0000</stCode>
+      <stCodeD>Gabinete 0000</stCodeD>
+      <positionX>0</positionX>
+      <positionY>0</positionY>
+      <positionZ>8.27</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+    </entry>
+    <entry>
+      <prefabID>3</prefabID>
+      <stCode>ST0001</stCode>
+      <stCodeD>Cais Bloco 0003</stCodeD>
+      <positionX>38.93</positionX>
+      <positionY>0</positionY>
+      <positionZ>0</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+    </entry>
+    <entry>
+      <prefabID>4</prefabID>
+      <stCode>ST0002</stCode>
+      <stCodeD>Cais Area 0002</stCodeD>
+      <positionX>34.13</positionX>
+      <positionY>0</positionY>
+      <positionZ>0</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+      <sizeX>2.67</sizeX>
+      <sizeY>0</sizeY>
+      <sizeZ>2.93</sizeZ>
+    </entry>
+    <entry>
+      <prefabID>5</prefabID>
+      <stCode>ST0003</stCode>
+      <stCodeD>Maquina</stCodeD>
+      <positionX>14.13</positionX>
+      <positionY>0</positionY>
+      <positionZ>19.47</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+    </entry>
+  </structures>
+  <devices>
+    <!--<entry>
+      <prefabID>6</prefabID>
+      <devCode>DEV0001</devCode>
+      <devCodeD>Glasses 0000</devCodeD>
+      <positionX>0</positionX>
+      <positionY>0</positionY>
+      <positionZ>0</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+    </entry>
+    <entry>
+      <prefabID>7</prefabID>
+      <devCode>DEV0002</devCode>
+      <devCodeD>Truck 0003</devCodeD>
+      <positionX>13</positionX>
+      <positionY>0</positionY>
+      <positionZ>17</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+    </entry>
+    <entry>
+      <prefabID>8</prefabID>
+      <devCode>DEV0003</devCode>
+      <devCodeD>User 0002</devCodeD>
+      <positionX>0</positionX>
+      <positionY>0</positionY>
+      <positionZ>0</positionZ>
+      <rotationX>0</rotationX>
+      <rotationY>0</rotationY>
+      <rotationZ>0</rotationZ>
+      <sizeX>2.67</sizeX>
+      <sizeY>0</sizeY>
+      <sizeZ>2.93</sizeZ>
+    </entry>-->
+  </devices>
+</warehouse>
