@@ -13,21 +13,6 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
     protected int collisions;
     protected FitnessResults results;
 
-    public HashMap<GraphNode, List<Float>> getTaskedAgentsCostsTime() {
-        return results.getTaskedAgentsCostsTime();
-    }
-
-    public HashMap<GraphNode, List<Float>> getTaskedAgentsCosts() {
-        return results.getTaskedAgentsCosts();
-    }
-
-    public HashMap<GraphNode, List<GraphNode>> getTaskedAgents() {
-        return results.getTaskedAgents();
-    }
-
-    public void setTaskedAgents(HashMap<GraphNode, List<GraphNode>> taskedAgents) {
-        this.results.setTaskedAgents(taskedAgents);
-    }
 
     protected P problem;
     protected double picksPerAgent;

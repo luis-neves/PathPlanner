@@ -87,7 +87,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
         sb.append("\nfitness: " + fitness);
         sb.append("\nItems: ");
         sb.append(printGenome());
-        sb.append("\nPicks Per Agent:" + picksPerAgent);
+        //sb.append("\nPicks Per Agent:" + picksPerAgent);
 
         return sb.toString();
     }

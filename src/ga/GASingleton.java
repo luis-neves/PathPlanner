@@ -7,6 +7,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import picking.Item;
+import utils.Graphs.FitnessResults;
 import utils.Graphs.GraphNode;
 import utils.Graphs.GraphNodeType;
 
@@ -32,6 +33,11 @@ public class GASingleton {
     private boolean nodeProblem;
     private GraphNode lastAgent;
     private SimulationPanel simulationPanel;
+    private FitnessResults bestInRun;
+
+    public void setBestInRun(FitnessResults bestInRun) {
+        this.bestInRun = bestInRun;
+    }
 
     public SimulationPanel getSimulationPanel() {
         return simulationPanel;
@@ -284,6 +290,10 @@ public class GASingleton {
         } catch (TransformerException tfe) {
             tfe.printStackTrace();
         }
+    }
+
+    public FitnessResults getBestInRun() {
+        return this.bestInRun;
     }
     //Document doc = builder.newDocument();
 

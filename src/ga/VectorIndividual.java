@@ -1,6 +1,7 @@
 package ga;
 
 import picking.Item;
+import utils.Graphs.FitnessResults;
 import utils.Graphs.Graph;
 import utils.Graphs.GraphNode;
 
@@ -33,32 +34,35 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
     }
 
     private String printTaskedAgents() {
-        String str = "";
-        for (Map.Entry<GraphNode, List<GraphNode>> entry : getTaskedAgents().entrySet()) {
-            GraphNode agent = entry.getKey();
-            List<GraphNode> agentPath = entry.getValue();
-            List<Float> costs = getTaskedAgentsCosts().get(agent);
-            List<Float> costsTime = getTaskedAgentsCostsTime().get(agent);
-            str += "\nAgent " + agent.getType().toLetter() + agent.getGraphNodeId() + "\n\t";
-
-            for (int i = 0; i < costs.size(); i++) {
-                str += "["+costs.get(i).toString() + "]";
+        try {
+            String str = "";
+            for (Map.Entry<GraphNode, List<FitnessResults.FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+                GraphNode agent = entry.getKey();
+                List<FitnessResults.FitnessNode> agentPath = entry.getValue();
+                str += "\nAgent " + agent.getType().toLetter() + agent.getGraphNodeId();
+                if (!agentPath.isEmpty()) {
+                    str += " | Steps: " + agentPath.size();
+                    str += "\n\tPath: ";
+                    for (int i = 0; i < agentPath.size(); i++) {
+                        str += "\t[" + agentPath.get(i).getNode().getType().toLetter() + agentPath.get(i).getNode().getGraphNodeId() + "]";
+                    }
+                    str += "\n\tCost: ";
+                    for (int i = 0; i < agentPath.size(); i++) {
+                        str += "\t[" + agentPath.get(i).getCost().toString() + "]";
+                    }
+                    str += "\n\tTime: ";
+                    for (int i = 0; i < agentPath.size(); i++) {
+                        str += "\t " + agentPath.get(i).getTime().toString() + " ";
+                    }
+                } else {
+                    str += "\t Idle";
+                }
             }
-            str+= "Size: "+ costs.size() + "\n\t";
-            for (int i = 0; i < costsTime.size(); i++) {
-                str += " " + costsTime.get(i).toString()+ " ";
-            }
-            str+= "\n\t";
-            for (int i = 0; i < agentPath.size(); i++) {
-                str += "[" + agentPath.get(i).getType().toLetter() + agentPath.get(i).getGraphNodeId() + "]";
-            }
-            str+= "Size: "+ agentPath.size();
-
-            if (agentPath.isEmpty()) {
-                str += "Empty Path";
-            }
+            return str;
+        }catch (NullPointerException e){
+            e.printStackTrace();
+            return "";
         }
-        return str;
     }
 
     @Override

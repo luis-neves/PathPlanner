@@ -40,6 +40,7 @@ public class MainFrame extends JFrame implements GAListener {
     private PanelParameters panelParameters = new PanelParameters();
     private JButton buttonStop = new JButton("Stop");
     private JButton buttonRunFromMemory = new JButton("Run Genetic Algorithm");
+    private JButton buttonVisualize = new JButton("Visualize");
     private JButton buttonExperiments = new JButton("Experiments");
     private JButton buttonRunExperiments = new JButton("Run experiments");
     private JTextField textFieldExperimentsStatus = new JTextField("", 10);
@@ -69,10 +70,25 @@ public class MainFrame extends JFrame implements GAListener {
         JPanel panelButtons = new JPanel();
         panelButtons.add(buttonStop);
         panelButtons.add(buttonRunFromMemory);
+        panelButtons.add(buttonVisualize);
         buttonStop.setEnabled(false);
 
 
         buttonStop.addActionListener(new ButtonStop_actionAdapter(this));
+        buttonVisualize.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                //VISUALIZEE
+                    if (GASingleton.getInstance().isNodeProblem()){
+                        GASingleton.getInstance().getSimulationPanel().runPath(GASingleton.getInstance().getBestInRun());
+                        //GASingleton.getInstance().generateXMLPath(bestInRun.getTaskedAgents());
+                    }
+                } catch (NumberFormatException e1) {
+                    JOptionPane.showMessageDialog(MainFrame.this, "Wrong parameters!", "Error!", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
         buttonRunFromMemory.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -7,6 +7,15 @@ public class Edge {
     private GraphNode end;
     private double weight;
     private Coordenates location;
+    private int num_directions = 1;
+
+    public int getNum_directions() {
+        return num_directions;
+    }
+
+    public void setNum_directions(int num_directions) {
+        this.num_directions = num_directions;
+    }
 
     public void setWeight(double weight) {
         this.weight = weight;

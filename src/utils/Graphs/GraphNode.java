@@ -103,8 +103,8 @@ public class GraphNode {
         this.heuristic = distance;
     }
 
-    public int getDistance(GraphNode node) {
-        int distance = Math.abs((int) (node.getLocation().getX() - this.getLocation().getX())) + Math.abs((int) (node.getLocation().getY() - this.getLocation().getY()));
+    public float getDistance(GraphNode node) {
+        float distance = Math.abs((int) (node.getLocation().getX() - this.getLocation().getX())) + Math.abs((int) (node.getLocation().getY() - this.getLocation().getY()));
         return distance;
     }
 

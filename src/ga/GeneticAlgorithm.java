@@ -87,7 +87,8 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         }
 
         if (GASingleton.getInstance().isNodeProblem()){
-            GASingleton.getInstance().getSimulationPanel().runPath(bestInRun.getResults());
+            GASingleton.getInstance().setBestInRun(bestInRun.results);
+            //GASingleton.getInstance().getSimulationPanel().runPath(bestInRun.getResults());
             //GASingleton.getInstance().generateXMLPath(bestInRun.getTaskedAgents());
         }
         else {
