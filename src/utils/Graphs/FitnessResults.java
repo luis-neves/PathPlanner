@@ -1,5 +1,7 @@
 package utils.Graphs;
 
+import utils.warehouse.Colision;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.Map;
 public class FitnessResults {
     private float fitness;
     private List<GraphNode> path;
+    private List<Colision> colisions;
     private int numCollisions;
 
     public int getNumCollisions() {
@@ -83,6 +86,7 @@ public class FitnessResults {
     public FitnessResults() {
         path = new ArrayList<>();
         taskedAgentsFullNodes = new HashMap<>();
+        colisions = new ArrayList<>();
     }
 
     public float getFitness() {
@@ -129,6 +133,10 @@ public class FitnessResults {
             else{
                 str += "\t Idle";
             }
+            str += "\n Colisions: ";
+            for (int i = 0; i < colisions.size(); i++){
+                str += colisions.get(i).print();
+            }
         }
         return str;
     }
@@ -139,6 +147,14 @@ public class FitnessResults {
 
     public void setTaskedAgentsFullNodes(HashMap<GraphNode, List<FitnessNode>> taskedAgentsFullNodes) {
         this.taskedAgentsFullNodes = taskedAgentsFullNodes;
+    }
+
+    public void setColisions(List<Colision> colisions) {
+        this.colisions = colisions;
+    }
+
+    public List<Colision> getColisions() {
+        return colisions;
     }
 
     public class FitnessNode {

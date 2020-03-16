@@ -58,6 +58,10 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
                     str += "\t Idle";
                 }
             }
+            str += "\n Colisions: ";
+            for (int i = 0; i < results.getColisions().size(); i++){
+                str += results.getColisions().get(i).print();
+            }
             return str;
         }catch (NullPointerException e){
             e.printStackTrace();

@@ -31,7 +31,7 @@ import java.util.List;
 
 public class SimulationPanel extends JPanel implements EnvironmentListener {
 
-    private static final int SLEEP_MILLIS = 5; // modify to speed up the simulation
+    private static final int SLEEP_MILLIS = 10; // modify to speed up the simulation
     private static final int NUM_ITERATIONS = 2000; // modify to change the number of iterations
 
     private static final int FIXED_CELL_SIZE = 10;

@@ -5,6 +5,7 @@ import ga.GASingleton;
 import jdk.jfr.StackTrace;
 import org.w3c.dom.Node;
 import picking.Item;
+import utils.warehouse.Colision;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -134,88 +135,12 @@ public class EnvironmentNodeGraph {
         previousItemSet = items;
         return results;
     }
-    /*
-    private FitnessResults checkColisions(FitnessResults results) {
-        int nColisions = 0;
-        float collisionsPenalty = 0;
-        for (Map.Entry<GraphNode, List<GraphNode>> entry : results.getTaskedAgents().entrySet()) {
-            GraphNode agent = entry.getKey();
-            List<GraphNode> pathNodes = entry.getValue();
-            for (int i = 0; i < pathNodes.size(); i++) {
-                GraphNode currentNode = pathNodes.get(i);
-                for (Map.Entry<GraphNode, List<GraphNode>> entry2 : results.getTaskedAgents().entrySet()) {
-                    GraphNode agent2 = entry2.getKey();
-                    if (!agent.equals(agent2)) {
-                        List<GraphNode> pathNodes2 = entry2.getValue();
-                        if (pathNodes2.contains(currentNode)) {
-                            try {
-                                List<Float> times1 = results.getTaskedAgentsCostsTime().get(agent);
-                                List<Float> times2 = results.getTaskedAgentsCostsTime().get(agent2);
-                                Float cost = 0f;
-                                if (pathNodes.indexOf(currentNode) - 1 == -1) {
 
-                                } else {
-                                    cost = times1.get(pathNodes.indexOf(currentNode) - 1);
-                                }
-                                Float time1 = times1.get(pathNodes.indexOf(currentNode));
-                                Float time2 = 0f;
-                                if (pathNodes2.indexOf(currentNode) - 1 == -1) {
-
-                                } else {
-                                    time2 = times2.get(pathNodes2.indexOf(currentNode) - 1);
-                                }
-                                Float cost3 = times2.get(pathNodes2.indexOf(currentNode));
-                                //Float currenttime2 = results.getTaskedAgentsCostsTime().get(agent2).get(pathNodes2.indexOf(currentNode));
-                                if ((cost.equals(time2) && (pathNodes.indexOf(currentNode) - 1) != -1) || time1.equals(cost3)) {
-                                    //System.out.println("Same Node " + currentNode.getGraphNodeId());
-                                    //System.out.println("Costs [" + cost + " , " + time1 + "]-[" + time2 + " , " + cost3 + "]");
-                                    //System.out.println(Math.min((time1 - cost), (cost3 - time2)));
-                                    collisionsPenalty += Math.min((time1 - cost), (cost3 - time2));
-                                    nColisions++;
-                                    //System.out.println(results.printTaskedAgents());
-                                }
-                                //a--c  cost - time1
-                                //b--d  time2 - cost3
-                                //a < d || c < b
-
-                                if (i < pathNodes.size() - 1) {
-                                    GraphNode nextNode = pathNodes.get(i + 1);
-                                    if (pathNodes.indexOf(nextNode) == (pathNodes2.indexOf(currentNode) - 1)) {
-                                        float a = times1.get(pathNodes.indexOf(currentNode));
-                                        float c = times1.get(pathNodes.indexOf(currentNode) + 1);
-                                        float b = times2.get(pathNodes2.indexOf(currentNode) - 1);
-                                        float d = times2.get(pathNodes2.indexOf(currentNode));
-                                        if (a <= d && c >= b) {
-                                            //System.out.println("Intersection " + currentNode.getType().toLetter() + currentNode.getGraphNodeId() + "," + nextNode.getType().toLetter() + nextNode.getGraphNodeId());
-                                            //System.out.println("Costs [" + a + " , " + c + "]-[" + b + " , " + d + "]");
-                                            //System.out.println(Math.min((c - a), (d - b)));
-                                            collisionsPenalty += Math.min((c - a), (d - b));
-                                            nColisions++;
-                                            //System.out.println(results.printTaskedAgents());
-                                        }
-                                    }
-                                }
-                            } catch (IndexOutOfBoundsException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if (nColisions > 0) {
-            System.out.println("Nº Collision\t" + nColisions);
-            System.out.println("Collision(s) Penalty\t" + collisionsPenalty);
-        }
-        results.setNumCollisions(nColisions);
-        results.setCollisionPenalty(collisionsPenalty);
-        return results;
-    }
-    */
     private FitnessResults checkColisions2(FitnessResults results) {
         int nColisions = 0;
         float collisionsPenalty = 0;
         List<GraphNode> agentsDone = new ArrayList<>();
+        List<Colision> colisions = new ArrayList<>();
         for (Map.Entry<GraphNode, List<FitnessResults.FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
             GraphNode agent = entry.getKey();
             List<FitnessResults.FitnessNode> pathNodes = entry.getValue();
@@ -243,9 +168,19 @@ public class EnvironmentNodeGraph {
                                     }
                                     Float cost3 = pathNodes2.get(j).getTime();
                                     //Float currenttime2 = results.getTaskedAgentsCostsTime().get(agent2).get(pathNodes2.indexOf(currentNode));
-                                    if ((time.equals(time2) && i != 0) || time1.equals(cost3)) {
-                                        //System.out.println("Same Node " + currentNode.getGraphNodeId());
-                                        //System.out.println("Costs [" + cost + " , " + time1 + "]-[" + time2 + " , " + cost3 + "]");
+                                    if ((i != 0 && time.equals(time2) && pathNodes.get(i-1).getNode().equals(pathNodes2.get(j-1).getNode())) || time1.equals(cost3)) {
+                                        Colision c = new Colision();
+                                        c.addAgent(agent);
+                                        c.addAgent(agent2);
+                                        c.addNode(currentFullNode.getNode());
+                                        c.addTime(time);
+                                        c.addTime(time1);
+                                        c.addTime(time2);
+                                        c.addTime(cost3);
+                                        c.setType("Same Node(s)");
+                                        colisions.add(c);
+                                        //System.out.println("Same Node " + currentFullNode.getNode().getGraphNodeId());
+                                        //System.out.println("Costs [" + time + " , " + time1 + "]-[" + time2 + " , " + cost3 + "]");
                                         //System.out.println(Math.min((time1 - cost), (cost3 - time2)));
                                         collisionsPenalty += Math.min((time1 - time), (cost3 - time2));
                                         nColisions++;
@@ -263,11 +198,24 @@ public class EnvironmentNodeGraph {
                                             float b = pathNodes2.get(j - 1).getTime();
                                             float d = pathNodes2.get(j).getTime() + pathNodes2.get(j).getCost();
                                             if (a <= d && c >= b) {
-                                                //System.out.println("Intersection " + currentNode.getType().toLetter() + currentNode.getGraphNodeId() + "," + nextNode.getType().toLetter() + nextNode.getGraphNodeId());
+                                                //System.out.println("Intersection " + currentFullNode.getNode().getType().toLetter() + currentFullNode.getNode().getGraphNodeId() + "," + nextNode.getType().toLetter() + nextNode.getGraphNodeId());
                                                 //System.out.println("Costs [" + a + " , " + c + "]-[" + b + " , " + d + "]");
                                                 //System.out.println(Math.min((c - a), (d - b)));
                                                 collisionsPenalty += Math.min((c - a), (d - b));
                                                 nColisions++;
+                                                Colision colision = new Colision();
+                                                colision.addAgent(agent);
+                                                colision.addAgent(agent2);
+                                                colision.addNode(pathNodes.get(i).getNode());
+                                                colision.addNode(pathNodes.get(i+1).getNode());
+                                                colision.addNode(pathNodes2.get(j-1).getNode());
+                                                colision.addNode(pathNodes2.get(j).getNode());
+                                                colision.addTime(a);
+                                                colision.addTime(c);
+                                                colision.addTime(b);
+                                                colision.addTime(d);
+                                                colision.setType("Intersection");
+                                                colisions.add(colision);
                                                 //System.out.println(results.printTaskedAgents());
                                             }
                                         }
@@ -285,7 +233,12 @@ public class EnvironmentNodeGraph {
         if (nColisions > 0) {
             System.out.println("Nº Collision\t" + nColisions);
             System.out.println("Collision(s) Penalty\t" + collisionsPenalty);
+        }*//*
+        if (nColisions > 1){
+            results.setFitness(1);
+            //System.out.println("Num collisions" + nColisions);
         }*/
+        results.setColisions(colisions);
         results.setNumCollisions(nColisions);
         results.setCollisionPenalty(collisionsPenalty);
         return results;
