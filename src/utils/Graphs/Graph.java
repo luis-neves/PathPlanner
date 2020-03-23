@@ -120,4 +120,12 @@ public class Graph {
     public void removeNode(GraphNode currentObjective) {
         GraphNodes.remove(currentObjective);
     }
+
+    public void makeDelivering(GraphNode node) {
+        for (int i = 0; i < getGraphNodes().size(); i++){
+            if(getGraphNodes().get(i).getGraphNodeId() == node.getGraphNodeId()){
+                getGraphNodes().get(i).setType(GraphNodeType.DELIVERING);
+            }
+        }
+    }
 }

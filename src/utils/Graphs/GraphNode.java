@@ -124,6 +124,26 @@ public class GraphNode {
         return nodes;
     }
 
+    public List<GraphNode> getNeighbourNodesWithoutProducts(List<GraphNode> taskedNodes) {
+        List<GraphNode> nodes = new ArrayList<>();
+        for (int i = 0; i < neighbours.size(); i++) {
+            if (!neighbours.get(i).getEnd().equals(this)) {
+                if (taskedNodes.contains(neighbours.get(i).getEnd())) {
+                    nodes.add(neighbours.get(i).getEnd());
+                } else if (neighbours.get(i).getEnd().getType() != GraphNodeType.PRODUCT && neighbours.get(i).getEnd().getType() != GraphNodeType.AGENT) {
+                    nodes.add(neighbours.get(i).getEnd());
+                }
+            } else if (!neighbours.get(i).getStart().equals(this)) {
+                if (taskedNodes.contains(neighbours.get(i).getStart())) {
+                    nodes.add(neighbours.get(i).getStart());
+                } else if (neighbours.get(i).getStart().getType() != GraphNodeType.PRODUCT && neighbours.get(i).getStart().getType() != GraphNodeType.AGENT) {
+                    nodes.add(neighbours.get(i).getStart());
+                }
+            }
+        }
+        return nodes;
+    }
+
     public int getHeuristic() {
         return (int) Math.round(heuristic);
     }
@@ -171,7 +191,7 @@ public class GraphNode {
 
     @Override
     public String toString() {
-        return "N" + this.id + " " + this.getHeuristica() + " Cost " + this.getF() + " " + this.getLocation().toString() + " " + getType().toString() + "\n\t\t" + getNeighboursStr();
+        return this.type.toLetter() + "" + this.id + " " + this.getHeuristica() + " Cost " + this.getF() + " " + this.getLocation().toString() + " " + getType().toString() + "\n\t\t" + getNeighboursStr();
     }
 
     public Edge getNeighbourEdge(GraphNode graphNode) {
@@ -204,14 +224,43 @@ public class GraphNode {
         for (Edge neighbour : neighbours) {
             if (this == neighbour.getStart()) {
                 neighbour.getEnd().removeNeighbour(this);
-            }else{
+            } else {
                 neighbour.getStart().removeNeighbour(this);
             }
         }
         neighbours.clear();
     }
 
-    private void removeNeighbour(GraphNode graphNode) {
-        neighbours.removeIf(neighbour -> neighbour.getEnd() == graphNode || neighbour.getStart() == graphNode);
+    public void removeNeighbour(GraphNode graphNode) {
+        List<Edge> toRemove = new ArrayList<>();
+        for (Edge neighbour : neighbours) {
+            if (neighbour.getEnd().getGraphNodeId() == graphNode.getGraphNodeId() || neighbour.getStart().getGraphNodeId() == graphNode.getGraphNodeId()) {
+                toRemove.add(neighbour);
+            }
+        }
+        //System.out.println("Removed " + toRemove.size());
+        neighbours.removeAll(toRemove);
+    }
+
+    public void removeSouthSimple() {
+        GraphNode toRemove = null;
+        Edge toRemoveE = null;
+        for (int i = 0; i < neighbours.size(); i++) {
+            GraphNode neighbor = null;
+            if (neighbours.get(i).getStart().getGraphNodeId() != this.getGraphNodeId()) {
+                neighbor = neighbours.get(i).getStart();
+            } else {
+                neighbor = neighbours.get(i).getEnd();
+            }
+            if (neighbor.getLocation().getX() == this.getLocation().getX() && neighbor.getType() != GraphNodeType.PRODUCT) {
+                toRemove = neighbor;
+                toRemoveE = neighbours.get(i);
+            }
+        }
+        if (toRemove != null) {
+            neighbours.remove(toRemoveE);
+            toRemove.removeNeighbour(this);
+            neighbours.remove(toRemove);
+        }
     }
 }

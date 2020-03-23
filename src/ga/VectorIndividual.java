@@ -41,6 +41,10 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
                 List<FitnessResults.FitnessNode> agentPath = entry.getValue();
                 str += "\nAgent " + agent.getType().toLetter() + agent.getGraphNodeId();
                 if (!agentPath.isEmpty()) {
+                    List<GraphNode> taskedAgentsOnly = results.getTaskedAgentsOnly().get(agent);
+                    for (int i = 0; i < taskedAgentsOnly.size(); i++){
+                        str += "\t[" + taskedAgentsOnly.get(i).getType().toLetter() + taskedAgentsOnly.get(i).getGraphNodeId() + "]";
+                    }
                     str += " | Steps: " + agentPath.size();
                     str += "\n\tPath: ";
                     for (int i = 0; i < agentPath.size(); i++) {

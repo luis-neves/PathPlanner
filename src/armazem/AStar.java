@@ -4,6 +4,7 @@ package armazem;
 import utils.Graphs.Edge;
 import utils.Graphs.Graph;
 import utils.Graphs.GraphNode;
+import utils.Graphs.GraphNodeType;
 
 import java.util.*;
 
@@ -120,7 +121,7 @@ public class AStar {
         }
         return new ArrayList<GraphNode>();
     }*/
-    public List<GraphNode> findGraphPath() {
+    public List<GraphNode> findGraphPath(List<GraphNode> taskedNodes) {
         calculaHeuristicaNodes();
         openGraphList.clear();
         closedNodeSet.clear();
@@ -132,7 +133,7 @@ public class AStar {
             if (isFinalGraphNode(currentNode)) {
                 return getGraphPath(currentNode);
             } else {
-                addAdjacentGraphNodes(currentNode);
+                addAdjacentGraphNodes(currentNode, taskedNodes);
             }
         }
         return new ArrayList<GraphNode>();
@@ -238,11 +239,10 @@ public class AStar {
         addAdjacentLowerRow(currentNode);
     }
 
-    private void addAdjacentGraphNodes(GraphNode currentNode) {
-        List<GraphNode> neighbourNodes = currentNode.getNeighbourNodes();
+    private void addAdjacentGraphNodes(GraphNode currentNode, List<GraphNode> taskedNodes) {
+        List<GraphNode> neighbourNodes = currentNode.getNeighbourNodesWithoutProducts(taskedNodes);
         //System.out.println("DEBUG" +currentNode);
         for (int i = 0; i < neighbourNodes.size(); i++) {
-
             if (!getClosedNodeSet().contains(neighbourNodes.get(i))) {
                 if (!openGraphList.contains(neighbourNodes.get(i))) {
                     neighbourNodes.get(i).setNodeData(currentNode, currentNode.getNodeWeight(neighbourNodes.get(i)));

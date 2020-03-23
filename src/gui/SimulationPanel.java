@@ -59,7 +59,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private Graph problemGraph;
     private int seed = 0;
     private int num_rows = 12;
-    private int num_agents = 5;
+    private int num_agents = 3;
+    private int num_products = 10;
 
     public SimulationPanel() {
         environmentPanel.setPreferredSize(new Dimension(N * CELL_SIZE + GRID_TO_PANEL_GAP * 2, N * CELL_SIZE + GRID_TO_PANEL_GAP * 2));
@@ -109,7 +110,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
             gfx = (Graphics2D) image.getGraphics();
             Graph graph2 = exampleGraph(num_rows);
-            graph2 = randomProblem(graph2, 5, 15, -1);
+            graph2 = randomProblem(graph2, num_agents, num_products, -1);
             graph2 = fixNeighboursFixed(graph2);
             problemGraph = graph2;
             draw(graph2, false, this.gfx, this.image);
@@ -171,7 +172,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
             gfx = (Graphics2D) image.getGraphics();
             Graph graph2 = exampleGraph(num_rows);
-            graph2 = randomProblem(graph2, num_agents, 15, seed);
+            graph2 = randomProblem(graph2, num_agents, num_products, seed);
             graph2 = fixNeighboursFixed(graph2);
             problemGraph = graph2;
             draw(graph2, false, this.gfx, this.image);
@@ -199,10 +200,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         }
     }
 
-    public Graph generateRandomGraphProblem(Graph graph) {
-
-        return graph;
-    }
 
     private Graph fixNeighboursFixed(Graph graph) {
         for (int i = 0; i < graph.getGraphNodes().size(); i++) {
@@ -211,11 +208,18 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 Float selected_y = selectedNode.getLocation().getY();
                 Float lowest = Float.MAX_VALUE;
                 Float highest = -1f;
+                Float lowestS = Float.MAX_VALUE;
+                Float highestS = -1f;
                 GraphNode neighborN = null;
                 GraphNode neighborS = null;
+                GraphNode neighborNS = null;
+                GraphNode neighborSS = null;
+
+                GraphNode sameSpot = null;
                 for (int j = 0; j < graph.getGraphNodes().size(); j++) {
                     GraphNode neighbour = graph.getGraphNodes().get(j);
                     if (!selectedNode.equals(neighbour) && neighbour.getLocation().getX() == selectedNode.getLocation().getX()) {
+                        //NOT SIMPLE
                         if (neighbour.getLocation().getY() > selected_y && neighbour.getLocation().getY() < lowest) {
                             neighborS = neighbour;
                             lowest = neighbour.getLocation().getY();
@@ -224,19 +228,58 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                             neighborN = neighbour;
                             highest = neighbour.getLocation().getY();
                         }
+                        //SIMPLE
+                        if (neighbour.getLocation().getY() > selected_y && neighbour.getLocation().getY() < lowestS && (neighbour.getType() == GraphNodeType.SIMPLE || neighbour.getType() == GraphNodeType.EXIT)) {
+                            neighborSS = neighbour;
+                            lowestS = neighbour.getLocation().getY();
+                        }
+                        if (neighbour.getLocation().getY() < selected_y && neighbour.getLocation().getY() >= highestS && (neighbour.getType() == GraphNodeType.SIMPLE || neighbour.getType() == GraphNodeType.EXIT)) {
+                            neighborNS = neighbour;
+                            highestS = neighbour.getLocation().getY();
+                        }
+                        if (neighbour.getLocation().getY() == selected_y) {
+                            Edge edge = new Edge(selectedNode, neighbour, 0, graph.getEdges().size());
+                            selectedNode.addNeighbour(edge);
+                            neighbour.addNeighbour(edge);
+                            graph.getEdges().add(edge);
+                        }
                     }
                 }
                 if (neighborN == null || neighborS == null) {
                     System.out.println();
                 }
-                Edge edgeS = new Edge(selectedNode, neighborS, selectedNode.getDistance(neighborS), graph.getEdges().size());
-                Edge edgeN = new Edge(selectedNode, neighborN, selectedNode.getDistance(neighborN), graph.getEdges().size() + 1);
-                selectedNode.addNeighbour(edgeS);
-                neighborS.addNeighbour(edgeS);
-                selectedNode.addNeighbour(edgeN);
-                neighborN.addNeighbour(edgeN);
-            }
 
+                if (neighborS != null) {
+                    Edge edgeS = new Edge(selectedNode, neighborS, selectedNode.getDistance(neighborS), graph.getEdges().size());
+                    graph.getEdges().add(edgeS);
+                    selectedNode.addNeighbour(edgeS);
+                    neighborS.addNeighbour(edgeS);
+                }
+                if (neighborN != null) {
+                    Edge edgeN = new Edge(selectedNode, neighborN, selectedNode.getDistance(neighborN), graph.getEdges().size());
+                    graph.getEdges().add(edgeN);
+                    selectedNode.addNeighbour(edgeN);
+                    neighborN.addNeighbour(edgeN);
+                }
+                //SIMPLE
+                Edge edgeS = new Edge(selectedNode, neighborSS, selectedNode.getDistance(neighborSS), graph.getEdges().size());
+                graph.getEdges().add(edgeS);
+                selectedNode.addNeighbour(edgeS);
+                neighborSS.addNeighbour(edgeS);
+                Edge edgeN = new Edge(selectedNode, neighborNS, selectedNode.getDistance(neighborNS), graph.getEdges().size());
+                graph.getEdges().add(edgeN);
+                selectedNode.addNeighbour(edgeN);
+                neighborNS.addNeighbour(edgeN);
+
+                //neighborN.removeNeighbour(neighborS);
+                //neighborS.removeNeighbour(neighborN);
+                /*if (neighborN.getType() == GraphNodeType.SIMPLE) {
+                    neighborN.removeSouthSimple();
+                }*/
+            }
+        }
+        for (int i = 0; i < graph.getGraphNodes().size(); i++) {
+            System.out.println(graph.getGraphNodes().get(i).toString());
         }
         return graph;
     }
@@ -317,6 +360,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         agent2.setType(GraphNodeType.PRODUCT);
         agent2.setLocation(new Coordenates(110, 40, 0));
 
+        GraphNode agent3 = new GraphNode(26);
+        agent3.setType(GraphNodeType.PRODUCT);
+        agent3.setLocation(new Coordenates(110, 40, 0));
+
 //        for (int i = 0; i < 10; i++){
 //            GraphNode productX = new GraphNode(24+i);
 //            productX.setType(GraphNodeType.PRODUCT);
@@ -331,6 +378,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         list.add(productt);
         list.add(product4);
         list.add(agent2);
+        list.add(agent3);
         return list;
     }
 
@@ -403,10 +451,15 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             } else if (node.getType() == GraphNodeType.EXIT) {
                 gfx.setColor(Color.green);
                 gfx.drawOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
+            } else if (node.getType() == GraphNodeType.DELIVERING) {
+                gfx.setColor(Color.GRAY);
+                gfx.drawOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
             } else {
                 gfx.drawOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
             }
-            gfx.drawString("" + node.getType().toLetter() + node.getGraphNodeId(), p.x + (NODE_SIZE / 2), p.y + (NODE_SIZE / 2) + MARGIN);
+            if (node.getType() != GraphNodeType.DELIVERING) {
+                gfx.drawString("" + node.getType().toLetter() + node.getGraphNodeId(), p.x + (NODE_SIZE / 2), p.y + (NODE_SIZE / 2) + MARGIN);
+            }
             /*for(int j = 0; j < node.getNeighbours().size(); j++){
                 GraphNode startNode = nodes.get(node.getNeighbours().get(j).getIdOfStartGraphNode() - 1);
                 int id = node.getNeighbours().get(j).getIdOfEndGraphNode();
@@ -481,6 +534,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         //g.setColor(environment.getCellColor(y, x));
         //g.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         //environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
+        results = fixProductsInPath(results);
         try {
             List<IterativeAgent> iterativeAgents = new ArrayList<>();
             Image backup = image;
@@ -490,7 +544,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 GraphNode agent = entry.getKey();
                 List<FitnessResults.FitnessNode> finalpath = entry.getValue();
                 if (!finalpath.isEmpty()) {
-                    iterativeAgents.add(new IterativeAgent(agent, finalpath));
+                    iterativeAgents.add(new IterativeAgent(agent, finalpath, results.getTaskedAgentsOnly().get(agent)));
                 }
             }
 
@@ -515,24 +569,44 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                     }
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return;
         }
     }
 
+    private FitnessResults fixProductsInPath(FitnessResults results) {
+        for (Map.Entry<GraphNode, List<FitnessResults.FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<FitnessResults.FitnessNode> finalpath = entry.getValue();
+            List<FitnessResults.FitnessNode> toRemove = new ArrayList<>();
+            for (int i = 0; i < finalpath.size(); i++) {
+                if (finalpath.get(i).getNode().getType() == GraphNodeType.PRODUCT && !results.getTaskedAgentsOnly().get(agent).contains(finalpath.get(i).getNode())) {
+                    FitnessResults.FitnessNode nextNode = finalpath.get(i + 1);
+                    nextNode.setCost(nextNode.getCost() + finalpath.get(i).getCost());
+                    nextNode.setTime(nextNode.getTime() + finalpath.get(i).getCost());
+                    toRemove.add(finalpath.get(i));
+                }
+            }
+            results.getTaskedAgentsFullNodes().get(agent).removeAll(toRemove);
+        }
+        return results;
+    }
+
     private class IterativeAgent {
+        private final List<GraphNode> taskOnly;
         GraphNode agent;
         List<FitnessResults.FitnessNode> path;
         FitnessResults.FitnessNode currentObjective;
         int objectiveIdx;
         Coordenates location;
 
-        public IterativeAgent(GraphNode agent, List<FitnessResults.FitnessNode> path) {
+        public IterativeAgent(GraphNode agent, List<FitnessResults.FitnessNode> path, List<GraphNode> taskOnly) {
             this.agent = agent;
             this.path = path;
             this.currentObjective = path == null ? null : path.get(0);
             this.objectiveIdx = 0;
             this.location = agent.getLocation();
+            this.taskOnly = taskOnly;
         }
 
         public Coordenates followObjective() {
@@ -541,8 +615,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 if (objectiveIdx < path.size() - 1) {
                     currentObjective = path.get(objectiveIdx + 1);
                     objectiveIdx++;
-                    if (path.get(objectiveIdx - 1).getNode().getType() == GraphNodeType.PRODUCT) {
-                        problemGraph.removeNode(path.get(objectiveIdx - 1).getNode());
+                    if (path.get(objectiveIdx - 1).getNode().getType() == GraphNodeType.PRODUCT && taskOnly.contains(path.get(objectiveIdx - 1).getNode()) && path.lastIndexOf(path.get(objectiveIdx - 1)) == (objectiveIdx - 1)) {
+                        problemGraph.makeDelivering(path.get(objectiveIdx - 1).getNode());
                     }
                 }
             }

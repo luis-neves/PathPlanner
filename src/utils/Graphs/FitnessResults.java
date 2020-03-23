@@ -31,6 +31,15 @@ public class FitnessResults {
 
     private float collisionPenalty;
     private HashMap<GraphNode, List<FitnessNode>> taskedAgentsFullNodes;
+    private HashMap<GraphNode, List<GraphNode>> taskedAgentsOnly;
+
+    public HashMap<GraphNode, List<GraphNode>> getTaskedAgentsOnly() {
+        return taskedAgentsOnly;
+    }
+
+    public void setTaskedAgentsOnly(HashMap<GraphNode, List<GraphNode>> taskedAgentsOnly) {
+        this.taskedAgentsOnly = taskedAgentsOnly;
+    }
 
     public void addTaskedAgent(GraphNode agent, List<GraphNode> path, List<Float> costs) {
         try {
@@ -87,6 +96,7 @@ public class FitnessResults {
         path = new ArrayList<>();
         taskedAgentsFullNodes = new HashMap<>();
         colisions = new ArrayList<>();
+        taskedAgentsOnly = new HashMap<>();
     }
 
     public float getFitness() {
@@ -129,12 +139,11 @@ public class FitnessResults {
                 for (int i = 0; i < agentPath.size(); i++) {
                     str += " " + agentPath.get(i).getTime().toString() + " ";
                 }
-            }
-            else{
+            } else {
                 str += "\t Idle";
             }
             str += "\n Colisions: ";
-            for (int i = 0; i < colisions.size(); i++){
+            for (int i = 0; i < colisions.size(); i++) {
                 str += colisions.get(i).print();
             }
         }
@@ -156,6 +165,12 @@ public class FitnessResults {
     public List<Colision> getColisions() {
         return colisions;
     }
+
+    public void addTaskedAgentOnly(GraphNode agent, List<GraphNode> taskedAgentOnly) {
+        List<GraphNode> clone = new ArrayList<>(taskedAgentOnly);
+        this.taskedAgentsOnly.put(agent, clone);
+    }
+
 
     public class FitnessNode {
         private int id;
