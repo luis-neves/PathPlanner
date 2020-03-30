@@ -14,6 +14,19 @@ public class GraphNode {
     private double heuristic;
     private GraphNode parent;
     private GraphNodeType type;
+    private float weightPhysical;
+    
+    public float getWeightPhysical() {
+        if (this.getType() == GraphNodeType.PRODUCT) {
+            return weightPhysical;
+        } else {
+            return -1;
+        }
+    }
+
+    public void setWeightPhysical(float weightPhysical) {
+        this.weightPhysical = weightPhysical;
+    }
 
     public GraphNodeType getType() {
         return type;

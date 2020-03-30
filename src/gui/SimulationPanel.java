@@ -31,7 +31,7 @@ import java.util.List;
 
 public class SimulationPanel extends JPanel implements EnvironmentListener {
 
-    private static final int SLEEP_MILLIS = 10; // modify to speed up the simulation
+    private static int SLEEP_MILLIS = 10; // modify to speed up the simulation
     private static final int NUM_ITERATIONS = 2000; // modify to change the number of iterations
 
     private static final int FIXED_CELL_SIZE = 10;
@@ -55,12 +55,16 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     JButton buttonRunNodeGraph = new JButton("Node Graph");
     JButton buttonRandomProblem = new JButton("Rand Node Graph");
     JButton buttonRandomProblemSeed = new JButton("Last Node Graph");
+    JButton buttonTestColision = new JButton("X");
     private Graph graph;
     private Graph problemGraph;
     private int seed = 0;
     private int num_rows = 12;
     private int num_agents = 3;
     private int num_products = 10;
+    private boolean stop = false;
+    private int interruptionIndex = -1;
+    private List<IterativeAgent> iterativeAgents = null;
 
     public SimulationPanel() {
         environmentPanel.setPreferredSize(new Dimension(N * CELL_SIZE + GRID_TO_PANEL_GAP * 2, N * CELL_SIZE + GRID_TO_PANEL_GAP * 2));
@@ -68,12 +72,13 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         setLayout(new BorderLayout());
         add(environmentPanel, BorderLayout.CENTER);
         JPanel panelButtons = new JPanel();
-        panelButtons.add(jButtonRun);
-        panelButtons.add(buttonRunFromFile);
+        //panelButtons.add(jButtonRun);
+        //panelButtons.add(buttonRunFromFile);
         panelButtons.add(buttonRunXML);
         panelButtons.add(buttonRunNodeGraph);
         panelButtons.add(buttonRandomProblem);
         panelButtons.add(buttonRandomProblemSeed);
+        panelButtons.add(buttonTestColision);
         add(panelButtons, BorderLayout.SOUTH);
 
         jButtonRun.addActionListener(new SimulationPanel_jButtonRun_actionAdapter(this));
@@ -82,6 +87,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         buttonRunNodeGraph.addActionListener(new SimulationPanel_jButtonRunNodeGraph_actionAdapter(this));
         buttonRandomProblem.addActionListener(new SimulationPanel_jButtonGenRandNodeGraph_actionAdapter(this));
         buttonRandomProblemSeed.addActionListener(new SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter(this));
+        buttonTestColision.addActionListener(new SimulationPanel_jButtonTestColision_actionAdapter(this));
 
     }
 
@@ -102,6 +108,32 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             }
         };
         worker.execute();
+    }
+
+    public void jButtonTestColision_actionPerformed(ActionEvent e) {
+        //test Colision
+        FitnessResults results = GASingleton.getInstance().getBestInRun();
+        int agent_id = 23;
+        List<FitnessNode> nodes = results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id));
+        nodes = insertFakeFitnessNode(nodes, 8, 11, 80);
+        nodes = insertFakeFitnessNode(nodes, 9, 12, 30);
+        //results.getTaskedAgentsFullNodes().get(problemGraph.findNode(19)).clear();
+        nodes = results.getTaskedAgentsFullNodesNoPackages().get(problemGraph.findNode(agent_id));
+        nodes = insertFakeFitnessNode(nodes, 5, 11, 80);
+        nodes = insertFakeFitnessNode(nodes, 6, 12, 30);
+        results.getTaskedAgentsFullNodesNoPackages().replace(problemGraph.findNode(agent_id), nodes);
+        results = GASingleton.getInstance().checkResultsForColision(results);
+        GASingleton.getInstance().setBestInRun(results);
+        GASingleton.getInstance().getBestIndividualPanel().textArea.setText(GASingleton.getInstance().getBestInRun().printTaskedAgents());
+    }
+
+    private List<FitnessNode> insertFakeFitnessNode(List<FitnessNode> nodes, int index, int nID, float cost) {
+        float time = nodes.get(index - 1).getTime();
+        nodes.add(index, new FitnessNode(nodes.size(), problemGraph.findNode(nID), cost, (time + cost)));
+        for (int i = index + 1; i < nodes.size(); i++) {
+            nodes.get(i).setTime(nodes.get(i).getTime() + cost);
+        }
+        return nodes;
     }
 
     public void jButtonRandNodeGraphProblem_actionPerformed(ActionEvent e) {
@@ -534,54 +566,73 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         //g.setColor(environment.getCellColor(y, x));
         //g.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         //environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
+
         results = fixProductsInPath(results);
         try {
-            List<IterativeAgent> iterativeAgents = new ArrayList<>();
+            List<IterativeAgent> iterativeAgents;
             Image backup = image;
             Graphics2D gfx2 = (Graphics2D) backup.getGraphics();
-            problemGraph.unfixAgentNeighbours();
-            for (Map.Entry<GraphNode, List<FitnessResults.FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
-                GraphNode agent = entry.getKey();
-                List<FitnessResults.FitnessNode> finalpath = entry.getValue();
-                if (!finalpath.isEmpty()) {
-                    iterativeAgents.add(new IterativeAgent(agent, finalpath, results.getTaskedAgentsOnly().get(agent)));
+
+            if (this.iterativeAgents == null) {
+                iterativeAgents = new ArrayList<>();
+                problemGraph.unfixAgentNeighbours();
+                for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+                    GraphNode agent = entry.getKey();
+                    List<FitnessNode> finalpath = entry.getValue();
+                    if (!finalpath.isEmpty()) {
+                        iterativeAgents.add(new IterativeAgent(agent, finalpath, results.getTaskedAgentsOnly().get(agent)));
+                    }
                 }
+            } else {
+                iterativeAgents = this.iterativeAgents;
             }
+            for (int i = (interruptionIndex == -1 ? 0 : interruptionIndex); i < results.getFitness(); i++) {
+                if (stop) {
+                    this.interruptionIndex = i;
+                    this.iterativeAgents = iterativeAgents;
+                    throw new InterruptedException("Interrupted by user");
+                } else {
+                    for (IterativeAgent iterativeAgent : iterativeAgents) {
+                        Coordenates location = iterativeAgent.followObjective();
+                        Point p = new Point((int) location.getX(), (int) location.getY());
+                        draw(problemGraph, true, gfx2, backup);
+                        gfx2.setColor(Color.RED);
+                        gfx2.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
 
-            for (int i = 0; i < results.getFitness(); i++) {
-                for (IterativeAgent iterativeAgent : iterativeAgents) {
-                    Coordenates location = iterativeAgent.followObjective();
-                    Point p = new Point((int) location.getX(), (int) location.getY());
-                    draw(problemGraph, true, gfx2, backup);
-                    gfx2.setColor(Color.RED);
-                    gfx2.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
-
-                    environmentPanel.getGraphics().drawImage(backup, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
-                    image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
-                    backup = image;
-                    gfx2 = (Graphics2D) backup.getGraphics();
-                    gfx2.setColor(Color.BLACK);
-
-                    try {
-                        Thread.sleep(SLEEP_MILLIS);
-                    } catch (InterruptedException ignore) {
-                        return;
+                        environmentPanel.getGraphics().drawImage(backup, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
+                        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+                        backup = image;
+                        gfx2 = (Graphics2D) backup.getGraphics();
+                        gfx2.setColor(Color.BLACK);
+                        try {
+                            Thread.sleep(SLEEP_MILLIS);
+                        } catch (InterruptedException ignore) {
+                            return;
+                        }
                     }
                 }
             }
+            this.interruptionIndex = -1;
+            this.iterativeAgents = null;
         } catch (Exception e) {
+            if (e.getClass().equals(InterruptedException.class)) {
+                this.stop = false;
+                System.out.println(e.getMessage());
+            } else {
+                e.printStackTrace();
+            }
             return;
         }
     }
 
     private FitnessResults fixProductsInPath(FitnessResults results) {
-        for (Map.Entry<GraphNode, List<FitnessResults.FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+        for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
             GraphNode agent = entry.getKey();
-            List<FitnessResults.FitnessNode> finalpath = entry.getValue();
-            List<FitnessResults.FitnessNode> toRemove = new ArrayList<>();
+            List<FitnessNode> finalpath = entry.getValue();
+            List<FitnessNode> toRemove = new ArrayList<>();
             for (int i = 0; i < finalpath.size(); i++) {
                 if (finalpath.get(i).getNode().getType() == GraphNodeType.PRODUCT && !results.getTaskedAgentsOnly().get(agent).contains(finalpath.get(i).getNode())) {
-                    FitnessResults.FitnessNode nextNode = finalpath.get(i + 1);
+                    FitnessNode nextNode = finalpath.get(i + 1);
                     nextNode.setCost(nextNode.getCost() + finalpath.get(i).getCost());
                     nextNode.setTime(nextNode.getTime() + finalpath.get(i).getCost());
                     toRemove.add(finalpath.get(i));
@@ -592,15 +643,33 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         return results;
     }
 
+    public void setStop(boolean b) {
+        this.stop = b;
+    }
+
+    public void incrementTime(int i) {
+        this.SLEEP_MILLIS += i;
+    }
+
+    public void descrementTime(int i) {
+        if (this.SLEEP_MILLIS - i < 0) {
+            this.SLEEP_MILLIS = 1;
+        } else if (this.SLEEP_MILLIS - i < 5) {
+            this.SLEEP_MILLIS -= 1;
+        } else {
+            this.SLEEP_MILLIS -= i;
+        }
+    }
+
     private class IterativeAgent {
         private final List<GraphNode> taskOnly;
         GraphNode agent;
-        List<FitnessResults.FitnessNode> path;
-        FitnessResults.FitnessNode currentObjective;
+        List<FitnessNode> path;
+        FitnessNode currentObjective;
         int objectiveIdx;
         Coordenates location;
 
-        public IterativeAgent(GraphNode agent, List<FitnessResults.FitnessNode> path, List<GraphNode> taskOnly) {
+        public IterativeAgent(GraphNode agent, List<FitnessNode> path, List<GraphNode> taskOnly) {
             this.agent = agent;
             this.path = path;
             this.currentObjective = path == null ? null : path.get(0);
@@ -1416,5 +1485,19 @@ class SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter implements Actio
 
     public void actionPerformed(ActionEvent e) {
         adaptee.jButtonRandNodeGraphSeedProblem_actionPerformed(e);
+    }
+}
+
+class SimulationPanel_jButtonTestColision_actionAdapter implements ActionListener {
+
+    private SimulationPanel adaptee;
+
+    SimulationPanel_jButtonTestColision_actionAdapter(SimulationPanel adaptee) {
+        this.adaptee = adaptee;
+    }
+
+
+    public void actionPerformed(ActionEvent e) {
+        adaptee.jButtonTestColision_actionPerformed(e);
     }
 }

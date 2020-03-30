@@ -40,13 +40,17 @@ public class MainFrame extends JFrame implements GAListener {
     private PanelParameters panelParameters = new PanelParameters();
     private JButton buttonStop = new JButton("Stop");
     private JButton buttonRunFromMemory = new JButton("Run Genetic Algorithm");
-    private JButton buttonVisualize = new JButton("Visualize");
+    private JButton buttonVisualize = new JButton("Play");
+    private JButton buttonSlowVisualize = new JButton(">");
+    private JButton buttonFastVisualize = new JButton(">>");
+
     private JButton buttonExperiments = new JButton("Experiments");
     private JButton buttonRunExperiments = new JButton("Run experiments");
     private JTextField textFieldExperimentsStatus = new JTextField("", 10);
     private XYSeries seriesBestIndividual;
     private XYSeries seriesAverage;
     private SwingWorker<Void, Void> worker;
+    private boolean stop = false;
 
     public MainFrame() {
         try {
@@ -70,7 +74,9 @@ public class MainFrame extends JFrame implements GAListener {
         JPanel panelButtons = new JPanel();
         panelButtons.add(buttonStop);
         panelButtons.add(buttonRunFromMemory);
+        panelButtons.add(buttonSlowVisualize);
         panelButtons.add(buttonVisualize);
+        panelButtons.add(buttonFastVisualize);
         buttonStop.setEnabled(false);
 
 
@@ -79,16 +85,42 @@ public class MainFrame extends JFrame implements GAListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                //VISUALIZEE
-                    if (GASingleton.getInstance().isNodeProblem()){
-                        GASingleton.getInstance().getSimulationPanel().runPath(GASingleton.getInstance().getBestInRun());
-                        //GASingleton.getInstance().generateXMLPath(bestInRun.getTaskedAgents());
+                    //VISUALIZEE
+                    if (GASingleton.getInstance().isNodeProblem() && !stop) {
+                        Runnable r = new ShowPathRunnable(stop);
+                        new Thread(r).start();
+                        stop = true;
+                        buttonVisualize.setText("||");
+                    }else if(GASingleton.getInstance().isNodeProblem() && stop){
+                        GASingleton.getInstance().getSimulationPanel().setStop(true);
+                        stop = false;
+                        buttonVisualize.setText("Play");
+
                     }
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(MainFrame.this, "Wrong parameters!", "Error!", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
+        buttonFastVisualize.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //VISUALIZEE
+                if (GASingleton.getInstance().isNodeProblem()) {
+                    GASingleton.getInstance().getSimulationPanel().descrementTime(5);
+                }
+            }
+        });
+        buttonSlowVisualize.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //VISUALIZEE
+                if (GASingleton.getInstance().isNodeProblem()) {
+                    GASingleton.getInstance().getSimulationPanel().incrementTime(5);
+                }
+            }
+        });
+
         buttonRunFromMemory.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -139,6 +171,7 @@ public class MainFrame extends JFrame implements GAListener {
         panelNorthLeft.add(simulationPanel, BorderLayout.CENTER);
         //Center panel       
         bestIndividualPanel = new PanelTextArea("Best solution: ", 20, 40);
+        GASingleton.getInstance().setBestIndividualPanel(bestIndividualPanel);
         JPanel centerPanel = new JPanel(new BorderLayout());
         centerPanel.add(bestIndividualPanel, java.awt.BorderLayout.CENTER);
 
@@ -165,6 +198,22 @@ public class MainFrame extends JFrame implements GAListener {
         this.getContentPane().add(globalPanel);
 
         pack();
+    }
+
+    public void finishedShow(){
+        this.stop = false;
+
+    }
+    public class ShowPathRunnable implements Runnable {
+
+        public ShowPathRunnable(boolean stop) {
+            // store parameter for later user
+
+        }
+
+        public void run() {
+            GASingleton.getInstance().getSimulationPanel().runPath(GASingleton.getInstance().getBestInRun());
+        }
     }
 
     public void buttonDataSet_actionPerformed(ActionEvent e) {
@@ -401,20 +450,6 @@ class ButtonRunExperiments_actionAdapter implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         adaptee.buttonRunExperiments_actionPerformed(e);
-    }
-}
-
-class PanelTextArea extends JPanel {
-
-    JTextArea textArea;
-
-    public PanelTextArea(String title, int rows, int columns) {
-        textArea = new JTextArea(rows, columns);
-        setLayout(new BorderLayout());
-        add(new JLabel(title), java.awt.BorderLayout.NORTH);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        textArea.setEditable(false);
-        add(scrollPane);
     }
 }
 

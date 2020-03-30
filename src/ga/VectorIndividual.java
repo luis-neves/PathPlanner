@@ -1,6 +1,7 @@
 package ga;
 
 import picking.Item;
+import utils.Graphs.FitnessNode;
 import utils.Graphs.FitnessResults;
 import utils.Graphs.Graph;
 import utils.Graphs.GraphNode;
@@ -36,9 +37,9 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
     private String printTaskedAgents() {
         try {
             String str = "";
-            for (Map.Entry<GraphNode, List<FitnessResults.FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+            for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
                 GraphNode agent = entry.getKey();
-                List<FitnessResults.FitnessNode> agentPath = entry.getValue();
+                List<FitnessNode> agentPath = entry.getValue();
                 str += "\nAgent " + agent.getType().toLetter() + agent.getGraphNodeId();
                 if (!agentPath.isEmpty()) {
                     List<GraphNode> taskedAgentsOnly = results.getTaskedAgentsOnly().get(agent);

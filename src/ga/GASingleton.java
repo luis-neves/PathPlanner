@@ -1,6 +1,7 @@
 package ga;
 
 import armazem.Cell;
+import gui.PanelTextArea;
 import gui.SimulationPanel;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -34,6 +35,7 @@ public class GASingleton {
     private GraphNode lastAgent;
     private SimulationPanel simulationPanel;
     private FitnessResults bestInRun;
+    private PanelTextArea bestIndividualPanel;
 
     public void setBestInRun(FitnessResults bestInRun) {
         this.bestInRun = bestInRun;
@@ -149,6 +151,13 @@ public class GASingleton {
         return null;
     }
 
+    public FitnessResults checkResultsForColision(FitnessResults results) {
+        if (SimulationPanel.environmentNodeGraph != null) {
+            return SimulationPanel.environmentNodeGraph.checkColisions2(results);
+        }
+        return null;
+    }
+
     public String getMissingAgent(List<Item> items) {
         List<Integer> agentsUsed = new ArrayList<>();
         List<Integer> allAgents = new ArrayList<>();
@@ -218,7 +227,7 @@ public class GASingleton {
 
 
             for (Map.Entry<GraphNode, List<GraphNode>> entry : taskedAgents.entrySet()) {
-                String xmlFilePath = "..\\"+ entry.getKey().getGraphNodeId() +".xml";
+                String xmlFilePath = "..\\" + entry.getKey().getGraphNodeId() + ".xml";
 
                 DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 
@@ -253,7 +262,7 @@ public class GASingleton {
                         nattr.setValue(agentPath.get(i).getGraphNodeId() + "");
                         Element node = document.createElement("Node");
                         node.setAttributeNode(nattr);
-                        if (agentPath.get(i).getType() == GraphNodeType.PRODUCT){
+                        if (agentPath.get(i).getType() == GraphNodeType.PRODUCT) {
                             Attr productiD = document.createAttribute("product-id");
                             productiD.setValue(agentPath.get(i).getGraphNodeId() + "");
                             node.setAttributeNode(productiD);
@@ -265,7 +274,6 @@ public class GASingleton {
                     }
                 }
                 root.appendChild(pathElement);
-
 
 
                 // create the xml file
@@ -295,6 +303,17 @@ public class GASingleton {
     public FitnessResults getBestInRun() {
         return this.bestInRun;
     }
+
+
+    public PanelTextArea getBestIndividualPanel() {
+        return this.bestIndividualPanel;
+    }
+
+    public void setBestIndividualPanel(PanelTextArea bestIndividualPanel) {
+        this.bestIndividualPanel = bestIndividualPanel;
+    }
+
+
     //Document doc = builder.newDocument();
 
 }

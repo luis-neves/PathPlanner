@@ -122,10 +122,19 @@ public class Graph {
     }
 
     public void makeDelivering(GraphNode node) {
-        for (int i = 0; i < getGraphNodes().size(); i++){
-            if(getGraphNodes().get(i).getGraphNodeId() == node.getGraphNodeId()){
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (getGraphNodes().get(i).getGraphNodeId() == node.getGraphNodeId()) {
                 getGraphNodes().get(i).setType(GraphNodeType.DELIVERING);
             }
         }
+    }
+
+    public GraphNode findNode(int node_id) {
+        for (int i = 0; i < this.getGraphNodes().size(); i++) {
+            if(this.getGraphNodes().get(i).getGraphNodeId() == node_id){
+                return getGraphNodes().get(i);
+            }
+        }
+        return null;
     }
 }

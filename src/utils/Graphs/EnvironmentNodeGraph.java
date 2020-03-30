@@ -96,6 +96,7 @@ public class EnvironmentNodeGraph {
         for (int j = 0; j < agentPath.size(); j++) {
             taskedAgentOnly.add(agentPath.get(j).node);
         }
+
         for (int j = 0; j < agentPath.size(); j++) {
             aStar.setFinalGraphNode(findEqual(agentPath.get(j).node));
             agentFinalPath.addAll(aStar.findGraphPath(taskedAgentOnly));
@@ -127,9 +128,9 @@ public class EnvironmentNodeGraph {
         //FOR EXIT
 
         float highest = Float.MIN_VALUE;
-        for (Map.Entry<GraphNode, List<FitnessResults.FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+        for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
             GraphNode agent = entry.getKey();
-            List<FitnessResults.FitnessNode> finalcosts = entry.getValue();
+            List<FitnessNode> finalcosts = entry.getValue();
             float sum = 0;
             for (int i = 0; i < finalcosts.size(); i++) {
                 sum += finalcosts.get(i).getCost();
@@ -147,20 +148,22 @@ public class EnvironmentNodeGraph {
         return results;
     }
 
-    private FitnessResults checkColisions2(FitnessResults results) {
+    public FitnessResults checkColisions2(FitnessResults results) {
+        results = fixRepetedProduct(results);
         int nColisions = 0;
         float collisionsPenalty = 0;
         List<GraphNode> agentsDone = new ArrayList<>();
         List<Colision> colisions = new ArrayList<>();
-        for (Map.Entry<GraphNode, List<FitnessResults.FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+
+        for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodesNoPackages().entrySet()) {
             GraphNode agent = entry.getKey();
-            List<FitnessResults.FitnessNode> pathNodes = entry.getValue();
+            List<FitnessNode> pathNodes = entry.getValue();
             for (int i = 0; i < pathNodes.size(); i++) {
-                FitnessResults.FitnessNode currentFullNode = pathNodes.get(i);
-                for (Map.Entry<GraphNode, List<FitnessResults.FitnessNode>> entry2 : results.getTaskedAgentsFullNodes().entrySet()) {
+                FitnessNode currentFullNode = pathNodes.get(i);
+                for (Map.Entry<GraphNode, List<FitnessNode>> entry2 : results.getTaskedAgentsFullNodesNoPackages().entrySet()) {
                     GraphNode agent2 = entry2.getKey();
                     if (!agent.equals(agent2) && !agentsDone.contains(agent2)) {
-                        List<FitnessResults.FitnessNode> pathNodes2 = entry2.getValue();
+                        List<FitnessNode> pathNodes2 = entry2.getValue();
                         for (int j = 0; j < pathNodes2.size(); j++) {
                             if (pathNodes2.get(j).getNode().equals(pathNodes.get(i).getNode())) {
                                 try {
@@ -256,6 +259,22 @@ public class EnvironmentNodeGraph {
         results.setColisions(colisions);
         results.setNumCollisions(nColisions);
         results.setCollisionPenalty(collisionsPenalty);
+        return results;
+    }
+
+    private FitnessResults fixRepetedProduct(FitnessResults results) {
+        for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<FitnessNode> pathNodes = entry.getValue();
+            List<FitnessNode> toRemove = new ArrayList<>();
+            for (int i = 0; i < pathNodes.size() - 1; i++) {
+                if (pathNodes.get(i).getNode().getGraphNodeId() == pathNodes.get(i + 1).getNode().getGraphNodeId() && pathNodes.get(i + 1).getCost() == 0) {
+                    toRemove.add(pathNodes.get(i+1));
+                }
+            }
+            pathNodes.removeAll(toRemove);
+            toRemove.clear();
+        }
         return results;
     }
 
