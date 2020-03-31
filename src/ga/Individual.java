@@ -12,6 +12,7 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
     protected double fitness;
     protected int collisions;
     protected FitnessResults results;
+    protected HashMap<GraphNode, List<Float>> nodesSupport;
 
 
     protected P problem;
@@ -27,6 +28,7 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
         this.collisions = original.collisions;
         this.picksPerAgent = original.picksPerAgent;
         this.results = original.results;
+        this.nodesSupport = original.nodesSupport;
     }
 
     public FitnessResults getResults() {

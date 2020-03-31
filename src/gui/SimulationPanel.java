@@ -31,6 +31,7 @@ import java.util.List;
 
 public class SimulationPanel extends JPanel implements EnvironmentListener {
 
+    private static final int MAX_WEIGHT = 500;
     private static int SLEEP_MILLIS = 10; // modify to speed up the simulation
     private static final int NUM_ITERATIONS = 2000; // modify to change the number of iterations
 
@@ -114,21 +115,35 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         //test Colision
         FitnessResults results = GASingleton.getInstance().getBestInRun();
         int agent_id = 23;
+        int agent_id_2 = 19;
         List<FitnessNode> nodes = results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id));
-        nodes = insertFakeFitnessNode(nodes, 8, 11, 80);
-        nodes = insertFakeFitnessNode(nodes, 9, 12, 30);
-        //results.getTaskedAgentsFullNodes().get(problemGraph.findNode(19)).clear();
-        nodes = results.getTaskedAgentsFullNodesNoPackages().get(problemGraph.findNode(agent_id));
-        nodes = insertFakeFitnessNode(nodes, 5, 11, 80);
-        nodes = insertFakeFitnessNode(nodes, 6, 12, 30);
+        nodes.remove(2);
+        nodes.get(2).setCost(40f);
         results.getTaskedAgentsFullNodesNoPackages().replace(problemGraph.findNode(agent_id), nodes);
+        results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id_2)).clear();
+
+        List<FitnessNode> nodes19 = results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id_2));
+        nodes19 = insertFakeFitnessNode(nodes19, 0, 8, 60);
+        nodes19 = insertFakeFitnessNode(nodes19, 1, 9, 30);
+        nodes19 = insertFakeFitnessNode(nodes19, 2, 25, 40);
+        nodes19 = insertFakeFitnessNode(nodes19, 3, 15, 40);
+        nodes19 = insertFakeFitnessNode(nodes19, 4, 16, 30);
+        nodes19 = insertFakeFitnessNode(nodes19, 5, 17, 30);
+        nodes19 = insertFakeFitnessNode(nodes19, 6, 18, 30);
+        results.getTaskedAgentsFullNodesNoPackages().replace(problemGraph.findNode(agent_id_2), nodes19);
+
+
         results = GASingleton.getInstance().checkResultsForColision(results);
         GASingleton.getInstance().setBestInRun(results);
         GASingleton.getInstance().getBestIndividualPanel().textArea.setText(GASingleton.getInstance().getBestInRun().printTaskedAgents());
     }
 
     private List<FitnessNode> insertFakeFitnessNode(List<FitnessNode> nodes, int index, int nID, float cost) {
-        float time = nodes.get(index - 1).getTime();
+        Float time = 0f;
+        if (index > 0) {
+            time = nodes.get(index - 1).getTime();
+
+        }
         nodes.add(index, new FitnessNode(nodes.size(), problemGraph.findNode(nID), cost, (time + cost)));
         for (int i = index + 1; i < nodes.size(); i++) {
             nodes.get(i).setTime(nodes.get(i).getTime() + cost);
@@ -186,6 +201,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                     result = r.nextInt((int) Math.abs(yStart - yEnd)) + (Math.min(yStart, yEnd));
                 } while (result == yStart || result == yEnd);
                 product.setLocation(new Coordenates(edge.getLocation().getX(), result, 0));
+                if (GASingleton.getInstance().isSimulatingWeights()) {
+                    product.setWeightPhysical(r.nextInt(MAX_WEIGHT));
+                    product.setWeightSupported((r.nextInt(4) + 1) * product.getWeightPhysical());
+                }
             }
             graph.getGraphNodes().add(product);
             /*
@@ -218,6 +237,13 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             graph = exampleGraph(6);
             Graph graph2 = this.graph.clone();
             List<GraphNode> nodes = exampleGraphProblem();
+            if (GASingleton.getInstance().isSimulatingWeights()) {
+                Random r = new Random(seed);
+                for (GraphNode n : nodes) {
+                    n.setWeightPhysical(r.nextInt(MAX_WEIGHT));
+                    n.setWeightSupported((r.nextInt(4) + 1) * n.getWeightPhysical());
+                }
+            }
             for (int i = 0; i < nodes.size(); i++) {
                 graph2.getGraphNodes().add(nodes.get(i));
             }
@@ -366,7 +392,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         List<GraphNode> list = new ArrayList<>();
         GraphNode agent = new GraphNode(19);
         agent.setType(GraphNodeType.AGENT);
-        agent.setLocation(new Coordenates(80, 140, 0));
+        agent.setLocation(new Coordenates(80, 100, 0));
 
         GraphNode product = new GraphNode(20);
         product.setType(GraphNodeType.PRODUCT);

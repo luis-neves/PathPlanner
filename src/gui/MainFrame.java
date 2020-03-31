@@ -517,6 +517,7 @@ class PanelParameters extends PanelAtributesValue {
     JTextField jTextFieldProb1s = new JTextField(PROB_1S, TEXT_FIELD_LENGHT);
     String[] fitnessTypes = {"Bigger Path Priority", "Smaller Path Priority", "Closest to Exit Priority"};
     JComboBox jComboBoxFitnessTypes = new JComboBox(fitnessTypes);
+    JCheckBox checkBoxWeights = new JCheckBox("");
 
     public PanelParameters() {
         title = "Genetic algorithm parameters";
@@ -562,6 +563,22 @@ class PanelParameters extends PanelAtributesValue {
         labels.add(new JLabel("Priority: "));
         valueComponents.add(jComboBoxFitnessTypes);
         jComboBoxFitnessTypes.addActionListener(new JComboBoxFitnessFunction_ActionAdapter(this));
+        labels.add(new JLabel("Simulate Weights: "));
+        valueComponents.add(checkBoxWeights);
+        checkBoxWeights.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JCheckBox cbLog = (JCheckBox) actionEvent.getSource();
+                if (cbLog.isSelected()) {
+                    System.out.println("Simulating weights");
+                    GASingleton.getInstance().setSimulatingWeights(true);
+                } else {
+                    System.out.println("Not Simulating weights");
+                    GASingleton.getInstance().setSimulatingWeights(false);
+
+                }
+            }
+        });
         configure();
     }
 

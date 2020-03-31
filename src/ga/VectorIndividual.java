@@ -40,35 +40,51 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
             for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
                 GraphNode agent = entry.getKey();
                 List<FitnessNode> agentPath = entry.getValue();
-                str += "\nAgent " + agent.getType().toLetter() + agent.getGraphNodeId();
+                str += "\n\nAgent " + agent.getType().toLetter() + agent.getGraphNodeId();
                 if (!agentPath.isEmpty()) {
                     List<GraphNode> taskedAgentsOnly = results.getTaskedAgentsOnly().get(agent);
-                    for (int i = 0; i < taskedAgentsOnly.size(); i++){
+                    for (int i = 0; i < taskedAgentsOnly.size(); i++) {
                         str += "\t[" + taskedAgentsOnly.get(i).getType().toLetter() + taskedAgentsOnly.get(i).getGraphNodeId() + "]";
                     }
                     str += " | Steps: " + agentPath.size();
+                    if (GASingleton.getInstance().isSimulatingWeights()) {
+                        str += "\n\t";
+                        for (int i = 0; i < taskedAgentsOnly.size(); i++) {
+                            str += "\t[" + (int) taskedAgentsOnly.get(i).getWeightPhysical() + "]";
+                        }
+                        str += "\tWeight\n\t";
+                        for (int i = 0; i < taskedAgentsOnly.size(); i++) {
+                            str += "\t[" + (int) taskedAgentsOnly.get(i).getWeightSupported() + "]";
+                        }
+                        str += "\tSupported Weight\n\t";
+                        for (int i = 0; i < this.nodesSupport.get(agent).size(); i++) {
+                            str += "\t[" + nodesSupport.get(agent).get(i) + "]";
+                        }
+                        str += "\t\tSupporting\n";
+                    }
+
                     str += "\n\tPath: ";
                     for (int i = 0; i < agentPath.size(); i++) {
                         str += "\t[" + agentPath.get(i).getNode().getType().toLetter() + agentPath.get(i).getNode().getGraphNodeId() + "]";
                     }
                     str += "\n\tCost: ";
                     for (int i = 0; i < agentPath.size(); i++) {
-                        str += "\t[" + agentPath.get(i).getCost().toString() + "]";
+                        str += "\t[" + agentPath.get(i).getCost().intValue() + "]";
                     }
                     str += "\n\tTime: ";
                     for (int i = 0; i < agentPath.size(); i++) {
-                        str += "\t " + agentPath.get(i).getTime().toString() + " ";
+                        str += "\t " + agentPath.get(i).getTime().intValue() + " ";
                     }
                 } else {
                     str += "\t Idle";
                 }
             }
             str += "\n Colisions: ";
-            for (int i = 0; i < results.getColisions().size(); i++){
+            for (int i = 0; i < results.getColisions().size(); i++) {
                 str += results.getColisions().get(i).print();
             }
             return str;
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
             return "";
         }

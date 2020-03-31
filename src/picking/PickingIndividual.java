@@ -3,11 +3,9 @@ package picking;
 import ga.GASingleton;
 import ga.VectorIndividual;
 import gui.SimulationPanel;
-import utils.Graphs.EnvironmentNodeGraph;
-import utils.Graphs.FitnessResults;
+import utils.Graphs.*;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class PickingIndividual extends VectorIndividual<Picking, PickingIndividual> {
 
@@ -22,11 +20,34 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
 
     @Override
     public double computeFitness() {
-        if (GASingleton.getInstance().isNodeProblem()){
+        if (GASingleton.getInstance().isNodeProblem()) {
             FitnessResults results = SimulationPanel.environmentNodeGraph.calculatePaths(getGenome());
             fitness = results.getFitness();
             this.results = results;
             fitness += results.getCollisionPenalty() * results.getNumCollisions();
+
+            if (GASingleton.getInstance().isSimulatingWeights()) {
+                float weightsPenalty = 0;
+                this.nodesSupport = new HashMap<>();
+                for (Map.Entry<GraphNode, List<GraphNode>> entry : results.getTaskedAgentsOnly().entrySet()) {
+                    GraphNode agent = entry.getKey();
+                    List<GraphNode> nodes = entry.getValue();
+                    List<Float> supports = new ArrayList<>();
+                    for (int i = 0; i < nodes.size() - 1; i++) {
+                        float value = nodes.get(i).getWeightSupported();
+                        float sum = 0;
+                        for (int j = i + 1; j < nodes.size(); j++) {
+                            sum += nodes.get(j).getWeightPhysical();
+                        }
+                        supports.add(sum);
+                        if (value < sum) {
+                            weightsPenalty += (sum - value);
+                        }
+                    }
+                    this.nodesSupport.put(agent, supports);
+                }
+                fitness += weightsPenalty;
+            }
 
             //System.out.println(results.printTaskedAgents());
             //System.out.println(printGenome() + " - " + fitness);
@@ -85,11 +106,18 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\nfitness: " + fitness);
+        sb.append("\nfitness breakdown: " + printFitnessBreakdown());
         sb.append("\nItems: ");
         sb.append(printGenome());
         //sb.append("\nPicks Per Agent:" + picksPerAgent);
 
         return sb.toString();
+    }
+
+    private String printFitnessBreakdown() {
+        String str = "";
+        str += results.getFitness() + " + " + (results.getCollisionPenalty() * results.getNumCollisions()) + " + " + (this.fitness - results.getFitness() - (results.getCollisionPenalty() * results.getNumCollisions()));
+        return str;
     }
 
     /**

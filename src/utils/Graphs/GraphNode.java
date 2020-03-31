@@ -15,7 +15,22 @@ public class GraphNode {
     private GraphNode parent;
     private GraphNodeType type;
     private float weightPhysical;
-    
+    private float weightSupported;
+
+    public float getWeightSupported() {
+        if (this.getType() == GraphNodeType.PRODUCT) {
+            return weightSupported;
+        } else {
+            return -1;
+        }
+    }
+
+    public void setWeightSupported(float weightSupported) {
+        if (this.getType() == GraphNodeType.PRODUCT) {
+            this.weightSupported = weightSupported;
+        }
+    }
+
     public float getWeightPhysical() {
         if (this.getType() == GraphNodeType.PRODUCT) {
             return weightPhysical;
@@ -25,7 +40,9 @@ public class GraphNode {
     }
 
     public void setWeightPhysical(float weightPhysical) {
-        this.weightPhysical = weightPhysical;
+        if (this.getType() == GraphNodeType.PRODUCT) {
+            this.weightPhysical = weightPhysical;
+        }
     }
 
     public GraphNodeType getType() {

@@ -6,28 +6,19 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="23/03/2020&#10;FixBuG Final">
-      <change afterPath="$PROJECT_DIR$/src/gui/PanelTextArea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Graphs/FitnessNode.java" afterDir="false" />
+    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="30/03/2020&#10;Simulação colisões.&#10;Atribuição de peso aos picks 1/2.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/GASingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/GASingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/VectorIndividual.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/ga/VectorIndividual.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonDataSet_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonDataSet_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonExperiments_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonExperiments_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonRunExperiments_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonRunExperiments_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonRun_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonRun_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonStop_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ButtonStop_actionAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelAtributesValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelAtributesValue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters$IntegerTextField_KeyAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelParameters$IntegerTextField_KeyAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxFitnessFunction_ActionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxFitnessFunction_ActionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxSelectionMethods_ActionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxSelectionMethods_ActionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelParameters.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelTextArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/PanelTextArea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$CustomComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$CustomComparator.class" afterDir="false" />
@@ -38,17 +29,13 @@
       <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRunFromXML_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRunFromXML_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/EnvironmentNodeGraph$FitnessCosts.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/Graphs/EnvironmentNodeGraph$FitnessCosts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/EnvironmentNodeGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/Graphs/EnvironmentNodeGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/FitnessResults.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/Graphs/FitnessResults.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/Graphs/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/GraphNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/utils/Graphs/GraphNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ga/GASingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ga/GASingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ga/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ga/Individual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ga/VectorIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ga/VectorIndividual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/EnvironmentNodeGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Graphs/EnvironmentNodeGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/FitnessResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Graphs/FitnessResults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Graphs/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/picking/PickingIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/picking/PickingIndividual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Graphs/GraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Graphs/GraphNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -335,6 +322,8 @@
       <workItem from="1585084767658" duration="353000" />
       <workItem from="1585257366748" duration="1047000" />
       <workItem from="1585411933974" duration="35000" />
+      <workItem from="1585576355090" duration="6021000" />
+      <workItem from="1585647440973" duration="7571000" />
     </task>
     <task id="LOCAL-00001" summary="forgot">
       <created>1582509185139</created>
@@ -364,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584968883891</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="30/03/2020&#10;Simulação colisões.&#10;Atribuição de peso aos picks 1/2.">
+      <created>1585576512972</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585576512972</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,71 +384,72 @@
     <MESSAGE value="13/03/2020&#10;Edges&#10;Replay Seed" />
     <MESSAGE value="13/03/2020&#10;Edges&#10;Replay Seed&#10;Before Bug" />
     <MESSAGE value="23/03/2020&#10;FixBuG Final" />
-    <option name="LAST_COMMIT_MESSAGE" value="23/03/2020&#10;FixBuG Final" />
+    <MESSAGE value="30/03/2020&#10;Simulação colisões.&#10;Atribuição de peso aos picks 1/2." />
+    <option name="LAST_COMMIT_MESSAGE" value="30/03/2020&#10;Simulação colisões.&#10;Atribuição de peso aos picks 1/2." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1585257633332">
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1585649286864">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585257633332" />
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585649286864" />
     <state x="574" y="135" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1584369007679" />
-    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2" timestamp="1584968882795">
+    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2" timestamp="1585576511996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584968882795" />
+    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585576511996" />
     <state x="414" y="8" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1584139815313" />
     <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1581421038056">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1581421038056" />
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom" timestamp="1585071748117">
+    <state width="1493" height="206" key="GridCell.Tab.0.bottom" timestamp="1585655063508">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585071748117" />
+    <state width="1493" height="206" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585655063508" />
     <state width="1493" height="206" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1584370517582" />
-    <state width="1493" height="258" key="GridCell.Tab.0.center" timestamp="1585071748117">
+    <state width="1493" height="206" key="GridCell.Tab.0.center" timestamp="1585655063507">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585071748117" />
+    <state width="1493" height="206" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585655063507" />
     <state width="1493" height="206" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1584370517582" />
-    <state width="1493" height="258" key="GridCell.Tab.0.left" timestamp="1585071748117">
+    <state width="1493" height="206" key="GridCell.Tab.0.left" timestamp="1585655063506">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585071748117" />
+    <state width="1493" height="206" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585655063506" />
     <state width="1493" height="206" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1584370517582" />
-    <state width="1493" height="258" key="GridCell.Tab.0.right" timestamp="1585071748117">
+    <state width="1493" height="206" key="GridCell.Tab.0.right" timestamp="1585655063507">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585071748117" />
+    <state width="1493" height="206" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585655063507" />
     <state width="1493" height="206" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1584370517582" />
-    <state width="1493" height="258" key="GridCell.Tab.1.bottom" timestamp="1585071748118">
+    <state width="1493" height="258" key="GridCell.Tab.1.bottom" timestamp="1585650802325">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585071748118" />
+    <state width="1493" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585650802325" />
     <state width="1493" height="183" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1584368434015" />
-    <state width="1493" height="258" key="GridCell.Tab.1.center" timestamp="1585071748117">
+    <state width="1493" height="258" key="GridCell.Tab.1.center" timestamp="1585650802324">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585071748117" />
+    <state width="1493" height="258" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585650802324" />
     <state width="1493" height="183" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1584368434015" />
-    <state width="1493" height="258" key="GridCell.Tab.1.left" timestamp="1585071748117">
+    <state width="1493" height="258" key="GridCell.Tab.1.left" timestamp="1585650802324">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585071748117" />
+    <state width="1493" height="258" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585650802324" />
     <state width="1493" height="183" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1584368434015" />
-    <state width="1493" height="258" key="GridCell.Tab.1.right" timestamp="1585071748118">
+    <state width="1493" height="258" key="GridCell.Tab.1.right" timestamp="1585650802324">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="258" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585071748118" />
+    <state width="1493" height="258" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585650802324" />
     <state width="1493" height="183" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1584368434015" />
     <state x="277" y="56" key="SettingsEditor" timestamp="1580938371777">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1580938371777" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1584968893612">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1585576521604">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584968893612" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585576521604" />
     <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1584139846557" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580937731801">
       <screen x="0" y="0" width="1536" height="824" />
@@ -474,7 +471,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ga/GASingleton.java</url>
-          <line>155</line>
+          <line>160</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -36,6 +36,11 @@ public class GASingleton {
     private SimulationPanel simulationPanel;
     private FitnessResults bestInRun;
     private PanelTextArea bestIndividualPanel;
+    private boolean simulatingWeights;
+
+    public boolean isSimulatingWeights() {
+        return simulatingWeights;
+    }
 
     public void setBestInRun(FitnessResults bestInRun) {
         this.bestInRun = bestInRun;
@@ -311,6 +316,10 @@ public class GASingleton {
 
     public void setBestIndividualPanel(PanelTextArea bestIndividualPanel) {
         this.bestIndividualPanel = bestIndividualPanel;
+    }
+
+    public void setSimulatingWeights(boolean weight) {
+        this.simulatingWeights = weight;
     }
 
 
