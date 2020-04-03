@@ -58,7 +58,7 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
                         }
                         str += "\tSupported Weight\n\t";
                         for (int i = 0; i < this.nodesSupport.get(agent).size(); i++) {
-                            str += "\t[" + nodesSupport.get(agent).get(i) + "]";
+                            str += "\t[" + nodesSupport.get(agent).get(i).intValue() + "]";
                         }
                         str += "\t\tSupporting\n";
                     }

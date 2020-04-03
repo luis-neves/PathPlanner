@@ -304,7 +304,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                     }
                 }
                 if (neighborN == null || neighborS == null) {
-                    System.out.println();
+                    //System.out.println();
                 }
 
                 if (neighborS != null) {
@@ -336,9 +336,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 }*/
             }
         }
+        /*
         for (int i = 0; i < graph.getGraphNodes().size(); i++) {
             System.out.println(graph.getGraphNodes().get(i).toString());
-        }
+        }*/
         return graph;
     }
 
@@ -640,6 +641,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             }
             this.interruptionIndex = -1;
             this.iterativeAgents = null;
+            GASingleton.getInstance().getMainFrame().buttonVisualize.setText("Play");
+            GASingleton.getInstance().getMainFrame().setStop(false);
         } catch (Exception e) {
             if (e.getClass().equals(InterruptedException.class)) {
                 this.stop = false;

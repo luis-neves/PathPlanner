@@ -116,7 +116,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
 
     private String printFitnessBreakdown() {
         String str = "";
-        str += results.getFitness() + " + " + (results.getCollisionPenalty() * results.getNumCollisions()) + " + " + (this.fitness - results.getFitness() - (results.getCollisionPenalty() * results.getNumCollisions()));
+        str += results.getFitness() + " + " + (results.getCollisionPenalty() * results.getNumCollisions()) + (GASingleton.getInstance().isSimulatingWeights() ? (" + " + (this.fitness - results.getFitness() - (results.getCollisionPenalty() * results.getNumCollisions()))) : "");
         return str;
     }
 

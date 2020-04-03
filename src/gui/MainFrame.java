@@ -40,7 +40,7 @@ public class MainFrame extends JFrame implements GAListener {
     private PanelParameters panelParameters = new PanelParameters();
     private JButton buttonStop = new JButton("Stop");
     private JButton buttonRunFromMemory = new JButton("Run Genetic Algorithm");
-    private JButton buttonVisualize = new JButton("Play");
+    public JButton buttonVisualize = new JButton("Play");
     private JButton buttonSlowVisualize = new JButton(">");
     private JButton buttonFastVisualize = new JButton(">>");
 
@@ -63,7 +63,7 @@ public class MainFrame extends JFrame implements GAListener {
     private void jbInit() throws Exception {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Pathfinding using genetic algorithms");
-
+        GASingleton.getInstance().setMainFrame(this);
         //North Left Panel
         JPanel panelNorthLeft = new JPanel(new BorderLayout());
         panelNorthLeft.setBorder(BorderFactory.createCompoundBorder(
@@ -91,7 +91,9 @@ public class MainFrame extends JFrame implements GAListener {
                         new Thread(r).start();
                         stop = true;
                         buttonVisualize.setText("||");
-                    }else if(GASingleton.getInstance().isNodeProblem() && stop){
+                        GASingleton.getInstance().getSimulationPanel().setStop(false);
+
+                    } else if (GASingleton.getInstance().isNodeProblem() && stop) {
                         GASingleton.getInstance().getSimulationPanel().setStop(true);
                         stop = false;
                         buttonVisualize.setText("Play");
@@ -200,10 +202,15 @@ public class MainFrame extends JFrame implements GAListener {
         pack();
     }
 
-    public void finishedShow(){
+    public void finishedShow() {
         this.stop = false;
 
     }
+
+    public void setStop(boolean stop) {
+        this.stop = stop;
+    }
+
     public class ShowPathRunnable implements Runnable {
 
         public ShowPathRunnable(boolean stop) {

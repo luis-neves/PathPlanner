@@ -1,6 +1,7 @@
 package ga;
 
 import armazem.Cell;
+import gui.MainFrame;
 import gui.PanelTextArea;
 import gui.SimulationPanel;
 import org.w3c.dom.Attr;
@@ -37,6 +38,7 @@ public class GASingleton {
     private FitnessResults bestInRun;
     private PanelTextArea bestIndividualPanel;
     private boolean simulatingWeights;
+    private MainFrame mainFrame;
 
     public boolean isSimulatingWeights() {
         return simulatingWeights;
@@ -320,6 +322,14 @@ public class GASingleton {
 
     public void setSimulatingWeights(boolean weight) {
         this.simulatingWeights = weight;
+    }
+
+    public MainFrame getMainFrame() {
+        return mainFrame;
+    }
+
+    public void setMainFrame(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
     }
 
 
