@@ -34,6 +34,7 @@ public class Edge {
     }
 
     private int id;
+
     public int getId() {
         return this.id;
     }
@@ -49,12 +50,15 @@ public class Edge {
     public GraphNode getStart() {
         return this.start;
     }
+
     public int getIdOfStartGraphNode() {
         return this.start.getGraphNodeId();
     }
+
     public GraphNode getEnd() {
         return this.end;
     }
+
     public int getIdOfEndGraphNode() {
         return this.end.getGraphNodeId();
     }
@@ -62,6 +66,7 @@ public class Edge {
     public double getWeight() {
         return this.weight;
     }
+
     public Edge(GraphNode s, GraphNode e, double w, int id) {
         this.start = s;
         this.end = e;
@@ -72,5 +77,13 @@ public class Edge {
     @Override
     public String toString() {
         return "Edge " + id + " W " + getWeight() + " Start " + getStart().getGraphNodeId() + " End " + getEnd().getGraphNodeId();
+    }
+
+    public GraphNode getOtherEnd(GraphNode graphNode) {
+        if (this.getEnd().getGraphNodeId() == graphNode.getGraphNodeId()) {
+            return this.getStart();
+        } else {
+            return this.getEnd();
+        }
     }
 }

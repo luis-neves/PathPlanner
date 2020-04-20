@@ -9,7 +9,6 @@ import java.util.*;
 
 public class PickingIndividual extends VectorIndividual<Picking, PickingIndividual> {
 
-
     public PickingIndividual(Picking problem, List<Item> items, double prob1s) {
         super(problem, items, prob1s);
     }
@@ -24,8 +23,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
             FitnessResults results = SimulationPanel.environmentNodeGraph.calculatePaths(getGenome());
             fitness = results.getFitness();
             this.results = results;
-            fitness += results.getCollisionPenalty() * results.getNumCollisions();
-
+            fitness += ((results.getCollisionPenalty() * results.getNumCollisions()) * GASingleton.getInstance().getColisionWeight()) * GASingleton.getInstance().getColisionWeight();
             if (GASingleton.getInstance().isSimulatingWeights()) {
                 float weightsPenalty = 0;
                 this.nodesSupport = new HashMap<>();
@@ -46,7 +44,8 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
                     }
                     this.nodesSupport.put(agent, supports);
                 }
-                fitness += weightsPenalty;
+                this.results.setWeightsPenalty(weightsPenalty);
+                fitness += (weightsPenalty * GASingleton.getInstance().getWeightsPenaltyWeight()) * GASingleton.getInstance().getWeightsPenaltyWeight();
             }
 
             //System.out.println(results.printTaskedAgents());
@@ -116,7 +115,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
 
     private String printFitnessBreakdown() {
         String str = "";
-        str += results.getFitness() + " + " + (results.getCollisionPenalty() * results.getNumCollisions()) + (GASingleton.getInstance().isSimulatingWeights() ? (" + " + (this.fitness - results.getFitness() - (results.getCollisionPenalty() * results.getNumCollisions()))) : "");
+        str += results.getFitness() + " + (" + (results.getCollisionPenalty() * results.getNumCollisions()) + (GASingleton.getInstance().isSimulatingWeights() ? " * " + GASingleton.getInstance().getColisionWeight() +(") + (" + (results.getWeightsPenalty()) + " * " + GASingleton.getInstance().getWeightsPenaltyWeight() + ")" ) : ")");
         return str;
     }
 

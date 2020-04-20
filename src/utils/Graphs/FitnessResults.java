@@ -12,6 +12,7 @@ public class FitnessResults {
     private List<GraphNode> path;
     private List<Colision> colisions;
     private int numCollisions;
+    private float weightsPenalty;
 
     public int getNumCollisions() {
         return numCollisions;
@@ -63,7 +64,7 @@ public class FitnessResults {
                         sum += costs.get(i);
                         FitnessNode fullNode = new FitnessNode(i, path.get(i), costs.get(i), i == 0 ? costs.get(i) : sum);
                         fitnessNodes.add(fullNode);
-                        if (fullNode.getNode().getType() != GraphNodeType.PRODUCT){
+                        if (fullNode.getNode().getType() != GraphNodeType.PRODUCT) {
                             fitnessNodesNoPackages.add(fullNode);
                         }
                     }
@@ -109,7 +110,7 @@ public class FitnessResults {
     public String printTaskedAgents() {
         try {
             String str = "";
-            for (Map.Entry<GraphNode, List<FitnessNode>> entry : getTaskedAgentsFullNodesNoPackages().entrySet()) {
+            for (Map.Entry<GraphNode, List<FitnessNode>> entry : getTaskedAgentsFullNodes().entrySet()) {
                 GraphNode agent = entry.getKey();
                 List<FitnessNode> agentPath = entry.getValue();
                 str += "\nAgent " + agent.getType().toLetter() + agent.getGraphNodeId();
@@ -165,5 +166,27 @@ public class FitnessResults {
     public void addTaskedAgentOnly(GraphNode agent, List<GraphNode> taskedAgentOnly) {
         List<GraphNode> clone = new ArrayList<>(taskedAgentOnly);
         this.taskedAgentsOnly.put(agent, clone);
+    }
+
+    public void clearNodeListFromPackages() {
+        for (Map.Entry<GraphNode, List<FitnessNode>> entry : getTaskedAgentsFullNodesNoPackages().entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<FitnessNode> agentPath = entry.getValue();
+            List<FitnessNode> toRemove = new ArrayList<>();
+            for (FitnessNode node : agentPath) {
+                if (node.getNode().getType() == GraphNodeType.PRODUCT) {
+                    toRemove.add(node);
+                }
+            }
+            agentPath.removeAll(toRemove);
+        }
+    }
+
+    public void setWeightsPenalty(float weightsPenalty) {
+        this.weightsPenalty = weightsPenalty;
+    }
+
+    public float getWeightsPenalty() {
+        return weightsPenalty;
     }
 }

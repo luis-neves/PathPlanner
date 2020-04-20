@@ -208,14 +208,18 @@ public class EnvironmentNodeGraph {
 
                                     if (i < pathNodes.size() - 1) {
                                         GraphNode nextNode = pathNodes.get(i + 1).getNode();
-                                        if (j != 0 && pathNodes2.get(j - 1).getNode().equals(nextNode)) {
+                                        /*if(inSameIle(currentFullNode.getNode(), nextNode, pathNodes2.get(j).getNode(), pathNodes2.get(j-1).getNode())){
+                                            System.out.println();
+                                        }*/
+                                        if (j != 0 && (pathNodes2.get(j - 1).getNode().equals(nextNode)) && pathNodes.get(i).getNode().getGraphNodeId() != pathNodes.get(i+1).getNode().getGraphNodeId()) {
                                             if (currentFullNode.getNode().getNeighbourEdge(pathNodes2.get(j).getNode()).getNum_directions() <= 1) {
                                                 float a = pathNodes.get(i).getTime();
-                                                float c = pathNodes.get(i + 1).getTime() + pathNodes.get(i + 1).getCost();
+                                                float c = pathNodes.get(i + 1).getTime();
                                                 float b = pathNodes2.get(j - 1).getTime();
-                                                float d = pathNodes2.get(j).getTime() + pathNodes2.get(j).getCost();
+                                                float d = pathNodes2.get(j).getTime();
                                                 if (a <= d && c >= b) {
-                                                    //System.out.println("Intersection " + currentFullNode.getNode().getType().toLetter() + currentFullNode.getNode().getGraphNodeId() + "," + nextNode.getType().toLetter() + nextNode.getGraphNodeId());
+                                                    //System.out.println("Intersection " + currentFullNode.getNode().getType
+                                                    //().toLetter() + currentFullNode.getNode().getGraphNodeId() + "," + nextNode.getType().toLetter() + nextNode.getGraphNodeId());
                                                     //System.out.println("Costs [" + a + " , " + c + "]-[" + b + " , " + d + "]");
                                                     //System.out.println(Math.min((c - a), (d - b)));
                                                     collisionsPenalty += Math.min((c - a), (d - b));
@@ -234,6 +238,32 @@ public class EnvironmentNodeGraph {
                                                     colision.setType("Intersection");
                                                     colisions.add(colision);
                                                     //System.out.println(results.printTaskedAgents());
+                                                }
+                                            }
+                                        }
+                                        if (j != 0 && i != 0 && inSameIle(pathNodes.get(i - 1).getNode(), currentFullNode.getNode(), pathNodes2.get(j).getNode(), pathNodes2.get(j - 1).getNode())) {
+                                            float a = pathNodes.get(i - 1).getTime();
+                                            float c = pathNodes.get(i).getTime();
+                                            float b = pathNodes2.get(j - 1).getTime();
+                                            float d = pathNodes2.get(j).getTime();
+                                            if (a <= d && c >= b) {
+                                                if (pathNodes.get(i - 1).getNode().equals(currentFullNode.getNode()) && (c - b) >= (d - b) / 2) {
+                                                    //collisionsPenalty += Math.min((c - a), (d - b));
+                                                    collisionsPenalty += Math.min((c - a), (d - b));
+                                                    nColisions++;
+                                                    Colision colision = new Colision();
+                                                    colision.addAgent(agent);
+                                                    colision.addAgent(agent2);
+                                                    colision.addNode(pathNodes.get(i - 1).getNode());
+                                                    colision.addNode(pathNodes.get(i).getNode());
+                                                    colision.addNode(pathNodes2.get(j - 1).getNode());
+                                                    colision.addNode(pathNodes2.get(j).getNode());
+                                                    colision.addTime(a);
+                                                    colision.addTime(c);
+                                                    colision.addTime(b);
+                                                    colision.addTime(d);
+                                                    colision.setType("Super Intersection");
+                                                    colisions.add(colision);
                                                 }
                                             }
                                         }
@@ -262,6 +292,21 @@ public class EnvironmentNodeGraph {
         return results;
     }
 
+    private boolean inSameIle(GraphNode first, GraphNode second, GraphNode second2, GraphNode first2) {
+        if (first.getGraphNodeId() == second.getGraphNodeId() && second.getGraphNodeId() == second2.getGraphNodeId()) {
+
+            if (first.getVerticalSimpleNode().contains(first2) && first.getVerticalSimpleNode().size() < 2) {
+                return true;
+            }
+        }
+        if (first2.getGraphNodeId() == second2.getGraphNodeId() && first2.getGraphNodeId() == second.getGraphNodeId()) {
+            if (first2.getVerticalSimpleNode().contains(first) && first2.getVerticalSimpleNode().size() < 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private FitnessResults fixRepetedProduct(FitnessResults results) {
         for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
             GraphNode agent = entry.getKey();
@@ -269,7 +314,7 @@ public class EnvironmentNodeGraph {
             List<FitnessNode> toRemove = new ArrayList<>();
             for (int i = 0; i < pathNodes.size() - 1; i++) {
                 if (pathNodes.get(i).getNode().getGraphNodeId() == pathNodes.get(i + 1).getNode().getGraphNodeId() && pathNodes.get(i + 1).getCost() == 0) {
-                    toRemove.add(pathNodes.get(i+1));
+                    toRemove.add(pathNodes.get(i + 1));
                 }
             }
             pathNodes.removeAll(toRemove);

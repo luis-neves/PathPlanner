@@ -39,6 +39,8 @@ public class GASingleton {
     private PanelTextArea bestIndividualPanel;
     private boolean simulatingWeights;
     private MainFrame mainFrame;
+    private float colisionWeight;
+    private float weightsPenaltyWeight;
 
     public boolean isSimulatingWeights() {
         return simulatingWeights;
@@ -109,6 +111,8 @@ public class GASingleton {
     private GASingleton() {
         this.items = new ArrayList<>();
         this.finalSet = new ArrayList<>();
+        this.weightsPenaltyWeight = 0.0f;
+        this.colisionWeight = 1f;
     }
 
     public static GASingleton getInstance() {
@@ -160,6 +164,7 @@ public class GASingleton {
 
     public FitnessResults checkResultsForColision(FitnessResults results) {
         if (SimulationPanel.environmentNodeGraph != null) {
+            //results.clearNodeListFromPackages();
             return SimulationPanel.environmentNodeGraph.checkColisions2(results);
         }
         return null;
@@ -330,6 +335,22 @@ public class GASingleton {
 
     public void setMainFrame(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
+    }
+
+    public float getColisionWeight() {
+        return colisionWeight;
+    }
+
+    public void setColisionWeight(float colisionWeight) {
+        this.colisionWeight = colisionWeight;
+    }
+
+    public float getWeightsPenaltyWeight() {
+        return this.weightsPenaltyWeight;
+    }
+
+    public void setWeightsPenaltyWeight(float weightsPenaltyWeight) {
+        this.weightsPenaltyWeight = weightsPenaltyWeight;
     }
 
 

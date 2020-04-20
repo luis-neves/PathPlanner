@@ -9,17 +9,19 @@ import ga.GeneticAlgorithm;
 import ga.geneticOperators.*;
 import ga.selectionMethods.*;
 
-import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.*;
+import java.util.List;
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import picking.*;
 import org.jfree.chart.ChartFactory;
@@ -210,6 +212,7 @@ public class MainFrame extends JFrame implements GAListener {
     public void setStop(boolean stop) {
         this.stop = stop;
     }
+
 
     public class ShowPathRunnable implements Runnable {
 
@@ -508,6 +511,8 @@ class PanelParameters extends PanelAtributesValue {
     public static final String PROB_RECOMBINATION = "0.8";
     public static final String PROB_MUTATION = "0.01";
     public static final String PROB_1S = "0.05";
+    public static final String WEIGHT_WEIGHT = "0.5";
+    private final JPanel weightsPanel;
     JTextField jTextFieldSeed = new JTextField(SEED, TEXT_FIELD_LENGHT);
     JTextField jTextFieldN = new JTextField(POPULATION_SIZE, TEXT_FIELD_LENGHT);
     JTextField jTextFieldGenerations = new JTextField(GENERATIONS, TEXT_FIELD_LENGHT);
@@ -525,6 +530,8 @@ class PanelParameters extends PanelAtributesValue {
     String[] fitnessTypes = {"Bigger Path Priority", "Smaller Path Priority", "Closest to Exit Priority"};
     JComboBox jComboBoxFitnessTypes = new JComboBox(fitnessTypes);
     JCheckBox checkBoxWeights = new JCheckBox("");
+    JTextField txtColisionPenaltyWeight = new JTextField(WEIGHT_WEIGHT, 4);
+    JTextField txtWeightPenaltyWeight = new JTextField(WEIGHT_WEIGHT, 4);
 
     public PanelParameters() {
         title = "Genetic algorithm parameters";
@@ -572,22 +579,88 @@ class PanelParameters extends PanelAtributesValue {
         jComboBoxFitnessTypes.addActionListener(new JComboBoxFitnessFunction_ActionAdapter(this));
         labels.add(new JLabel("Simulate Weights: "));
         valueComponents.add(checkBoxWeights);
+        weightsPanel = new JPanel();
+        weightsPanel.add(new JLabel("C"));
+        weightsPanel.add(txtColisionPenaltyWeight);
+        weightsPanel.add(new JLabel("W"));
+        labels.add(new JLabel("Ponderação"));
+        weightsPanel.add(txtWeightPenaltyWeight);
+        valueComponents.add(weightsPanel);
+        weightsPanel.setVisible(false);
+        txtColisionPenaltyWeight.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent documentEvent) {
+                float value = Float.parseFloat(txtColisionPenaltyWeight.getText());
+                GASingleton.getInstance().setColisionWeight(value);
+                if (value <= 1) {
+                    value = (1f - value);
+                    GASingleton.getInstance().setWeightsPenaltyWeight(Float.parseFloat(String.format("%.1f", value)));
+                    System.out.println(GASingleton.getInstance().getColisionWeight() + " " + GASingleton.getInstance().getWeightsPenaltyWeight());
+
+                    txtWeightPenaltyWeight.setText(String.format("%.1f", value));
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Error: Please enter number between 0 and 1", "Error Message",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent documentEvent) {
+
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent documentEvent) {
+
+            }
+        });
+        txtWeightPenaltyWeight.getDocument().addDocumentListener(new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent documentEvent) {
+                float value = Float.parseFloat(txtWeightPenaltyWeight.getText());
+                GASingleton.getInstance().setWeightsPenaltyWeight(value);
+                System.out.println(GASingleton.getInstance().getColisionWeight() + " " + GASingleton.getInstance().getWeightsPenaltyWeight());
+
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent documentEvent) {
+
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent documentEvent) {
+
+            }
+        });
+
         checkBoxWeights.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 JCheckBox cbLog = (JCheckBox) actionEvent.getSource();
                 if (cbLog.isSelected()) {
                     System.out.println("Simulating weights");
+                    weightsPanel.setVisible(true);
+                    GASingleton.getInstance().setWeightsPenaltyWeight(0.5f);
+                    GASingleton.getInstance().setColisionWeight(0.5f);
+                    System.out.println(GASingleton.getInstance().getColisionWeight() + " " + GASingleton.getInstance().getWeightsPenaltyWeight());
+
                     GASingleton.getInstance().setSimulatingWeights(true);
                 } else {
                     System.out.println("Not Simulating weights");
+                    weightsPanel.setVisible(false);
+                    GASingleton.getInstance().setWeightsPenaltyWeight(0.0f);
+                    GASingleton.getInstance().setColisionWeight(1f);
                     GASingleton.getInstance().setSimulatingWeights(false);
-
+                    System.out.println(GASingleton.getInstance().getColisionWeight() + " " + GASingleton.getInstance().getWeightsPenaltyWeight());
                 }
             }
         });
         configure();
     }
+
 
     public void actionPerformedSelectionMethods(ActionEvent e) {
     }
@@ -694,4 +767,5 @@ class PanelParameters extends PanelAtributesValue {
             }
         }
     }
+
 }

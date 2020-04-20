@@ -119,10 +119,17 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         List<FitnessNode> nodes = results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id));
         nodes.remove(2);
         nodes.get(2).setCost(40f);
-        results.getTaskedAgentsFullNodesNoPackages().replace(problemGraph.findNode(agent_id), nodes);
+        List<FitnessNode> nodesClone2 = new ArrayList<>();
+        for (int i = 0 ; i < nodes.size(); i++){
+            if (nodes.get(i).getNode().getType() != GraphNodeType.PRODUCT){
+                nodesClone2.add(nodes.get(i));
+            }
+        }
+        results.getTaskedAgentsFullNodes().replace(problemGraph.findNode(agent_id), nodes);
+        results.getTaskedAgentsFullNodesNoPackages().replace(problemGraph.findNode(agent_id), nodesClone2);
         results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id_2)).clear();
-
         List<FitnessNode> nodes19 = results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id_2));
+
         nodes19 = insertFakeFitnessNode(nodes19, 0, 8, 60);
         nodes19 = insertFakeFitnessNode(nodes19, 1, 9, 30);
         nodes19 = insertFakeFitnessNode(nodes19, 2, 25, 40);
@@ -130,13 +137,22 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         nodes19 = insertFakeFitnessNode(nodes19, 4, 16, 30);
         nodes19 = insertFakeFitnessNode(nodes19, 5, 17, 30);
         nodes19 = insertFakeFitnessNode(nodes19, 6, 18, 30);
-        results.getTaskedAgentsFullNodesNoPackages().replace(problemGraph.findNode(agent_id_2), nodes19);
 
+        results.getTaskedAgentsFullNodes().replace(problemGraph.findNode(agent_id_2), nodes19);
+        List<FitnessNode> nodesClone = new ArrayList<>();
+
+        for (int i = 0 ; i < nodes19.size(); i++){
+            if (nodes19.get(i).getNode().getType() != GraphNodeType.PRODUCT){
+                nodesClone.add(nodes19.get(i));
+            }
+        }
+        results.getTaskedAgentsFullNodesNoPackages().replace(problemGraph.findNode(agent_id_2), nodesClone);
 
         results = GASingleton.getInstance().checkResultsForColision(results);
         GASingleton.getInstance().setBestInRun(results);
         GASingleton.getInstance().getBestIndividualPanel().textArea.setText(GASingleton.getInstance().getBestInRun().printTaskedAgents());
     }
+
 
     private List<FitnessNode> insertFakeFitnessNode(List<FitnessNode> nodes, int index, int nID, float cost) {
         Float time = 0f;

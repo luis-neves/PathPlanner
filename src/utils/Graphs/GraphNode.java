@@ -154,6 +154,16 @@ public class GraphNode {
         return nodes;
     }
 
+    public List<GraphNode> getVerticalSimpleNode(){
+        List<GraphNode> list = new ArrayList<>();
+        for (int i = 0; i < neighbours.size(); i++){
+            if(neighbours.get(i).getOtherEnd(this).getType() == GraphNodeType.SIMPLE && neighbours.get(i).getOtherEnd(this).getLocation().getX() == this.getLocation().getX()){
+                list.add(neighbours.get(i).getOtherEnd(this));
+            }
+        }
+        return list;
+    }
+
     public List<GraphNode> getNeighbourNodesWithoutProducts(List<GraphNode> taskedNodes) {
         List<GraphNode> nodes = new ArrayList<>();
         for (int i = 0; i < neighbours.size(); i++) {

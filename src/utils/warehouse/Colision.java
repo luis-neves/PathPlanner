@@ -64,7 +64,7 @@ public class Colision {
     }
 
     public String print() {
-        String str = "\nNode(s) \n";
+        String str = "\n--------Node-----------------------------------\n";
         for (int i = 0; i < nodes.size(); i += 2) {
             if (nodes.size() > 1) {
                 str += "\t" + nodes.get(i).getType().toLetter() + (nodes.get(i).getGraphNodeId() + "") + "->" + nodes.get(i + 1).getType().toLetter() + (nodes.get(i + 1).getGraphNodeId() + "") + "\t";
