@@ -16,8 +16,8 @@ public class StatisticBestInRun<I extends Individual, P extends Problem<I>> impl
 
     public StatisticBestInRun(String experimentHeader) {
         File file = new File("statistic_best_per_experiment_fitness.xls");
-        if(!file.exists()){
-            utils.FileOperations.appendToTextFile("statistic_best_per_experiment_fitness.xls", experimentHeader + "\t" + "Fitness:" + "\r\n");
+        if (!file.exists()) {
+            utils.FileOperations.appendToTextFile("statistic_best_per_experiment_fitness.xls", experimentHeader + "\t" + "Fitness:" + "\t" + "Time" + "\t" + "Colisions" + "\t" + "StdDev PicksPerAgent" + "\r\n");
         }
     }
 
@@ -40,7 +40,7 @@ public class StatisticBestInRun<I extends Individual, P extends Problem<I>> impl
         String experimentHeader = ((Experiment) e.getSource()).getExperimentHeader();
         String experimentConfigurationValues = ((Experiment) e.getSource()).getExperimentValues();
 
-        utils.FileOperations.appendToTextFile("statistic_best_per_experiment_fitness.xls", experimentConfigurationValues + "\t" + bestInExperiment.getFitness() + "\r\n");
+        utils.FileOperations.appendToTextFile("statistic_best_per_experiment_fitness.xls", experimentConfigurationValues + "\t" + bestInExperiment.getFitness()  + "\t" + bestInExperiment.getResults().getTime()  + "\t" + bestInExperiment.getResults().getNumCollisions()  + "\t" + bestInExperiment.getAvgPicksPerAgent() + "\r\n");
         utils.FileOperations.appendToTextFile("statistic_best_per_experiment.txt", "\r\n\r\n" + experimentTextualRepresentation + "\r\n" + bestInExperiment);
     }
 }

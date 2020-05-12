@@ -1,12 +1,17 @@
-Runs: 30
+Runs: 5
 
 Population size: 100
 
 Max generations: 100
 
-Num Picks: 25,30,35
+Num Picks: 5,6,7,8,9,10
 
 Num Agents: 1,2,3,4,5
+
+Num Columns:14
+
+Time Weight: 1
+
 //--------------------------------
 
 Selection: tournament
@@ -23,7 +28,7 @@ Recombination probability: 0.8
 
 Mutation: inversion
 
-Mutation probability: 0.01
+Mutation probability: 0.025
 
 //--------------------------------
 
@@ -33,7 +38,7 @@ Fitness type: 0
 
 //--------------------------------
 
-Problem file: ./Empty_1.txt
+//Problem file: ./Empty_1.txt
 //--------------------------------
 
 Statistic: BestIndividual

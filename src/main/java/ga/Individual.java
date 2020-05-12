@@ -16,7 +16,7 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
 
 
     protected P problem;
-    protected double picksPerAgent;
+    protected double avgPicksPerAgent;
 
     public Individual(P problem) {
         this.problem = problem;
@@ -26,7 +26,7 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
         this.problem = original.problem;
         this.fitness = original.fitness;
         this.collisions = original.collisions;
-        this.picksPerAgent = original.picksPerAgent;
+        this.avgPicksPerAgent = original.avgPicksPerAgent;
         this.results = original.results;
         this.nodesSupport = original.nodesSupport;
     }
@@ -51,8 +51,8 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
     public int getCollisions(){
         return collisions;
     }
-    public double getPicksPerAgent() {
-        return picksPerAgent;
+    public double getAvgPicksPerAgent() {
+        return avgPicksPerAgent;
     }
 
     public abstract int compareTo(I i);

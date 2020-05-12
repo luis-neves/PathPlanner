@@ -10,6 +10,15 @@ import java.util.Map;
 public class FitnessResults {
     private float fitness;
     private float time;
+    private float picksPerAgent;
+
+    public float getPicksPerAgent() {
+        return picksPerAgent;
+    }
+
+    public void setPicksPerAgent(float picksPerAgent) {
+        this.picksPerAgent = picksPerAgent;
+    }
 
     public float getTime() {
         return time;

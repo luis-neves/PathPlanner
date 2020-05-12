@@ -110,42 +110,9 @@ public class Picking implements Problem<PickingIndividual> {
         return new Picking(GASingleton.getInstance().getItems(), 0.5);
     }
 
-    public static Picking buildKnapsackExperiment(File dataSet) throws IOException {
-        JFileChooser fc = new JFileChooser(new java.io.File("."));
-        try {
-            Scanner fileScanner = new Scanner(dataSet);
-            int size = fileScanner.nextInt();
+    public static Picking buildKnapsackExperiment() {
 
-            int[][] grid = new int[size][size];
-            int i = 0;
-            int j = 0;
-
-            String line = fileScanner.nextLine();
-            while (fileScanner.hasNextLine()) {
-                line = fileScanner.nextLine();
-                Scanner lineScanner = new Scanner(line);
-                while (lineScanner.hasNext()) {
-                    grid[i][j] = lineScanner.nextInt();
-                    //System.out.print(grid[i][j]);
-                    j++;
-                }
-                //System.out.println();
-                lineScanner.close();
-                j = 0;
-                i++;
-            }
-            fileScanner.close();
-
-            //SimulationPanel.environment = new Environment(grid, true,1,1,1);
-            GASingleton.getInstance().generateGrid(grid);
-            return new Picking(GASingleton.getInstance().getItems(), 0.5);
-        } catch (IOException e1) {
-            e1.printStackTrace(System.err);
-            return null;
-        } catch (java.util.NoSuchElementException e2) {
-            System.out.println();
-            return null;
-        }
+        return new Picking(GASingleton.getInstance().getItems(), 0.5);
     }
 
 

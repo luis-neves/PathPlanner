@@ -47,6 +47,7 @@ public class GASingleton {
     private float weightsPenaltyWeight;
     private CommunicationManager cm;
     private float timeWeight;
+    private int numExperiments;
 
     public CommunicationManager getCm() {
         return cm;
@@ -214,9 +215,6 @@ public class GASingleton {
 
     public void clearData() {
         this.items = new ArrayList<>();
-        this.finalSet = new ArrayList<>();
-        this.distanceMatrix = null;
-        this.matrixCounter = 0;
     }
 
     public void setFitnessType(int selectedIndex) {
@@ -376,6 +374,14 @@ public class GASingleton {
 
     public float getTimeWeight() {
         return this.timeWeight;
+    }
+
+    public void setNumExperiments(int numExperiments) {
+        this.numExperiments = numExperiments;
+    }
+
+    public int getNumExperiments() {
+        return numExperiments;
     }
 
 

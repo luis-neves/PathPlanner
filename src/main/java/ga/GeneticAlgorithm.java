@@ -61,6 +61,30 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         SimulationPanel.environment = new Environment(grid, true, seed, picks, agents);
     }
 
+    public GeneticAlgorithm(
+            int populationSize,
+            int maxGenerations,
+            SelectionMethod<I, P> selection,
+            Mutation<I> mutation,
+            Recombination<I> recombination,
+            Random rand,
+            int agents,
+            int picks,
+            int num_columns,
+            float time_weight,
+            int seed) {
+
+        random = rand;
+        this.populationSize = populationSize;
+        this.maxGenerations = maxGenerations;
+        this.selection = selection;
+        this.mutation = mutation;
+        this.recombination = recombination;
+        GASingleton.getInstance().setTimeWeight(time_weight);
+        GASingleton.getInstance().setColisionWeight(1 - time_weight);
+        GASingleton.getInstance().getSimulationPanel().generateExperimentGraph(num_columns, agents, picks, seed);
+    }
+
     public I run(P problem) {
         t = 0;
         population = new Population<>(populationSize, problem);
@@ -87,15 +111,14 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
             fireGenerationEnded(new GAEvent(this));
         }
 
-        if (GASingleton.getInstance().getCm() != null){
+        if (GASingleton.getInstance().getCm() != null) {
             GASingleton.getInstance().generateXMLPath(bestInRun.results.getTaskedAgentsFullNodes());
         }
 
-        if (GASingleton.getInstance().isNodeProblem()){
+        if (GASingleton.getInstance().isNodeProblem()) {
             GASingleton.getInstance().setBestInRun(bestInRun.results);
             //GASingleton.getInstance().getSimulationPanel().runPath(bestInRun.getResults());
-        }
-        else {
+        } else {
             GASingleton.getInstance().setFinalItemSet(Arrays.asList(bestInRun.getGenome()), true);
         }
         fireRunEnded(new GAEvent(this));

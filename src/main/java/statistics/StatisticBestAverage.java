@@ -7,11 +7,12 @@ import ga.GAListener;
 import ga.GeneticAlgorithm;
 import ga.Individual;
 import ga.Problem;
+import picking.PickingIndividual;
 import utils.Maths;
 
 import java.io.File;
 
-public class StatisticBestAverage<E extends Individual, P extends Problem<E>> implements GAListener  {
+public class StatisticBestAverage<E extends Individual, P extends Problem<E>> implements GAListener {
 
     private final double[] values;
     private final double[] times;
@@ -25,8 +26,8 @@ public class StatisticBestAverage<E extends Individual, P extends Problem<E>> im
         collisionValues = new double[numRuns];
         picksAgentValues = new double[numRuns];
         File file = new File("statistic_average_fitness.xls");
-        if(!file.exists()){
-            utils.FileOperations.appendToTextFile("statistic_average_fitness.xls", experimentHeader + "\t" + "Average:" + "\t" + "StdDev:" + "\t" +"Average Collisions"+ "\t" + "StdDev Collisions"+ "\t" + "Avg PicksPerAgent"+ "\t" +"StdDev PicksPerAgent"+"\r\n");
+        if (!file.exists()) {
+            utils.FileOperations.appendToTextFile("statistic_average_fitness.xls", experimentHeader + "\t" + "Fitness(AVG):" + "\t" + "Time(AVG):" + "\t" + "Fitness StdDev:" + "\t" + "Time StdDev" + "\t" + "Collisions (AVG)" + "\t" + "Collisions StdDev" + "\t" + "stdDevPicksPerAgent (AVG)" + "\t" + "\r\n");
         }
     }
 
@@ -38,8 +39,9 @@ public class StatisticBestAverage<E extends Individual, P extends Problem<E>> im
     public void runEnded(GAEvent e) {
         GeneticAlgorithm<E, P> ga = e.getSource();
         values[run] = ga.getBestInRun().getFitness();
-        collisionValues[run] = (double) ga.getBestInRun().getCollisions();
-        picksAgentValues[run] = ga.getBestInRun().getPicksPerAgent();
+        times[run] = ga.getBestInRun().getResults().getTime();
+        collisionValues[run] = (double) ga.getBestInRun().getResults().getNumCollisions();
+        picksAgentValues[run] = ((PickingIndividual) ga.getBestInRun()).pickDistributionStdDev();
         run++;
     }
 
@@ -47,14 +49,15 @@ public class StatisticBestAverage<E extends Individual, P extends Problem<E>> im
     public void experimentEnded(ExperimentEvent e) {
 
         double average = Maths.average(values);
+        double averageTime = Maths.average(times);
         double averageCollisions = Maths.average(collisionValues);
         double avaragePicksPerAgent = Maths.average(picksAgentValues);
         double sd = Maths.standardDeviation(values, average);
+        double sdTime = Maths.standardDeviation(times, averageTime);
         double sdCollisions = Maths.standardDeviation(collisionValues, averageCollisions);
-        double sdPicksPerAgent = Maths.standardDeviation(picksAgentValues, avaragePicksPerAgent);
 
         String experimentConfigurationValues = ((Experiment) e.getSource()).getExperimentValues();
 
-        utils.FileOperations.appendToTextFile("statistic_average_fitness.xls", experimentConfigurationValues + "\t" + average + "\t" + sd + "\t" + averageCollisions + "\t" + sdCollisions +"\t" + avaragePicksPerAgent +"\t" + sdPicksPerAgent + "\r\n");
+        utils.FileOperations.appendToTextFile("statistic_average_fitness.xls", experimentConfigurationValues + "\t" + average + "\t" + averageTime + "\t" + sd + "\t" + sdTime + "\t" + averageCollisions + "\t" + sdCollisions + "\t" + avaragePicksPerAgent + "\r\n");
     }
 }

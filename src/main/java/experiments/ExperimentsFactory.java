@@ -1,5 +1,6 @@
 package experiments;
 
+import ga.GASingleton;
 import ga.GeneticAlgorithm;
 import java.io.File;
 import java.io.IOException;
@@ -77,6 +78,15 @@ public abstract class ExperimentsFactory {
             parameters.put(parameterName, parameter);
             orderedParametersVector[i++] = parameter;
         }
+        int num_experiments = 1;
+        for (int j = 0; j < orderedParametersVector.length; j++){
+            if (orderedParametersVector[j].getNumberOfValues() > 1){
+                num_experiments *= orderedParametersVector[j].getNumberOfValues();
+            }
+        }
+        GASingleton.getInstance().setNumExperiments(num_experiments);
+
+
 
 //        //DEBUG
 //        for (i = 0; i < orderedParametersVector.length; i++) {

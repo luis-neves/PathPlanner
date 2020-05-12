@@ -6,10 +6,12 @@ import ga.GASingleton;
 import ga.GeneticAlgorithm;
 import ga.geneticOperators.*;
 import ga.selectionMethods.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+
 import statistics.StatisticBestAverage;
 import statistics.StatisticBestInRun;
 
@@ -24,6 +26,9 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
     private Mutation<PickingIndividual> mutation;
     private Picking picking;
     private Experiment<PickingExperimentsFactory, Picking> experiment;
+    private int num_columns;
+    private float time_weight;
+    private float col_weight;
 
     public PickingExperimentsFactory(File configFile) throws IOException {
         super(configFile);
@@ -36,11 +41,13 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         maxGenerations = Integer.parseInt(getParameterValue("Max generations"));
         numAgents = Integer.parseInt(getParameterValue("Num Agents"));
         numPicks = Integer.parseInt(getParameterValue("Num Picks"));
-
+        num_columns = Integer.parseInt(getParameterValue("Num Columns"));
+        time_weight = Float.parseFloat(getParameterValue("Time Weight"));
+        col_weight = 1 - time_weight;
 
 
         //SELECTION
-        switch (getParameterValue("Selection")){
+        switch (getParameterValue("Selection")) {
             case "tournament":
                 int tournamentSize = Integer.parseInt(getParameterValue("Tournament size"));
                 selection = new Tournament<>(populationSize, tournamentSize);
@@ -53,7 +60,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
 
         //RECOMBINATION
         double recombinationProbability = Double.parseDouble(getParameterValue("Recombination probability"));
-        switch (getParameterValue("Recombination")){
+        switch (getParameterValue("Recombination")) {
             case "one_cut":
                 recombination = new RecombinationOneCut<>(recombinationProbability);
                 break;
@@ -66,10 +73,10 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
             case "OX":
                 recombination = new RecombinationOX<>(recombinationProbability);
                 break;
-            }
+        }
         //MUTATION
         double mutationProbability = Double.parseDouble(getParameterValue("Mutation probability"));
-        switch (getParameterValue("Mutation")){
+        switch (getParameterValue("Mutation")) {
             case "inversion":
                 mutation = new MutationInversion<>(mutationProbability);
                 break;
@@ -84,12 +91,12 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         }*/
 
         //FITNESS TYPE
-        int fitnessType = Integer.parseInt(getParameterValue("Fitness type"));
+        //int fitnessType = Integer.parseInt(getParameterValue("Fitness type"));
 
 
         //PROBLEM 
-        picking = Picking.buildKnapsackExperiment(new File(getParameterValue("Problem file")));
-        picking.setFitnessType(fitnessType);
+        picking = Picking.buildKnapsackExperiment();
+        //picking.setFitnessType(fitnessType);
 
         String experimentTextualRepresentation = buildExperimentTextualRepresentation();
         String experimentHeader = buildExperimentHeader();
@@ -124,7 +131,12 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
                 selection,
                 mutation,
                 recombination,
-                new Random(seed),numAgents,numPicks, GASingleton.getInstance().getGrid(),seed);
+                new Random(seed),
+                numAgents,
+                numPicks,
+                num_columns,
+                time_weight,
+                seed);
 
         for (ExperimentListener statistic : statistics) {
             ga.addGAListener((GAListener) statistic);
@@ -155,6 +167,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         sb.append("Mutation prob.: " + mutation.getProbability());
         return sb.toString();
     }
+
     private String buildExperimentHeader() {
         StringBuilder sb = new StringBuilder();
         sb.append("Population size:" + "\t");
@@ -166,6 +179,9 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         sb.append("Mutation prob.:" + "\t");
         sb.append("Agents:" + "\t");
         sb.append("Picks:" + "\t");
+        sb.append("Columns:" + "\t");
+        sb.append("TW:" + "\t");
+        sb.append("CW:" + "\t");
         return sb.toString();
     }
 
@@ -180,6 +196,9 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         sb.append(mutation.getProbability() + "\t");
         sb.append(numAgents + "\t");
         sb.append(numPicks + "\t");
+        sb.append(num_columns + "\t");
+        sb.append(time_weight + "\t");
+        sb.append(col_weight + "\t");
         return sb.toString();
     }
 }

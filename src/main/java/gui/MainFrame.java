@@ -352,11 +352,18 @@ public class MainFrame extends JFrame implements GAListener {
             public Void doInBackground() {
                 try {
                     int iteration = 0;
+                    int num_experiments = GASingleton.getInstance().getNumExperiments();
+                    String format = "%.1f";
+                    if (num_experiments > 5000){
+                        format = "%.2f";
+                    }
                     while (experimentsFactory.hasMoreExperiments()) {
                         try {
                             Experiment experiment = experimentsFactory.nextExperiment();
                             iteration++;
-                            System.out.println(iteration);
+                            float progress = 0f;
+                            progress = (float) iteration * 100 / num_experiments;
+                            textFieldExperimentsStatus.setText("Running " + String.format (format, progress) + "%");
                             experiment.run();
                         } catch (IOException e1) {
                             e1.printStackTrace(System.err);
@@ -604,8 +611,10 @@ class PanelParameters extends PanelAtributesValue {
         txtWeightPenaltyWeight.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
             }
+
             public void removeUpdate(DocumentEvent e) {
             }
+
             public void insertUpdate(DocumentEvent e) {
                 GASingleton.getInstance().setWeightsPenaltyWeight(Float.parseFloat(txtWeightPenaltyWeight.getText()));
             }
@@ -613,8 +622,10 @@ class PanelParameters extends PanelAtributesValue {
         txtTimeWeight.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
             }
+
             public void removeUpdate(DocumentEvent e) {
             }
+
             public void insertUpdate(DocumentEvent e) {
                 GASingleton.getInstance().setTimeWeight(Float.parseFloat(txtTimeWeight.getText()));
 
@@ -623,8 +634,10 @@ class PanelParameters extends PanelAtributesValue {
         txtColisionPenaltyWeight.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
             }
+
             public void removeUpdate(DocumentEvent e) {
             }
+
             public void insertUpdate(DocumentEvent e) {
                 GASingleton.getInstance().setColisionWeight(Float.parseFloat(txtColisionPenaltyWeight.getText()));
             }

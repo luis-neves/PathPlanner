@@ -138,6 +138,7 @@ public class EnvironmentNodeGraph {
         }
         results.setFitness(highest);
         results.setPath(finalPath);
+        results.setTime(highest);
         results = checkColisions2(results);
         //checkColisions2(results);
         previousFitness = results;

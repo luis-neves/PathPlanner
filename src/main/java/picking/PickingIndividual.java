@@ -4,6 +4,7 @@ import ga.GASingleton;
 import ga.VectorIndividual;
 import gui.SimulationPanel;
 import utils.Graphs.*;
+import utils.Maths;
 
 import java.util.*;
 
@@ -22,10 +23,12 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
         if (GASingleton.getInstance().isNodeProblem()) {
             FitnessResults results = SimulationPanel.environmentNodeGraph.calculatePaths(getGenome());
             this.results = results;
-            this.results.setTime(results.getFitness());
             fitness = results.getFitness() * GASingleton.getInstance().getTimeWeight();
 
             fitness += ((results.getCollisionPenalty() * results.getNumCollisions()) * GASingleton.getInstance().getColisionWeight()) * GASingleton.getInstance().getColisionWeight();
+            int agentsPick = 0;
+            avgPicksPerAgent = 0;
+
             if (GASingleton.getInstance().isSimulatingWeights()) {
                 float weightsPenalty = 0;
                 this.nodesSupport = new HashMap<>();
@@ -56,13 +59,13 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
         } else {
             fitness = 0;
             collisions = 0;
-            picksPerAgent = 0;
+            avgPicksPerAgent = 0;
             List<Double> times = GASingleton.getInstance().setFinalItemSet(Arrays.asList(getGenome()), false);
             int highest = 0;
             if (times != null) {
                 for (Double value : times) {
                     if (times.indexOf(value) == times.size() - 1) {
-                        picksPerAgent = value;
+                        avgPicksPerAgent = value;
                     } else if (times.indexOf(value) == times.size() - 2) {
                         collisions = value.intValue();
                     } else {
@@ -75,6 +78,20 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
             }
         }
         return fitness;
+    }
+
+    public double pickDistributionStdDev() {
+        double[] picks = new double[results.getTaskedAgentsOnly().keySet().size()];
+        int i = 0;
+        int totalPicks = 0;
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : results.getTaskedAgentsOnly().entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<GraphNode> nodes = entry.getValue();
+            picks[i++] = nodes.size();
+            totalPicks += nodes.size();
+        }
+        avgPicksPerAgent = (double) totalPicks / results.getTaskedAgentsOnly().keySet().size();
+        return Maths.standardDeviation(picks, avgPicksPerAgent);
     }
 
     @Override
@@ -117,7 +134,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
 
     private String printFitnessBreakdown() {
         String str = "";
-        str += results.getFitness() + "*" + GASingleton.getInstance().getTimeWeight() + " + (" + (results.getCollisionPenalty() * results.getNumCollisions()) + (GASingleton.getInstance().isSimulatingWeights() ? " * " + GASingleton.getInstance().getColisionWeight() + (") + (" + (results.getWeightsPenalty()) + " * " + GASingleton.getInstance().getWeightsPenaltyWeight() + ")") : "*"+GASingleton.getInstance().getColisionWeight() + ")");
+        str += results.getFitness() + "*" + GASingleton.getInstance().getTimeWeight() + " + (" + (results.getCollisionPenalty() * results.getNumCollisions()) + (GASingleton.getInstance().isSimulatingWeights() ? " * " + GASingleton.getInstance().getColisionWeight() + (") + (" + (results.getWeightsPenalty()) + " * " + GASingleton.getInstance().getWeightsPenaltyWeight() + ")") : "*" + GASingleton.getInstance().getColisionWeight() + ")");
         return str;
     }
 

@@ -3,383 +3,30 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="AlgoritmoGenetico:jar" />
+      <artifact name="AlgoritmoGenetico_Mav:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="20/04/2020&#10;[PRE SERVICE BUS]">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/AlgoritmoGenetico_Mav_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20190722.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClassLib.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClassLib.j4n.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClassLib.j4n.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClassLib.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClassLib.proxygen.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Azure.Amqp.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Azure.NotificationHubs.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Azure.NotificationHubs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Azure.ServiceBus.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Azure.Services.AppAuthentication.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Azure.Services.AppAuthentication.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.Caching.Abstractions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.Caching.Abstractions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.Caching.Memory.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.Caching.Memory.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.DependencyInjection.Abstractions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.DependencyInjection.Abstractions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.Options.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.Options.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.Primitives.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Extensions.Primitives.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Clients.ActiveDirectory.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Clients.ActiveDirectory.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.JsonWebTokens.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.JsonWebTokens.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.JsonWebTokens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Logging.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Logging.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Logging.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Tokens.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Tokens.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.IdentityModel.Tokens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microsoft.Win32.Primitives.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Newtonsoft.Json.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Newtonsoft.Json.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.AppContext.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Buffers.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Buffers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Collections.Concurrent.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Collections.NonGeneric.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Collections.Specialized.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Collections.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.ComponentModel.EventBasedAsync.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.ComponentModel.Primitives.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.ComponentModel.TypeConverter.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.ComponentModel.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Console.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Data.Common.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.Contracts.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.Debug.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.DiagnosticSource.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.DiagnosticSource.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.FileVersionInfo.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.Process.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.StackTrace.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.TextWriterTraceListener.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.Tools.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.TraceSource.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Diagnostics.Tracing.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Drawing.Primitives.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Dynamic.Runtime.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Globalization.Calendars.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Globalization.Extensions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Globalization.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.Compression.ZipFile.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.Compression.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.FileSystem.DriveInfo.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.FileSystem.Primitives.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.FileSystem.Watcher.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.FileSystem.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.IsolatedStorage.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.MemoryMappedFiles.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.Pipes.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.UnmanagedMemoryStream.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IO.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IdentityModel.Tokens.Jwt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IdentityModel.Tokens.Jwt.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.IdentityModel.Tokens.Jwt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Linq.Expressions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Linq.Parallel.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Linq.Queryable.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Linq.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Memory.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Memory.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.Http.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.NameResolution.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.NetworkInformation.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.Ping.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.Primitives.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.Requests.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.Security.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.Sockets.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.WebHeaderCollection.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.WebSockets.Client.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Net.WebSockets.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Numerics.Vectors.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Numerics.Vectors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.ObjectModel.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Reflection.Extensions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Reflection.Primitives.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Reflection.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Resources.Reader.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Resources.ResourceManager.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Resources.Writer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.CompilerServices.Unsafe.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.CompilerServices.Unsafe.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.CompilerServices.VisualC.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.Extensions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.Handles.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.InteropServices.RuntimeInformation.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.InteropServices.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.Numerics.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.Serialization.Formatters.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.Serialization.Json.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.Serialization.Primitives.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.Serialization.Xml.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Runtime.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Security.Claims.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Security.Cryptography.Algorithms.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Security.Cryptography.Csp.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Security.Cryptography.Encoding.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Security.Cryptography.Primitives.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Security.Cryptography.X509Certificates.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Security.Principal.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Security.SecureString.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Text.Encoding.Extensions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Text.Encoding.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Text.RegularExpressions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Threading.Overlapped.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Threading.Tasks.Parallel.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Threading.Tasks.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Threading.Thread.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Threading.ThreadPool.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Threading.Timer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Threading.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.ValueTuple.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Xml.ReaderWriter.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Xml.XDocument.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Xml.XPath.XDocument.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Xml.XPath.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Xml.XmlDocument.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System.Xml.XmlSerializer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/BusMessage.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/ClientTopicsInfo.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/CommunicationManager.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/ICommunicationManagerCallbacks.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/InvalidMessageTypeException.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/InvalidNumberPriorityLevelsException.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/InvalidPriorityException.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/MIMEType.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/MessagePriorityManager.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/MessagePriorityManagerNotInitializedException.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/ServiceBusManager.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/TopicsConfiguration.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/Util.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clr/classlib/Worker.generated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jni4net.j-0.8.8.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jni4net.n-0.8.8.0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jni4net.n.w32.v20-0.8.8.0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jni4net.n.w32.v40-0.8.8.0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jni4net.n.w64.v20-0.8.8.0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jni4net.n.w64.v40-0.8.8.0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/BusMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/ClientTopicsInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/CommunicationManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/ICommunicationManagerCallbacks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/ICommunicationManagerCallbacks_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/InvalidMessageTypeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/InvalidNumberPriorityLevelsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/InvalidPriorityException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/MIMEType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/MessagePriorityManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/MessagePriorityManagerNotInitializedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/ServiceBusManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/TopicsConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/Util.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jvm/classlib/Worker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/netstandard.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/communication/MyCallbacks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="05/05/2020&#10;[POST BUS]">
+      <change afterPath="$PROJECT_DIR$/statistic_average_fitness.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistic_best_per_experiment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistic_best_per_experiment_fitness.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlgoritmoGenetico.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AlgoritmoGenetico.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/AStar$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/AStar$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/AStar$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/AStar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Agent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Cell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Encomenda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Environment$Collision.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Environment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/EnvironmentListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Perception.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Prateleira.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Robo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/armazem/Saida.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/experiments/Experiment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/experiments/ExperimentEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/experiments/ExperimentListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/experiments/ExperimentsFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/experiments/Parameter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/GAEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/GAListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/GASingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/GeneticAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/Individual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/Population.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/Problem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/VectorIndividual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/GeneticOperator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/Mutation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/MutationFirstLast.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/MutationInversion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/MutationSwap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/Recombination.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationCX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationOX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationOneCut.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/geneticOperators/RecombinationPMX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/selectionMethods/Ranking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/selectionMethods/RouletteWheel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/selectionMethods/SelectionMethod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/ga/selectionMethods/Tournament.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonDataSet_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonExperiments_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonRunExperiments_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonRun_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/ButtonStop_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelAtributesValue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters$IntegerTextField_KeyAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxFitnessFunction_ActionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters$JComboBoxSelectionMethods_ActionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelParameters.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/PanelTextArea.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$CustomComparator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel$IterativeAgent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonGenRandNodeGraph_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRunFromFile_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRunFromXML_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/picking/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/picking/Picking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/picking/PickingExperimentsFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/picking/PickingIndividual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/statistics/StatisticBestAverage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/statistics/StatisticBestInRun.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/AlgoritmoOrdenacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Comparacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/ComparacaoDoubleDesc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/FileOperations.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/AgentGraphNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/Edge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/EnvironmentNodeGraph$FitnessCosts.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/EnvironmentNodeGraph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/FitnessResults.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/Graph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/GraphNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Graphs/GraphNodeType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/Maths.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/QuickSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/Area.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/Coordenates.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/Device.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/Prefab.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/PrefabType$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/PrefabType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/Rack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/Shelf.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/Size.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/SmallArea.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/Structure.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/WarehouseParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/utils/warehouse/XMLInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/AStar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/Agent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/Encomenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/Encomenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/EnvironmentListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/EnvironmentListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/Perception.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/Perception.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/Prateleira.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/Prateleira.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/Robo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/Robo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/armazem/Saida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armazem/Saida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/experiments/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/experiments/Experiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/experiments/ExperimentEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/experiments/ExperimentEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/experiments/ExperimentListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/experiments/ExperimentListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/experiments/ExperimentsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/experiments/ExperimentsFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/experiments/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/experiments/Parameter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/GAEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GAEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/GAListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GAListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/GASingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GASingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GeneticAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/Population.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/Problem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/VectorIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/VectorIndividual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/GeneticOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/GeneticOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/Mutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/Mutation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/MutationFirstLast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationFirstLast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/MutationInversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationInversion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/MutationSwap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationSwap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/Recombination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/Recombination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/RecombinationCX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationCX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/RecombinationOX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationOX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/RecombinationOneCut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationOneCut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/geneticOperators/RecombinationPMX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationPMX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/selectionMethods/Ranking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/Ranking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/selectionMethods/RouletteWheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/RouletteWheel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/selectionMethods/SelectionMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/SelectionMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ga/selectionMethods/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/Tournament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/PanelTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/PanelTextArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/picking/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/picking/Picking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/Picking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/picking/PickingExperimentsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/PickingExperimentsFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/picking/PickingIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/PickingIndividual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/statistics/StatisticBestAverage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/statistics/StatisticBestAverage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/statistics/StatisticBestInRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/statistics/StatisticBestInRun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/AlgoritmoOrdenacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/AlgoritmoOrdenacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Comparacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Comparacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/ComparacaoDoubleDesc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ComparacaoDoubleDesc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/FileOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/FileOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/AgentGraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/AgentGraphNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/EnvironmentNodeGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/EnvironmentNodeGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/FitnessNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/FitnessNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/FitnessResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/FitnessResults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/GraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Graphs/GraphNodeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNodeType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Maths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Maths.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/QuickSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Area.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Colision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Colision.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Coordenates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Coordenates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Prefab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Prefab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/PrefabType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Rack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Rack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Shelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Size.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/SmallArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/SmallArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/WarehouseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/WarehouseParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/warehouse/XMLInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/XMLInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_selection.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config_selection.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/experiments/ExperimentsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/experiments/ExperimentsFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GASingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GASingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GeneticAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/picking/Picking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/Picking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/picking/PickingExperimentsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/PickingExperimentsFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/picking/PickingIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/PickingIndividual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/statistics/StatisticBestAverage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/statistics/StatisticBestAverage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/statistics/StatisticBestInRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/statistics/StatisticBestInRun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/EnvironmentNodeGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/EnvironmentNodeGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/FitnessResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/FitnessResults.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -705,7 +352,9 @@
       <workItem from="1587742418675" duration="708000" />
       <workItem from="1587992040720" duration="14720000" />
       <workItem from="1588286289603" duration="609000" />
-      <workItem from="1588602633110" duration="4089000" />
+      <workItem from="1588602633110" duration="15403000" />
+      <workItem from="1588676540436" duration="2034000" />
+      <workItem from="1589208855413" duration="7922000" />
     </task>
     <task id="LOCAL-00001" summary="forgot">
       <created>1582509185139</created>
@@ -763,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587414884663</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="05/05/2020&#10;[POST BUS]">
+      <created>1588616985659</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1588616985659</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,13 +448,14 @@
     <MESSAGE value="30/03/2020&#10;Simulação colisões 26-24&#10;Peso&#10;[BUGS]" />
     <MESSAGE value="30/03/2020&#10;Simulação colisões 26-24&#10;Peso v2&#10;[BUGS?]" />
     <MESSAGE value="20/04/2020&#10;[PRE SERVICE BUS]" />
-    <option name="LAST_COMMIT_MESSAGE" value="20/04/2020&#10;[PRE SERVICE BUS]" />
+    <MESSAGE value="05/05/2020&#10;[POST BUS]" />
+    <option name="LAST_COMMIT_MESSAGE" value="05/05/2020&#10;[POST BUS]" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1588018464642">
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1588626573342">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1588018464642" />
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1588626573342" />
     <state x="574" y="135" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1584369007679" />
     <state x="527" y="196" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1587502415657">
       <screen x="0" y="0" width="1536" height="824" />
@@ -816,68 +473,68 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1587500976340" />
-    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2" timestamp="1587414882673">
+    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2" timestamp="1588616984371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587414882673" />
+    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1588616984371" />
     <state x="414" y="8" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1584139815313" />
     <state x="1058" y="230" key="FileChooserDialogImpl" timestamp="1588003720555">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="1058" y="230" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588003720555" />
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1588606493444">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1589231924751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588606493444" />
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589231924751" />
     <state width="1493" height="206" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1584370517582" />
     <state width="1864" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1587741998081" />
-    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1588606493444">
+    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1589231924751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588606493444" />
+    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589231924751" />
     <state width="1493" height="206" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1584370517582" />
     <state width="1864" height="252" key="GridCell.Tab.0.center/0.0.1920.1030@0.0.1920.1030" timestamp="1587741998081" />
-    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1588606493444">
+    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1589231924751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588606493444" />
+    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589231924751" />
     <state width="1493" height="206" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1584370517582" />
     <state width="1864" height="252" key="GridCell.Tab.0.left/0.0.1920.1030@0.0.1920.1030" timestamp="1587741998081" />
-    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1588606493444">
+    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1589231924751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588606493444" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589231924751" />
     <state width="1493" height="206" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1584370517582" />
     <state width="1864" height="252" key="GridCell.Tab.0.right/0.0.1920.1030@0.0.1920.1030" timestamp="1587741998081" />
-    <state width="1493" height="145" key="GridCell.Tab.1.bottom" timestamp="1588020469084">
+    <state width="1493" height="145" key="GridCell.Tab.1.bottom" timestamp="1588636598392">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="145" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588020469084" />
+    <state width="1493" height="145" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588636598392" />
     <state width="1493" height="183" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1584368434015" />
-    <state width="1493" height="145" key="GridCell.Tab.1.center" timestamp="1588020469084">
+    <state width="1493" height="145" key="GridCell.Tab.1.center" timestamp="1588636598392">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="145" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588020469084" />
+    <state width="1493" height="145" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588636598392" />
     <state width="1493" height="183" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1584368434015" />
-    <state width="1493" height="145" key="GridCell.Tab.1.left" timestamp="1588020469084">
+    <state width="1493" height="145" key="GridCell.Tab.1.left" timestamp="1588636598391">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="145" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588020469084" />
+    <state width="1493" height="145" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588636598391" />
     <state width="1493" height="183" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1584368434015" />
-    <state width="1493" height="145" key="GridCell.Tab.1.right" timestamp="1588020469084">
+    <state width="1493" height="145" key="GridCell.Tab.1.right" timestamp="1588636598392">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="145" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588020469084" />
+    <state width="1493" height="145" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588636598392" />
     <state width="1493" height="183" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1584368434015" />
     <state x="277" y="0" key="SettingsEditor" timestamp="1588003726606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588003726606" />
     <state x="346" y="0" key="SettingsEditor/0.0.1920.1030@0.0.1920.1030" timestamp="1587741858691" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1587414906983">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1588616999443">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587414906983" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1588616999443" />
     <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1584139846557" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580937731801">
       <screen x="0" y="0" width="1536" height="824" />
@@ -913,9 +570,5 @@
         <watch expression="ga.bestInRun" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
   </component>
 </project>
