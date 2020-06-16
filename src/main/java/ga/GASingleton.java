@@ -3,6 +3,7 @@ package ga;
 import armazem.Cell;
 import classlib.CommunicationManager;
 import classlib.Util;
+import communication.Operator;
 import gui.MainFrame;
 import gui.PanelTextArea;
 import gui.SimulationPanel;
@@ -48,12 +49,35 @@ public class GASingleton {
     private CommunicationManager cm;
     private float timeWeight;
     private int numExperiments;
+    private List<Operator> operators;
+    public static String erpID = "erp";
+
+    public Operator findOperator(String id) {
+        for (int i = 0; i < operators.size(); i++) {
+            if (operators.get(i).getId().equals(id)) {
+                return operators.get(i);
+            }
+        }
+        return null;
+    }
+
+    public List<Operator> getOperators() {
+        return operators;
+    }
+
+    public void setOperators(List<Operator> operators) {
+        this.operators = operators;
+    }
+    public void addOperator(String id, boolean disponivel){
+        this.operators.add(new Operator(id, disponivel));
+    }
 
     public CommunicationManager getCm() {
         return cm;
     }
 
     public void setCm(CommunicationManager cm) {
+
         this.cm = cm;
     }
 
@@ -260,6 +284,9 @@ public class GASingleton {
 
                 // root element
                 Element root = document.createElement("Task");
+
+                root.setAttributeNS("http://www.w3.org/2000/xmlns/","xmlns:xsd","http://www.w3.org/2001/XMLSchema");
+                root.setAttributeNS("http://www.w3.org/2000/xmlns/","xmlns:xsi","http://www.w3.org/2001/XMLSchema-instance");
                 Attr attrAgent = document.createAttribute("agent-id");
                 attrAgent.setValue(entry.getKey().getGraphNodeId() + "");
                 root.setAttributeNode(attrAgent);
@@ -316,10 +343,11 @@ public class GASingleton {
 
                 String xmlString = writer.getBuffer().toString();
                 System.out.println(xmlString);
-                cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", "ra"+agent.getGraphNodeId(), "application/xml", xmlString, "1");
+                cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", GASingleton.getInstance().getOperators().get(0).getId(), "application/xml", xmlString, "1");
+                //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", "ra1", "application/xml", xmlString, "1");
             }
-            System.out.println("\nDone creating/sending XML File");
 
+            System.out.println("\nDone creating/sending XML File");
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
         } catch (TransformerException tfe) {
@@ -383,6 +411,15 @@ public class GASingleton {
     public int getNumExperiments() {
         return numExperiments;
     }
+
+    public void initializeCommunication() {
+        this.operators = new ArrayList<>();
+        //cm.InitializeAsync();
+        //cm.SubscribeContentAsync("Disponivel", "ra1");
+        //cm.SubscribeContentAsync("Disponivel", "ra2");
+
+    }
+
 
 
     //Document doc = builder.newDocument();

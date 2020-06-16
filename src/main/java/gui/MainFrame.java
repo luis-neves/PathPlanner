@@ -681,6 +681,7 @@ class PanelParameters extends PanelAtributesValue {
                     System.out.println("Communication Enabled");
                     CommunicationManager cm = new CommunicationManager(CLIENT_ID, new TopicsConfiguration(), new MyCallbacks());
                     GASingleton.getInstance().setCm(cm);
+                    GASingleton.getInstance().initializeCommunication();
                 } else {
                     System.out.println("Communication Disabled");
                     GASingleton.getInstance().setCm(null);

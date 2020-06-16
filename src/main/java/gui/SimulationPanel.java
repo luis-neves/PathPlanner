@@ -3,6 +3,7 @@ package gui;
 import armazem.AStar;
 import armazem.Environment;
 import armazem.EnvironmentListener;
+import classlib.Util;
 import ga.GASingleton;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -60,9 +61,9 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private Graph graph;
     private Graph problemGraph;
     private int seed = 0;
-    private int num_rows = 12;
-    private int num_agents = 3;
-    private int num_products = 10;
+    private int num_rows = 10;
+    private int num_agents = 2;
+    private int num_products = 5;
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
@@ -181,7 +182,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     }
 
     public void generateExperimentGraph(int num_colums, int num_agents, int num_products, int seed) {
-        Graph graph2 = exampleGraph(num_rows);
+        Graph graph2 = exampleGraph(num_colums);
         graph2 = randomProblem(graph2, num_agents, num_products, seed);
         graph2 = fixNeighboursFixed(graph2);
         //TODO
@@ -290,6 +291,11 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             for (int i = 0; i < nodes.size(); i++) {
                 graph2.getGraphNodes().add(nodes.get(i));
             }
+            //Communicate
+            if (GASingleton.getInstance().getCm() != null) {
+                GASingleton.getInstance().getCm().SendMessageAsync(Util.GenerateId(), "request", "getAllOrders", GASingleton.erpID, "text/plain", "", "1");
+            }
+
             graph2 = fixNeighboursFixed(graph2);
             image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
             gfx = (Graphics2D) image.getGraphics();
