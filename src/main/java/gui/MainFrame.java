@@ -44,6 +44,7 @@ public class MainFrame extends JFrame implements GAListener {
     PanelTextArea bestIndividualPanel;
     private PanelParameters panelParameters = new PanelParameters();
     private JButton buttonStop = new JButton("Stop");
+    private JButton buttonRunHeuristic = new JButton("Run Heuristic");
     private JButton buttonRunFromMemory = new JButton("Run Genetic Algorithm");
     public JButton buttonVisualize = new JButton("Play");
     private JButton buttonSlowVisualize = new JButton(">");
@@ -78,6 +79,7 @@ public class MainFrame extends JFrame implements GAListener {
         panelNorthLeft.add(panelParameters, java.awt.BorderLayout.WEST);
         JPanel panelButtons = new JPanel();
         panelButtons.add(buttonStop);
+        panelButtons.add(buttonRunHeuristic);
         panelButtons.add(buttonRunFromMemory);
         panelButtons.add(buttonSlowVisualize);
         panelButtons.add(buttonVisualize);
@@ -128,6 +130,17 @@ public class MainFrame extends JFrame implements GAListener {
             }
         });
 
+        buttonRunHeuristic.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    simulationPanel.generateClusters();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
         buttonRunFromMemory.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -136,9 +149,7 @@ public class MainFrame extends JFrame implements GAListener {
                     picking = Picking.buildKnapsackFromMemory();
                     //System.out.println(picking.toString());
                     generateGA();
-
                     ga.addGAListener(MainFrame.this);
-
                     runGA();
 
                 } catch (NumberFormatException e1) {
@@ -354,7 +365,7 @@ public class MainFrame extends JFrame implements GAListener {
                     int iteration = 0;
                     int num_experiments = GASingleton.getInstance().getNumExperiments();
                     String format = "%.1f";
-                    if (num_experiments > 5000){
+                    if (num_experiments > 5000) {
                         format = "%.2f";
                     }
                     while (experimentsFactory.hasMoreExperiments()) {
@@ -363,7 +374,7 @@ public class MainFrame extends JFrame implements GAListener {
                             iteration++;
                             float progress = 0f;
                             progress = (float) iteration * 100 / num_experiments;
-                            textFieldExperimentsStatus.setText("Running " + String.format (format, progress) + "%");
+                            textFieldExperimentsStatus.setText("Running " + String.format(format, progress) + "%");
                             experiment.run();
                         } catch (IOException e1) {
                             e1.printStackTrace(System.err);

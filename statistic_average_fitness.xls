@@ -1,0 +1,13 @@
+Population size:	Max generations:	Selection:	Recombination:	Recombination prob.:	Mutation:	Mutation prob.:	Agents:	Picks:	Columns:	TW:	CW:		Fitness(AVG):	Time(AVG):	Fitness StdDev:	Time StdDev	Collisions (AVG)	Collisions StdDev	stdDevPicksPerAgent (AVG)	
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	1	5	14	1.0	0.0		1007.0	1007.0	0.0	0.0	0.0	0.0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	2	5	14	1.0	0.0		813.8	813.8	17.37124060048677	17.37124060048677	0.0	0.0	0.7
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	3	5	14	1.0	0.0		652.0	652.0	0.0	0.0	0.0	0.0	0.8760112682026842
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	4	5	14	1.0	0.0		652.0	652.0	0.0	0.0	0.0	0.0	0.6706987993101976
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	5	5	14	1.0	0.0		707.0	707.0	0.0	0.0	0.4	0.48989794855663565	0.6509566740155199
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	1	6	14	1.0	0.0		1045.0	1045.0	0.0	0.0	0.0	0.0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	2	6	14	1.0	0.0		804.6	804.6	19.44839324982915	19.44839324982915	0.0	0.0	0.4
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	3	6	14	1.0	0.0		652.0	652.0	0.0	0.0	0.0	0.0	0.32659863237109044
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	4	6	14	1.0	0.0		721.4	721.4	28.8	28.8	0.0	0.0	0.623606797749979
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	5	6	14	1.0	0.0		707.0	707.0	0.0	0.0	0.0	0.0	0.5856254748936119
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	1	7	14	1.0	0.0		1072.6	1072.6	55.2	55.2	0.0	0.0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	2	7	14	1.0	0.0		845.8	845.8	2.7129319932501073	2.7129319932501073	0.0	0.0	0.7

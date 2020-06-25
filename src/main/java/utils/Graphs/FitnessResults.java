@@ -134,9 +134,11 @@ public class FitnessResults {
                 List<FitnessNode> agentPath = entry.getValue();
                 str += "\nAgent " + agent.getType().toLetter() + agent.getGraphNodeId();
                 if (!agentPath.isEmpty()) {
-                    List<GraphNode> taskedAgentsOnly = getTaskedAgentsOnly().get(agent);
-                    for (int i = 0; i < taskedAgentsOnly.size(); i++) {
-                        str += "\t[" + taskedAgentsOnly.get(i).getType().toLetter() + taskedAgentsOnly.get(i).getGraphNodeId() + "]";
+                    if (taskedAgentsOnly.get(agent) != null) {
+                        List<GraphNode> taskedAgentsOnly = getTaskedAgentsOnly().get(agent);
+                        for (int i = 0; i < taskedAgentsOnly.size(); i++) {
+                            str += "\t[" + taskedAgentsOnly.get(i).getType().toLetter() + taskedAgentsOnly.get(i).getGraphNodeId() + "]";
+                        }
                     }
                     str += " | Steps: " + agentPath.size();
                     str += "\n\tPath: ";

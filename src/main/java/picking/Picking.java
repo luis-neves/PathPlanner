@@ -21,7 +21,7 @@ public class Picking implements Problem<PickingIndividual> {
     private int fitnessType = SIMPLE_FITNESS;
     private double maxVP;
 
-    public Picking(List<Item> items, double prob1s) {
+    public Picking(List<Item> items) {
         if (items == null) {
             throw new IllegalArgumentException();
         }
@@ -31,7 +31,7 @@ public class Picking implements Problem<PickingIndividual> {
     }
 
     public static Picking buildKnapsackFromMemory() {
-        return new Picking(GASingleton.getInstance().getItems(), 0.5);
+        return new Picking(GASingleton.getInstance().getItems());
     }
 
     @Override
@@ -107,12 +107,12 @@ public class Picking implements Problem<PickingIndividual> {
         int agents = Integer.parseInt(itemsArrayUF[2]);
         int packages = Integer.parseInt(itemsArrayUF[3]);
         SimulationPanel.environment = new Environment(size, size, seed, agents, packages);
-        return new Picking(GASingleton.getInstance().getItems(), 0.5);
+        return new Picking(GASingleton.getInstance().getItems());
     }
 
     public static Picking buildKnapsackExperiment() {
 
-        return new Picking(GASingleton.getInstance().getItems(), 0.5);
+        return new Picking(GASingleton.getInstance().getItems());
     }
 
 

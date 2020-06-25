@@ -1,10 +1,12 @@
 package utils.Graphs;
 
 import armazem.Cell;
+import ga.KMeans.MyCluster;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import utils.warehouse.Coordenates;
+import weka.core.Attribute;
 
 import java.util.*;
 
@@ -16,6 +18,7 @@ public class GraphNode {
     private GraphNodeType type;
     private float weightPhysical;
     private float weightSupported;
+    private MyCluster cluster;
 
     public float getWeightSupported() {
         if (this.getType() == GraphNodeType.PRODUCT) {
@@ -154,10 +157,10 @@ public class GraphNode {
         return nodes;
     }
 
-    public List<GraphNode> getVerticalSimpleNode(){
+    public List<GraphNode> getVerticalSimpleNode() {
         List<GraphNode> list = new ArrayList<>();
-        for (int i = 0; i < neighbours.size(); i++){
-            if(neighbours.get(i).getOtherEnd(this).getType() == GraphNodeType.SIMPLE && neighbours.get(i).getOtherEnd(this).getLocation().getX() == this.getLocation().getX()){
+        for (int i = 0; i < neighbours.size(); i++) {
+            if (neighbours.get(i).getOtherEnd(this).getType() == GraphNodeType.SIMPLE && neighbours.get(i).getOtherEnd(this).getLocation().getX() == this.getLocation().getX()) {
                 list.add(neighbours.get(i).getOtherEnd(this));
             }
         }
@@ -302,5 +305,17 @@ public class GraphNode {
             toRemove.removeNeighbour(this);
             neighbours.remove(toRemove);
         }
+    }
+
+    public String getGraphNodeIdStr() {
+        return this.type.toLetter() + "" + this.getGraphNodeId();
+    }
+
+    public void setCluster(MyCluster cluster) {
+        this.cluster = cluster;
+    }
+
+    public MyCluster getCluster() {
+        return cluster;
     }
 }

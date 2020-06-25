@@ -85,7 +85,6 @@ public class EnvironmentNodeGraph {
                 taskedAgentOnly.clear();
             }
         }
-
         AStar aStar = new AStar(graph);
         aStar.setInitialGraphNode(GASingleton.getInstance().getLastAgent());
         List<GraphNode> taskedAgentOnly = new ArrayList<>();
@@ -105,6 +104,7 @@ public class EnvironmentNodeGraph {
             agentFinalPath.addAll(aStar.findGraphPath(taskedAgentOnly));
             finalPath.addAll(agentFinalPath);
         }
+
         //System.out.println("\nFitness 2 - " + calculateFitness(agentFinalPath) +  " ");
         //printFinalPath(agentFinalPath);
         FitnessCosts costs = calculateFitness(agentFinalPath, GASingleton.getInstance().getLastAgent());
@@ -339,8 +339,8 @@ public class EnvironmentNodeGraph {
         return new FitnessCosts(new ArrayList<>(), 0);
     }
 
-    private class FitnessCosts {
-        List<Float> costs = new ArrayList<>();
+    public static class FitnessCosts {
+        public List<Float> costs = new ArrayList<>();
         float finalCost = 0;
 
         public FitnessCosts(List<Float> costs, float finalCost) {

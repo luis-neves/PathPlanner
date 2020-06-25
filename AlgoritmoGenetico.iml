@@ -57,5 +57,6 @@
     </orderEntry>
     <orderEntry type="library" name="Maven: org.json:json:20190722" level="project" />
     <orderEntry type="library" name="org.codehaus.jackson:jackson-jaxrs:1.9.0" level="application" />
+    <orderEntry type="library" name="io.nessus.weka:nessus-weka-api:1.0.0" level="application" />
   </component>
 </module>

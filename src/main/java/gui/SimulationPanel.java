@@ -4,7 +4,10 @@ import armazem.AStar;
 import armazem.Environment;
 import armazem.EnvironmentListener;
 import classlib.Util;
+import com.sun.xml.bind.v2.runtime.reflect.Lister;
 import ga.GASingleton;
+import ga.KMeans.MyCluster;
+import jdk.nashorn.internal.runtime.PropertyMap;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -12,6 +15,8 @@ import org.w3c.dom.NodeList;
 import picking.Item;
 import utils.Graphs.*;
 import utils.warehouse.*;
+import weka.clusterers.SimpleKMeans;
+import weka.core.*;
 
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
@@ -27,6 +32,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.List;
 
@@ -39,6 +45,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private static final int FIXED_CELL_SIZE = 10;
     private static int CELL_SIZE = 10;
     private int NODE_SIZE = 5;
+    private int SIMPLE_NODE_SIZE = 2;
     private int MARGIN = 15;
 
     private static final int GRID_TO_PANEL_GAP = 20;
@@ -62,8 +69,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private Graph problemGraph;
     private int seed = 0;
     private int num_rows = 10;
-    private int num_agents = 2;
-    private int num_products = 5;
+    private int num_agents = 5;
+    private int num_products = 20;
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
@@ -549,12 +556,11 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             GraphNode node = nodes.get(i);
             Point p = new Point(Math.round(node.getLocation().getX()), Math.round(node.getLocation().getY()));
             if (node.getType() == GraphNodeType.AGENT) {
-                gfx.setColor(Color.RED);
+                gfx.setColor(node.getCluster() == null ? Color.black : node.getCluster().getColor());
                 gfx.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
-
             } else if (node.getType() == GraphNodeType.PRODUCT) {
-                gfx.setColor(Color.blue);
-                gfx.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
+                gfx.setColor(node.getCluster() == null ? Color.blue : node.getCluster().getColor());
+                gfx.fillOval(p.x - (NODE_SIZE / 2), p.y + (NODE_SIZE / 2), NODE_SIZE, NODE_SIZE);
             } else if (node.getType() == GraphNodeType.EXIT) {
                 gfx.setColor(Color.green);
                 gfx.drawOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
@@ -562,9 +568,9 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 gfx.setColor(Color.GRAY);
                 gfx.drawOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
             } else {
-                gfx.drawOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
+                gfx.drawOval(p.x - (SIMPLE_NODE_SIZE / 2), p.y + (SIMPLE_NODE_SIZE / 2), SIMPLE_NODE_SIZE, SIMPLE_NODE_SIZE);
             }
-            if (node.getType() != GraphNodeType.DELIVERING) {
+            if (node.getType() != GraphNodeType.DELIVERING && node.getType() != GraphNodeType.SIMPLE) {
                 gfx.drawString("" + node.getType().toLetter() + node.getGraphNodeId(), p.x + (NODE_SIZE / 2), p.y + (NODE_SIZE / 2) + MARGIN);
             }
             /*for(int j = 0; j < node.getNeighbours().size(); j++){
@@ -646,6 +652,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             List<IterativeAgent> iterativeAgents;
             Image backup = image;
             Graphics2D gfx2 = (Graphics2D) backup.getGraphics();
+
 
             if (this.iterativeAgents == null) {
                 iterativeAgents = new ArrayList<>();
@@ -736,6 +743,331 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             this.SLEEP_MILLIS -= i;
         }
     }
+
+    public void generateClusters() throws Exception {
+        SimpleKMeans kmeans = new SimpleKMeans();
+        kmeans.setNumClusters(problemGraph.getAgentsNum());
+        kmeans.setMaxIterations(20);
+        kmeans.setPreserveInstancesOrder(true);
+
+        Attribute PT1 = new Attribute("X");
+        Attribute w1 = new Attribute("Y");
+        // Declare the feature vector
+        FastVector fvWekaAttributes = new FastVector(7);
+        // Add attributes
+        fvWekaAttributes.addElement(PT1);
+        fvWekaAttributes.addElement(w1);
+
+        // Declare Instances which is required since I want to use classification/Prediction
+        Instances dataset = new Instances("whatever", fvWekaAttributes, 0);
+
+        //Creating a double array and defining values
+        for (int i = 0; i < problemGraph.getProducts().size(); i++) {
+            double[] attValues = new double[dataset.numAttributes()];
+            attValues[0] = (int) problemGraph.getProducts().get(i).getLocation().getX();
+            attValues[1] = (int) problemGraph.getProducts().get(i).getLocation().getY();
+            ;
+            Instance i1 = new DenseInstance(1.0, attValues);
+            dataset.add(i1);
+        }
+
+        for (int i = 0; i < problemGraph.getAgents().size(); i++) {
+            double[] attValues = new double[dataset.numAttributes()];
+            attValues[0] = (int) problemGraph.getAgents().get(i).getLocation().getX();
+            attValues[1] = (int) problemGraph.getAgents().get(i).getLocation().getY();
+            ;
+            Instance i1 = new DenseInstance(1.0, attValues);
+            dataset.add(i1);
+        }
+
+        //Create the new instance i1
+
+        //Add the instance to the dataset (Instances) (first element 0)
+        //Define class attribute position
+        //dataset.setClassIndex(dataset.numAttributes() - 1);
+
+        //Will print 0 if it's a "yes", and 1 if it's a "no"
+
+        try {
+            kmeans.buildClusterer(dataset);
+            System.out.println(Arrays.toString(kmeans.getAssignments()));
+            Instances centroids = kmeans.getClusterCentroids();
+            List<MyCluster> clusters = new ArrayList<>();
+            HashMap<Integer, ArrayList<GraphNode>> clusterMap = new HashMap<>();
+
+            for (int i = 0; i < problemGraph.getAgentsNum(); i++) {
+                System.out.print("Cluster " + i + " size: " + kmeans.getClusterSizes()[i]);
+                clusters.add(new MyCluster(i));
+                clusterMap.put(i, new ArrayList<>());
+                System.out.println(" Centroid: " + centroids.instance(i));
+            }
+            System.out.println(clusterMap);
+            for (int i = 0; i < problemGraph.getProducts().size(); i++) {
+                List<GraphNode> clusterList = clusterMap.get(kmeans.getAssignments()[i]);
+                problemGraph.getProducts().get(i).setCluster(findMyCluster(kmeans.getAssignments()[i], clusters));
+                clusterList.add(problemGraph.getProducts().get(i));
+            }
+            for (int i = 0; i < problemGraph.getAgents().size(); i++) {
+                List<GraphNode> clusterList = clusterMap.get(kmeans.getAssignments()[kmeans.getAssignments().length - 1 - i]);
+                problemGraph.getAgents().get(problemGraph.getAgents().size() - 1 - i).setCluster(findMyCluster(kmeans.getAssignments()[kmeans.getAssignments().length - 1 - i], clusters));
+                clusterList.add(problemGraph.getAgents().get(problemGraph.getAgents().size() - 1 - i));
+            }
+            HashMap<Integer, ArrayList<GraphNode>> clusterMapFixed = null;
+            do {
+                clusterMapFixed = fixAgentClusters(clusterMap);
+                if (clusterMapFixed != null) {
+                    clusterMap = clusterMapFixed;
+                }
+            } while (clusterMapFixed != null);
+            HashMap<GraphNode, List<ProductsWithDistance>> pathMap = new HashMap<>();
+            for (Map.Entry<Integer, ArrayList<GraphNode>> entry : clusterMap.entrySet()) {
+                Integer cluster = entry.getKey();
+                ArrayList<GraphNode> clusterList = entry.getValue();
+                clusterList = moveAgentToFront(clusterList);
+                GraphNode agent = clusterList.get(0);
+                clusterList.remove(agent);
+                List<ProductsWithDistance> distances = new ArrayList<>();
+                for (GraphNode product : clusterList) {
+                    distances.add(new ProductsWithDistance(product, agent.getDistance(product)));
+                }
+                distances.sort(Comparator.comparing(ProductsWithDistance::getDistance));
+                pathMap.put(agent, distances);
+                System.out.println(Arrays.toString(distances.toArray()));
+            }
+            FitnessResults results = calculatePath(pathMap);
+            results = fixRepetedProduct(results);
+            GASingleton.getInstance().getBestIndividualPanel().textArea.setText(results.printTaskedAgents());
+            GASingleton.getInstance().setBestInRun(results);
+            Image backup = image;
+            Graphics2D gfx2 = (Graphics2D) backup.getGraphics();
+            draw(problemGraph, true, gfx2, backup);
+        } catch (Exception ex) {
+            System.err.println("Unable to buld Clusterer: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
+    private FitnessResults fixRepetedProduct(FitnessResults results) {
+        for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<FitnessNode> pathNodes = entry.getValue();
+            List<FitnessNode> toRemove = new ArrayList<>();
+            for (int i = 0; i < pathNodes.size() - 1; i++) {
+                if (pathNodes.get(i).getNode().getGraphNodeId() == pathNodes.get(i + 1).getNode().getGraphNodeId() && pathNodes.get(i + 1).getCost() == 0) {
+                    toRemove.add(pathNodes.get(i + 1));
+                }
+            }
+            pathNodes.removeAll(toRemove);
+            toRemove.clear();
+        }
+        return results;
+    }
+    private FitnessResults calculatePath(HashMap<GraphNode, List<ProductsWithDistance>> pathMap) {
+        AStar aStar = new AStar(graph);
+        FitnessResults results = new FitnessResults();
+        List<GraphNode> finalPath = new ArrayList<>();
+        for (Map.Entry<GraphNode, List<ProductsWithDistance>> entry : pathMap.entrySet()) {
+            GraphNode agent = entry.getKey();
+            aStar.setInitialGraphNode(agent);
+            List<GraphNode> agentFinalPath = new ArrayList<>();
+            List<ProductsWithDistance> productsWithDistances = entry.getValue();
+            List<GraphNode> products = new ArrayList<>();
+            for (ProductsWithDistance product: productsWithDistances){
+                products.add(product.getProduct());
+            }
+            for (GraphNode product: products) {
+                aStar.setFinalGraphNode(product);
+                agentFinalPath.addAll(aStar.findGraphPath(products));
+                aStar.setInitialGraphNode(product);
+            }
+            aStar.setFinalGraphNode(problemGraph.getExit());
+            if (agentFinalPath.get(0).getType() == GraphNodeType.AGENT){
+                agentFinalPath.remove(0);
+            }
+            EnvironmentNodeGraph.FitnessCosts costs = calculateFitness(agentFinalPath, agent);
+            results.addTaskedAgent(agent, agentFinalPath, costs.costs);
+        }
+        System.out.println(results);
+
+        float highest = Float.MIN_VALUE;
+        for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<FitnessNode> finalcosts = entry.getValue();
+            float sum = 0;
+            for (int i = 0; i < finalcosts.size(); i++) {
+                sum += finalcosts.get(i).getCost();
+            }
+            if (sum > highest) {
+                highest = sum;
+            }
+        }
+        results.setFitness(highest);
+        results.setPath(finalPath);
+        results.setTime(highest);
+
+        return results;
+    }
+
+    private EnvironmentNodeGraph.FitnessCosts calculateFitness(List<GraphNode> finalPath, GraphNode agent) {
+        if (!finalPath.isEmpty()) {
+            float fitness = 0;
+            List<Float> costs = new ArrayList<>();
+            costs.add(finalPath.get(0).getDistance(agent));
+            for (int i = 0; i < finalPath.size(); i++) {
+                if (i < finalPath.size() - 1) {
+                    GraphNode start = finalPath.get(i);
+                    GraphNode end = finalPath.get(i + 1);
+                    costs.add(start.getDistance(end));
+                }
+            }
+            //costs.add(finalPath.get(finalPath.size() - 1).getDistance(findExits(graph).get(0)));
+            return new EnvironmentNodeGraph.FitnessCosts(costs, fitness);
+        }
+        return new EnvironmentNodeGraph.FitnessCosts(new ArrayList<>(), 0);
+    }
+    private ArrayList<GraphNode> moveAgentToFront(ArrayList<GraphNode> clusterList) {
+        GraphNode agent = null;
+        for (GraphNode node : clusterList) {
+            if (node.getType() == GraphNodeType.AGENT) {
+                agent = node;
+            }
+        }
+        clusterList.remove(agent);
+        clusterList.add(0, agent);
+        return clusterList;
+    }
+
+    private HashMap<Integer, ArrayList<GraphNode>> fixAgentClusters(HashMap<Integer, ArrayList<GraphNode>> clusterMap) {
+        //CLUSERINGGGG
+        List<GraphNode> allExtraAgents = new ArrayList<>();
+        List<Integer> allExtraClusters = new ArrayList<>();
+
+        for (Map.Entry<Integer, ArrayList<GraphNode>> entry : clusterMap.entrySet()) {
+            Integer cluster = entry.getKey();
+            ArrayList<GraphNode> clusterList = entry.getValue();
+            List<GraphNode> extraAgents = new ArrayList<>();
+            int num_agents = 0;
+
+            for (GraphNode graphNode : clusterList) {
+                if (graphNode.getType() == GraphNodeType.AGENT) {
+                    extraAgents.add(graphNode);
+                    num_agents++;
+                }
+            }
+            if (num_agents > 1) {
+                allExtraAgents.addAll(extraAgents);
+            } else if (num_agents == 0) {
+                allExtraClusters.add(cluster);
+            }
+        }
+        if (allExtraClusters.isEmpty()) {
+            return null;
+        } else {
+            for (Integer extraCluster : allExtraClusters) {
+                HashMap<GraphNode, ArrayList<ProductsWithDistance>> agents_products_distances = new HashMap<>();
+                for (GraphNode agent : allExtraAgents) {
+                    ArrayList<ProductsWithDistance> distances = new ArrayList<>();
+                    for (GraphNode product : clusterMap.get(extraCluster)) {
+                        distances.add(new ProductsWithDistance(product, agent.getDistance(product)));
+                    }
+                    agents_products_distances.put(agent, distances);
+                }
+                ArrayList<AgentsWithClosestProduct> agentsWithClosestProducts = new ArrayList<>();
+                for (Map.Entry<GraphNode, ArrayList<ProductsWithDistance>> entry : agents_products_distances.entrySet()) {
+                    GraphNode agent = entry.getKey();
+                    ArrayList<ProductsWithDistance> products = entry.getValue();
+                    ProductsWithDistance lowest = null;
+                    for (ProductsWithDistance product : products) {
+                        if (lowest == null) {
+                            lowest = product;
+                        } else if (lowest.getDistance() >= product.getDistance()) {
+                            lowest = product;
+                        }
+                    }
+                    agentsWithClosestProducts.add(new AgentsWithClosestProduct(agent, lowest));
+                }
+                AgentsWithClosestProduct lowestDistAgent = null;
+                for (AgentsWithClosestProduct agent_set : agentsWithClosestProducts) {
+                    if (lowestDistAgent == null) {
+                        lowestDistAgent = agent_set;
+                    }
+                    if (agent_set.getClosestProduct().getDistance() <= lowestDistAgent.getClosestProduct().getDistance()) {
+                        lowestDistAgent = agent_set;
+                    }
+                }
+                clusterMap.get(lowestDistAgent.getAgent().getCluster().getId()).remove(lowestDistAgent.getAgent());
+                lowestDistAgent.getAgent().setCluster(lowestDistAgent.getClosestProduct().getProduct().getCluster());
+                clusterMap.get(lowestDistAgent.getAgent().getCluster().getId()).add(lowestDistAgent.getAgent());
+            }
+            return clusterMap;
+        }
+    }
+
+    private class ProductsWithDistance {
+        private GraphNode product;
+        private Float distance;
+
+        public ProductsWithDistance(GraphNode product, Float distance) {
+            this.product = product;
+            this.distance = distance;
+        }
+
+        public GraphNode getProduct() {
+            return product;
+        }
+
+        public void setProduct(GraphNode product) {
+            this.product = product;
+        }
+
+        public Float getDistance() {
+            return distance;
+        }
+
+        public void setDistance(Float distance) {
+            this.distance = distance;
+        }
+
+        @Override
+        public String toString() {
+            return this.getProduct().getGraphNodeId() + " " + this.getDistance();
+        }
+    }
+
+    private class AgentsWithClosestProduct {
+        private GraphNode agent;
+        private ProductsWithDistance closestProduct;
+
+        public AgentsWithClosestProduct(GraphNode agent, ProductsWithDistance closestProduct) {
+            this.agent = agent;
+            this.closestProduct = closestProduct;
+        }
+
+        public GraphNode getAgent() {
+            return agent;
+        }
+
+        public void setAgent(GraphNode agent) {
+            this.agent = agent;
+        }
+
+        public ProductsWithDistance getClosestProduct() {
+            return closestProduct;
+        }
+
+        public void setClosestProduct(ProductsWithDistance closestProduct) {
+            this.closestProduct = closestProduct;
+        }
+    }
+
+    private MyCluster findMyCluster(int assignment, List<MyCluster> clusters) {
+        for (int i = 0; i < clusters.size(); i++) {
+            if (clusters.get(i).getId() == assignment) {
+                return clusters.get(i);
+            }
+        }
+        return null;
+    }
+
 
     private class IterativeAgent {
         private final List<GraphNode> taskOnly;

@@ -1,9 +1,11 @@
 package utils.Graphs;
 
 import utils.warehouse.Coordenates;
+import weka.core.Attribute;
 
 import javax.xml.stream.Location;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Graph {
@@ -131,7 +133,56 @@ public class Graph {
 
     public GraphNode findNode(int node_id) {
         for (int i = 0; i < this.getGraphNodes().size(); i++) {
-            if(this.getGraphNodes().get(i).getGraphNodeId() == node_id){
+            if (this.getGraphNodes().get(i).getGraphNodeId() == node_id) {
+                return getGraphNodes().get(i);
+            }
+        }
+        return null;
+    }
+
+    public int getProductsNum() {
+        int products = 0;
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT) {
+                products++;
+            }
+        }
+        return products;
+    }
+
+    public int getAgentsNum() {
+        int agents = 0;
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
+                agents++;
+            }
+        }
+        return agents;
+    }
+
+    public List<GraphNode> getProducts() {
+        List<GraphNode> products = new ArrayList<>();
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT) {
+                products.add(getGraphNodes().get(i));
+            }
+        }
+        return products;
+    }
+
+    public List<GraphNode> getAgents() {
+        List<GraphNode> agents = new ArrayList<>();
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
+                agents.add(getGraphNodes().get(i));
+            }
+        }
+        return agents;
+    }
+
+    public GraphNode getExit() {
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (getGraphNodes().get(i).getType() == GraphNodeType.EXIT) {
                 return getGraphNodes().get(i);
             }
         }

@@ -1,0 +1,13 @@
+Population size:	Max generations:	Selection:	Recombination:	Recombination prob.:	Mutation:	Mutation prob.:	Agents:	Picks:	Columns:	TW:	CW:		Fitness:	Time	Colisions	StdDev PicksPerAgent
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	1	5	14	1.0	0.0		1007.0	1007.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	2	5	14	1.0	0.0		793.0	793.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	3	5	14	1.0	0.0		652.0	652.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	4	5	14	1.0	0.0		652.0	652.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	5	5	14	1.0	0.0		707.0	707.0	1	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	1	6	14	1.0	0.0		1045.0	1045.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	2	6	14	1.0	0.0		793.0	793.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	3	6	14	1.0	0.0		652.0	652.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	4	6	14	1.0	0.0		707.0	707.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	5	6	14	1.0	0.0		707.0	707.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	1	7	14	1.0	0.0		1045.0	1045.0	0	0.0
+100	100	Tournament(2)	PMX recombination (0.8)	0.8	Inversion mutation (0.025)	0.025	2	7	14	1.0	0.0		843.0	843.0	0	0.0
