@@ -41,7 +41,9 @@ public class AStar {
     }
 
     public void setFinalGraphNode(GraphNode finalGraphNode) {
-        this.finalGraphNode = finalGraphNode;
+        if(finalGraphNode != null) {
+            this.finalGraphNode = graph.findNode(finalGraphNode.getGraphNodeId());
+        }
     }
 
     public GraphNode getInitialGraphNode() {
@@ -188,8 +190,12 @@ public class AStar {
     }
 
     public void calculaHeuristicaNodes() {
-        for (int i = 0; i < graph.getGraphNodes().size(); i++) {
-            graph.getGraphNodes().get(i).calculateHeuristic(getFinalGraphNode());
+        try {
+            for (int i = 0; i < graph.getGraphNodes().size(); i++) {
+                graph.getGraphNodes().get(i).calculateHeuristic(getFinalGraphNode());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

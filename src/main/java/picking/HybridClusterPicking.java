@@ -4,35 +4,37 @@ import armazem.Environment;
 import ga.GASingleton;
 import ga.Problem;
 import gui.SimulationPanel;
+import utils.Graphs.GraphNode;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class Picking implements Problem<PickingIndividual> {
+public class HybridClusterPicking implements Problem<HybridPickingIndividual> {
 
     public static final int SIMPLE_FITNESS = 0;
     public static final int PENALTY_FITNESS = 1;
-    private List<Item> items;
+    private HashMap<GraphNode, List<GraphNode>> items;
     private int fitnessType = SIMPLE_FITNESS;
     private double maxVP;
 
-    public Picking(List<Item> items) {
+    public HybridClusterPicking(HashMap<GraphNode, List<GraphNode>> items) {
         if (items == null) {
             throw new IllegalArgumentException();
         }
         this.items = items;
         maxVP = computeMaxVP();
     }
-
-    public static Picking buildKnapsackFromMemory() {
-        return new Picking(GASingleton.getInstance().getItems());
-    }
+    /*
+    public static HybridClusterPicking buildKnapsackFromMemory() {
+        return new HybridClusterPicking(GASingleton.getInstance().getItems());
+    }*/
 
     @Override
-    public PickingIndividual getNewIndividual() {
-        return new PickingIndividual(this, items);
+    public HybridPickingIndividual getNewIndividual() {
+        return new HybridPickingIndividual(this, items);
     }
 
     public int getNumItems() {
@@ -40,7 +42,7 @@ public class Picking implements Problem<PickingIndividual> {
     }
 
     public Item getItem(int index) {
-        return (index >= 0 && index < items.size()) ? items.get(index) : null;
+        return null;
     }
 
 
@@ -64,10 +66,11 @@ public class Picking implements Problem<PickingIndividual> {
         sb.append("\n");
         sb.append("\n");
         sb.append("Items:");
+        /*
         sb.append("\nId\tWeight\tValue");
         for (Item item : items) {
             sb.append(item);
-        }
+        */
         return sb.toString();
     }
 
@@ -82,25 +85,9 @@ public class Picking implements Problem<PickingIndividual> {
         return 0;
     }
 
-    public static Picking buildKnapsack(File file) throws IOException {
-        java.util.Scanner f = new java.util.Scanner(file);
-        String filecontent = "";
-        List<Item> items = new ArrayList<>();
-        while (f.hasNextLine()) {
-            filecontent += f.nextLine();
-        }
-        String[] itemsArrayUF = filecontent.split(",");
-        int size = Integer.parseInt(itemsArrayUF[0]);
-        int seed = Integer.parseInt(itemsArrayUF[1]);
-        int agents = Integer.parseInt(itemsArrayUF[2]);
-        int packages = Integer.parseInt(itemsArrayUF[3]);
-        SimulationPanel.environment = new Environment(size, size, seed, agents, packages);
-        return new Picking(GASingleton.getInstance().getItems());
-    }
 
-    public static Picking buildKnapsackExperiment() {
-
-        return new Picking(GASingleton.getInstance().getItems());
+    public static HybridClusterPicking buildKnapsackExperiment() {
+        return new HybridClusterPicking(GASingleton.getInstance().getItemMap());
     }
 
 

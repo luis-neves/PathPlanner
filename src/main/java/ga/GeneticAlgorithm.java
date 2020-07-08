@@ -119,7 +119,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
             GASingleton.getInstance().setBestInRun(bestInRun.results);
             //GASingleton.getInstance().getSimulationPanel().runPath(bestInRun.getResults());
         } else {
-            GASingleton.getInstance().setFinalItemSet(Arrays.asList(bestInRun.getGenome()), true);
+            GASingleton.getInstance().setFinalItemSet(Arrays.asList(bestInRun.getGenome(-1)), true);
         }
         fireRunEnded(new GAEvent(this));
 
@@ -131,8 +131,8 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         int in = 0;
         do {
             try {
-                for (Cell c : populationAux.getIndividual(0).getGenome()[in].agents) {
-                    agents.add(populationAux.getIndividual(0).getGenome()[in].agents.indexOf(c));
+                for (Cell c : populationAux.getIndividual(0).getGenome(-1)[in].agents) {
+                    agents.add(populationAux.getIndividual(0).getGenome(-1)[in].agents.indexOf(c));
                 }
             } catch (Exception e) {
                 in++;
@@ -143,14 +143,14 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
 
         for (int i = 0; i < populationSize; i++) {
             List<Integer> indexes = new ArrayList<>();
-            for (int j = 0; j < populationAux.getIndividual(i).getGenome().length; j++) {
-                if (populationAux.getIndividual(i).getGenome()[j].name == " | ") {
+            for (int j = 0; j < populationAux.getIndividual(i).getGenome(-1).length; j++) {
+                if (populationAux.getIndividual(i).getGenome(-1)[j].name == " | ") {
                     indexes.add(j);
                 }
             }
             //Collections.shuffle(agents);
             for (Integer index : indexes) {
-                populationAux.getIndividual(i).setGene(index, agents.get(indexes.indexOf(index)).toString());
+                //populationAux.getIndividual(i).setGene(index, agents.get(indexes.indexOf(index)).toString());
             }
             //System.out.println(populationAux.getIndividual(i).printGenome());
         }

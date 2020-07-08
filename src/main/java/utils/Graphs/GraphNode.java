@@ -5,6 +5,7 @@ import ga.KMeans.MyCluster;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import system.Exception;
 import utils.warehouse.Coordenates;
 import weka.core.Attribute;
 
@@ -132,8 +133,12 @@ public class GraphNode {
     }
 
     public void calculateHeuristic(GraphNode finalGraphNode) {
-        int distance = Math.abs((int) (finalGraphNode.getLocation().getX() - this.getLocation().getX())) + Math.abs((int) (finalGraphNode.getLocation().getY() - this.getLocation().getY()));
-        this.heuristic = distance;
+        try {
+            int distance = Math.abs((int) (finalGraphNode.getLocation().getX() - this.getLocation().getX())) + Math.abs((int) (finalGraphNode.getLocation().getY() - this.getLocation().getY()));
+            this.heuristic = distance;
+        }catch (Exception e){
+           throw e;
+        }
     }
 
     public float getDistance(GraphNode node) {

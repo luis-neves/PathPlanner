@@ -33,18 +33,22 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import utils.Graphs.Graph;
+import utils.Graphs.GraphNode;
 
 public class MainFrame extends JFrame implements GAListener {
 
     private static final long serialVersionUID = 1L;
     private Picking picking;
     private GeneticAlgorithm<PickingIndividual, Picking> ga;
+    private GeneticAlgorithm<HybridPickingIndividual, HybridClusterPicking> hybridGA;
     private PickingExperimentsFactory experimentsFactory;
     SimulationPanel simulationPanel = new SimulationPanel();
     PanelTextArea bestIndividualPanel;
     private PanelParameters panelParameters = new PanelParameters();
     private JButton buttonStop = new JButton("Stop");
     private JButton buttonRunHeuristic = new JButton("Run Heuristic");
+    private JButton buttonRunHybrid = new JButton("Run Hybrid");
     private JButton buttonRunFromMemory = new JButton("Run Genetic Algorithm");
     public JButton buttonVisualize = new JButton("Play");
     private JButton buttonSlowVisualize = new JButton(">");
@@ -80,13 +84,40 @@ public class MainFrame extends JFrame implements GAListener {
         JPanel panelButtons = new JPanel();
         panelButtons.add(buttonStop);
         panelButtons.add(buttonRunHeuristic);
+        panelButtons.add(buttonRunHybrid);
         panelButtons.add(buttonRunFromMemory);
         panelButtons.add(buttonSlowVisualize);
         panelButtons.add(buttonVisualize);
         panelButtons.add(buttonFastVisualize);
         buttonStop.setEnabled(false);
 
+        buttonRunHybrid.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Hybrid");
+                try {
+                    HashMap<GraphNode, List<GraphNode>> map = simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText()));
+                    bestIndividualPanel.textArea.setText("");
+                    seriesBestIndividual.clear();
+                    seriesAverage.clear();
 
+                    //picking.setProb1s(Double.parseDouble(panelParameters.jTextFieldProb1s.getText()));
+
+                    hybridGA = new GeneticAlgorithm<HybridPickingIndividual, HybridClusterPicking>(
+                            Integer.parseInt(panelParameters.jTextFieldN.getText()),
+                            Integer.parseInt(panelParameters.jTextFieldGenerations.getText()),
+                            panelParameters.getSelectionMethodHybrid(),
+                            panelParameters.getMutationMethodHybrid(),
+                            panelParameters.getRecombinationMethodHybrid(),
+                            new Random(Integer.parseInt(panelParameters.jTextFieldSeed.getText())));
+                    System.out.println(hybridGA);
+                    hybridGA.addGAListener(MainFrame.this);
+                    runHybridGA(map);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
         buttonStop.addActionListener(new ButtonStop_actionAdapter(this));
         buttonVisualize.addActionListener(new ActionListener() {
             @Override
@@ -134,7 +165,7 @@ public class MainFrame extends JFrame implements GAListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    simulationPanel.generateClusters();
+                    simulationPanel.runCluster(simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText())));
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -299,13 +330,37 @@ public class MainFrame extends JFrame implements GAListener {
 
         worker.execute();
     }
+    private void runHybridGA(HashMap<GraphNode, List<GraphNode>> map) {
+        manageButtons(false, false, true, false, false);
+
+        worker = new SwingWorker<Void, Void>() {
+            @Override
+            public Void doInBackground() {
+                try {
+
+                    hybridGA.run(new HybridClusterPicking(map));
+
+                } catch (Exception e) {
+                    e.printStackTrace(System.err);
+                }
+                return null;
+            }
+
+            @Override
+            public void done() {
+                manageButtons(true, true, false, true, experimentsFactory != null);
+            }
+        };
+
+        worker.execute();
+    }
 
     private void generateGA() {
         bestIndividualPanel.textArea.setText("");
         seriesBestIndividual.clear();
         seriesAverage.clear();
 
-        picking.setProb1s(Double.parseDouble(panelParameters.jTextFieldProb1s.getText()));
+        //picking.setProb1s(Double.parseDouble(panelParameters.jTextFieldProb1s.getText()));
 
         ga = new GeneticAlgorithm<PickingIndividual, Picking>(
                 Integer.parseInt(panelParameters.jTextFieldN.getText()),
@@ -314,18 +369,27 @@ public class MainFrame extends JFrame implements GAListener {
                 panelParameters.getMutationMethod(),
                 panelParameters.getRecombinationMethod(),
                 new Random(Integer.parseInt(panelParameters.jTextFieldSeed.getText())));
-
         System.out.println(ga);
     }
 
     @Override
     public void generationEnded(GAEvent e) {
-        GeneticAlgorithm<PickingIndividual, Picking> source = e.getSource();
-        bestIndividualPanel.textArea.setText(source.getBestInRun().toString());
-        seriesBestIndividual.add(source.getGeneration(), source.getBestInRun().getFitness());
-        seriesAverage.add(source.getGeneration(), source.getAverageFitness());
-        if (worker.isCancelled()) {
-            e.setStopped(true);
+        try {
+            GeneticAlgorithm<PickingIndividual, Picking> source = e.getSource();
+            bestIndividualPanel.textArea.setText(source.getBestInRun().toString());
+            seriesBestIndividual.add(source.getGeneration(), source.getBestInRun().getFitness());
+            seriesAverage.add(source.getGeneration(), source.getAverageFitness());
+            if (worker.isCancelled()) {
+                e.setStopped(true);
+            }
+        }catch (ClassCastException ex){
+            GeneticAlgorithm<HybridPickingIndividual, HybridClusterPicking> source = e.getSource();
+            bestIndividualPanel.textArea.setText(source.getBestInRun().toString());
+            seriesBestIndividual.add(source.getGeneration(), source.getBestInRun().getFitness());
+            seriesAverage.add(source.getGeneration(), source.getAverageFitness());
+            if (worker.isCancelled()) {
+                e.setStopped(true);
+            }
         }
     }
 
@@ -683,6 +747,17 @@ class PanelParameters extends PanelAtributesValue {
                 }
             }
         });
+        jTextFieldSeed.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+            }
+
+            public void insertUpdate(DocumentEvent e) {
+                GASingleton.getInstance().setSeed(Integer.parseInt(jTextFieldSeed.getText()));
+            }
+        });
 
         checkBoxCommunication.addActionListener(new ActionListener() {
             @Override
@@ -721,7 +796,39 @@ class PanelParameters extends PanelAtributesValue {
         return null;
     }
 
+    public SelectionMethod<HybridPickingIndividual, HybridClusterPicking> getSelectionMethodHybrid() {
+        switch (jComboBoxSelectionMethods.getSelectedIndex()) {
+            case 0:
+                return new Tournament<>(
+                        Integer.parseInt(jTextFieldN.getText()),
+                        Integer.parseInt(jTextFieldTournamentSize.getText()));
+            case 1:
+                return new RouletteWheel<>(
+                        Integer.parseInt(jTextFieldN.getText()));
+            case 2:
+                return new Ranking<>(Integer.parseInt(jTextFieldN.getText()));
+        }
+        return null;
+    }
+
     public Recombination<PickingIndividual> getRecombinationMethod() {
+
+        double recombinationProb = Double.parseDouble(jTextFieldProbRecombination.getText());
+
+        switch (jComboBoxRecombinationMethods.getSelectedIndex()) {
+            case 0:
+                return new RecombinationOneCut<>(recombinationProb);
+            case 1:
+                return new RecombinationPMX<>(recombinationProb);
+            case 2:
+                return new RecombinationCX<>(recombinationProb);
+            case 3:
+                return new RecombinationOX<>(recombinationProb);
+        }
+        return null;
+    }
+
+    public Recombination<HybridPickingIndividual> getRecombinationMethodHybrid() {
 
         double recombinationProb = Double.parseDouble(jTextFieldProbRecombination.getText());
 
@@ -744,6 +851,19 @@ class PanelParameters extends PanelAtributesValue {
     }
 
     public Mutation<PickingIndividual> getMutationMethod() {
+        double mutationProb = Double.parseDouble(jTextFieldProbMutation.getText());
+        switch (jComboBoxMutationMethods.getSelectedIndex()) {
+            case 0:
+                return new MutationFirstLast<>(mutationProb);
+            case 1:
+                return new MutationInversion<>(mutationProb);
+            case 2:
+                return new MutationSwap<>(mutationProb);
+        }
+        return null;
+    }
+
+    public Mutation<HybridPickingIndividual> getMutationMethodHybrid() {
         double mutationProb = Double.parseDouble(jTextFieldProbMutation.getText());
         switch (jComboBoxMutationMethods.getSelectedIndex()) {
             case 0:

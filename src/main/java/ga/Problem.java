@@ -1,5 +1,7 @@
 package ga;
 
+import picking.HybridPickingIndividual;
+
 public interface Problem<E extends Individual> {
 
     /*

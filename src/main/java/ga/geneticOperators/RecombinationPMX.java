@@ -2,34 +2,45 @@ package ga.geneticOperators;
 
 import ga.GeneticAlgorithm;
 import ga.Individual;
+import picking.HybridPickingIndividual;
 import picking.Item;
+import utils.Graphs.GraphNode;
 
 import java.util.*;
 
-public class RecombinationPMX <I extends Individual> extends Recombination<I>  {
+public class RecombinationPMX<I extends Individual> extends Recombination<I> {
     public RecombinationPMX(double probability) {
         super(probability);
     }
 
     @Override
     public void run(I ind1, I ind2) {
+        int indSize = 0;
+        GraphNode agent = null;
+        if (ind1.getClass().equals(HybridPickingIndividual.class)) {
+            int numAgents = ind1.getNumGenes();
+            int agentIdx = GeneticAlgorithm.random.nextInt(numAgents - 1);
+            indSize = ind1.getNumGenes(agentIdx);
+            agent = ind1.getAgent(agentIdx);
+        } else {
+            indSize = ind1.getNumGenes();
+        }
+
         Random rng = GeneticAlgorithm.random;
-        int point1 = rng.nextInt(ind1.getNumGenes());
-        int point2 = rng.nextInt(ind1.getNumGenes());
+        int point1 = rng.nextInt(indSize);
+        int point2 = rng.nextInt(indSize);
 
         int length = point2 - point1;
-        if (length < 0)
-        {
+        if (length < 0) {
             length += ind1.getNumGenes();
         }
-        List<Item> offspring1 = new ArrayList<Item>(Arrays.asList(ind1.getGenome()));
-        List<Item> offspring2 = new ArrayList<Item>(Arrays.asList(ind2.getGenome()));
+        List<Item> offspring1 = new ArrayList<Item>(Arrays.asList(ind1.getGenome(agent)));
+        List<Item> offspring2 = new ArrayList<Item>(Arrays.asList(ind2.getGenome(agent)));
 
         Map<Item, Item> mapping1 = new HashMap<Item, Item>(length * 2);
         Map<Item, Item> mapping2 = new HashMap<Item, Item>(length * 2);
-        for (int i = 0; i < length; i++)
-        {
-            int index = (i + point1) % ind1.getNumGenes();
+        for (int i = 0; i < length; i++) {
+            int index = (i + point1) % indSize;
             Item item1 = offspring1.get(index);
             Item item2 = offspring2.get(index);
             offspring1.set(index, item2);
@@ -41,21 +52,18 @@ public class RecombinationPMX <I extends Individual> extends Recombination<I>  {
         offspring1 = checkUnmappedElements(offspring1, mapping2, point1, point2);
         offspring2 = checkUnmappedElements(offspring2, mapping1, point1, point2);
 
-        ind1.replaceFromChild(offspring2);
-        ind2.replaceFromChild(offspring1);
+        ind1.replaceFromChild(agent, offspring2);
+        ind2.replaceFromChild(agent, offspring1);
     }
+
     private List<Item> checkUnmappedElements(List<Item> offspring,
-                                       Map<Item, Item> mapping,
-                                       int mappingStart,
-                                       int mappingEnd)
-    {
-        for (int i = 0; i < offspring.size(); i++)
-        {
-            if (!isInsideMappedRegion(i, mappingStart, mappingEnd))
-            {
+                                             Map<Item, Item> mapping,
+                                             int mappingStart,
+                                             int mappingEnd) {
+        for (int i = 0; i < offspring.size(); i++) {
+            if (!isInsideMappedRegion(i, mappingStart, mappingEnd)) {
                 Item mapped = offspring.get(i);
-                while (mapping.containsKey(mapped))
-                {
+                while (mapping.containsKey(mapped)) {
                     mapped = mapping.get(mapped);
                 }
                 offspring.set(i, mapped);
@@ -66,14 +74,13 @@ public class RecombinationPMX <I extends Individual> extends Recombination<I>  {
 
     private boolean isInsideMappedRegion(int position,
                                          int startPoint,
-                                         int endPoint)
-    {
+                                         int endPoint) {
         boolean enclosed = (position < endPoint && position >= startPoint);
         boolean wrapAround = (startPoint > endPoint && (position >= startPoint || position < endPoint));
         return enclosed || wrapAround;
     }
 
-//    protected List<List<Item>> mate(List<Item> parent1,
+    //    protected List<List<Item>> mate(List<Item> parent1,
 //                                    List<Item> parent2,
 //                                    int numberOfCrossoverPoints,
 //                                    Random rng)
@@ -119,7 +126,7 @@ public class RecombinationPMX <I extends Individual> extends Recombination<I>  {
 //        return result;
 //    }
     @Override
-    public String toString(){
+    public String toString() {
         return "PMX recombination (" + probability + ")";
     }
 }

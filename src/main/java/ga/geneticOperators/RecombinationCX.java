@@ -16,8 +16,8 @@ public class RecombinationCX<I extends Individual> extends Recombination<I> {
     @Override
     public void run(I ind1, I ind2) {
 
-        List<Item> genome1 = Arrays.asList(ind1.getGenome());
-        List<Item> genome2 = Arrays.asList(ind2.getGenome());
+        List<Item> genome1 = Arrays.asList(ind1.getGenome(-1));
+        List<Item> genome2 = Arrays.asList(ind2.getGenome(-1));
         if (!genome1.equals(genome2)) {
             List<Item> child = new ArrayList<>();
             List<Item> inCycle = new ArrayList<>();
@@ -39,14 +39,12 @@ public class RecombinationCX<I extends Individual> extends Recombination<I> {
                 }
             }
 
-            ind1.replaceFromChild(child);
-            ind2.replaceFromChild(child);
+            ind1.replaceFromChild(null, child);
+            ind2.replaceFromChild(null, child);
         } else {
 
         }
     }
-
-
 
 
     @Override

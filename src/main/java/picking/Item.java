@@ -30,15 +30,21 @@ public class Item {
     public Item(String name, List<String> items, List<Float> distance, Float agentDistance, Float exitDistance) {
         this.name = name;
     }
-    public Item(String name, GraphNode node){
+
+    public Item(String name, GraphNode node) {
         this.name = name;
+        this.node = node;
+    }
+
+    public Item(GraphNode node) {
+        this.name = node.getType().toLetter() + "" + node.getGraphNodeId();
         this.node = node;
     }
 
     public Item(String name, int positionINMATRIX, int line, int column, List<Cell> agent, List<Integer> agentDistance, int exit) {
         this.name = name;
         this.positionINMATRIX = positionINMATRIX;
-        this.cell = new Cell(line,column);
+        this.cell = new Cell(line, column);
         this.agents = agent;
         this.agentDistance = agentDistance;
         this.exit = exit;

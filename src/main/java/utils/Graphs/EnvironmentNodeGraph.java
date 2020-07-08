@@ -6,6 +6,7 @@ import picking.Item;
 import utils.warehouse.Colision;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,55 @@ public class EnvironmentNodeGraph {
             }
         }
         return true;
+    }
+
+    public FitnessResults calculatePath(HashMap<GraphNode, List<GraphNode>> pathMap) {
+        AStar aStar = new AStar(graph);
+        FitnessResults results = new FitnessResults();
+        List<GraphNode> finalPath = new ArrayList<>();
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : pathMap.entrySet()) {
+            GraphNode agent = entry.getKey();
+            aStar.setInitialGraphNode(agent);
+            List<GraphNode> agentFinalPath = new ArrayList<>();
+            List<GraphNode> products = entry.getValue();
+            for (GraphNode product : products) {
+                if (product == null) {
+                    System.out.println("bad");
+                }
+                aStar.setFinalGraphNode(product);
+                agentFinalPath.addAll(aStar.findGraphPath(products));
+                aStar.setInitialGraphNode(product);
+            }
+            aStar.setFinalGraphNode(graph.getExit());
+            agentFinalPath.addAll(aStar.findGraphPath(products));
+
+            if (agentFinalPath.get(0).getType() == GraphNodeType.AGENT) {
+                agentFinalPath.remove(0);
+            }
+            EnvironmentNodeGraph.FitnessCosts costs = calculateFitness(agentFinalPath, agent);
+            results.addTaskedAgent(agent, agentFinalPath, costs.costs);
+        }
+        //System.out.println(results);
+
+        float highest = Float.MIN_VALUE;
+        for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<FitnessNode> finalcosts = entry.getValue();
+            float sum = 0;
+            for (int i = 0; i < finalcosts.size(); i++) {
+                sum += finalcosts.get(i).getCost();
+            }
+            if (sum > highest) {
+                highest = sum;
+            }
+        }
+        results.setFitness(highest);
+        results.setPath(finalPath);
+        results.setTime(highest);
+        results.setTaskedAgentsOnly(pathMap);
+        results = checkColisions2(results);
+
+        return results;
     }
 
     public FitnessResults calculatePaths(Item[] items) {
@@ -146,7 +196,7 @@ public class EnvironmentNodeGraph {
         return results;
     }
 
-    public FitnessResults checkColisions2(FitnessResults results) {
+    public static FitnessResults checkColisions2(FitnessResults results) {
         results = fixRepetedProduct(results);
         int nColisions = 0;
         float collisionsPenalty = 0;
@@ -209,7 +259,7 @@ public class EnvironmentNodeGraph {
                                         /*if(inSameIle(currentFullNode.getNode(), nextNode, pathNodes2.get(j).getNode(), pathNodes2.get(j-1).getNode())){
                                             System.out.println();
                                         }*/
-                                        if (j != 0 && (pathNodes2.get(j - 1).getNode().equals(nextNode)) && pathNodes.get(i).getNode().getGraphNodeId() != pathNodes.get(i+1).getNode().getGraphNodeId()) {
+                                        if (j != 0 && (pathNodes2.get(j - 1).getNode().equals(nextNode)) && pathNodes.get(i).getNode().getGraphNodeId() != pathNodes.get(i + 1).getNode().getGraphNodeId()) {
                                             if (currentFullNode.getNode().getNeighbourEdge(pathNodes2.get(j).getNode()).getNum_directions() <= 1) {
                                                 float a = pathNodes.get(i).getTime();
                                                 float c = pathNodes.get(i + 1).getTime();
@@ -290,7 +340,7 @@ public class EnvironmentNodeGraph {
         return results;
     }
 
-    private boolean inSameIle(GraphNode first, GraphNode second, GraphNode second2, GraphNode first2) {
+    public static boolean inSameIle(GraphNode first, GraphNode second, GraphNode second2, GraphNode first2) {
         if (first.getGraphNodeId() == second.getGraphNodeId() && second.getGraphNodeId() == second2.getGraphNodeId()) {
 
             if (first.getVerticalSimpleNode().contains(first2) && first.getVerticalSimpleNode().size() < 2) {
@@ -305,7 +355,7 @@ public class EnvironmentNodeGraph {
         return false;
     }
 
-    private FitnessResults fixRepetedProduct(FitnessResults results) {
+    public static FitnessResults fixRepetedProduct(FitnessResults results) {
         for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
             GraphNode agent = entry.getKey();
             List<FitnessNode> pathNodes = entry.getValue();

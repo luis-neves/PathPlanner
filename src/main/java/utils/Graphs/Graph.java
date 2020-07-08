@@ -1,5 +1,6 @@
 package utils.Graphs;
 
+import ga.KMeans.MyCluster;
 import utils.warehouse.Coordenates;
 import weka.core.Attribute;
 
@@ -164,6 +165,16 @@ public class Graph {
         List<GraphNode> products = new ArrayList<>();
         for (int i = 0; i < getGraphNodes().size(); i++) {
             if (getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT) {
+                products.add(getGraphNodes().get(i));
+            }
+        }
+        return products;
+    }
+
+    public List<GraphNode> getProductsByCluster(MyCluster cluster) {
+        List<GraphNode> products = new ArrayList<>();
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT && getGraphNodes().get(i).getCluster().equals(cluster)) {
                 products.add(getGraphNodes().get(i));
             }
         }

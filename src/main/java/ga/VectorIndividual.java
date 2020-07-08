@@ -13,7 +13,7 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
 
     protected Item[] genome;
 
-    public VectorIndividual(P problem, List<Item> items, double prob1s) {
+    public VectorIndividual(P problem, List<Item> items) {
         super(problem);
         genome = GASingleton.getInstance().getItems().toArray(new Item[GASingleton.getInstance().getItems().size()]);
     }
@@ -30,7 +30,7 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
     }
 
     @Override
-    public Item getGene(int index) {
+    public Item getGene(int agent, int index) {
         return genome[index];
     }
 
@@ -94,8 +94,8 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
     public String printGenome() {
         if (GASingleton.getInstance().isNodeProblem()) {
             String str = "";
-            for (int i = 0; i < getGenome().length; i++) {
-                str += "[" + getGenome()[i].name + "]" + (i == (getGenome().length - 1) ? "" : ",");
+            for (int i = 0; i < getGenome(-1).length; i++) {
+                str += "[" + getGenome(-1)[i].name + "]" + (i == (getGenome(-1).length - 1) ? "" : ",");
             }
             str += ",[" + GASingleton.getInstance().getLastAgent().getType().toLetter() + GASingleton.getInstance().getLastAgent().getGraphNodeId() + "]";
             str += printTaskedAgents();
@@ -123,7 +123,7 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
     }
 
 
-    public void setGene(int index, Item value) {
+    public void setGene(int agent, int index, Item value) {
         genome[index] = value;
     }
 

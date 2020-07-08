@@ -1,14 +1,19 @@
 package ga.geneticOperators;
 
 import ga.GeneticAlgorithm;
+import ga.Individual;
+import ga.MultipleVectorIndividual;
 import ga.VectorIndividual;
+import picking.HybridClusterPicking;
+import picking.HybridPickingIndividual;
 import picking.Item;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
-public class MutationInversion<I extends VectorIndividual> extends Mutation<I> {
+public class MutationInversion<I extends Individual> extends Mutation<I> {
 
     public MutationInversion(double probability) {
         super(probability);
@@ -16,8 +21,18 @@ public class MutationInversion<I extends VectorIndividual> extends Mutation<I> {
 
     @Override
     public void run(I individual) {
-        int indSize = individual.getNumGenes();
+
         if (GeneticAlgorithm.random.nextDouble() < probability) {
+            int indSize = 0;
+            int agent = -1;
+            if (individual.getClass().equals(HybridPickingIndividual.class)) {
+                int numAgents = individual.getNumGenes();
+                agent = GeneticAlgorithm.random.nextInt(numAgents - 1);
+                indSize = individual.getNumGenes(agent);
+            } else {
+                indSize = individual.getNumGenes();
+            }
+
             int index1, index2 = 0;
             do {
                 index1 = GeneticAlgorithm.random.nextInt(indSize);
@@ -31,11 +46,11 @@ public class MutationInversion<I extends VectorIndividual> extends Mutation<I> {
             }
             List<Item> items = new ArrayList<>();
             for (int i = index1; i <= index2; i++) {
-                items.add(individual.getGene(i));
+                items.add(individual.getGene(agent, i));
             }
             Collections.reverse(items);
             for (Item i : items) {
-                individual.setGene(index1 + items.indexOf(i), i);
+                individual.setGene(agent, index1 + items.indexOf(i), i);
             }
         }
     }

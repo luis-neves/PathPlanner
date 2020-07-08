@@ -1,27 +1,31 @@
 package picking;
 
 import ga.GASingleton;
+import ga.MultipleVectorIndividual;
 import ga.VectorIndividual;
 import gui.SimulationPanel;
-import utils.Graphs.*;
+import utils.Graphs.EnvironmentNodeGraph;
+import utils.Graphs.FitnessResults;
+import utils.Graphs.Graph;
+import utils.Graphs.GraphNode;
 import utils.Maths;
 
 import java.util.*;
 
-public class PickingIndividual extends VectorIndividual<Picking, PickingIndividual> {
+public class HybridPickingIndividual extends MultipleVectorIndividual<HybridClusterPicking, HybridPickingIndividual> {
 
-    public PickingIndividual(Picking problem, List<Item> items) {
-        super(problem, items);
+    public HybridPickingIndividual(HybridClusterPicking problem, HashMap<GraphNode, List<GraphNode>> taskMap) {
+        super(problem, taskMap);
     }
 
-    public PickingIndividual(PickingIndividual original) {
+    public HybridPickingIndividual(HybridPickingIndividual original) {
         super(original);
     }
 
     @Override
     public double computeFitness() {
         if (GASingleton.getInstance().isNodeProblem()) {
-            FitnessResults results = SimulationPanel.environmentNodeGraph.calculatePaths(getGenome(-1));
+            FitnessResults results = SimulationPanel.environmentNodeGraph.calculatePath(genome);
             this.results = results;
             fitness = results.getFitness() * GASingleton.getInstance().getTimeWeight();
 
@@ -95,29 +99,8 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
     }
 
     @Override
-    public void swapGenes(PickingIndividual other, int index) {
+    public void swapGenes(HybridPickingIndividual other, int index) {
 
-    }
-
-
-    @Override
-    public void swapGenes(VectorIndividual other, int index) {
-        int auxI = 0;
-        for (int i = 0; i < genome.length; i++) {
-            if (genome[i].name.equals(other.getGenome(-1)[index].name)) {
-                auxI = i;
-            }
-        }
-        Item aux = genome[index];
-        Item replace = genome[auxI];
-        genome[index] = other.getGenome(-1)[index];
-        genome[auxI] = aux;
-        for (int i = 0; i < other.getGenome(-1).length; i++) {
-            if (other.getGenome(-1)[i].name.equals(aux.name)) {
-                other.setGene(-1, i, replace);
-            }
-        }
-        other.setGene(-1, index, aux);
     }
 
 
@@ -135,7 +118,8 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
 
     private String printFitnessBreakdown() {
         String str = "";
-        str += results.getFitness() + "*" + GASingleton.getInstance().getTimeWeight() + " + (" + (results.getCollisionPenalty() * results.getNumCollisions()) + (GASingleton.getInstance().isSimulatingWeights() ? " * " + GASingleton.getInstance().getColisionWeight() + (") + (" + (results.getWeightsPenalty()) + " * " + GASingleton.getInstance().getWeightsPenaltyWeight() + ")") : "*" + GASingleton.getInstance().getColisionWeight() + ")");
+        if (results != null)
+            str += results.getFitness() + "*" + GASingleton.getInstance().getTimeWeight() + " + (" + (results.getCollisionPenalty() * results.getNumCollisions()) + (GASingleton.getInstance().isSimulatingWeights() ? " * " + GASingleton.getInstance().getColisionWeight() + (") + (" + (results.getWeightsPenalty()) + " * " + GASingleton.getInstance().getWeightsPenaltyWeight() + ")") : "*" + GASingleton.getInstance().getColisionWeight() + ")");
         return str;
     }
 
@@ -144,41 +128,77 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
      * @return 1 if this object is BETTER than i, -1 if it is WORST than I and 0, otherwise.
      */
     @Override
-    public int compareTo(PickingIndividual i) {
+    public int compareTo(HybridPickingIndividual i) {
         return this.fitness == i.getFitness() ? 0 : this.fitness < i.getFitness() ? 1 : -1;
     }
 
     @Override
-    public PickingIndividual clone() {
-        return new PickingIndividual(this);
+    public HybridPickingIndividual clone() {
+        return new HybridPickingIndividual(this);
     }
 
     @Override
-    public Item[] getGenome(int agent) {
-        return this.genome;
+    public Item[] getGenome(GraphNode agent) {
+        List<GraphNode> genome = this.genome.get(agent);
+        Item[] items = new Item[genome.size()];
+        for (int i = 0; i < genome.size(); i++) {
+            items[i] = new Item(genome.get(i));
+        }
+        return items;
     }
 
-    public Item[] getGenome(GraphNode agent) {
-        return this.genome;
+    @Override
+    public Item[] getGenome(int indexToGet) {
+        int index = 0;
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : genome.entrySet()) {
+            if (index == indexToGet) {
+                GraphNode agent = entry.getKey();
+                List<GraphNode> nodes = entry.getValue();
+                Item[] items = new Item[nodes.size()];
+                for (int i = 0; i < nodes.size(); i++) {
+                    GraphNode node = nodes.get(i);
+                    items[i] = new Item(node.getType().toLetter() + " " + node.getGraphNodeId(), node);
+                }
+                return items;
+            }
+            index++;
+        }
+        return null;
     }
 
     @Override
     public void replaceFromChild(GraphNode agent, List<Item> genome) {
-        this.genome = genome.toArray(this.genome);
+        List<GraphNode> items = this.genome.get(agent);
+        items.clear();
+        for (Item item : genome) {
+            items.add(item.node);
+        }
     }
 
     @Override
     public void setGene(Integer agent, Integer index, Item value) {
-        this.genome[index] = value;
-    }
 
-    @Override
-    public int getNumGenes(int agent) {
-        return 0;
     }
 
     @Override
     public GraphNode getAgent(int agentIdx) {
+        int index = 0;
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : genome.entrySet()) {
+            if (index == agentIdx) {
+                GraphNode agent = entry.getKey();
+                return agent;
+            }
+            index++;
+        }
         return null;
+    }
+
+    public void replaceFromChild(HashMap<GraphNode, List<GraphNode>> genome) {
+        this.genome = new HashMap<>();
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : genome.entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<GraphNode> agentPath = entry.getValue();
+            this.genome.put(agent, agentPath);
+        }
     }
 }

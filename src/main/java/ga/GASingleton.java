@@ -51,6 +51,8 @@ public class GASingleton {
     private int numExperiments;
     private List<Operator> operators;
     public static String erpID = "erp";
+    private int seed;
+    private HashMap<GraphNode, List<GraphNode>> itemMap;
 
     public Operator findOperator(String id) {
         for (int i = 0; i < operators.size(); i++) {
@@ -68,7 +70,8 @@ public class GASingleton {
     public void setOperators(List<Operator> operators) {
         this.operators = operators;
     }
-    public void addOperator(String id, boolean disponivel){
+
+    public void addOperator(String id, boolean disponivel) {
         this.operators.add(new Operator(id, disponivel));
     }
 
@@ -285,8 +288,8 @@ public class GASingleton {
                 // root element
                 Element root = document.createElement("Task");
 
-                root.setAttributeNS("http://www.w3.org/2000/xmlns/","xmlns:xsd","http://www.w3.org/2001/XMLSchema");
-                root.setAttributeNS("http://www.w3.org/2000/xmlns/","xmlns:xsi","http://www.w3.org/2001/XMLSchema-instance");
+                root.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xsd", "http://www.w3.org/2001/XMLSchema");
+                root.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
                 Attr attrAgent = document.createAttribute("agent-id");
                 attrAgent.setValue(entry.getKey().getGraphNodeId() + "");
                 root.setAttributeNode(attrAgent);
@@ -420,6 +423,21 @@ public class GASingleton {
 
     }
 
+    public void setSeed(int seed) {
+        this.seed = seed;
+    }
+
+    public int getSeed() {
+        return seed;
+    }
+
+    public HashMap<GraphNode, List<GraphNode>> getItemMap() {
+        return itemMap;
+    }
+
+    public void setItemMap(HashMap<GraphNode, List<GraphNode>> itemMap) {
+        this.itemMap = itemMap;
+    }
 
 
     //Document doc = builder.newDocument();

@@ -128,7 +128,8 @@ public class FitnessResults {
 
     public String printTaskedAgents() {
         try {
-            String str = "";
+            String str = "Results: ";
+            str+= "\nFitness: " + this.fitness + " Time: " + this.time;
             for (Map.Entry<GraphNode, List<FitnessNode>> entry : getTaskedAgentsFullNodes().entrySet()) {
                 GraphNode agent = entry.getKey();
                 List<FitnessNode> agentPath = entry.getValue();

@@ -2,8 +2,10 @@ package ga;
 
 import picking.Item;
 import utils.Graphs.FitnessResults;
+import utils.Graphs.Graph;
 import utils.Graphs.GraphNode;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,9 +50,11 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
     public double getFitness() {
         return fitness;
     }
-    public int getCollisions(){
+
+    public int getCollisions() {
         return collisions;
     }
+
     public double getAvgPicksPerAgent() {
         return avgPicksPerAgent;
     }
@@ -62,13 +66,17 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
     @Override
     public abstract I clone();
 
-    public abstract Item getGene(int index);
+    public abstract Item getGene(int agent, int index);
 
-    public abstract Item[] getGenome();
+    public abstract Item[] getGenome(int agent);
 
-    public abstract void replaceFromChild(List<Item> genome);
+    public abstract Item[] getGenome(GraphNode agent);
 
-    public abstract void setGene(Integer index, String value);
+    public abstract void replaceFromChild(GraphNode agent, List<Item> genome);
 
+    public abstract void setGene(Integer agent,Integer index, Item value);
 
+    public abstract int getNumGenes(int agent);
+
+    public abstract GraphNode getAgent(int agentIdx);
 }

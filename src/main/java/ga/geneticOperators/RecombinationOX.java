@@ -16,8 +16,8 @@ public class RecombinationOX<I extends Individual> extends Recombination<I> {
     @Override
     public void run(I ind1, I ind2) {
         // get the size of the tours
-        List<Item> genome1 = Arrays.asList(ind1.getGenome());
-        List<Item> genome2 = Arrays.asList(ind1.getGenome());
+        List<Item> genome1 = Arrays.asList(ind1.getGenome(-1));
+        List<Item> genome2 = Arrays.asList(ind1.getGenome(-1));
         if (!genome1.equals(genome2)) {
             ArrayList<Item> child = new ArrayList<Item>();
             for (int i = 0; i < genome1.size(); i++) {
@@ -43,7 +43,7 @@ public class RecombinationOX<I extends Individual> extends Recombination<I> {
                     }
                 }
             }
-            ind2.replaceFromChild(child);
+            ind2.replaceFromChild(null,child);
         }
     }
 
