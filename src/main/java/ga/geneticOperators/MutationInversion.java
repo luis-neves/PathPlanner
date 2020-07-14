@@ -50,6 +50,9 @@ public class MutationInversion<I extends Individual> extends Mutation<I> {
             }
             Collections.reverse(items);
             for (Item i : items) {
+                if (i == null){
+                    System.out.println();
+                }
                 individual.setGene(agent, index1 + items.indexOf(i), i);
             }
         }

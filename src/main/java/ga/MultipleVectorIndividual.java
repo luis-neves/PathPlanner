@@ -52,7 +52,14 @@ public abstract class MultipleVectorIndividual<P extends Problem, I extends Mult
     }
 
     @Override
-    public Item getGene(int agent, int index) {
+    public Item getGene(int agent, int idx) {
+        int index = 0;
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : genome.entrySet()) {
+            if (index == agent) {
+                return new Item(genome.get(entry.getKey()).get(idx));
+            }
+            index++;
+        }
         return null;
     }
 

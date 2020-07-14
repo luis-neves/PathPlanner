@@ -32,7 +32,7 @@ public class RecombinationPMX<I extends Individual> extends Recombination<I> {
 
         int length = point2 - point1;
         if (length < 0) {
-            length += ind1.getNumGenes();
+            length += indSize;
         }
         List<Item> offspring1 = new ArrayList<Item>(Arrays.asList(ind1.getGenome(agent)));
         List<Item> offspring2 = new ArrayList<Item>(Arrays.asList(ind2.getGenome(agent)));

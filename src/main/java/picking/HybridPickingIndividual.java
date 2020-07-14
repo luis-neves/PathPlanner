@@ -176,8 +176,17 @@ public class HybridPickingIndividual extends MultipleVectorIndividual<HybridClus
     }
 
     @Override
-    public void setGene(Integer agent, Integer index, Item value) {
-
+    public void setGene(Integer agentIdx, Integer idx, Item value) {
+        int index = 0;
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : genome.entrySet()) {
+            if (index == agentIdx) {
+                List<GraphNode> list = genome.get(entry.getKey());
+                list.remove(value.node);
+                list.add(idx, value.node);
+                break;
+            }
+            index++;
+        }
     }
 
     @Override

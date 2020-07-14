@@ -6,6 +6,7 @@ import armazem.EnvironmentListener;
 import classlib.Util;
 import com.sun.xml.bind.v2.runtime.reflect.Lister;
 import ga.GASingleton;
+import ga.KMeans.AstarDistance;
 import ga.KMeans.MyCluster;
 import jdk.nashorn.internal.runtime.PropertyMap;
 import org.w3c.dom.Document;
@@ -751,7 +752,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         kmeans.setMaxIterations(MAX_KMEANS_ITERATIONS);
         kmeans.setSeed(seed);
         kmeans.setPreserveInstancesOrder(true);
-        DistanceFunction function = new ManhattanDistance();
+        DistanceFunction function = new AstarDistance();
         kmeans.setDistanceFunction(function);
         
         Attribute PT1 = new Attribute("X");
@@ -791,14 +792,14 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         //dataset.setClassIndex(dataset.numAttributes() - 1);
 
         //Will print 0 if it's a "yes", and 1 if it's a "no"
-
         try {
             kmeans.buildClusterer(dataset);
             //System.out.println(Arrays.toString(kmeans.getAssignments()));
             Instances centroids = kmeans.getClusterCentroids();
             List<MyCluster> clusters = new ArrayList<>();
             HashMap<Integer, ArrayList<GraphNode>> clusterMap = new HashMap<>();
-
+            DistanceFunction function1 = new AstarDistance();
+            kmeans.setDistanceFunction(function1);
             for (int i = 0; i < problemGraph.getAgentsNum(); i++) {
                 //System.out.print("Cluster " + i + " size: " + kmeans.getClusterSizes()[i]);
                 clusters.add(new MyCluster(i));
