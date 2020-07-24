@@ -2,25 +2,51 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="AlgoritmoGenetico:jar" />
       <artifact name="AlgoritmoGenetico_Mav:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="25/06/2020&#10;[HEURISTIC] pre visualize">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ga/KMeans/AstarDistance.java" afterDir="false" />
+    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="14/07/2020&#10;[Hybrid] almost">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Maven__net_sf_jni4net_jni4net_j_0_8_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classpath.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/AlgoritmoGenetico_Mav_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/AlgoritmoGenetico_Mav_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/AlgoritmoGenetico_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/AlgoritmoGenetico_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/MultipleVectorIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/MultipleVectorIndividual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationInversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationInversion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationPMX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationPMX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgoritmoGenetico.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AlgoritmoGenetico.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/AlgoritmoGenetico_jar/AlgoritmoGenetico.jar" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/AlgoritmoGenetico_jar/AlgoritmoGenetico.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/HybridPickingIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/HybridPickingIndividual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Coordenates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Coordenates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/AlgoritmoGenetico.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/AlgoritmoGenetico.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationInversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationInversion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationCX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationCX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationOX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationOX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationPMX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationPMX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/BusMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/ClientTopicsInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/CommunicationManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/ICommunicationManagerCallbacks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/ICommunicationManagerCallbacks_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/InvalidMessageTypeException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/InvalidNumberPriorityLevelsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/InvalidPriorityException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/MIMEType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/MessagePriorityManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/MessagePriorityManagerNotInitializedException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/ServiceBusManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/TopicsConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/Worker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classlib/__ICommunicationManagerCallbacks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/MainFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/MainFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/MainFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$3.class" afterDir="false" />
@@ -34,8 +60,9 @@
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonTestColision_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonTestColision_actionAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/picking/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph$FitnessCosts.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph$FitnessCosts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/GraphNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/GraphNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +120,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="arwarepathfinder" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -104,7 +135,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560734764181" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ClassLib.j4n.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/weka-stable-3.8.4.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -112,11 +143,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.44827586" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -129,6 +160,7 @@
       <recent name="ga.geneticOperators" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Aulas\I&amp;D\ArwarePathFinder\src\main\resources\META-INF" />
       <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\" />
       <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo" />
       <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\gui" />
@@ -146,6 +178,10 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn compile" />
+      <command value="mvn clean" />
+      <command value="mvn install" />
+      <command value="mvn dependency:build-classpath " />
+      <command value="mvn dependency:build-classpath -Dmdep.outputFile=classpath.txt " />
     </option>
   </component>
   <component name="RunManager">
@@ -158,7 +194,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Main" />
       <module name="AlgoritmoGenetico" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="gui.*" />
@@ -417,6 +452,21 @@
       <workItem from="1594225638708" duration="7968000" />
       <workItem from="1594369225038" duration="803000" />
       <workItem from="1594653748416" duration="4931000" />
+      <workItem from="1594689735522" duration="136000" />
+      <workItem from="1594721601410" duration="6911000" />
+      <workItem from="1594739585695" duration="3449000" />
+      <workItem from="1594746742441" duration="4766000" />
+      <workItem from="1594751544702" duration="1726000" />
+      <workItem from="1594824317127" duration="13832000" />
+      <workItem from="1594893398616" duration="10267000" />
+      <workItem from="1594926163425" duration="533000" />
+      <workItem from="1594980386712" duration="4998000" />
+      <workItem from="1595012703566" duration="3768000" />
+      <workItem from="1595098735244" duration="4211000" />
+      <workItem from="1595345455901" duration="1443000" />
+      <workItem from="1595498605899" duration="10459000" />
+      <workItem from="1595521148419" duration="2734000" />
+      <workItem from="1595585041970" duration="4034000" />
     </task>
     <task id="LOCAL-00001" summary="forgot">
       <created>1582509185139</created>
@@ -502,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593080786181</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="14/07/2020&#10;[Hybrid] almost">
+      <created>1594689797881</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1594689797881</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,25 +592,34 @@
     <MESSAGE value="11/05/2020&#10;[POST Experiments]" />
     <MESSAGE value="16/06/2020&#10;[PRE HEURISTIC]" />
     <MESSAGE value="25/06/2020&#10;[HEURISTIC] pre visualize" />
-    <option name="LAST_COMMIT_MESSAGE" value="25/06/2020&#10;[HEURISTIC] pre visualize" />
+    <MESSAGE value="14/07/2020&#10;[Hybrid] almost" />
+    <option name="LAST_COMMIT_MESSAGE" value="14/07/2020&#10;[Hybrid] almost" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="657" y="164" key="#com.intellij.ide.util.MemberChooser" timestamp="1594230395658">
+    <state x="361" y="71" key="#Project_Structure" timestamp="1594741657462">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="657" y="164" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1594230395658" />
-    <state x="527" y="196" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1587502415657">
+    <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1594741657462" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594751516087">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="527" y="196" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1587502415657" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1594751516087" />
+    <state x="657" y="164" key="#com.intellij.ide.util.MemberChooser" timestamp="1595013349866">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="657" y="164" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595013349866" />
+    <state x="527" y="196" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1594751513681">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="527" y="196" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1594751513681" />
     <state x="400" y="102" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1587492382895">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="400" y="102" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1536.824@0.0.1536.824" timestamp="1587492382895" />
-    <state x="627" y="123" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1587501258605">
+    <state x="627" y="123" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1594826377658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="627" y="123" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1587501258605" />
+    <state x="627" y="123" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1594826377658" />
     <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587500976340">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -566,79 +632,103 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1593978990292" />
-    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2" timestamp="1594175947060">
+    <state x="432" y="167" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1595101314251">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1594175947060" />
-    <state x="946" y="230" key="FileChooserDialogImpl" timestamp="1592329503934">
+    <state x="432" y="167" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1595101314251" />
+    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2" timestamp="1594689795402">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="946" y="230" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592329503934" />
-    <state width="1493" height="304" key="GridCell.Tab.0.bottom" timestamp="1594682725973">
+    <state x="414" y="8" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1594689795402" />
+    <state x="946" y="230" key="FileChooserDialogImpl" timestamp="1595103328818">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="304" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594682725973" />
+    <state x="946" y="230" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595103328818" />
+    <state width="1222" height="65" key="GridCell.Tab.0.bottom" timestamp="1595588237388">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1222" height="65" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595588237388" />
     <state width="1864" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1587741998081" />
-    <state width="1493" height="304" key="GridCell.Tab.0.center" timestamp="1594682725973">
+    <state width="1222" height="65" key="GridCell.Tab.0.center" timestamp="1595588237388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="304" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594682725973" />
+    <state width="1222" height="65" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595588237388" />
     <state width="1864" height="252" key="GridCell.Tab.0.center/0.0.1920.1030@0.0.1920.1030" timestamp="1587741998081" />
-    <state width="1493" height="304" key="GridCell.Tab.0.left" timestamp="1594682725973">
+    <state width="1222" height="65" key="GridCell.Tab.0.left" timestamp="1595588237388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="304" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594682725973" />
+    <state width="1222" height="65" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595588237388" />
     <state width="1864" height="252" key="GridCell.Tab.0.left/0.0.1920.1030@0.0.1920.1030" timestamp="1587741998081" />
-    <state width="1493" height="304" key="GridCell.Tab.0.right" timestamp="1594682725973">
+    <state width="1222" height="65" key="GridCell.Tab.0.right" timestamp="1595588237388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="304" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594682725973" />
+    <state width="1222" height="65" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595588237388" />
     <state width="1864" height="252" key="GridCell.Tab.0.right/0.0.1920.1030@0.0.1920.1030" timestamp="1587741998081" />
-    <state width="1493" height="304" key="GridCell.Tab.1.bottom" timestamp="1594682725973">
+    <state width="1222" height="65" key="GridCell.Tab.1.bottom" timestamp="1595588237738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="304" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594682725973" />
-    <state width="1493" height="304" key="GridCell.Tab.1.center" timestamp="1594682725973">
+    <state width="1222" height="65" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595588237738" />
+    <state width="1222" height="65" key="GridCell.Tab.1.center" timestamp="1595588237738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="304" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1594682725973" />
-    <state width="1493" height="304" key="GridCell.Tab.1.left" timestamp="1594682725973">
+    <state width="1222" height="65" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1595588237738" />
+    <state width="1222" height="65" key="GridCell.Tab.1.left" timestamp="1595588237738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="304" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1594682725973" />
-    <state width="1493" height="304" key="GridCell.Tab.1.right" timestamp="1594682725973">
+    <state width="1222" height="65" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1595588237738" />
+    <state width="1222" height="65" key="GridCell.Tab.1.right" timestamp="1595588237738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="304" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1594682725973" />
+    <state width="1222" height="65" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1595588237738" />
     <state x="299" y="67" key="Maven.ArtifactSearchDialog" timestamp="1592402517921">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="299" y="67" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1592402517921" />
-    <state x="182" y="0" key="SettingsEditor" timestamp="1592406007674">
+    <state x="149" y="0" key="SettingsEditor" timestamp="1595588569397">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="182" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592406007674" />
+    <state x="149" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595588569397" />
     <state x="346" y="0" key="SettingsEditor/0.0.1920.1030@0.0.1920.1030" timestamp="1587741858691" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1594175952781">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1594689804730">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1594175952781" />
-    <state x="526" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592405972528">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1594689804730" />
+    <state x="506" y="281" key="classpath-attribute-editor" timestamp="1594748651866">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="526" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1592405972528" />
-    <state x="463" y="10" width="609" height="804" key="find.popup" timestamp="1588000865159">
+    <state x="506" y="281" key="classpath-attribute-editor/0.0.1536.824@0.0.1536.824" timestamp="1594748651866" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1594828248316">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="463" y="10" width="609" height="804" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1588000865159" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1594828248316" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1594753198484">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1594753198484" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1594753353945">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1594753353945" />
+    <state x="526" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1595103335317">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="526" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1595103335317" />
+    <state x="516" y="410" key="com.intellij.jarRepository.RepositoryAttachDialog-SEARCH" timestamp="1594826538536">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="516" y="410" key="com.intellij.jarRepository.RepositoryAttachDialog-SEARCH/0.0.1536.824@0.0.1536.824" timestamp="1594826538536" />
+    <state x="463" y="10" width="611" height="804" key="find.popup" timestamp="1594747777082">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="463" y="10" width="611" height="804" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1594747777082" />
     <state x="209" y="33" key="new project wizard" timestamp="1592401780741">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1592401780741" />
-    <state x="425" y="188" width="672" height="677" key="run.anything.popup" timestamp="1587502706008">
+    <state x="425" y="188" width="672" height="677" key="run.anything.popup" timestamp="1595016229523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="188" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1587502706008" />
+    <state x="425" y="188" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1595016229523" />
     <state x="426" y="66" width="672" height="676" key="search.everywhere.popup" timestamp="1587742390498">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -43,4 +43,8 @@ public class Coordenates {
     public String toString() {
         return " XYZ (" + x + "," + y + "," + z + ")";
     }
+
+    public boolean isSame(Coordenates location) {
+        return this.getX() == location.getX() && this.getY() == location.getY() && this.getZ() == location.getZ();
+    }
 }

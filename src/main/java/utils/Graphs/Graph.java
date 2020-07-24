@@ -60,11 +60,20 @@ public class Graph {
     public void createEdge(Edge edge) {
         edge.getStart().addNeighbour(edge);
         edge.getEnd().addNeighbour(edge);
-        if (edge.getStart().getLocation().getX() == edge.getEnd().getLocation().getX()) {
-            edge.setLocation(new Coordenates(edge.getStart().getLocation().getX(), 0, 0));
-        } else if (edge.getStart().getLocation().getY() == edge.getEnd().getLocation().getY()) {
-            edge.setLocation(new Coordenates(0, edge.getStart().getLocation().getY(), 0));
+        if (edge.getStart().getDrawLocation() == null) {
+            if (edge.getStart().getLocation().getX() == edge.getEnd().getLocation().getX()) {
+                edge.setLocation(new Coordenates(edge.getStart().getLocation().getX(), 0, 0));
+            } else if (edge.getStart().getLocation().getY() == edge.getEnd().getLocation().getY()) {
+                edge.setLocation(new Coordenates(0, edge.getStart().getLocation().getY(), 0));
+            }
+        } else {
+            if (edge.getStart().getDrawLocation().getX() == edge.getEnd().getDrawLocation().getX()) {
+                edge.setLocation(new Coordenates(edge.getStart().getDrawLocation().getX(), 0, 0));
+            } else if (edge.getStart().getDrawLocation().getY() == edge.getEnd().getDrawLocation().getY()) {
+                edge.setLocation(new Coordenates(0, edge.getStart().getDrawLocation().getY(), 0));
+            }
         }
+
         this.edges.add(edge);
         this.numberOfEdges++; // a GraphNode has been added
     }
@@ -198,5 +207,27 @@ public class Graph {
             }
         }
         return null;
+    }
+
+    public int getNumNodes() {
+        if (GraphNodes != null) {
+            return this.GraphNodes.size();
+        } else {
+            return 0;
+        }
+    }
+
+    public void bridge(GraphNode node1, GraphNode node2) {
+        Edge edge = new Edge(node1, node2, node1.getDistance(node2), this.getEdges().size());
+        this.getTrueNode(node1).addNeighbour(edge);
+        this.getTrueNode(node2).addNeighbour(edge);
+        this.createEdge(edge);
+    }
+
+    public void flipHorizontal(float v) {
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            GraphNode n = this.getGraphNodes().get(i);
+            n.setLocation(new Coordenates(v-n.getLocation().getX(), n.getLocation().getY(), 0));
+        }
     }
 }

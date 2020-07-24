@@ -19,5 +19,67 @@
             <artifactId>json</artifactId>
             <version>20190722</version>
         </dependency>
+
+        <dependency>
+            <groupId>weka</groupId>
+            <artifactId>stable</artifactId>
+            <version>3.8.4</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/weka-stable-3.8.4.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jni4net</groupId>
+            <artifactId>jni4net.j</artifactId>
+            <version>0.8.8.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/jni4net.j-0.8.8.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>classLib</groupId>
+            <artifactId>j4n</artifactId>
+            <version>1.0.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/ClassLib.j4n.jar</systemPath>
+        </dependency>
+        <!--
+                <dependency>
+                    <groupId>sample</groupId>
+                    <artifactId>AlgoritmoGenetico</artifactId>
+                    <version>1.0</version>
+                    <scope>system</scope>
+                    <systemPath>${project.basedir}/jni4net.j-0.8.8.0.jar</systemPath>
+                </dependency>
+                <dependency>
+                    <groupId>classlib</groupId>
+                    <artifactId>AlgoritmoGenetico</artifactId>
+                    <version>1.0</version>
+                    <scope>system</scope>
+                    <systemPath>${project.basedir}/ClassLib.j4n.jar</systemPath>
+                </dependency>
+                https://mvnrepository.com/artifact/net.sf.jni4net/jni4net.j
+        <dependency>
+            <groupId>net.sf.jni4net</groupId>
+            <artifactId>jni4net.j</artifactId>
+            <version>0.8.8.0</version>
+        </dependency> -->
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>gui.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

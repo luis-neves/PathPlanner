@@ -1,0 +1,1 @@
+C:\Users\Nekki\.m2\repository\org\json\json\20190722\json-20190722.jar;C:\Aulas\I&D\ArwarePathFinder\lib\weka-stable-3.8.4.jar;C:\Aulas\I&D\ArwarePathFinder\jni4net.j-0.8.8.0.jar;C:\Aulas\I&D\ArwarePathFinder\ClassLib.j4n.jar;C:\Aulas\I&D\ArwarePathFinder\jcommon-1.0.16.jar;C:\Aulas\I&D\ArwarePathFinder\jfreechart-1.0.13.jar

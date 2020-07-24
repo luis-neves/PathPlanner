@@ -19,6 +19,11 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/javax.resource.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/javax.ejb.jar" path-in-jar="/" />
+      <element id="library" level="module" name="jcommon-1.0.16.jar" module-name="AlgoritmoGenetico" />
+      <element id="library" level="module" name="jfreechart-1.0.13.jar" module-name="AlgoritmoGenetico" />
+      <element id="artifact" artifact-name="Maven__net_sf_jni4net_jni4net_j_0_8_8_0" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/weka-stable-3.8.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ClassLib.j4n.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

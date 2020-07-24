@@ -112,7 +112,7 @@ public class MainFrame extends JFrame implements GAListener {
                             new Random(Integer.parseInt(panelParameters.jTextFieldSeed.getText())));
                     System.out.println(hybridGA);
                     hybridGA.addGAListener(MainFrame.this);
-                    //runHybridGA(map);
+                    runHybridGA(map);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

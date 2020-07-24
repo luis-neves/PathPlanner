@@ -9,9 +9,11 @@ import system.Exception;
 import utils.warehouse.Coordenates;
 import weka.core.Attribute;
 
+import javax.xml.stream.Location;
 import java.util.*;
 
 public class GraphNode {
+    private Coordenates drawLocation;
     private int id;
     private Coordenates location;
     private double heuristic;
@@ -93,7 +95,7 @@ public class GraphNode {
 
     public void addNeighbour(Edge e) {
         if (this.neighbours.contains(e)) {
-            System.out.println("This edge has already been used for this node.");
+            //System.out.println("This edge has already been used for this node.");
         } else {
             //System.out.println("Successfully added " + e);
             this.neighbours.add(e);
@@ -132,12 +134,21 @@ public class GraphNode {
         this.heuristic = 0;
     }
 
+    public GraphNode(int id, float x, float y, GraphNodeType type) {
+        this.id = id;
+        this.type = type;
+        this.location = new Coordenates(x, y, 0);
+        this.f = 0;
+        this.heuristic = 0;
+    }
+
+
     public void calculateHeuristic(GraphNode finalGraphNode) {
         try {
             int distance = Math.abs((int) (finalGraphNode.getLocation().getX() - this.getLocation().getX())) + Math.abs((int) (finalGraphNode.getLocation().getY() - this.getLocation().getY()));
             this.heuristic = distance;
-        }catch (Exception e){
-           throw e;
+        } catch (Exception e) {
+            throw e;
         }
     }
 
@@ -239,7 +250,7 @@ public class GraphNode {
 
     @Override
     public String toString() {
-        return this.type.toLetter() + "" + this.id + " " + this.getHeuristica() + " Cost " + this.getF() + " " + this.getLocation().toString() + " " + getType().toString() + "\n\t\t" + getNeighboursStr();
+        return this.type.toLetter() + "" + this.id + " " + this.getHeuristica() + " Cost " + this.getF() + " " + getType().toString() + " " + this.getLocation().toString() + "\n\t\t" + (drawLocation != null ? drawLocation.toString() : "");
     }
 
     public Edge getNeighbourEdge(GraphNode graphNode) {
@@ -322,5 +333,13 @@ public class GraphNode {
 
     public MyCluster getCluster() {
         return cluster;
+    }
+
+    public Coordenates getDrawLocation() {
+        return drawLocation;
+    }
+
+    public void setDrawLocation(Coordenates drawLocation) {
+        this.drawLocation = drawLocation;
     }
 }

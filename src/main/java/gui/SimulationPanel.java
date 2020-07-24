@@ -4,44 +4,36 @@ import armazem.AStar;
 import armazem.Environment;
 import armazem.EnvironmentListener;
 import classlib.Util;
-import com.sun.xml.bind.v2.runtime.reflect.Lister;
 import ga.GASingleton;
 import ga.KMeans.AstarDistance;
 import ga.KMeans.MyCluster;
-import jdk.nashorn.internal.runtime.PropertyMap;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import picking.Item;
 import utils.Graphs.*;
 import utils.warehouse.*;
 import weka.clusterers.SimpleKMeans;
 import weka.core.*;
-import weka.core.pmml.jaxbbindings.Cluster;
 
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.stream.Location;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.beans.XMLDecoder;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 public class SimulationPanel extends JPanel implements EnvironmentListener {
 
     private static final int MAX_WEIGHT = 500;
     private static final int MAX_KMEANS_ITERATIONS = 20;
+    private static final float MAX_DRAW_X = 400;
+    private static final float MAX_DRAW_Y = 200;
     private static int SLEEP_MILLIS = 10; // modify to speed up the simulation
     private static final int NUM_ITERATIONS = 2000; // modify to change the number of iterations
 
@@ -77,6 +69,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
+    private boolean AMPLIFY = true;
+    private float AMPLIFY_MULTIPLIER = 20.0f;
 
     public SimulationPanel() {
         environmentPanel.setPreferredSize(new Dimension(N * CELL_SIZE + GRID_TO_PANEL_GAP * 2, N * CELL_SIZE + GRID_TO_PANEL_GAP * 2));
@@ -126,6 +120,17 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
     public void jButtonTestColision_actionPerformed(ActionEvent e) {
         //test Colision
+        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+        gfx = (Graphics2D) image.getGraphics();
+        //Graph graph2 = exampleGraph(num_rows);
+        Graph graph2 = sampleGraph();
+        //graph2 = randomProblem(graph2, num_agents, num_products, -1);
+        //graph2 = fixNeighboursFixed(graph2);
+        // graph2 = randomProblem(graph2, 2, 5, -1);
+        // graph2 = fixNeighboursFixed(graph2);
+        problemGraph = graph2;
+        draw(graph2, false, this.gfx, this.image);
+        /*
         FitnessResults results = GASingleton.getInstance().getBestInRun();
         int agent_id = 23;
         int agent_id_2 = 19;
@@ -163,7 +168,161 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
         results = GASingleton.getInstance().checkResultsForColision(results);
         GASingleton.getInstance().setBestInRun(results);
-        GASingleton.getInstance().getBestIndividualPanel().textArea.setText(GASingleton.getInstance().getBestInRun().printTaskedAgents());
+        GASingleton.getInstance().getBestIndividualPanel().textArea.setText(GASingleton.getInstance().getBestInRun().printTaskedAgents());*/
+    }
+
+    private Graph sampleGraph() {
+        Graph graph = new Graph();
+        //graph = insertNodeFromPixelCoords(graph, 115, 355);
+        graph = insertNodeFromPixelCoords(graph, 285, 370);
+
+        //graph = insertNodeFromPixelCoords(graph, 115, 500);
+        graph = insertNodeFromPixelCoords(graph, 285, 560);
+
+        //graph = insertNodeFromPixelCoords(graph, 250, 500);
+        graph = insertNodeFromPixelCoords(graph, 470, 560);
+
+        //graph = insertNodeFromPixelCoords(graph, 250, 355);
+        graph = insertNodeFromPixelCoords(graph, 470, 370);
+
+        //graph = insertNodeFromPixelCoords(graph, 250, 640);
+        graph = insertNodeFromPixelCoords(graph, 470, 760);
+
+        //graph = insertNodeFromPixelCoords(graph, 420, 355);
+        graph = insertNodeFromPixelCoords(graph, 680, 370);
+
+        //graph = insertNodeFromPixelCoords(graph, 420, 500);
+        graph = insertNodeFromPixelCoords(graph, 680, 560);
+
+        //graph = insertNodeFromPixelCoords(graph, 420, 640);
+        graph = insertNodeFromPixelCoords(graph, 680, 760);
+
+        //graph = insertNodeFromPixelCoords(graph, 550, 355);
+        graph = insertNodeFromPixelCoords(graph, 875, 370);
+
+        //graph = insertNodeFromPixelCoords(graph, 550, 450);
+        graph = insertNodeFromPixelCoords(graph, 875, 500);
+
+        //graph = insertNodeFromPixelCoords(graph, 550, 500);
+        graph = insertNodeFromPixelCoords(graph, 875, 560);
+
+        //graph = insertNodeFromPixelCoords(graph, 600, 450);
+        graph = insertNodeFromPixelCoords(graph, 930, 500);
+
+        //graph = insertNodeFromPixelCoords(graph, 600, 315);
+        graph = insertNodeFromPixelCoords(graph, 930, 295);
+
+        //graph = insertNodeFromPixelCoords(graph, 600, 530);
+        graph = insertNodeFromPixelCoords(graph, 930, 610);
+
+        //graph = insertNodeFromPixelCoords(graph, 600, 640);
+        graph = insertNodeFromPixelCoords(graph, 930, 760);
+
+        //graph = insertNodeFromPixelCoords(graph, 740, 315);
+        graph = insertNodeFromPixelCoords(graph, 1140, 295);
+
+        //graph = insertNodeFromPixelCoords(graph, 740, 450);
+        graph = insertNodeFromPixelCoords(graph, 1140, 500);
+
+        //graph = insertNodeFromPixelCoords(graph, 770, 640);
+        graph = insertNodeFromPixelCoords(graph, 1175, 760);
+
+        //graph = insertNodeFromPixelCoords(graph, 770, 530);
+        graph = insertNodeFromPixelCoords(graph, 1175, 610);
+
+        //graph = insertNodeFromPixelCoords(graph, 850, 450);
+        graph = insertNodeFromPixelCoords(graph, 1295, 500);
+
+        //graph = insertNodeFromPixelCoords(graph, 850, 530);
+        graph = insertNodeFromPixelCoords(graph, 1295, 610);
+
+        //graph = insertNodeFromPixelCoords(graph, 930, 530);
+        graph = insertNodeFromPixelCoords(graph, 1400, 610);
+
+        //graph = insertNodeFromPixelCoords(graph, 930, 640);
+        graph = insertNodeFromPixelCoords(graph, 1400, 760);
+
+        //graph = insertNodeFromPixelCoords(graph, 1130, 315);
+        graph = insertNodeFromPixelCoords(graph, 1675, 320);
+
+        //graph = insertNodeFromPixelCoords(graph, 1130, 530);
+        graph = insertNodeFromPixelCoords(graph, 1675, 610);
+
+        graph.findNode(23).setType(GraphNodeType.EXIT);
+        graph.bridge(graph.findNode(0), graph.findNode(1));
+        graph.bridge(graph.findNode(0), graph.findNode(3));
+        graph.bridge(graph.findNode(1), graph.findNode(2));
+        graph.bridge(graph.findNode(3), graph.findNode(2));
+        graph.bridge(graph.findNode(2), graph.findNode(6));
+        graph.bridge(graph.findNode(2), graph.findNode(3));
+        graph.bridge(graph.findNode(2), graph.findNode(4));
+        graph.bridge(graph.findNode(6), graph.findNode(7));
+        graph.bridge(graph.findNode(6), graph.findNode(5));
+        graph.bridge(graph.findNode(6), graph.findNode(10));
+        graph.bridge(graph.findNode(3), graph.findNode(5));
+        graph.bridge(graph.findNode(8), graph.findNode(5));
+        graph.bridge(graph.findNode(9), graph.findNode(8));
+        graph.bridge(graph.findNode(9), graph.findNode(10));
+        graph.bridge(graph.findNode(9), graph.findNode(11));
+        graph.bridge(graph.findNode(11), graph.findNode(12));
+        graph.bridge(graph.findNode(11), graph.findNode(13));
+        graph.bridge(graph.findNode(11), graph.findNode(16));
+        graph.bridge(graph.findNode(14), graph.findNode(13));
+        graph.bridge(graph.findNode(16), graph.findNode(15));
+        graph.bridge(graph.findNode(16), graph.findNode(19));
+        graph.bridge(graph.findNode(20), graph.findNode(19));
+        graph.bridge(graph.findNode(20), graph.findNode(18));
+        graph.bridge(graph.findNode(20), graph.findNode(21));
+        graph.bridge(graph.findNode(24), graph.findNode(21));
+        graph.bridge(graph.findNode(24), graph.findNode(23));
+        graph.bridge(graph.findNode(22), graph.findNode(21));
+        graph.bridge(graph.findNode(17), graph.findNode(18));
+        graph.bridge(graph.findNode(13), graph.findNode(18));
+        graph = randomProblem(graph, 1, 2, -1);
+        //graph.flipHorizontal(23.8f);
+        if (graph.getAgents().get(0).getLocation().isSame(graph.getProducts().get(0).getLocation())) {
+            System.out.println("same");
+        }
+        graph = fixNeighboursFixed(graph);
+        for (GraphNode n : graph.getGraphNodes()) {
+            System.out.println(n.toString());
+        }
+        /*
+        GraphNode n_115_355= new GraphNode(graph.getNumNodes(), 0, 25, GraphNodeType.SIMPLE);
+        graph.createGraphNode(n_115_355);
+        GraphNode n_1130_315= new GraphNode(graph.getNumNodes(), 400, 0, GraphNodeType.EXIT);
+        graph.createGraphNode(n_1130_315);
+        GraphNode n_1130_530 = new GraphNode(graph.getNumNodes(), 400, 132, GraphNodeType.SIMPLE);
+        graph.createGraphNode(n_1130_530);
+        GraphNode n_115_500 = new GraphNode(graph.getNumNodes(), 0, 114, GraphNodeType.SIMPLE);
+        graph.createGraphNode(n_115_500);
+        //GraphNode n10_130 = new GraphNode(graph.getNumNodes(), 10, 100, GraphNodeType.SIMPLE);
+        */
+        //graph.createGraphNode(n10_130);
+        // graph.bridge(n_115_355, n_115_500);
+        //graph.bridge(n_115_500, n400_100);
+        //graph.bridge(n_1130_530, n_1130_315);
+        //graph.createEdge();
+        return graph;
+    }
+
+    private Graph insertNodeFromPixelCoords(Graph graph, int x, int y) {
+        int x_min = 230;
+        int x_max = 1790;
+        int y_min = 295;
+        int y_max = 790;
+
+        float max_real_x = 23.8f;
+        float max_real_y = 7.25f;
+
+        double new_x = Math.ceil(((x - x_min) * MAX_DRAW_X / (x_max - x_min)));
+        double new_y = Math.ceil(((y - y_min) * MAX_DRAW_Y / (y_max - y_min)));
+        double new_real_x = ((x - x_min) * max_real_x / (x_max - x_min));
+        double new_real_y = ((y - y_min) * max_real_y / (y_max - y_min));
+        System.out.println();
+        GraphNode n = new GraphNode(graph.getNumNodes(), (float) new_real_x, (float) new_real_y, GraphNodeType.SIMPLE);
+        graph.createGraphNode(n);
+        return graph;
     }
 
 
@@ -171,7 +330,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         Float time = 0f;
         if (index > 0) {
             time = nodes.get(index - 1).getTime();
-
         }
         nodes.add(index, new FitnessNode(nodes.size(), problemGraph.findNode(nID), cost, (time + cost)));
         for (int i = index + 1; i < nodes.size(); i++) {
@@ -248,10 +406,17 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 float yStart = start.getLocation().getY();
                 float yEnd = end.getLocation().getY();
                 float result;
-                do {
-                    result = r.nextInt((int) Math.abs(yStart - yEnd)) + (Math.min(yStart, yEnd));
-                } while (result == yStart || result == yEnd);
-                product.setLocation(new Coordenates(edge.getLocation().getX(), result, 0));
+                try {
+                    do {
+                        Float range = (Math.abs(yStart - yEnd)) + (Math.min(yStart, yEnd));
+                        result = r.nextInt((int) (range * 1000));
+                        result = result / 1000;
+                    } while (result == yStart || result == yEnd);
+                    product.setLocation(new Coordenates(edge.getLocation().getX(), result, 0));
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 if (GASingleton.getInstance().isSimulatingWeights()) {
                     product.setWeightPhysical(r.nextInt(MAX_WEIGHT));
                     product.setWeightSupported((r.nextInt(4) + 1) * product.getWeightPhysical());
@@ -378,14 +543,18 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                     neighborN.addNeighbour(edgeN);
                 }
                 //SIMPLE
-                Edge edgeS = new Edge(selectedNode, neighborSS, selectedNode.getDistance(neighborSS), graph.getEdges().size());
-                graph.getEdges().add(edgeS);
-                selectedNode.addNeighbour(edgeS);
-                neighborSS.addNeighbour(edgeS);
-                Edge edgeN = new Edge(selectedNode, neighborNS, selectedNode.getDistance(neighborNS), graph.getEdges().size());
-                graph.getEdges().add(edgeN);
-                selectedNode.addNeighbour(edgeN);
-                neighborNS.addNeighbour(edgeN);
+                if (neighborSS != null) {
+                    Edge edgeS = new Edge(selectedNode, neighborSS, selectedNode.getDistance(neighborSS), graph.getEdges().size());
+                    graph.getEdges().add(edgeS);
+                    selectedNode.addNeighbour(edgeS);
+                    neighborSS.addNeighbour(edgeS);
+                }
+                if (neighborNS != null) {
+                    Edge edgeN = new Edge(selectedNode, neighborNS, selectedNode.getDistance(neighborNS), graph.getEdges().size());
+                    graph.getEdges().add(edgeN);
+                    selectedNode.addNeighbour(edgeN);
+                    neighborNS.addNeighbour(edgeN);
+                }
 
                 //neighborN.removeNeighbour(neighborS);
                 //neighborS.removeNeighbour(neighborN);
@@ -398,52 +567,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         for (int i = 0; i < graph.getGraphNodes().size(); i++) {
             System.out.println(graph.getGraphNodes().get(i).toString());
         }*/
-        return graph;
-    }
-
-    private Graph fixNeighbours(Graph graph) {
-        List<Edge> removedEdges = new ArrayList<>();
-        List<Edge> addedEdges = new ArrayList<>();
-        try {
-            for (int i = 0; i < graph.getGraphNodes().size(); i++) {
-                if (graph.getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT || graph.getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
-                    GraphNode selectedNode = graph.getGraphNodes().get(i);
-                    for (int j = 0; j < graph.getEdges().size(); j++) {
-                        Edge selectedEdge = graph.getEdges().get(j);
-                        if (selectedNode.getLocation().getX() == selectedEdge.getLocation().getX()) {
-                            if (selectedEdge.getEnd().getLocation().getY() < selectedNode.getLocation().getY() && selectedEdge.getStart().getLocation().getY() > selectedNode.getLocation().getY() ||
-                                    selectedEdge.getEnd().getLocation().getY() > selectedNode.getLocation().getY() && selectedEdge.getStart().getLocation().getY() < selectedNode.getLocation().getY()) {
-                                removedEdges.add(selectedEdge);
-                                Edge newEdge = new Edge(selectedNode, selectedEdge.getEnd(), Math.abs(selectedNode.getLocation().getY() - selectedEdge.getEnd().getLocation().getY()), graph.getEdges().size());
-                                Edge newEdge2 = new Edge(selectedNode, selectedEdge.getStart(), Math.abs(selectedNode.getLocation().getY() - selectedEdge.getStart().getLocation().getY()), graph.getEdges().size());
-                                addedEdges.add(newEdge);
-                                addedEdges.add(newEdge2);
-                                graph.getEdges().remove(selectedEdge);
-                            }
-                        }
-                        if (selectedNode.getLocation().getY() == selectedEdge.getLocation().getY()) {
-                            if (selectedEdge.getEnd().getLocation().getX() < selectedNode.getLocation().getX() && selectedEdge.getStart().getLocation().getX() > selectedNode.getLocation().getX() ||
-                                    selectedEdge.getEnd().getLocation().getX() > selectedNode.getLocation().getX() && selectedEdge.getStart().getLocation().getX() < selectedNode.getLocation().getX()) {
-                                removedEdges.add(selectedEdge);
-                                Edge newEdge = new Edge(selectedNode, selectedEdge.getEnd(), Math.abs(selectedNode.getLocation().getX() - selectedEdge.getEnd().getLocation().getX()), graph.getEdges().size());
-                                Edge newEdge2 = new Edge(selectedNode, selectedEdge.getStart(), Math.abs(selectedNode.getLocation().getX() - selectedEdge.getStart().getLocation().getX()), graph.getEdges().size());
-                                addedEdges.add(newEdge);
-                                addedEdges.add(newEdge2);
-                            }
-                        }
-                    }
-                }
-            }
-            for (int i = 0; i < addedEdges.size(); i++) {
-                addedEdges.get(i).setId(graph.getEdges().size());
-                addedEdges.get(i).getStart().addNeighbour(addedEdges.get(i));
-                addedEdges.get(i).getEnd().addNeighbour(addedEdges.get(i));
-                graph.getEdges().add(addedEdges.get(i));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        graph.getEdges().removeAll(removedEdges);
         return graph;
     }
 
@@ -501,8 +624,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
     private Graph exampleGraph(int num_rows) {
         Graph graph = new Graph();
-
-
         for (int i = 1; i < num_rows + 1; i++) {
             GraphNode ai = new GraphNode(i);
             ai.setLocation(new Coordenates(20 + i * 15 * 2, 160, 0));
@@ -518,8 +639,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             ci.setLocation(new Coordenates(20 + i * 15 * 2, 0, 0));
             graph.createGraphNode(ci);
         }
-
-
         for (int i = 0; i < num_rows; i++) {
             GraphNode ai = graph.getGraphNodes().get(i);
             GraphNode bi = graph.getGraphNodes().get(i + num_rows);
@@ -557,6 +676,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         for (int i = 0; i < nodes.size(); i++) {
             GraphNode node = nodes.get(i);
             Point p = new Point(Math.round(node.getLocation().getX()), Math.round(node.getLocation().getY()));
+
+            if (AMPLIFY == true) {
+                p = new Point(Math.round(node.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(node.getLocation().getY() * AMPLIFY_MULTIPLIER));
+            }
             if (node.getType() == GraphNodeType.AGENT) {
                 gfx.setColor(node.getCluster() == null ? Color.black : node.getCluster().getColor());
                 gfx.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
@@ -572,7 +695,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             } else {
                 gfx.drawOval(p.x - (SIMPLE_NODE_SIZE / 2), p.y + (SIMPLE_NODE_SIZE / 2), SIMPLE_NODE_SIZE, SIMPLE_NODE_SIZE);
             }
-            if (node.getType() != GraphNodeType.DELIVERING && node.getType() != GraphNodeType.SIMPLE) {
+            if (node.getType() != GraphNodeType.DELIVERING/* && node.getType() != GraphNodeType.SIMPLE*/) {
                 gfx.drawString("" + node.getType().toLetter() + node.getGraphNodeId(), p.x + (NODE_SIZE / 2), p.y + (NODE_SIZE / 2) + MARGIN);
             }
             /*for(int j = 0; j < node.getNeighbours().size(); j++){
@@ -595,10 +718,13 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 i++) {
             GraphNode start = graph.getEdges().get(i).getStart();
             GraphNode end = graph.getEdges().get(i).getEnd();
+            if (AMPLIFY) {
+                gfx.drawLine(Math.round(start.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(start.getLocation().getY() * AMPLIFY_MULTIPLIER) + (NODE_SIZE / 2), Math.round(end.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(end.getLocation().getY() * AMPLIFY_MULTIPLIER) + (NODE_SIZE / 2));
+            } else {
+                gfx.drawLine(Math.round(start.getLocation().getX()), Math.round(start.getLocation().getY()) + (NODE_SIZE / 2), Math.round(end.getLocation().getX()), Math.round(end.getLocation().getY()) + (NODE_SIZE / 2));
 
-            gfx.drawLine(Math.round(start.getLocation().getX()), Math.round(start.getLocation().getY()) + (NODE_SIZE / 2), Math.round(end.getLocation().getX()), Math.round(end.getLocation().getY()) + (NODE_SIZE / 2));
-            int x = ((Math.round(end.getLocation().getX()) + Math.round(start.getLocation().getX())) / 2) + (NODE_SIZE / 2);
-            int y = ((Math.round(end.getLocation().getY()) + Math.round(start.getLocation().getY())) / 2) + (NODE_SIZE / 2);
+            }
+
             //gfx.drawString("" + (int) graph.getEdges().get(i).getWeight(), x, y);
 
         }
@@ -754,7 +880,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         kmeans.setPreserveInstancesOrder(true);
         DistanceFunction function = new AstarDistance();
         kmeans.setDistanceFunction(function);
-        
+
         Attribute PT1 = new Attribute("X");
         Attribute w1 = new Attribute("Y");
         // Declare the feature vector
@@ -792,6 +918,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         //dataset.setClassIndex(dataset.numAttributes() - 1);
 
         //Will print 0 if it's a "yes", and 1 if it's a "no"
+
         try {
             kmeans.buildClusterer(dataset);
             //System.out.println(Arrays.toString(kmeans.getAssignments()));
