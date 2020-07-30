@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ClassLib.j4n">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ClassLib.j4n.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

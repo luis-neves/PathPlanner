@@ -69,7 +69,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
-    private boolean AMPLIFY = true;
+    private boolean AMPLIFY = false;
     private float AMPLIFY_MULTIPLIER = 20.0f;
 
     public SimulationPanel() {
@@ -248,7 +248,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         //graph = insertNodeFromPixelCoords(graph, 1130, 530);
         graph = insertNodeFromPixelCoords(graph, 1675, 610);
 
-        graph.findNode(23).setType(GraphNodeType.EXIT);
+        graph.findNode(4).setType(GraphNodeType.EXIT);
         graph.bridge(graph.findNode(0), graph.findNode(1));
         graph.bridge(graph.findNode(0), graph.findNode(3));
         graph.bridge(graph.findNode(1), graph.findNode(2));
@@ -278,15 +278,17 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         graph.bridge(graph.findNode(22), graph.findNode(21));
         graph.bridge(graph.findNode(17), graph.findNode(18));
         graph.bridge(graph.findNode(13), graph.findNode(18));
-        graph = randomProblem(graph, 1, 2, -1);
-        //graph.flipHorizontal(23.8f);
-        if (graph.getAgents().get(0).getLocation().isSame(graph.getProducts().get(0).getLocation())) {
-            System.out.println("same");
-        }
+        //graph = randomProblem(graph, 1, 2, -1);
+        graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.findNode(23), GraphNodeType.AGENT));
+        graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.findNode(12), GraphNodeType.PRODUCT));
+        graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.findNode(12).getLocation().getX(), graph.findNode(12).getLocation().getY() + 1, GraphNodeType.PRODUCT));
+        //graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.getExit(), GraphNodeType.AGENT));
         graph = fixNeighboursFixed(graph);
         for (GraphNode n : graph.getGraphNodes()) {
             System.out.println(n.toString());
         }
+        graph.flipHorizontal(23.8f);
+
         /*
         GraphNode n_115_355= new GraphNode(graph.getNumNodes(), 0, 25, GraphNodeType.SIMPLE);
         graph.createGraphNode(n_115_355);
@@ -878,6 +880,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         kmeans.setMaxIterations(MAX_KMEANS_ITERATIONS);
         kmeans.setSeed(seed);
         kmeans.setPreserveInstancesOrder(true);
+        GASingleton.getInstance().setProblemGraph(problemGraph);
         DistanceFunction function = new AstarDistance();
         kmeans.setDistanceFunction(function);
 

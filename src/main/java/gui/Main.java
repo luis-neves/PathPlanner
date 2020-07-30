@@ -18,6 +18,7 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String userInput;
         Bridge.setVerbose(true);
+        Bridge.setDebug(true);
         try {
             System.out.println("before bridge");
             Bridge.init();
@@ -28,9 +29,10 @@ public class Main {
             infoBox(e.getLocalizedMessage(), "Error");
             e.printStackTrace();
         }
+
+
         //END SERVICE BUS
         MainFrame frame = new MainFrame();
-
         // Center the window
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = frame.getSize();

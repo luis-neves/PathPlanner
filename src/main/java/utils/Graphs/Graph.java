@@ -217,6 +217,17 @@ public class Graph {
         }
     }
 
+    public GraphNode findClosestNode(float x, float y) {
+        GraphNode closest = null;
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            GraphNode node = getGraphNodes().get(i);
+            if (closest == null || node.getDistance(x, y) <= closest.getDistance(x, y)) {
+                closest = node;
+            }
+        }
+        return closest;
+    }
+
     public void bridge(GraphNode node1, GraphNode node2) {
         Edge edge = new Edge(node1, node2, node1.getDistance(node2), this.getEdges().size());
         this.getTrueNode(node1).addNeighbour(edge);
@@ -227,7 +238,7 @@ public class Graph {
     public void flipHorizontal(float v) {
         for (int i = 0; i < getGraphNodes().size(); i++) {
             GraphNode n = this.getGraphNodes().get(i);
-            n.setLocation(new Coordenates(v-n.getLocation().getX(), n.getLocation().getY(), 0));
+            n.setLocation(new Coordenates(v - n.getLocation().getX(), n.getLocation().getY(), 0));
         }
     }
 }

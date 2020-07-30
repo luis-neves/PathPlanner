@@ -41,7 +41,7 @@ public class AStar {
     }
 
     public void setFinalGraphNode(GraphNode finalGraphNode) {
-        if(finalGraphNode != null) {
+        if (finalGraphNode != null) {
             this.finalGraphNode = graph.findNode(finalGraphNode.getGraphNodeId());
         }
     }

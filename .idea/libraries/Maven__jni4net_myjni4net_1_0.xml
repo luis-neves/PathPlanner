@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: jni4net:myjni4net:1.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/jni4net/myjni4net/1.0/myjni4net-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/jni4net/myjni4net/1.0/myjni4net-1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/jni4net/myjni4net/1.0/myjni4net-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -12,10 +12,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import picking.Item;
-import utils.Graphs.FitnessNode;
-import utils.Graphs.FitnessResults;
-import utils.Graphs.GraphNode;
-import utils.Graphs.GraphNodeType;
+import utils.Graphs.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -53,6 +50,7 @@ public class GASingleton {
     public static String erpID = "erp";
     private int seed;
     private HashMap<GraphNode, List<GraphNode>> itemMap;
+    private Graph problemGraph;
 
     public Operator findOperator(String id) {
         for (int i = 0; i < operators.size(); i++) {
@@ -437,6 +435,14 @@ public class GASingleton {
 
     public void setItemMap(HashMap<GraphNode, List<GraphNode>> itemMap) {
         this.itemMap = itemMap;
+    }
+
+    public Graph getProblemGraph() {
+        return problemGraph;
+    }
+
+    public void setProblemGraph(Graph problemGraph) {
+        this.problemGraph = problemGraph;
     }
 
 

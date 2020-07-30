@@ -142,6 +142,14 @@ public class GraphNode {
         this.heuristic = 0;
     }
 
+    public GraphNode(int id, GraphNode node, GraphNodeType type) {
+        this.id = id;
+        this.type = type;
+        this.location = node.getLocation();
+        this.f = 0;
+        this.heuristic = 0;
+    }
+
 
     public void calculateHeuristic(GraphNode finalGraphNode) {
         try {
@@ -154,6 +162,11 @@ public class GraphNode {
 
     public float getDistance(GraphNode node) {
         float distance = Math.abs((int) (node.getLocation().getX() - this.getLocation().getX())) + Math.abs((int) (node.getLocation().getY() - this.getLocation().getY()));
+        return distance;
+    }
+
+    public float getDistance(float x, float y) {
+        float distance = Math.abs((int) (x - this.getLocation().getX())) + Math.abs((int) (y - this.getLocation().getY()));
         return distance;
     }
 
