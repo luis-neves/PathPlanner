@@ -6,9 +6,11 @@ import ga.geneticOperators.Mutation;
 import ga.geneticOperators.Recombination;
 import ga.selectionMethods.SelectionMethod;
 import gui.SimulationPanel;
+import picking.Item;
 import utils.Graphs.FitnessNode;
 import utils.Graphs.GraphNode;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
@@ -23,6 +25,12 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
     private Population<I, P> population;
     private boolean stopped;
     private I bestInRun;
+    private int lastGentListIndex = -1;
+    private List<GraphNode> baseGenome;
+
+    public int getMaxGenerations() {
+        return maxGenerations;
+    }
 
     public GeneticAlgorithm(
             int populationSize,
@@ -38,6 +46,8 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         this.selection = selection;
         this.mutation = mutation;
         this.recombination = recombination;
+
+
     }
 
     public GeneticAlgorithm(
@@ -87,15 +97,17 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
 
     public I run(P problem) {
         t = 0;
-        population = new Population<>(populationSize, problem);
-        if (GASingleton.getInstance().isNodeProblem()) {
-
-        } else {
-            population = placeAgents(population);
+        System.out.println("\n" + this.toString());
+        if (GASingleton.getInstance().getTaskMap() != null) {
+            Item[] problemItems = problem.getNewIndividual().getGenome(-1);
+            baseGenome = new ArrayList<>();
+            for (int i = 0; i < problemItems.length; i++) {
+                baseGenome.add(problemItems[i].node);
+            }
+            this.lastGentListIndex = GASingleton.getInstance().addLastGenGA(this, lastGentListIndex);
         }
-
+        population = new Population<>(populationSize, problem);
         bestInRun = population.evaluate();
-
         fireGenerationEnded(new GAEvent(this));
 
         while (!stopCondition(t)) {
@@ -108,6 +120,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
                 bestInRun = (I) bestInGen.clone();
             }
             t++;
+            //System.out.println("GA " + lastGentListIndex + " gen " + this.getGeneration());
             fireGenerationEnded(new GAEvent(this));
         }
 
@@ -227,6 +240,8 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
     }
 
     public void fireGenerationEnded(GAEvent e) {
+        if (GASingleton.getInstance().getTaskMap() != null)
+            GASingleton.getInstance().addLastGenGA(e.source, e.source.lastGentListIndex);
         for (GAListener listener : listeners) {
             listener.generationEnded(e);
         }
@@ -239,5 +254,13 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         for (GAListener listener : listeners) {
             listener.runEnded(e);
         }
+    }
+
+    public List<GraphNode> getBaseGenome() {
+        return baseGenome;
+    }
+
+    public void setBaseGenome(List<GraphNode> baseGenome) {
+        this.baseGenome = baseGenome;
     }
 }

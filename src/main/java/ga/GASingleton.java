@@ -4,6 +4,7 @@ import armazem.Cell;
 import classlib.CommunicationManager;
 import classlib.Util;
 import communication.Operator;
+import ga.multiple.GAwithEnvironment;
 import gui.MainFrame;
 import gui.PanelTextArea;
 import gui.SimulationPanel;
@@ -12,6 +13,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import picking.Item;
+import picking.Picking;
+import picking.PickingIndividual;
 import utils.Graphs.*;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -51,6 +54,16 @@ public class GASingleton {
     private int seed;
     private HashMap<GraphNode, List<GraphNode>> itemMap;
     private Graph problemGraph;
+    private HashMap<GraphNode, List<GraphNode>> taskMap;
+    private GAwithEnvironment[] lastGenGAs;
+
+    public GAwithEnvironment[] getLastGenGAs() {
+        return lastGenGAs;
+    }
+
+    public void setLastGenGAs(GAwithEnvironment[] lastGenGAs) {
+        this.lastGenGAs = lastGenGAs;
+    }
 
     public Operator findOperator(String id) {
         for (int i = 0; i < operators.size(); i++) {
@@ -443,6 +456,75 @@ public class GASingleton {
 
     public void setProblemGraph(Graph problemGraph) {
         this.problemGraph = problemGraph;
+    }
+
+    public void setTaskMap(HashMap<GraphNode, List<GraphNode>> taskMap) {
+        this.taskMap = taskMap;
+        if (taskMap != null) {
+            this.lastGenGAs = new GAwithEnvironment[taskMap.entrySet().size()];
+            for (int i = 0; i < lastGenGAs.length; i++) {
+                lastGenGAs[i] = new GAwithEnvironment();
+                lastGenGAs[i].setEnvironment(new EnvironmentNodeGraph(SimulationPanel.environmentNodeGraph.getGraph()));
+            }
+        }
+    }
+
+    public GraphNode getResponsibleAgentFromArray(GraphNode node) {
+        try {
+            for (int i = 0; i < lastGenGAs.length; i++) {
+                if (lastGenGAs[i].getGa().getBaseGenome().contains(node)) {
+                    return lastGenGAs[i].getLastAgent();
+                }
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public GraphNode getResponsibleAgent(GraphNode node) {
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : this.taskMap.entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<GraphNode> task = entry.getValue();
+            for (GraphNode n : task) {
+                if (node.getGraphNodeId() == n.getGraphNodeId()) {
+                    return agent;
+                }
+            }
+        }
+        return null;
+    }
+
+    public HashMap<GraphNode, List<GraphNode>> getTaskMap() {
+        return taskMap;
+    }
+
+    public <P extends Problem<I>, I extends Individual> int addLastGenGA(GeneticAlgorithm ipGeneticAlgorithm, int index) {
+        if (index == -1) {
+            for (int i = 0; i < lastGenGAs.length; i++) {
+                if (lastGenGAs[i].getGa() == null) {
+                    lastGenGAs[i].setGa(ipGeneticAlgorithm);
+                    lastGenGAs[i].setLastAgent(getResponsibleAgent((GraphNode) ipGeneticAlgorithm.getBaseGenome().get(0)));
+                    lastGenGAs[i].setGenBestFitness(new Float[ipGeneticAlgorithm.getMaxGenerations()+1]);
+                    return i;
+                }
+            }
+        } else {
+            lastGenGAs[index].setGa(ipGeneticAlgorithm);
+            lastGenGAs[index].addGenFitValue(ipGeneticAlgorithm.getGeneration(), ipGeneticAlgorithm.getBestInRun());
+
+            return index;
+        }
+        return -1;
+    }
+
+    public EnvironmentNodeGraph getRespectiveEnvironment(GraphNode node) {
+        for (int i = 0; i < lastGenGAs.length; i++) {
+            if (lastGenGAs[i].getGa().getBaseGenome().contains(node)) {
+                return lastGenGAs[i].getEnvironment();
+            }
+        }
+        return null;
     }
 
 

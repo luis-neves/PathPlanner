@@ -55,10 +55,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
     JButton jButtonRun = new JButton("Simulate Environment");
     JButton buttonRunFromFile = new JButton("Open Environment File");
-    JButton buttonRunXML = new JButton("Test XML");
-    JButton buttonRunNodeGraph = new JButton("Node Graph");
-    JButton buttonRandomProblem = new JButton("Rand Node Graph");
-    JButton buttonRandomProblemSeed = new JButton("Last Node Graph");
+    JButton buttonRunXML = new JButton("XML");
+    JButton buttonRunNodeGraph = new JButton("NG");
+    JButton buttonRandomProblem = new JButton("RNG");
+    JButton buttonRandomProblemSeed = new JButton("LNG");
     JButton buttonTestColision = new JButton("X");
     private Graph graph;
     private Graph problemGraph;
@@ -73,7 +73,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private float AMPLIFY_MULTIPLIER = 20.0f;
 
     public SimulationPanel() {
-        environmentPanel.setPreferredSize(new Dimension(N * CELL_SIZE + GRID_TO_PANEL_GAP * 2, N * CELL_SIZE + GRID_TO_PANEL_GAP * 2));
+        //environmentPanel.setPreferredSize(new Dimension(N * CELL_SIZE + GRID_TO_PANEL_GAP * 2, N * CELL_SIZE + GRID_TO_PANEL_GAP * 2));
+        environmentPanel.setPreferredSize(new Dimension(400, 200));
 
         setLayout(new BorderLayout());
         add(environmentPanel, BorderLayout.CENTER);
@@ -342,12 +343,13 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
     public void jButtonRandNodeGraphProblem_actionPerformed(ActionEvent e) {
         //environmentPanel.updateUI();
-        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
-        gfx = (Graphics2D) image.getGraphics();
+
         Graph graph2 = exampleGraph(num_rows);
         graph2 = randomProblem(graph2, num_agents, num_products, -1);
         graph2 = fixNeighboursFixed(graph2);
         problemGraph = graph2;
+        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+        gfx = (Graphics2D) image.getGraphics();
         draw(graph2, false, this.gfx, this.image);
     }
 
@@ -574,9 +576,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
     private List<GraphNode> exampleGraphProblem() {
         List<GraphNode> list = new ArrayList<>();
-        GraphNode agent = new GraphNode(19);
-        agent.setType(GraphNodeType.AGENT);
-        agent.setLocation(new Coordenates(80, 100, 0));
+
 
         GraphNode product = new GraphNode(20);
         product.setType(GraphNodeType.PRODUCT);
@@ -597,6 +597,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         GraphNode product4 = new GraphNode(23);
         product4.setType(GraphNodeType.AGENT);
         product4.setLocation(new Coordenates(80, 40, 0));
+
+        GraphNode agent = new GraphNode(19);
+        agent.setType(GraphNodeType.AGENT);
+        agent.setLocation(new Coordenates(110, 100, 0));
 
         GraphNode agent2 = new GraphNode(24);
         agent2.setType(GraphNodeType.PRODUCT);

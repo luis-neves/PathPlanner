@@ -21,12 +21,19 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
     @Override
     public double computeFitness() {
         if (GASingleton.getInstance().isNodeProblem()) {
-            FitnessResults results = SimulationPanel.environmentNodeGraph.calculatePaths(getGenome(-1));
+            GraphNode responsibleAgent = null;
+            FitnessResults results = new FitnessResults();
+            if (GASingleton.getInstance().getTaskMap() == null) {
+                responsibleAgent = GASingleton.getInstance().getLastAgent();
+                results = SimulationPanel.environmentNodeGraph.calculatePaths(getGenome(-1), responsibleAgent);
+            } else {
+                responsibleAgent = GASingleton.getInstance().getResponsibleAgentFromArray(getGenome(-1)[0].node);
+                EnvironmentNodeGraph env = GASingleton.getInstance().getRespectiveEnvironment(getGenome(-1)[0].node);
+                results = env.calculatePaths(getGenome(-1), responsibleAgent);
+            }
             this.results = results;
             fitness = results.getFitness() * GASingleton.getInstance().getTimeWeight();
-
             fitness += ((results.getCollisionPenalty() * results.getNumCollisions()) * GASingleton.getInstance().getColisionWeight()) * GASingleton.getInstance().getColisionWeight();
-            int agentsPick = 0;
             avgPicksPerAgent = 0;
 
             if (GASingleton.getInstance().isSimulatingWeights()) {
@@ -126,7 +133,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
         StringBuilder sb = new StringBuilder();
         sb.append("\nfitness: " + fitness);
         sb.append("\nfitness breakdown: " + printFitnessBreakdown());
-        sb.append("\nItems: ");
+        //sb.append("\nItems: ");
         sb.append(printGenome());
         //sb.append("\nPicks Per Agent:" + picksPerAgent);
 

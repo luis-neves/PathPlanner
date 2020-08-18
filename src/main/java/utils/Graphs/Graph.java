@@ -241,4 +241,24 @@ public class Graph {
             n.setLocation(new Coordenates(v - n.getLocation().getX(), n.getLocation().getY(), 0));
         }
     }
+
+    public int getDimensionX() {
+        GraphNode mostRight = null;
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (mostRight == null || mostRight.getLocation().getX() < getGraphNodes().get(i).getLocation().getX()) {
+                mostRight =  getGraphNodes().get(i);
+            }
+        }
+        return Math.round(mostRight.getLocation().getX());
+    }
+
+    public int getDimensionY() {
+        GraphNode mostBottom = null;
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (mostBottom == null || mostBottom.getLocation().getY() < getGraphNodes().get(i).getLocation().getY()) {
+                mostBottom =  getGraphNodes().get(i);
+            }
+        }
+        return Math.round(mostBottom.getLocation().getY());
+    }
 }

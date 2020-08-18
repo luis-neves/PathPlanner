@@ -355,4 +355,8 @@ public class GraphNode {
     public void setDrawLocation(Coordenates drawLocation) {
         this.drawLocation = drawLocation;
     }
+
+    public String printName() {
+        return this.getType().toLetter() + "" + this.getGraphNodeId();
+    }
 }

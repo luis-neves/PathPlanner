@@ -10,6 +10,7 @@ import ga.GAListener;
 import ga.GASingleton;
 import ga.GeneticAlgorithm;
 import ga.geneticOperators.*;
+import ga.multiple.GAwithEnvironment;
 import ga.selectionMethods.*;
 
 import java.awt.*;
@@ -33,6 +34,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import utils.Graphs.FitnessNode;
 import utils.Graphs.Graph;
 import utils.Graphs.GraphNode;
 
@@ -47,9 +49,10 @@ public class MainFrame extends JFrame implements GAListener {
     PanelTextArea bestIndividualPanel;
     private PanelParameters panelParameters = new PanelParameters();
     private JButton buttonStop = new JButton("Stop");
-    private JButton buttonRunHeuristic = new JButton("Run Heuristic");
-    private JButton buttonRunHybrid = new JButton("Run Hybrid");
-    private JButton buttonRunFromMemory = new JButton("Run Genetic Algorithm");
+    private JButton buttonRunHeuristic = new JButton("Heuristic");
+    private JButton buttonRunHybrid = new JButton("Hybrid");
+    private JButton buttonRunFromMemory = new JButton("GA");
+    private JButton buttonRunMultipleGA = new JButton("AxGA");
     public JButton buttonVisualize = new JButton("Play");
     private JButton buttonSlowVisualize = new JButton(">");
     private JButton buttonFastVisualize = new JButton(">>");
@@ -61,6 +64,7 @@ public class MainFrame extends JFrame implements GAListener {
     private XYSeries seriesAverage;
     private SwingWorker<Void, Void> worker;
     private boolean stop = false;
+    private int gaIndex;
 
     public MainFrame() {
         try {
@@ -85,6 +89,7 @@ public class MainFrame extends JFrame implements GAListener {
         panelButtons.add(buttonStop);
         panelButtons.add(buttonRunHeuristic);
         panelButtons.add(buttonRunHybrid);
+        panelButtons.add(buttonRunMultipleGA);
         panelButtons.add(buttonRunFromMemory);
         panelButtons.add(buttonSlowVisualize);
         panelButtons.add(buttonVisualize);
@@ -113,6 +118,48 @@ public class MainFrame extends JFrame implements GAListener {
                     System.out.println(hybridGA);
                     hybridGA.addGAListener(MainFrame.this);
                     runHybridGA(map);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+        buttonRunMultipleGA.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Multiple GA");
+                try {
+                    HashMap<GraphNode, List<GraphNode>> map = simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText()));
+                    bestIndividualPanel.textArea.setText("");
+                    seriesBestIndividual.clear();
+                    seriesAverage.clear();
+
+                    //picking.setProb1s(Double.parseDouble(panelParameters.jTextFieldProb1s.getText()));
+                    int i = 0;
+                    gaIndex = 0;
+                    for (Map.Entry<GraphNode, List<GraphNode>> entry : map.entrySet()) {
+                        GraphNode agent = entry.getKey();
+                        List<GraphNode> agentTask = entry.getValue();
+                        List<Item> items = new ArrayList<>();
+                        GeneticAlgorithm<PickingIndividual, Picking> myGA = new GeneticAlgorithm<PickingIndividual, Picking>(
+                                Integer.parseInt(panelParameters.jTextFieldN.getText()),
+                                Integer.parseInt(panelParameters.jTextFieldGenerations.getText()),
+                                panelParameters.getSelectionMethod(),
+                                panelParameters.getMutationMethod(),
+                                panelParameters.getRecombinationMethod(),
+                                new Random(Integer.parseInt(panelParameters.jTextFieldSeed.getText())));
+                        myGA.addGAListener(MainFrame.this);
+                        for (GraphNode node : agentTask) {
+                            items.add(new Item(node));
+                        }
+                        if (i == 0) {
+                            GASingleton.getInstance().setTaskMap(map);
+                            gaIndex++;
+                            runMultipleGA(items, myGA);
+                        }
+                        i++;
+                    }
+                    //
+                    //
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -218,7 +265,7 @@ public class MainFrame extends JFrame implements GAListener {
         northPanel.add(panelNorthLeft, java.awt.BorderLayout.WEST);
         northPanel.add(chartPanel, java.awt.BorderLayout.CENTER);
         panelNorthLeft.add(simulationPanel, BorderLayout.CENTER);
-        //Center panel       
+        //Center panel
         bestIndividualPanel = new PanelTextArea("Best solution: ", 20, 40);
         GASingleton.getInstance().setBestIndividualPanel(bestIndividualPanel);
         JPanel centerPanel = new JPanel(new BorderLayout());
@@ -313,9 +360,7 @@ public class MainFrame extends JFrame implements GAListener {
             @Override
             public Void doInBackground() {
                 try {
-
                     ga.run(picking);
-
                 } catch (Exception e) {
                     e.printStackTrace(System.err);
                 }
@@ -330,6 +375,7 @@ public class MainFrame extends JFrame implements GAListener {
 
         worker.execute();
     }
+
     private void runHybridGA(HashMap<GraphNode, List<GraphNode>> map) {
         manageButtons(false, false, true, false, false);
 
@@ -337,9 +383,30 @@ public class MainFrame extends JFrame implements GAListener {
             @Override
             public Void doInBackground() {
                 try {
-
                     hybridGA.run(new HybridClusterPicking(map));
+                } catch (Exception e) {
+                    e.printStackTrace(System.err);
+                }
+                return null;
+            }
 
+            @Override
+            public void done() {
+                manageButtons(true, true, false, true, experimentsFactory != null);
+            }
+        };
+
+        worker.execute();
+    }
+
+    private void runMultipleGA(List<Item> list, GeneticAlgorithm myga) {
+        manageButtons(false, false, true, false, false);
+
+        worker = new SwingWorker<Void, Void>() {
+            @Override
+            public Void doInBackground() {
+                try {
+                    myga.run(new Picking(list));
                 } catch (Exception e) {
                     e.printStackTrace(System.err);
                 }
@@ -376,13 +443,40 @@ public class MainFrame extends JFrame implements GAListener {
     public void generationEnded(GAEvent e) {
         try {
             GeneticAlgorithm<PickingIndividual, Picking> source = e.getSource();
-            bestIndividualPanel.textArea.setText(source.getBestInRun().toString());
-            seriesBestIndividual.add(source.getGeneration(), source.getBestInRun().getFitness());
-            seriesAverage.add(source.getGeneration(), source.getAverageFitness());
+            int gen = source.getGeneration();
+            boolean lastGenInGen = true;
+            float fitnessSum = 0;
+            if (GASingleton.getInstance().getLastGenGAs() != null) {
+                StringBuilder str = new StringBuilder();
+                for (int i = 0; i < GASingleton.getInstance().getLastGenGAs().length; i++) {
+                    GeneticAlgorithm ga = GASingleton.getInstance().getLastGenGAs()[i].getGa();
+                    Float[] bestGen = GASingleton.getInstance().getLastGenGAs()[i].getGenBestFitness();
+                    if (ga != null && ga.getBestInRun() != null && !ga.equals(e.getSource())) {
+                        if (gen != ga.getGeneration()) {
+                            lastGenInGen = false;
+                        }
+                        str.append("GEN " + ga.getGeneration());
+                        str.append(ga.getBestInRun().toString() + "\n");
+                    }
+                    //fitnessSum += GASingleton.getInstance().getLastGenGAs()[i].getGenBestFitness()[gen];
+
+                }
+                str.append("GEN " + e.getSource().getGeneration());
+                str.append(e.getSource().getBestInRun().toString());
+                bestIndividualPanel.textArea.setText(str.toString());
+                if (lastGenInGen) {
+                    //seriesBestIndividual.add(source.getGeneration(), fitnessSum);
+                    //seriesAverage.add(source.getGeneration(), source.getAverageFitness());
+                }
+            } else {
+                bestIndividualPanel.textArea.setText(source.getBestInRun().toString());
+                seriesBestIndividual.add(source.getGeneration(), source.getBestInRun().getFitness());
+                seriesAverage.add(source.getGeneration(), source.getAverageFitness());
+            }
             if (worker.isCancelled()) {
                 e.setStopped(true);
             }
-        }catch (ClassCastException ex){
+        } catch (ClassCastException ex) {
             GeneticAlgorithm<HybridPickingIndividual, HybridClusterPicking> source = e.getSource();
             bestIndividualPanel.textArea.setText(source.getBestInRun().toString());
             seriesBestIndividual.add(source.getGeneration(), source.getBestInRun().getFitness());
@@ -395,6 +489,36 @@ public class MainFrame extends JFrame implements GAListener {
 
     @Override
     public void runEnded(GAEvent e) {
+        if (GASingleton.getInstance().getTaskMap() != null) {
+            int i = 0;
+            for (Map.Entry<GraphNode, List<GraphNode>> entry : GASingleton.getInstance().getTaskMap().entrySet()) {
+                GraphNode agent = entry.getKey();
+                List<GraphNode> agentTask = entry.getValue();
+                List<Item> items = new ArrayList<>();
+                GeneticAlgorithm<PickingIndividual, Picking> myGA = new GeneticAlgorithm<PickingIndividual, Picking>(
+                        Integer.parseInt(panelParameters.jTextFieldN.getText()),
+                        Integer.parseInt(panelParameters.jTextFieldGenerations.getText()),
+                        panelParameters.getSelectionMethod(),
+                        panelParameters.getMutationMethod(),
+                        panelParameters.getRecombinationMethod(),
+                        new Random(Integer.parseInt(panelParameters.jTextFieldSeed.getText())));
+                myGA.addGAListener(MainFrame.this);
+                for (GraphNode node : agentTask) {
+                    items.add(new Item(node));
+                }
+                if (i == gaIndex) {
+                    runMultipleGA(items, myGA);
+                    gaIndex++;
+                    return;
+                }
+                i++;
+            }
+            //gaIndex++;
+            if (gaIndex == GASingleton.getInstance().getTaskMap().keySet().size()) {
+                GAwithEnvironment[] gas = GASingleton.getInstance().getLastGenGAs();
+                GASingleton.getInstance().setTaskMap(null);
+            }
+        }
     }
 
     public void jButtonStop_actionPerformed(ActionEvent e) {
