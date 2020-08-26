@@ -129,6 +129,7 @@ public class MainFrame extends JFrame implements GAListener {
                 System.out.println("Multiple GA");
                 try {
                     HashMap<GraphNode, List<GraphNode>> map = simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText()));
+                    GASingleton.getInstance().setMultipleGA(true);
                     bestIndividualPanel.textArea.setText("");
                     seriesBestIndividual.clear();
                     seriesAverage.clear();
@@ -446,7 +447,7 @@ public class MainFrame extends JFrame implements GAListener {
             int gen = source.getGeneration();
             boolean lastGenInGen = true;
             float fitnessSum = 0;
-            if (GASingleton.getInstance().getLastGenGAs() != null) {
+            if (GASingleton.getInstance().isMultipleGA()) {
                 StringBuilder str = new StringBuilder();
                 for (int i = 0; i < GASingleton.getInstance().getLastGenGAs().length; i++) {
                     GeneticAlgorithm ga = GASingleton.getInstance().getLastGenGAs()[i].getGa();
@@ -469,6 +470,9 @@ public class MainFrame extends JFrame implements GAListener {
                     //seriesAverage.add(source.getGeneration(), source.getAverageFitness());
                 }
             } else {
+                if (!GASingleton.getInstance().isMultipleGA()){
+                    bestIndividualPanel.textArea.setText("");
+                }
                 bestIndividualPanel.textArea.setText(source.getBestInRun().toString());
                 seriesBestIndividual.add(source.getGeneration(), source.getBestInRun().getFitness());
                 seriesAverage.add(source.getGeneration(), source.getAverageFitness());
@@ -516,7 +520,9 @@ public class MainFrame extends JFrame implements GAListener {
             //gaIndex++;
             if (gaIndex == GASingleton.getInstance().getTaskMap().keySet().size()) {
                 GAwithEnvironment[] gas = GASingleton.getInstance().getLastGenGAs();
+                GASingleton.getInstance().fixMultipleGAs();
                 GASingleton.getInstance().setTaskMap(null);
+                GASingleton.getInstance().setMultipleGA(false);
             }
         }
     }

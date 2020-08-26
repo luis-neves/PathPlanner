@@ -181,7 +181,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
 
     @Override
     public int getNumGenes(int agent) {
-        return 0;
+        return this.genome.length;
     }
 
     @Override

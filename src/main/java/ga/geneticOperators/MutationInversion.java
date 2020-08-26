@@ -21,16 +21,21 @@ public class MutationInversion<I extends Individual> extends Mutation<I> {
 
     @Override
     public void run(I individual) {
-
         if (GeneticAlgorithm.random.nextDouble() < probability) {
             int indSize = 0;
             int agent = -1;
             if (individual.getClass().equals(HybridPickingIndividual.class)) {
                 int numAgents = individual.getNumGenes();
-                agent = GeneticAlgorithm.random.nextInt(numAgents - 1);
+                agent = GeneticAlgorithm.random.nextInt(numAgents);
                 indSize = individual.getNumGenes(agent);
+                if (indSize <= 1){
+                    return;
+                }
             } else {
                 indSize = individual.getNumGenes();
+                if (indSize <= 1){
+                    return;
+                }
             }
 
             int index1, index2 = 0;

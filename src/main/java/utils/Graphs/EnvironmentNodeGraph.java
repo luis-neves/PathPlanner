@@ -81,6 +81,7 @@ public class EnvironmentNodeGraph {
         results.setTaskedAgentsOnly(pathMap);
         results = checkColisions2(results);
 
+
         return results;
     }
 
@@ -186,6 +187,7 @@ public class EnvironmentNodeGraph {
         results.setPath(finalPath);
         results.setTime(highest);
         results = checkColisions2(results);
+        results = fixRepetedProduct(results);
         //checkColisions2(results);
         previousFitness = results;
         previousItemSet = items;

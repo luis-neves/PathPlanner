@@ -56,6 +56,11 @@ public class GASingleton {
     private Graph problemGraph;
     private HashMap<GraphNode, List<GraphNode>> taskMap;
     private GAwithEnvironment[] lastGenGAs;
+    private boolean multipleGA;
+
+    public boolean isMultipleGA() {
+        return multipleGA;
+    }
 
     public GAwithEnvironment[] getLastGenGAs() {
         return lastGenGAs;
@@ -505,7 +510,7 @@ public class GASingleton {
                 if (lastGenGAs[i].getGa() == null) {
                     lastGenGAs[i].setGa(ipGeneticAlgorithm);
                     lastGenGAs[i].setLastAgent(getResponsibleAgent((GraphNode) ipGeneticAlgorithm.getBaseGenome().get(0)));
-                    lastGenGAs[i].setGenBestFitness(new Float[ipGeneticAlgorithm.getMaxGenerations()+1]);
+                    lastGenGAs[i].setGenBestFitness(new Float[ipGeneticAlgorithm.getMaxGenerations() + 1]);
                     return i;
                 }
             }
@@ -525,6 +530,31 @@ public class GASingleton {
             }
         }
         return null;
+    }
+
+    public void fixMultipleGAs() {
+        HashMap<GraphNode, List<FitnessNode>> fullResult = new HashMap<>();
+        HashMap<GraphNode, List<GraphNode>> taskOnly = new HashMap<>();
+        float fitness = 0;
+        float time = 0;
+
+        for (int i = 0; i < lastGenGAs.length; i++) {
+            taskOnly.putAll(lastGenGAs[i].getGa().getBestInRun().getResults().getTaskedAgentsOnly());
+            fullResult.putAll(lastGenGAs[i].getGa().getBestInRun().getResults().getTaskedAgentsFullNodes());
+            if (lastGenGAs[i].getGa().getBestInRun().getResults().getTime() > time) {
+                time = lastGenGAs[i].getGa().getBestInRun().getResults().getTime();
+                fitness = lastGenGAs[i].getGa().getBestInRun().getResults().getFitness();
+            }
+        }
+        bestInRun = new FitnessResults();
+        bestInRun.setTaskedAgentsFullNodes(fullResult);
+        bestInRun.setTaskedAgentsOnly(taskOnly);
+        bestInRun.setTime(time);
+        bestInRun.setFitness(fitness);
+    }
+
+    public void setMultipleGA(boolean b) {
+        this.multipleGA = b;
     }
 
 

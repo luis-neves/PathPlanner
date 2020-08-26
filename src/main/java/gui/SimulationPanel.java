@@ -64,8 +64,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private Graph problemGraph;
     private int seed = 0;
     private int num_rows = 10;
-    private int num_agents = 5;
-    private int num_products = 20;
+    private int num_agents = 3;
+    private int num_products = 10;
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
@@ -414,7 +414,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                     do {
                         Float range = (Math.abs(yStart - yEnd)) + (Math.min(yStart, yEnd));
                         result = r.nextInt((int) (range * 1000));
-                        result = result / 1000;
+                        result = (int) (result / 1000);
+
                     } while (result == yStart || result == yEnd);
                     product.setLocation(new Coordenates(edge.getLocation().getX(), result, 0));
 
@@ -479,7 +480,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             gfx = (Graphics2D) image.getGraphics();
             this.problemGraph = graph2;
             draw(graph2, false, this.gfx, this.image);
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -587,7 +587,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         product2.setLocation(new Coordenates(140, 140, 0));
 
         GraphNode productt = new GraphNode(25);
-        productt.setType(GraphNodeType.PRODUCT);
+        productt.setType(GraphNodeType.AGENT);
         productt.setLocation(new Coordenates(110, 20, 0));
 
         GraphNode product3 = new GraphNode(22);
@@ -782,6 +782,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         //environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
 
         results = fixProductsInPath(results);
+
         try {
             List<IterativeAgent> iterativeAgents;
             Image backup = image;
@@ -813,7 +814,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                         draw(problemGraph, true, gfx2, backup);
                         gfx2.setColor(Color.RED);
                         gfx2.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
-
                         environmentPanel.getGraphics().drawImage(backup, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
                         image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
                         backup = image;

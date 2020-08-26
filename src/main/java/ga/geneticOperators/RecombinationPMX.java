@@ -19,13 +19,18 @@ public class RecombinationPMX<I extends Individual> extends Recombination<I> {
         GraphNode agent = null;
         if (ind1.getClass().equals(HybridPickingIndividual.class)) {
             int numAgents = ind1.getNumGenes();
-            int agentIdx = GeneticAlgorithm.random.nextInt(numAgents - 1);
+            int agentIdx = GeneticAlgorithm.random.nextInt(numAgents);
             indSize = ind1.getNumGenes(agentIdx);
             agent = ind1.getAgent(agentIdx);
+            if(ind1.getGenome(agent).length <= 1 || ind2.getGenome(agent).length <= 1){
+                return;
+            }
         } else {
             indSize = ind1.getNumGenes();
+            if (indSize <= 1){
+                return;
+            }
         }
-
         Random rng = GeneticAlgorithm.random;
         int point1 = rng.nextInt(indSize);
         int point2 = rng.nextInt(indSize);
