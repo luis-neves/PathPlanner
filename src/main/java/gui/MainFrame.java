@@ -49,7 +49,7 @@ public class MainFrame extends JFrame implements GAListener {
     PanelTextArea bestIndividualPanel;
     private PanelParameters panelParameters = new PanelParameters();
     private JButton buttonStop = new JButton("Stop");
-    private JButton buttonRunHeuristic = new JButton("Heuristic");
+    private JButton buttonRunHeuristic = new JButton("K-Means");
     private JButton buttonRunHybrid = new JButton("Hybrid");
     private JButton buttonRunFromMemory = new JButton("GA");
     private JButton buttonRunMultipleGA = new JButton("AxGA");
@@ -445,32 +445,35 @@ public class MainFrame extends JFrame implements GAListener {
         try {
             GeneticAlgorithm<PickingIndividual, Picking> source = e.getSource();
             int gen = source.getGeneration();
-            boolean lastGenInGen = true;
-            float fitnessSum = 0;
+            boolean lastGenInGen = false;
+            float highestFit = 0;
+            float avgFit = 0;
+            int idx = 0;
             if (GASingleton.getInstance().isMultipleGA()) {
                 StringBuilder str = new StringBuilder();
                 for (int i = 0; i < GASingleton.getInstance().getLastGenGAs().length; i++) {
                     GeneticAlgorithm ga = GASingleton.getInstance().getLastGenGAs()[i].getGa();
                     Float[] bestGen = GASingleton.getInstance().getLastGenGAs()[i].getGenBestFitness();
-                    if (ga != null && ga.getBestInRun() != null && !ga.equals(e.getSource())) {
-                        if (gen != ga.getGeneration()) {
-                            lastGenInGen = false;
-                        }
+                    if (ga != null && ga.getBestInRun() != null) {
                         str.append("GEN " + ga.getGeneration());
                         str.append(ga.getBestInRun().toString() + "\n");
+                        if (highestFit < GASingleton.getInstance().getLastGenGAs()[i].getGenBestFitness()[gen]) {
+                            highestFit = GASingleton.getInstance().getLastGenGAs()[i].getGenBestFitness()[gen];
+                            avgFit = GASingleton.getInstance().getLastGenGAs()[i].getGenAvgFitness()[gen];
+                        }
+                        if (i == (GASingleton.getInstance().getLastGenGAs().length - 1)) {
+                            lastGenInGen = true;
+                            idx = i;
+                        }
                     }
-                    //fitnessSum += GASingleton.getInstance().getLastGenGAs()[i].getGenBestFitness()[gen];
-
                 }
-                str.append("GEN " + e.getSource().getGeneration());
-                str.append(e.getSource().getBestInRun().toString());
                 bestIndividualPanel.textArea.setText(str.toString());
                 if (lastGenInGen) {
-                    //seriesBestIndividual.add(source.getGeneration(), fitnessSum);
-                    //seriesAverage.add(source.getGeneration(), source.getAverageFitness());
+                    seriesBestIndividual.add(source.getGeneration(), highestFit);
+                    seriesAverage.add(source.getGeneration(), avgFit);
                 }
             } else {
-                if (!GASingleton.getInstance().isMultipleGA()){
+                if (!GASingleton.getInstance().isMultipleGA()) {
                     bestIndividualPanel.textArea.setText("");
                 }
                 bestIndividualPanel.textArea.setText(source.getBestInRun().toString());
@@ -759,7 +762,32 @@ class PanelParameters extends PanelAtributesValue {
         labels.add(new JLabel("Seed: "));
         valueComponents.add(jTextFieldSeed);
         jTextFieldSeed.addKeyListener(new IntegerTextField_KeyAdapter(null));
+        jTextFieldSeed.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
 
+                warn();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                warn();
+            }
+
+            public void insertUpdate(DocumentEvent e) {
+                if (Integer.parseInt(jTextFieldSeed.getText()) > 0) {
+                    GASingleton.getInstance().setSeed(Integer.parseInt(jTextFieldSeed.getText()));
+                }
+                warn();
+            }
+
+            public void warn() {
+                /*
+                if (Integer.parseInt(jTextFieldSeed.getText())<=0){
+                    JOptionPane.showMessageDialog(null,
+                            "Error: Please enter number bigger than 0", "Error Message",
+                            JOptionPane.ERROR_MESSAGE);
+                }*/
+            }
+        });
         labels.add(new JLabel("Population size: "));
         valueComponents.add(jTextFieldN);
         jTextFieldN.addKeyListener(new IntegerTextField_KeyAdapter(null));

@@ -1,0 +1,49 @@
+Runs: 5
+
+Population size: 100
+
+Max generations: 100
+
+Num Picks: 5,6,7,8,9,10
+
+Num Agents: 1,2,3,4,5
+
+Num Columns:8
+
+Time Weight: 1
+
+Heuristic: K-Means, Hybrid, GA
+// GAxN, 
+
+//--------------------------------
+
+Selection: tournament
+
+Tournament size: 2
+
+//--------------------------------
+
+Recombination: PMX
+
+Recombination probability: 0.8
+
+//--------------------------------
+
+Mutation: inversion
+
+Mutation probability: 0.025
+
+//--------------------------------
+
+//Probability of 1s: 0.05
+
+Fitness type: 0
+
+//--------------------------------
+
+//Problem file: ./Empty_1.txt
+//--------------------------------
+
+Statistic: BestIndividual
+Statistic: BestAverage
+

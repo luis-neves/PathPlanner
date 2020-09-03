@@ -1,5 +1,6 @@
 package experiments;
 
+import clustering.Clustering;
 import ga.GASingleton;
 import ga.GeneticAlgorithm;
 import java.io.File;
@@ -20,6 +21,8 @@ public abstract class ExperimentsFactory {
     protected Parameter[] orderedParametersVector;
     protected List<String> statisticsNames;
     protected List<ExperimentListener> statistics;
+    protected String heuristic;
+
 
     public ExperimentsFactory(File configFile) throws IOException {
         readParametersFile(configFile);
@@ -29,6 +32,11 @@ public abstract class ExperimentsFactory {
     protected abstract Experiment buildExperiment() throws IOException;
 
     public abstract GeneticAlgorithm generateGAInstance(int seed);
+
+
+    public abstract Clustering generateCLInstance(int seed);
+
+    public abstract GeneticAlgorithm generateHybridGAInstance(int seed);
 
     public boolean hasMoreExperiments() {
         return orderedParametersVector[0].activeValueIndex < orderedParametersVector[0].getNumberOfValues();

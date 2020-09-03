@@ -187,6 +187,9 @@ public class Graph {
                 products.add(getGraphNodes().get(i));
             }
         }
+        if(products.isEmpty()){
+            System.out.println();
+        }
         return products;
     }
 

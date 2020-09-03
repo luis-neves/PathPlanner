@@ -1,5 +1,6 @@
 package utils.Graphs;
 
+import picking.HybridPickingIndividual;
 import utils.warehouse.Colision;
 
 import java.util.ArrayList;
@@ -11,6 +12,11 @@ public class FitnessResults {
     private float fitness;
     private float time;
     private float picksPerAgent;
+
+
+    public int compareTo(FitnessResults i) {
+        return Float.compare(i.getFitness(), this.fitness);
+    }
 
     public float getPicksPerAgent() {
         return picksPerAgent;

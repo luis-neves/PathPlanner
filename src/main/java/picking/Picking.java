@@ -98,8 +98,8 @@ public class Picking implements Problem<PickingIndividual> {
         return new Picking(GASingleton.getInstance().getItems());
     }
 
-    public static Picking buildKnapsackExperiment() {
-
+    public static Picking buildKnapsackExperiment(int num_columns, int agents, int picks, int seed) {
+        GASingleton.getInstance().getSimulationPanel().generateExperimentGraph(num_columns, agents, picks, seed);
         return new Picking(GASingleton.getInstance().getItems());
     }
 

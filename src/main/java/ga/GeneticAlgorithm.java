@@ -5,6 +5,7 @@ import armazem.Environment;
 import ga.geneticOperators.Mutation;
 import ga.geneticOperators.Recombination;
 import ga.selectionMethods.SelectionMethod;
+import gui.MainFrame;
 import gui.SimulationPanel;
 import picking.Item;
 import utils.Graphs.FitnessNode;
@@ -90,6 +91,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         this.selection = selection;
         this.mutation = mutation;
         this.recombination = recombination;
+
         GASingleton.getInstance().setTimeWeight(time_weight);
         GASingleton.getInstance().setColisionWeight(1 - time_weight);
         GASingleton.getInstance().getSimulationPanel().generateExperimentGraph(num_columns, agents, picks, seed);
@@ -97,7 +99,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
 
     public I run(P problem) {
         t = 0;
-        System.out.println("\n" + this.toString());
+        //System.out.println("\n" + this.toString());
         if (GASingleton.getInstance().getTaskMap() != null) {
             Item[] problemItems = problem.getNewIndividual().getGenome(-1);
             baseGenome = new ArrayList<>();
@@ -120,6 +122,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
                 bestInRun = (I) bestInGen.clone();
             }
             t++;
+
             //System.out.println("GA " + lastGentListIndex + " gen " + this.getGeneration());
             fireGenerationEnded(new GAEvent(this));
         }
@@ -134,6 +137,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         } else {
             GASingleton.getInstance().setFinalItemSet(Arrays.asList(bestInRun.getGenome(-1)), true);
         }
+
         fireRunEnded(new GAEvent(this));
 
         return bestInRun;
@@ -251,6 +255,13 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
     }
 
     public void fireRunEnded(GAEvent e) {
+        if (!listeners.get(0).getClass().equals(MainFrame.class)){
+            if (GASingleton.getInstance().getTaskMap() != null) {
+                GASingleton.getInstance().fixMultipleGAs();
+                GASingleton.getInstance().setTaskMap(null);
+                GASingleton.getInstance().setMultipleGA(false);
+            }
+        }
         for (GAListener listener : listeners) {
             listener.runEnded(e);
         }
@@ -262,5 +273,10 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
 
     public void setBaseGenome(List<GraphNode> baseGenome) {
         this.baseGenome = baseGenome;
+    }
+
+    public void setBestInRun(I bestInRun) {
+        this.bestInRun = bestInRun;
+        this.bestInRun.fitness = bestInRun.results.getFitness();
     }
 }

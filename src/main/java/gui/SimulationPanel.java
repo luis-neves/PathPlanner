@@ -4,6 +4,7 @@ import armazem.AStar;
 import armazem.Environment;
 import armazem.EnvironmentListener;
 import classlib.Util;
+import clustering.Clustering;
 import ga.GASingleton;
 import ga.KMeans.AstarDistance;
 import ga.KMeans.MyCluster;
@@ -63,7 +64,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private Graph graph;
     private Graph problemGraph;
     private int seed = 0;
-    private int num_rows = 10;
+    private int num_rows = 8;
     private int num_agents = 3;
     private int num_products = 10;
     private boolean stop = false;
@@ -350,6 +351,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         problemGraph = graph2;
         image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
         gfx = (Graphics2D) image.getGraphics();
+
         draw(graph2, false, this.gfx, this.image);
     }
 
@@ -357,23 +359,32 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         Graph graph2 = exampleGraph(num_colums);
         graph2 = randomProblem(graph2, num_agents, num_products, seed);
         graph2 = fixNeighboursFixed(graph2);
+
+        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+        gfx = (Graphics2D) image.getGraphics();
+
+        problemGraph = graph2;
+        draw(graph2, false, this.gfx, this.image);
+
         //TODO
-        environmentNodeGraph = new EnvironmentNodeGraph(graph2);
-        graph = graph2;
+        //environmentNodeGraph = new EnvironmentNodeGraph(graph2);
+        //graph = graph2;
+        /*
         List<Item> items = new ArrayList<>();
         List<GraphNode> agents = new ArrayList<>();
-        for (int i = 0; i < graph.getGraphNodes().size(); i++) {
-            if (graph.getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT || graph.getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
-                if (graph.getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
-                    agents.add(graph.getGraphNodes().get(i));
+        for (int i = 0; i < graph2.getGraphNodes().size(); i++) {
+            if (graph2.getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT || graph2.getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
+                if (graph2.getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
+                    agents.add(graph2.getGraphNodes().get(i));
                 }
-                Item item = new Item((graph.getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT ? "P" : graph.getGraphNodes().get(i).getType() == GraphNodeType.AGENT ? "A" : "N") + graph.getGraphNodes().get(i).getGraphNodeId(), graph.getGraphNodes().get(i));
+                Item item = new Item((graph2.getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT ? "P" : graph2.getGraphNodes().get(i).getType() == GraphNodeType.AGENT ? "A" : "N") + graph2.getGraphNodes().get(i).getGraphNodeId(), graph2.getGraphNodes().get(i));
                 items.add(item);
             }
         }
         GASingleton.getInstance().setItems(items);
         GASingleton.getInstance().setLastAgent(agents.get(agents.size() - 1));
         GASingleton.getInstance().setNodeProblem(true);
+        */
 
     }
 
@@ -382,6 +393,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         if (seed == -1) {
             Random rand = new Random();
             this.seed = rand.nextInt(5000);
+        } else {
+            this.seed = seed;
         }
 
         for (int i = 0; i < num_products + num_agents; i++) {
@@ -587,7 +600,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         product2.setLocation(new Coordenates(140, 140, 0));
 
         GraphNode productt = new GraphNode(25);
-        productt.setType(GraphNodeType.AGENT);
+        productt.setType(GraphNodeType.PRODUCT);
         productt.setLocation(new Coordenates(110, 20, 0));
 
         GraphNode product3 = new GraphNode(22);
@@ -595,7 +608,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         product3.setLocation(new Coordenates(170, 140, 0));
 
         GraphNode product4 = new GraphNode(23);
-        product4.setType(GraphNodeType.AGENT);
+        product4.setType(GraphNodeType.PRODUCT);
         product4.setLocation(new Coordenates(80, 40, 0));
 
         GraphNode agent = new GraphNode(19);
@@ -879,75 +892,9 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     }
 
     public HashMap<GraphNode, List<GraphNode>> generateClusters(int seed) throws Exception {
-        SimpleKMeans kmeans = new SimpleKMeans();
-        kmeans.setNumClusters(problemGraph.getAgentsNum());
-        kmeans.setMaxIterations(MAX_KMEANS_ITERATIONS);
-        kmeans.setSeed(seed);
-        kmeans.setPreserveInstancesOrder(true);
-        GASingleton.getInstance().setProblemGraph(problemGraph);
-        DistanceFunction function = new AstarDistance();
-        kmeans.setDistanceFunction(function);
-
-        Attribute PT1 = new Attribute("X");
-        Attribute w1 = new Attribute("Y");
-        // Declare the feature vector
-        FastVector fvWekaAttributes = new FastVector(7);
-        // Add attributes
-        fvWekaAttributes.addElement(PT1);
-        fvWekaAttributes.addElement(w1);
-
-        // Declare Instances which is required since I want to use classification/Prediction
-        Instances dataset = new Instances("whatever", fvWekaAttributes, 0);
-
-        //Creating a double array and defining values
-        for (int i = 0; i < problemGraph.getProducts().size(); i++) {
-            double[] attValues = new double[dataset.numAttributes()];
-            attValues[0] = (int) problemGraph.getProducts().get(i).getLocation().getX();
-            attValues[1] = (int) problemGraph.getProducts().get(i).getLocation().getY();
-            ;
-            Instance i1 = new DenseInstance(1.0, attValues);
-            dataset.add(i1);
-        }
-        /*
-        for (int i = 0; i < problemGraph.getAgents().size(); i++) {
-            double[] attValues = new double[dataset.numAttributes()];
-            attValues[0] = (int) problemGraph.getAgents().get(i).getLocation().getX();
-            attValues[1] = (int) problemGraph.getAgents().get(i).getLocation().getY();
-            ;
-            Instance i1 = new DenseInstance(1.0, attValues);
-            dataset.add(i1);
-        }*/
-
-        //Create the new instance i1
-
-        //Add the instance to the dataset (Instances) (first element 0)
-        //Define class attribute position
-        //dataset.setClassIndex(dataset.numAttributes() - 1);
-
-        //Will print 0 if it's a "yes", and 1 if it's a "no"
-
         try {
-            kmeans.buildClusterer(dataset);
-            //System.out.println(Arrays.toString(kmeans.getAssignments()));
-            Instances centroids = kmeans.getClusterCentroids();
-            List<MyCluster> clusters = new ArrayList<>();
-            HashMap<Integer, ArrayList<GraphNode>> clusterMap = new HashMap<>();
-            DistanceFunction function1 = new AstarDistance();
-            kmeans.setDistanceFunction(function1);
-            for (int i = 0; i < problemGraph.getAgentsNum(); i++) {
-                //System.out.print("Cluster " + i + " size: " + kmeans.getClusterSizes()[i]);
-                clusters.add(new MyCluster(i));
-                clusterMap.put(i, new ArrayList<>());
-                //System.out.println(" Centroid: " + centroids.instance(i));
-            }
-            for (int i = 0; i < problemGraph.getProducts().size(); i++) {
-                List<GraphNode> clusterList = clusterMap.get(kmeans.getAssignments()[i]);
-                problemGraph.getProducts().get(i).setCluster(findMyCluster(kmeans.getAssignments()[i], clusters));
-                clusterList.add(problemGraph.getProducts().get(i));
-            }
-            attributeAgentsToCluster(clusters);
-            HashMap<GraphNode, List<GraphNode>> taskMap = generateTasks();
-            return taskMap;
+            Clustering clustering = new Clustering(problemGraph, MAX_KMEANS_ITERATIONS);
+            return clustering.generateClusters(seed);
         } catch (Exception ex) {
             System.err.println("Unable to buld Clusterer: " + ex.getMessage());
             ex.printStackTrace();
@@ -999,77 +946,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         draw(problemGraph, true, gfx2, backup);
     }
 
-    private HashMap<GraphNode, List<GraphNode>> generateTasks() {
-        HashMap<GraphNode, List<GraphNode>> taskMap = new HashMap<>();
-        for (GraphNode agent : problemGraph.getAgents()) {
-            MyCluster cluster = agent.getCluster();
-            List<GraphNode> products = new ArrayList<>();
-            products.addAll(problemGraph.getProductsByCluster(cluster));
-            List<GraphNode> task = new ArrayList<>();
-            GraphNode closestToExit = null;
-            for (GraphNode product : products) {
-                if (closestToExit == null || product.getDistance(problemGraph.getExit()) <= closestToExit.getDistance(problemGraph.getExit())) {
-                    closestToExit = product;
-                }
-            }
-            task.add(closestToExit);
-            products.remove(closestToExit);
-            GraphNode current = closestToExit;
-            do {
-                GraphNode closestToCurrent = null;
-                if (!products.isEmpty()) {
-                    for (GraphNode product : products) {
-                        if (closestToCurrent == null || product.getDistance(current) <= closestToCurrent.getDistance(current)) {
-                            closestToCurrent = product;
-                        }
-                    }
-                    if (closestToCurrent == null) {
-                        System.out.println("null closest");
-                    }
-                    task.add(0, closestToCurrent);
-                    products.remove(closestToCurrent);
-                }
-            } while (!products.isEmpty());
-            taskMap.put(agent, task);
-        }
-        return taskMap;
-    }
-
-    private void attributeAgentsToCluster(List<MyCluster> clusters) {
-        List<MyCluster> usedClusters = new ArrayList<>();
-        for (GraphNode agent : problemGraph.getAgents()) {
-            GraphNode closest_product = null;
-            for (GraphNode product : problemGraph.getProducts()) {
-                if (closest_product == null) {
-                    if (!usedClusters.contains(product.getCluster())) {
-                        closest_product = product;
-                    }
-                } else {
-                    if ((product.getDistance(agent) <= closest_product.getDistance(agent) && !usedClusters.contains(product.getCluster()))) {
-                        closest_product = product;
-                    }
-                }
-            }
-            agent.setCluster(closest_product.getCluster());
-            usedClusters.add(agent.getCluster());
-        }
-        checkRepeatedCluster();
-    }
-
-    private void checkRepeatedCluster() {
-        List<MyCluster> clusters = new ArrayList<>();
-        for (GraphNode agent : problemGraph.getAgents()) {
-            if (!clusters.contains(agent.getCluster())) {
-                clusters.add(agent.getCluster());
-            } else {
-                try {
-                    throw new Exception("Multiple Agents in a single cluster");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
 
     private FitnessResults fixRepetedProduct(FitnessResults results) {
         for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
@@ -1088,69 +964,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     }
 
     private FitnessResults calculatePath(HashMap<GraphNode, List<GraphNode>> pathMap) {
-        AStar aStar = new AStar(problemGraph);
-        FitnessResults results = new FitnessResults();
-        List<GraphNode> finalPath = new ArrayList<>();
-        for (Map.Entry<GraphNode, List<GraphNode>> entry : pathMap.entrySet()) {
-            GraphNode agent = entry.getKey();
-            aStar.setInitialGraphNode(agent);
-            List<GraphNode> agentFinalPath = new ArrayList<>();
-            List<GraphNode> products = entry.getValue();
-            for (GraphNode product : products) {
-                if (product == null) {
-                    System.out.println("bad");
-                }
-                aStar.setFinalGraphNode(product);
-                agentFinalPath.addAll(aStar.findGraphPath(products));
-                aStar.setInitialGraphNode(product);
-            }
-            aStar.setFinalGraphNode(problemGraph.getExit());
-            agentFinalPath.addAll(aStar.findGraphPath(products));
-
-            if (agentFinalPath.get(0).getType() == GraphNodeType.AGENT) {
-                agentFinalPath.remove(0);
-            }
-            EnvironmentNodeGraph.FitnessCosts costs = calculateFitness(agentFinalPath, agent);
-            results.addTaskedAgent(agent, agentFinalPath, costs.costs);
-        }
-        //System.out.println(results);
-
-        float highest = Float.MIN_VALUE;
-        for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
-            GraphNode agent = entry.getKey();
-            List<FitnessNode> finalcosts = entry.getValue();
-            float sum = 0;
-            for (int i = 0; i < finalcosts.size(); i++) {
-                sum += finalcosts.get(i).getCost();
-            }
-            if (sum > highest) {
-                highest = sum;
-            }
-        }
-        results.setFitness(highest);
-        results.setPath(finalPath);
-        results.setTime(highest);
-
-        return results;
+        Clustering clustering = new Clustering(problemGraph, MAX_KMEANS_ITERATIONS);
+        return clustering.calculatePath(pathMap);
     }
 
-    private EnvironmentNodeGraph.FitnessCosts calculateFitness(List<GraphNode> finalPath, GraphNode agent) {
-        if (!finalPath.isEmpty()) {
-            float fitness = 0;
-            List<Float> costs = new ArrayList<>();
-            costs.add(finalPath.get(0).getDistance(agent));
-            for (int i = 0; i < finalPath.size(); i++) {
-                if (i < finalPath.size() - 1) {
-                    GraphNode start = finalPath.get(i);
-                    GraphNode end = finalPath.get(i + 1);
-                    costs.add(start.getDistance(end));
-                }
-            }
-            //costs.add(finalPath.get(finalPath.size() - 1).getDistance(findExits(graph).get(0)));
-            return new EnvironmentNodeGraph.FitnessCosts(costs, fitness);
-        }
-        return new EnvironmentNodeGraph.FitnessCosts(new ArrayList<>(), 0);
-    }
 
     private ArrayList<GraphNode> moveAgentToFront(ArrayList<GraphNode> clusterList) {
         GraphNode agent = null;
@@ -1162,6 +979,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         clusterList.remove(agent);
         clusterList.add(0, agent);
         return clusterList;
+    }
+
+    public Graph getProblemGraph() {
+        return problemGraph;
     }
 
     /*

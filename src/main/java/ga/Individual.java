@@ -47,7 +47,10 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
 
     public abstract void swapGenes(I other, int index);
 
-    public double getFitness() {
+    public abstract double pickDistributionStdDev();
+
+
+        public double getFitness() {
         return fitness;
     }
 

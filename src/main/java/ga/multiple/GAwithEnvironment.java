@@ -9,6 +9,16 @@ public class GAwithEnvironment {
     EnvironmentNodeGraph environment;
     GeneticAlgorithm ga;
     Float[] genBestFitness;
+
+    public Float[] getGenAvgFitness() {
+        return genAvgFitness;
+    }
+
+    public void setGenAvgFitness(Float[] genAvgFitness) {
+        this.genAvgFitness = genAvgFitness;
+    }
+
+    Float[] genAvgFitness;
     GraphNode lastAgent;
 
     public Float[] getGenBestFitness() {
@@ -52,7 +62,10 @@ public class GAwithEnvironment {
     }
 
     public void addGenFitValue(int generation, Individual bestInRun) {
-
         this.genBestFitness[generation] = (float) bestInRun.getFitness();
     }
+    public void addAvgFitValue(int generation, float avg) {
+        this.genAvgFitness[generation] = avg;
+    }
+
 }

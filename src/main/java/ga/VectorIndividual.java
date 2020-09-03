@@ -24,6 +24,7 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
         System.arraycopy(original.genome, 0, genome, 0, genome.length);
     }
 
+
     @Override
     public int getNumGenes() {
         return genome.length;

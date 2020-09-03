@@ -57,6 +57,16 @@ public class GASingleton {
     private HashMap<GraphNode, List<GraphNode>> taskMap;
     private GAwithEnvironment[] lastGenGAs;
     private boolean multipleGA;
+    private Individual defaultBestInRun;
+    private GeneticAlgorithm defaultGA;
+
+    public GeneticAlgorithm getDefaultGA() {
+        return defaultGA;
+    }
+
+    public void setDefaultGA(GeneticAlgorithm defaultGA) {
+        this.defaultGA = defaultGA;
+    }
 
     public boolean isMultipleGA() {
         return multipleGA;
@@ -511,12 +521,14 @@ public class GASingleton {
                     lastGenGAs[i].setGa(ipGeneticAlgorithm);
                     lastGenGAs[i].setLastAgent(getResponsibleAgent((GraphNode) ipGeneticAlgorithm.getBaseGenome().get(0)));
                     lastGenGAs[i].setGenBestFitness(new Float[ipGeneticAlgorithm.getMaxGenerations() + 1]);
+                    lastGenGAs[i].setGenAvgFitness(new Float[ipGeneticAlgorithm.getMaxGenerations() + 1]);
                     return i;
                 }
             }
         } else {
             lastGenGAs[index].setGa(ipGeneticAlgorithm);
             lastGenGAs[index].addGenFitValue(ipGeneticAlgorithm.getGeneration(), ipGeneticAlgorithm.getBestInRun());
+            lastGenGAs[index].addAvgFitValue(ipGeneticAlgorithm.getGeneration(), (float) ipGeneticAlgorithm.getAverageFitness());
 
             return index;
         }
@@ -555,6 +567,14 @@ public class GASingleton {
 
     public void setMultipleGA(boolean b) {
         this.multipleGA = b;
+    }
+
+    public Individual getDefaultBestInRun() {
+        return defaultBestInRun;
+    }
+
+    public void setDefaultBestInRun(Individual defaultBestInRun) {
+        this.defaultBestInRun = defaultBestInRun;
     }
 
 

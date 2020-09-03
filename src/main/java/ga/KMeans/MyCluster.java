@@ -22,6 +22,7 @@ public class MyCluster {
                 this.color = Color.RED;
                 break;
             case 4:
+                this.color = Color.WHITE;
                 break;
         }
     }

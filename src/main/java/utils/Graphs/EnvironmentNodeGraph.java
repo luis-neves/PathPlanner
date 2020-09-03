@@ -39,6 +39,7 @@ public class EnvironmentNodeGraph {
         AStar aStar = new AStar(graph);
         FitnessResults results = new FitnessResults();
         List<GraphNode> finalPath = new ArrayList<>();
+
         for (Map.Entry<GraphNode, List<GraphNode>> entry : pathMap.entrySet()) {
             GraphNode agent = entry.getKey();
             aStar.setInitialGraphNode(agent);
@@ -89,7 +90,7 @@ public class EnvironmentNodeGraph {
         if (previousItemSet != null && isSameSet(items, previousItemSet)) {
             return previousFitness;
         }
-
+        lastAgent = findEqual(lastAgent);
 
         FitnessResults results = new FitnessResults();
         List<GraphNode> finalPath = new ArrayList<>();
@@ -104,20 +105,20 @@ public class EnvironmentNodeGraph {
                 AStar aStar = new AStar(graph);
                 aStar.setInitialGraphNode(findEqual(items[i].node));
                 for (int j = 0; j < agentPath.size(); j++) {
-                    taskedAgentOnly.add(agentPath.get(j).node);
+                    taskedAgentOnly.add(findEqual(agentPath.get(j).node));
                 }
                 for (int j = 0; j < agentPath.size(); j++) {
-                    aStar.setFinalGraphNode(agentPath.get(j).node);
+                    aStar.setFinalGraphNode(findEqual(agentPath.get(j).node));
                     agentFinalPath.addAll(aStar.findGraphPath(taskedAgentOnly));
-                    aStar.setInitialGraphNode(agentPath.get(j).node);
+                    aStar.setInitialGraphNode(findEqual(agentPath.get(j).node));
                 }
                 if (!agentPath.isEmpty()) {
                     aStar.setFinalGraphNode(findExits(graph).get(0));
                     agentFinalPath.addAll(aStar.findGraphPath(taskedAgentOnly));
                     finalPath.addAll(agentFinalPath);
                 }
-                results.addTaskedAgentOnly(items[i].node, taskedAgentOnly);
-                FitnessCosts costs = calculateFitness(agentFinalPath, items[i].node);
+                results.addTaskedAgentOnly(findEqual(items[i].node), taskedAgentOnly);
+                FitnessCosts costs = calculateFitness(agentFinalPath, findEqual(items[i].node));
                 if (costs.costs.size() != agentFinalPath.size()) {
                     System.out.println();
                 }
@@ -137,7 +138,7 @@ public class EnvironmentNodeGraph {
         List<GraphNode> taskedAgentOnly = new ArrayList<>();
 
         for (int j = 0; j < agentPath.size(); j++) {
-            taskedAgentOnly.add(agentPath.get(j).node);
+            taskedAgentOnly.add(findEqual(agentPath.get(j).node));
         }
 
         for (int j = 0; j < agentPath.size(); j++) {
@@ -184,6 +185,7 @@ public class EnvironmentNodeGraph {
             }
         }
         results.setFitness(highest);
+
         results.setPath(finalPath);
         results.setTime(highest);
         results = checkColisions2(results);

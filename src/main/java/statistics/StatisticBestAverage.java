@@ -41,7 +41,7 @@ public class StatisticBestAverage<E extends Individual, P extends Problem<E>> im
         values[run] = ga.getBestInRun().getFitness();
         times[run] = ga.getBestInRun().getResults().getTime();
         collisionValues[run] = (double) ga.getBestInRun().getResults().getNumCollisions();
-        picksAgentValues[run] = ((PickingIndividual) ga.getBestInRun()).pickDistributionStdDev();
+        picksAgentValues[run] = (ga.getBestInRun()).pickDistributionStdDev();
         run++;
     }
 

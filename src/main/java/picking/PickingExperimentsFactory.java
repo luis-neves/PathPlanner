@@ -1,9 +1,11 @@
 package picking;
 
+import clustering.Clustering;
 import experiments.*;
 import ga.GAListener;
 import ga.GASingleton;
 import ga.GeneticAlgorithm;
+import ga.MultipleVectorIndividual;
 import ga.geneticOperators.*;
 import ga.selectionMethods.*;
 
@@ -14,6 +16,7 @@ import java.util.Random;
 
 import statistics.StatisticBestAverage;
 import statistics.StatisticBestInRun;
+import weka.core.pmml.jaxbbindings.Cluster;
 
 public class PickingExperimentsFactory extends ExperimentsFactory {
 
@@ -24,7 +27,9 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
     private SelectionMethod<PickingIndividual, Picking> selection;
     private Recombination<PickingIndividual> recombination;
     private Mutation<PickingIndividual> mutation;
+
     private Picking picking;
+
     private Experiment<PickingExperimentsFactory, Picking> experiment;
     private int num_columns;
     private float time_weight;
@@ -43,6 +48,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         numPicks = Integer.parseInt(getParameterValue("Num Picks"));
         num_columns = Integer.parseInt(getParameterValue("Num Columns"));
         time_weight = Float.parseFloat(getParameterValue("Time Weight"));
+        heuristic = (getParameterValue("Heuristic"));
         col_weight = 1 - time_weight;
 
 
@@ -95,7 +101,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
 
 
         //PROBLEM 
-        picking = Picking.buildKnapsackExperiment();
+        picking = Picking.buildKnapsackExperiment(num_columns, numAgents, numPicks,  this.numRuns);
         //picking.setFitnessType(fitnessType);
 
         String experimentTextualRepresentation = buildExperimentTextualRepresentation();
@@ -144,6 +150,29 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         return ga;
     }
 
+    @Override
+    public GeneticAlgorithm generateHybridGAInstance(int seed) {
+        GeneticAlgorithm hybridGA = new GeneticAlgorithm<HybridPickingIndividual, HybridClusterPicking>(
+                populationSize,
+                maxGenerations,
+                selection.makeHybrid(),
+                mutation.makeHybrid(),
+                recombination.makeHybrid(),
+                new Random(seed));
+
+        for (ExperimentListener statistic : statistics) {
+            hybridGA.addGAListener((GAListener) statistic);
+        }
+        return hybridGA;
+    }
+    public Clustering generateCLInstance(int seed) {
+        Clustering cl = new Clustering(seed);
+        for (ExperimentListener statistic : statistics) {
+            cl.addGAListener((GAListener) statistic);
+        }
+        return cl;
+    }
+
     private ExperimentListener buildStatistic(
             String statisticName,
             String experimentHeader) {
@@ -182,6 +211,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         sb.append("Columns:" + "\t");
         sb.append("TW:" + "\t");
         sb.append("CW:" + "\t");
+        sb.append("Heuristic:" + "\t");
         return sb.toString();
     }
 
@@ -199,6 +229,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         sb.append(num_columns + "\t");
         sb.append(time_weight + "\t");
         sb.append(col_weight + "\t");
+        sb.append(heuristic + "\t");
         return sb.toString();
     }
 }
