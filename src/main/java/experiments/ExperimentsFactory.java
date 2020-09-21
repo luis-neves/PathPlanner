@@ -33,6 +33,8 @@ public abstract class ExperimentsFactory {
 
     public abstract GeneticAlgorithm generateGAInstance(int seed);
 
+    public abstract GeneticAlgorithm generateGAxNInstance(int seed);
+
 
     public abstract Clustering generateCLInstance(int seed);
 
@@ -125,4 +127,5 @@ public abstract class ExperimentsFactory {
     protected String getParameterValue(String name) {
         return parameters.get(name).getActiveValue();
     }
+
 }

@@ -8,6 +8,7 @@ import ga.selectionMethods.SelectionMethod;
 import gui.MainFrame;
 import gui.SimulationPanel;
 import picking.Item;
+import statistics.MultipleGaListener;
 import utils.Graphs.FitnessNode;
 import utils.Graphs.GraphNode;
 
@@ -28,6 +29,22 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
     private I bestInRun;
     private int lastGentListIndex = -1;
     private List<GraphNode> baseGenome;
+
+    public int getPopulationSize() {
+        return populationSize;
+    }
+
+    public SelectionMethod<I, P> getSelection() {
+        return selection;
+    }
+
+    public Recombination<I> getRecombination() {
+        return recombination;
+    }
+
+    public Mutation<I> getMutation() {
+        return mutation;
+    }
 
     public int getMaxGenerations() {
         return maxGenerations;
@@ -255,7 +272,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
     }
 
     public void fireRunEnded(GAEvent e) {
-        if (!listeners.get(0).getClass().equals(MainFrame.class)){
+        if (!listeners.get(0).getClass().equals(MainFrame.class) && !listeners.get(0).getClass().equals(MultipleGaListener.class)){
             if (GASingleton.getInstance().getTaskMap() != null) {
                 GASingleton.getInstance().fixMultipleGAs();
                 GASingleton.getInstance().setTaskMap(null);

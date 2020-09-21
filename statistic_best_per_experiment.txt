@@ -8,103 +8,6 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 494.0
-fitness breakdown: 494.0*1.0 + (0.0*0.0)
-
-Agent A25	[P29]	[P27]	[P30]	[P28]	[P26] | Steps: 19
-	Path: 	[S9]	[S10]	[P29]	[S10]	[S11]	[S12]	[P27]	[S12]	[S13]	[S14]	[P30]	[P30]	[P28]	[P28]	[S22]	[S23]	[P26]	[S23]	[E24]
-	Cost: 	[54]	[30]	[31]	[31]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[0]	[39]	[0]	[15]	[30]	[31]	[31]	[30]
-	Time: 	 54 	 84 	 115 	 146 	 176 	 206 	 219 	 232 	 262 	 292 	 318 	 318 	 357 	 357 	 372 	 402 	 433 	 464 	 494 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 494.0
-fitness breakdown: 494.0*1.0 + (0.0*0.0)
-Items: 
-
-Agent A25	[P29]	[P26]	[P28]	[P27]	[P30] | Steps: 17
-	Path: 	[S9]	[S10]	[P29]	[S10]	[S11]	[S12]	[P27]	[S12]	[S13]	[S14]	[P30]	[P28]	[S22]	[S23]	[P26]	[S23]	[E24]
-	Cost: 	[54]	[30]	[31]	[31]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[39]	[15]	[30]	[31]	[31]	[30]
-	Time: 	 54 	 84 	 115 	 146 	 176 	 206 	 219 	 232 	 262 	 292 	 318 	 357 	 372 	 402 	 433 	 464 	 494 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 494.0
-fitness breakdown: 494.0*1.0 + (0.0*0.0)
-
-Agent A25	[P29]	[P27]	[P30]	[P28]	[P26] | Steps: 17
-	Path: 	[S9]	[S10]	[P29]	[S10]	[S11]	[S12]	[P27]	[S12]	[S13]	[S14]	[P30]	[P28]	[S22]	[S23]	[P26]	[S23]	[E24]
-	Cost: 	[54]	[30]	[31]	[31]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[39]	[15]	[30]	[31]	[31]	[30]
-	Time: 	 54 	 84 	 115 	 146 	 176 	 206 	 219 	 232 	 262 	 292 	 318 	 357 	 372 	 402 	 433 	 464 	 494 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 374.0
-fitness breakdown: 374.0*1.0 + (0.0*0.0)
-
-Agent A25	[P28]	[P31]	[P27] | Steps: 14
-	Path: 	[S14]	[S13]	[S12]	[P28]	[S12]	[S13]	[S14]	[P31]	[S14]	[S15]	[P27]	[P27]	[S23]	[E24]
-	Cost: 	[21]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[26]	[30]	[49]	[0]	[31]	[30]
-	Time: 	 21 	 51 	 81 	 94 	 107 	 137 	 167 	 193 	 219 	 249 	 298 	 298 	 329 	 359 
-
-Agent A26	[P30]	[P29] | Steps: 13
-	Path: 	[S9]	[S10]	[P30]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[P29]	[S22]	[S23]	[E24]
-	Cost: 	[54]	[30]	[31]	[0]	[49]	[30]	[30]	[30]	[30]	[15]	[15]	[30]	[30]
-	Time: 	 54 	 84 	 115 	 115 	 164 	 194 	 224 	 254 	 284 	 299 	 314 	 344 	 374 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 374.0
-fitness breakdown: 374.0*1.0 + (0.0*0.0)
-Items: 
-
-Agent A26	[P29]	[P30] | Steps: 12
-	Path: 	[S9]	[S10]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[P29]	[S22]	[S23]	[E24]
-	Cost: 	[54]	[30]	[31]	[49]	[30]	[30]	[30]	[30]	[15]	[15]	[30]	[30]
-	Time: 	 54 	 84 	 115 	 164 	 194 	 224 	 254 	 284 	 299 	 314 	 344 	 374 
-
-Agent A25	[P28]	[P31]	[P27] | Steps: 13
-	Path: 	[S14]	[S13]	[S12]	[P28]	[S12]	[S13]	[S14]	[P31]	[S14]	[S15]	[P27]	[S23]	[E24]
-	Cost: 	[21]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[26]	[30]	[49]	[31]	[30]
-	Time: 	 21 	 51 	 81 	 94 	 107 	 137 	 167 	 193 	 219 	 249 	 298 	 329 	 359 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
 fitness: 363.0
 fitness breakdown: 363.0*1.0 + (0.0*0.0)
 
@@ -127,18 +30,139 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
+fitness: 374.0
+fitness breakdown: 374.0*1.0 + (0.0*0.0)
+
+Agent A25	[P28]	[P31]	[P27] | Steps: 13
+	Path: 	[S14]	[S13]	[S12]	[P28]	[S12]	[S13]	[S14]	[P31]	[S14]	[S15]	[P27]	[S23]	[E24]
+	Cost: 	[21]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[26]	[30]	[49]	[31]	[30]
+	Time: 	 21 	 51 	 81 	 94 	 107 	 137 	 167 	 193 	 219 	 249 	 298 	 329 	 359 
+
+Agent A26	[P30]	[P29] | Steps: 12
+	Path: 	[S9]	[S10]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[49]	[30]	[30]	[30]	[30]	[15]	[15]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 164 	 194 	 224 	 254 	 284 	 299 	 314 	 344 	 374 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 374.0
+fitness breakdown: 374.0*1.0 + (0.0*0.0)
+
+Agent A26	[P30]	[P29] | Steps: 13
+	Path: 	[S9]	[S10]	[P30]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[0]	[49]	[30]	[30]	[30]	[30]	[15]	[15]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 115 	 164 	 194 	 224 	 254 	 284 	 299 	 314 	 344 	 374 
+
+Agent A25	[P28]	[P31]	[P27] | Steps: 14
+	Path: 	[S14]	[S13]	[S12]	[P28]	[S12]	[S13]	[S14]	[P31]	[S14]	[S15]	[P27]	[P27]	[S23]	[E24]
+	Cost: 	[21]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[26]	[30]	[49]	[0]	[31]	[30]
+	Time: 	 21 	 51 	 81 	 94 	 107 	 137 	 167 	 193 	 219 	 249 	 298 	 298 	 329 	 359 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 374.0
+fitness breakdown: 374.0*1.0 + (0.0*0.0)
+Items: 
+
+Agent A25	[P27]	[P31]	[P28] | Steps: 13
+	Path: 	[S14]	[S13]	[S12]	[P28]	[S12]	[S13]	[S14]	[P31]	[S14]	[S15]	[P27]	[S23]	[E24]
+	Cost: 	[21]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[26]	[30]	[49]	[31]	[30]
+	Time: 	 21 	 51 	 81 	 94 	 107 	 137 	 167 	 193 	 219 	 249 	 298 	 329 	 359 
+
+Agent A26	[P30]	[P29] | Steps: 12
+	Path: 	[S9]	[S10]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[49]	[30]	[30]	[30]	[30]	[15]	[15]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 164 	 194 	 224 	 254 	 284 	 299 	 314 	 344 	 374 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 273.0
+fitness breakdown: 273.0*1.0 + (0.0*0.0)
+
+Agent A27	[P32] | Steps: 9
+	Path: 	[P32]	[P32]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A26	[P28]	[P30]	[P31] | Steps: 9
+	Path: 	[P28]	[P28]	[S14]	[S15]	[P30]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[39]	[39]	[26]	[30]	[53]	[27]	[30]	[14]	[14]
+	Time: 	 39 	 78 	 104 	 134 	 187 	 214 	 244 	 258 	 272 
+
+Agent A25	[P29] | Steps: 9
+	Path: 	[S12]	[S11]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[65]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
 fitness: 278.0
 fitness breakdown: 278.0*1.0 + (0.0*0.0)
 
-Agent A25	[P28] | Steps: 8
-	Path: 	[S12]	[S13]	[S14]	[P28]	[P28]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
+Agent A25	[P28] | Steps: 7
+	Path: 	[S12]	[S13]	[S14]	[P28]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 153 	 183 	 213 
+
+Agent A27	[P32]	[P29] | Steps: 11
+	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
 
 Agent A26	[P30]	[P31] | Steps: 7
 	Path: 	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
 	Cost: 	[15]	[30]	[27]	[27]	[30]	[14]	[14]
 	Time: 	 15 	 45 	 72 	 99 	 129 	 143 	 157 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 278.0
+fitness breakdown: 278.0*1.0 + (0.0*0.0)
+
+Agent A26	[P30]	[P31] | Steps: 7
+	Path: 	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[15]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 72 	 99 	 129 	 143 	 157 
+
+Agent A25	[P28] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P28]	[P28]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
 
 Agent A27	[P32]	[P29] | Steps: 11
 	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
@@ -158,11 +182,6 @@ fitness: 278.0
 fitness breakdown: 278.0*1.0 + (0.0*0.0)
 Items: 
 
-Agent A27	[P29]	[P32] | Steps: 11
-	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
-
 Agent A25	[P28] | Steps: 7
 	Path: 	[S12]	[S13]	[S14]	[P28]	[S22]	[S23]	[E24]
 	Cost: 	[13]	[30]	[30]	[26]	[54]	[30]	[30]
@@ -172,6 +191,11 @@ Agent A26	[P31]	[P30] | Steps: 7
 	Path: 	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
 	Cost: 	[15]	[30]	[27]	[27]	[30]	[14]	[14]
 	Time: 	 15 	 45 	 72 	 99 	 129 	 143 	 157 
+
+Agent A27	[P29]	[P32] | Steps: 11
+	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
 Colisions: 
 
 Population size:100
@@ -184,103 +208,6 @@ Mutation prob.: 0.025
 
 fitness: 273.0
 fitness breakdown: 273.0*1.0 + (0.0*0.0)
-
-Agent A26	[P28]	[P30]	[P31] | Steps: 9
-	Path: 	[P28]	[P28]	[S14]	[S15]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[39]	[39]	[26]	[30]	[53]	[27]	[30]	[14]	[14]
-	Time: 	 39 	 78 	 104 	 134 	 187 	 214 	 244 	 258 	 272 
-
-Agent A27	[P32] | Steps: 9
-	Path: 	[P32]	[P32]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
-
-Agent A25	[P29] | Steps: 9
-	Path: 	[S12]	[S11]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[65]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 273.0
-fitness breakdown: 273.0*1.0 + (0.0*0.0)
-
-Agent A27	[P32] | Steps: 9
-	Path: 	[P32]	[P32]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
-
-Agent A28	[P31] | Steps: 5
-	Path: 	[S22]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[54]	[30]	[30]	[14]	[14]
-	Time: 	 54 	 84 	 114 	 128 	 142 
-
-Agent A25	[P29] | Steps: 10
-	Path: 	[S12]	[S11]	[P29]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[65]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 108 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
-
-Agent A26	[P33]	[P30] | Steps: 7
-	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]
-	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]
-	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 273.0
-fitness breakdown: 273.0*1.0 + (0.0*0.0)
-Items: 
-
-Agent A25	[P29] | Steps: 9
-	Path: 	[S12]	[S11]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[65]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
-
-Agent A26	[P33]	[P30] | Steps: 7
-	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]
-	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]
-	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 
-
-Agent A28	[P31] | Steps: 5
-	Path: 	[S22]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[54]	[30]	[30]	[14]	[14]
-	Time: 	 54 	 84 	 114 	 128 	 142 
-
-Agent A27	[P32] | Steps: 9
-	Path: 	[P32]	[P32]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 273.0
-fitness breakdown: 273.0*1.0 + (0.0*0.0)
-
-Agent A27	[P31] | Steps: 5
-	Path: 	[S22]	[S23]	[P31]	[S23]	[E24]
-	Cost: 	[15]	[30]	[27]	[27]	[30]
-	Time: 	 15 	 45 	 72 	 99 	 129 
 
 Agent A25	[P29]	[P32] | Steps: 8
 	Path: 	[S15]	[S14]	[P29]	[S22]	[S23]	[E24]	[P32]	[E24]
@@ -292,6 +219,11 @@ Agent A28	[P33] | Steps: 9
 	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
 
+Agent A27	[P31] | Steps: 5
+	Path: 	[S22]	[S23]	[P31]	[S23]	[E24]
+	Cost: 	[15]	[30]	[27]	[27]	[30]
+	Time: 	 15 	 45 	 72 	 99 	 129 
+
 Agent A26	[P30] | Steps: 9
 	Path: 	[S12]	[S11]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[13]	[30]	[65]	[15]	[30]	[30]	[30]	[30]	[30]
@@ -309,30 +241,57 @@ Mutation prob.: 0.025
 fitness: 273.0
 fitness breakdown: 273.0*1.0 + (0.0*0.0)
 
-Agent A26	[P30] | Steps: 10
-	Path: 	[S12]	[S11]	[P30]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[65]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 108 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
-
-Agent A27	[P34] | Steps: 5
-	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
-	Cost: 	[8]	[8]	[23]	[30]	[30]
-	Time: 	 8 	 16 	 39 	 69 	 99 
-
-Agent A29	[P32] | Steps: 5
-	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
-	Cost: 	[54]	[30]	[30]	[14]	[14]
-	Time: 	 54 	 84 	 114 	 128 	 142 
-
-Agent A28	[P33] | Steps: 9
-	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+Agent A27	[P32] | Steps: 9
+	Path: 	[P32]	[P32]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
 
-Agent A25	[P31] | Steps: 4
-	Path: 	[P31]	[P31]	[S23]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]
-	Time: 	 4 	 8 	 35 	 65 
+Agent A26	[P33]	[P30] | Steps: 7
+	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 
+
+Agent A28	[P31] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[54]	[30]	[30]	[14]	[14]
+	Time: 	 54 	 84 	 114 	 128 	 142 
+
+Agent A25	[P29] | Steps: 9
+	Path: 	[S12]	[S11]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[65]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 273.0
+fitness breakdown: 273.0*1.0 + (0.0*0.0)
+
+Agent A27	[P32] | Steps: 9
+	Path: 	[P32]	[P32]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A25	[P29] | Steps: 10
+	Path: 	[S12]	[S11]	[P29]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[65]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 108 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A28	[P31] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[54]	[30]	[30]	[14]	[14]
+	Time: 	 54 	 84 	 114 	 128 	 142 
+
+Agent A26	[P33]	[P30] | Steps: 7
+	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 
 Colisions: 
 
 Population size:100
@@ -347,30 +306,25 @@ fitness: 273.0
 fitness breakdown: 273.0*1.0 + (0.0*0.0)
 Items: 
 
-Agent A26	[P30] | Steps: 9
-	Path: 	[S12]	[S11]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+Agent A25	[P29] | Steps: 9
+	Path: 	[S12]	[S11]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[13]	[30]	[65]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 13 	 43 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
 
-Agent A28	[P33] | Steps: 9
-	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+Agent A27	[P32] | Steps: 9
+	Path: 	[P32]	[P32]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
 
-Agent A27	[P34] | Steps: 5
-	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
-	Cost: 	[8]	[8]	[23]	[30]	[30]
-	Time: 	 8 	 16 	 39 	 69 	 99 
+Agent A26	[P30]	[P33] | Steps: 7
+	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 
 
-Agent A29	[P32] | Steps: 5
-	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+Agent A28	[P31] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P31]	[E24]
 	Cost: 	[54]	[30]	[30]	[14]	[14]
 	Time: 	 54 	 84 	 114 	 128 	 142 
-
-Agent A25	[P31] | Steps: 4
-	Path: 	[P31]	[P31]	[S23]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]
-	Time: 	 4 	 8 	 35 	 65 
 Colisions: 
 
 Population size:100
@@ -386,22 +340,59 @@ fitness breakdown: 273.0*1.0 + (0.0*0.0)
 
 Agent A29	 Idle
 
-Agent A25	 Idle
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
 
 Agent A27	[P34]	[P31]	[P32] | Steps: 9
 	Path: 	[P34]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]	[P32]	[E24]
 	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
 	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 	 167 	 181 
 
-Agent A28	[P33] | Steps: 9
-	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+Agent A26	[P30] | Steps: 9
+	Path: 	[S12]	[S11]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[65]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A25	 Idle
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 273.0
+fitness breakdown: 273.0*1.0 + (0.0*0.0)
+
+Agent A25	[P31] | Steps: 4
+	Path: 	[P31]	[P31]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]
+	Time: 	 4 	 8 	 35 	 65 
 
 Agent A26	[P30] | Steps: 9
 	Path: 	[S12]	[S11]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[13]	[30]	[65]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 13 	 43 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A29	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[54]	[30]	[30]	[14]	[14]
+	Time: 	 54 	 84 	 114 	 128 	 142 
+
+Agent A27	[P34] | Steps: 5
+	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 99 
 Colisions: 
 
 Population size:100
@@ -412,13 +403,33 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 553.0
-fitness breakdown: 553.0*1.0 + (0.0*0.0)
+fitness: 273.0
+fitness breakdown: 273.0*1.0 + (0.0*0.0)
 
-Agent A25	[P27]	[P29]	[P28]	[P26]	[P30]	[P31] | Steps: 23
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P27]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[P28]	[P28]	[P26]	[P26]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[0]	[49]	[30]	[15]	[15]	[30]	[30]	[30]	[54]	[0]	[39]	[0]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 104 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 357 	 357 	 396 	 396 	 411 	 441 	 468 	 495 	 525 	 539 	 553 
+Agent A25	[P31] | Steps: 4
+	Path: 	[P31]	[P31]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]
+	Time: 	 4 	 8 	 35 	 65 
+
+Agent A29	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[54]	[30]	[30]	[14]	[14]
+	Time: 	 54 	 84 	 114 	 128 	 142 
+
+Agent A26	[P30] | Steps: 10
+	Path: 	[S12]	[S11]	[P30]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[65]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 108 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A27	[P34] | Steps: 5
+	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 99 
 Colisions: 
 
 Population size:100
@@ -429,14 +440,34 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 553.0
-fitness breakdown: 553.0*1.0 + (0.0*0.0)
+fitness: 273.0
+fitness breakdown: 273.0*1.0 + (0.0*0.0)
 Items: 
 
-Agent A25	[P31]	[P27]	[P30]	[P29]	[P28]	[P26] | Steps: 20
-	Path: 	[S12]	[S11]	[S10]	[P27]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[P28]	[P26]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[49]	[30]	[15]	[15]	[30]	[30]	[30]	[54]	[39]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 357 	 396 	 411 	 441 	 468 	 495 	 525 	 539 	 553 
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A25	[P31] | Steps: 4
+	Path: 	[P31]	[P31]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]
+	Time: 	 4 	 8 	 35 	 65 
+
+Agent A26	[P30] | Steps: 9
+	Path: 	[S12]	[S11]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[65]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A27	[P34] | Steps: 5
+	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 99 
+
+Agent A29	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[54]	[30]	[30]	[14]	[14]
+	Time: 	 54 	 84 	 114 	 128 	 142 
 Colisions: 
 
 Population size:100
@@ -447,13 +478,40 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 551.0
-fitness breakdown: 551.0*1.0 + (0.0*0.0)
+fitness: 383.0
+fitness breakdown: 383.0*1.0 + (0.0*0.0)
 
-Agent A25	[P27]	[P29]	[P26]	[P28]	[P30]	[P31] | Steps: 20
-	Path: 	[S12]	[S11]	[S10]	[P27]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[P26]	[P28]	[S14]	[S15]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[49]	[30]	[15]	[15]	[30]	[30]	[30]	[15]	[39]	[26]	[30]	[53]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 318 	 357 	 383 	 413 	 466 	 493 	 523 	 537 	 551 
+Agent A25	[P27]	[P32]	[P29] | Steps: 14
+	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 333 	 363 
+
+Agent A26	[P31]	[P30]	[P28] | Steps: 13
+	Path: 	[S22]	[S23]	[E24]	[P31]	[E24]	[S23]	[P30]	[S15]	[S14]	[P28]	[S22]	[S23]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]	[30]	[27]	[53]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 15 	 45 	 75 	 89 	 103 	 133 	 160 	 213 	 243 	 269 	 323 	 353 	 383 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 395.0
+fitness breakdown: 395.0*1.0 + (0.0*0.0)
+
+Agent A25	[P31]	[P27]	[P30]	[P32] | Steps: 18
+	Path: 	[P31]	[P31]	[S23]	[S22]	[P27]	[S22]	[S21]	[S20]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[15]	[15]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 80 	 95 	 125 	 155 	 185 	 200 	 215 	 245 	 275 	 305 	 335 	 365 	 379 	 393 
+
+Agent A26	[P28]	[P29] | Steps: 13
+	Path: 	[S12]	[S11]	[S10]	[P28]	[S10]	[S11]	[S12]	[S13]	[S14]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[31]	[30]	[30]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 135 	 165 	 195 	 225 	 255 	 281 	 335 	 365 	 395 
 Colisions: 
 
 Population size:100
@@ -509,45 +567,23 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 383.0
-fitness breakdown: 383.0*1.0 + (0.0*0.0)
-
-Agent A26	[P31]	[P30]	[P28] | Steps: 13
-	Path: 	[S22]	[S23]	[E24]	[P31]	[E24]	[S23]	[P30]	[S15]	[S14]	[P28]	[S22]	[S23]	[E24]
-	Cost: 	[15]	[30]	[30]	[14]	[14]	[30]	[27]	[53]	[30]	[26]	[54]	[30]	[30]
-	Time: 	 15 	 45 	 75 	 89 	 103 	 133 	 160 	 213 	 243 	 269 	 323 	 353 	 383 
-
-Agent A25	[P27]	[P32]	[P29] | Steps: 14
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 333 	 363 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
 fitness: 278.0
 fitness breakdown: 278.0*1.0 + (0.0*0.0)
 
-Agent A26	[P33]	[P30]	[P31] | Steps: 9
-	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 	 167 	 181 
-
-Agent A25	[P28] | Steps: 8
-	Path: 	[S12]	[S13]	[S14]	[P28]	[P28]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
+Agent A25	[P33]	[P28] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P33]	[P28]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[57]	[31]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 130 	 161 	 215 	 245 	 275 
 
 Agent A27	[P32]	[P29] | Steps: 11
 	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
+
+Agent A26	[P31]	[P30] | Steps: 9
+	Path: 	[S22]	[S23]	[E24]	[P31]	[E24]	[S23]	[P30]	[S23]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]	[30]	[27]	[27]	[30]
+	Time: 	 15 	 45 	 75 	 89 	 103 	 133 	 160 	 187 	 217 
 Colisions: 
 
 Population size:100
@@ -560,17 +596,16 @@ Mutation prob.: 0.025
 
 fitness: 278.0
 fitness breakdown: 278.0*1.0 + (0.0*0.0)
-Items: 
 
-Agent A26	[P30]	[P31]	[P33] | Steps: 9
-	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 	 167 	 181 
-
-Agent A27	[P29]	[P32] | Steps: 11
+Agent A27	[P32]	[P29] | Steps: 11
 	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
+
+Agent A26	[P33]	[P30]	[P31] | Steps: 9
+	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 	 167 	 181 
 
 Agent A25	[P28] | Steps: 7
 	Path: 	[S12]	[S13]	[S14]	[P28]	[S22]	[S23]	[E24]
@@ -589,20 +624,20 @@ Mutation prob.: 0.025
 fitness: 278.0
 fitness breakdown: 278.0*1.0 + (0.0*0.0)
 
+Agent A25	[P28] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P28]	[P28]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
+
 Agent A27	[P32]	[P29] | Steps: 11
 	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
 
-Agent A26	[P31]	[P30] | Steps: 9
-	Path: 	[S22]	[S23]	[E24]	[P31]	[E24]	[S23]	[P30]	[S23]	[E24]
-	Cost: 	[15]	[30]	[30]	[14]	[14]	[30]	[27]	[27]	[30]
-	Time: 	 15 	 45 	 75 	 89 	 103 	 133 	 160 	 187 	 217 
-
-Agent A25	[P33]	[P28] | Steps: 8
-	Path: 	[S12]	[S13]	[S14]	[P33]	[P28]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[57]	[31]	[54]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 130 	 161 	 215 	 245 	 275 
+Agent A26	[P33]	[P30]	[P31] | Steps: 9
+	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 	 167 	 181 
 Colisions: 
 
 Population size:100
@@ -615,64 +650,23 @@ Mutation prob.: 0.025
 
 fitness: 278.0
 fitness breakdown: 278.0*1.0 + (0.0*0.0)
-
-Agent A28	[P33]	[P30] | Steps: 11
-	Path: 	[P33]	[P33]	[S18]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
-
-Agent A25	[P34]	[P31] | Steps: 8
-	Path: 	[S23]	[S22]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]
-	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]
-	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 
-
-Agent A26	[P29] | Steps: 8
-	Path: 	[S12]	[S13]	[S14]	[P29]	[P29]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
-
-Agent A27	[P32] | Steps: 5
-	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
-	Cost: 	[15]	[30]	[30]	[14]	[14]
-	Time: 	 15 	 45 	 75 	 89 	 103 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 278.0
-fitness breakdown: 278.0*1.0 + (30.0*0.0)
 Items: 
 
-Agent A27	[P32] | Steps: 5
-	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
-	Cost: 	[15]	[30]	[30]	[14]	[14]
-	Time: 	 15 	 45 	 75 	 89 	 103 
-
-Agent A28	[P30]	[P33] | Steps: 11
-	Path: 	[P33]	[P33]	[S18]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+Agent A27	[P32]	[P29] | Steps: 11
+	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
 
-Agent A25	[P34]	[P31] | Steps: 8
-	Path: 	[S23]	[S22]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]
-	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]
-	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 
+Agent A26	[P33]	[P30]	[P31] | Steps: 9
+	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 	 167 	 181 
 
-Agent A26	[P29] | Steps: 7
-	Path: 	[S12]	[S13]	[S14]	[P29]	[S22]	[S23]	[E24]
+Agent A25	[P28] | Steps: 7
+	Path: 	[S12]	[S13]	[S14]	[P28]	[S22]	[S23]	[E24]
 	Cost: 	[13]	[30]	[30]	[26]	[54]	[30]	[30]
 	Time: 	 13 	 43 	 73 	 99 	 153 	 183 	 213 
 Colisions: 
---------Node-----------------------------------
-	S22->S23		S23->S22	 Intersection
-	A27			A25		
-Costs	[15.0 , 45.0]		[31.0 , 61.0]	
 
 Population size:100
 Max generations:100
@@ -718,71 +712,28 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 273.0
-fitness breakdown: 273.0*1.0 + (0.0*0.0)
+fitness: 278.0
+fitness breakdown: 278.0*1.0 + (0.0*0.0)
 
-Agent A26	[P35]	[P30] | Steps: 12
-	Path: 	[S12]	[S11]	[P35]	[P35]	[P30]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[59]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 102 	 102 	 108 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+Agent A26	[P29] | Steps: 7
+	Path: 	[S12]	[S13]	[S14]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 153 	 183 	 213 
 
-Agent A28	[P33] | Steps: 9
-	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+Agent A28	[P33]	[P30] | Steps: 11
+	Path: 	[P33]	[P33]	[S18]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
 
-Agent A29	[P32] | Steps: 5
+Agent A27	[P32] | Steps: 5
 	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
-	Cost: 	[54]	[30]	[30]	[14]	[14]
-	Time: 	 54 	 84 	 114 	 128 	 142 
+	Cost: 	[15]	[30]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 75 	 89 	 103 
 
-Agent A27	[P34] | Steps: 5
-	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
-	Cost: 	[8]	[8]	[23]	[30]	[30]
-	Time: 	 8 	 16 	 39 	 69 	 99 
-
-Agent A25	[P31] | Steps: 4
-	Path: 	[P31]	[P31]	[S23]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]
-	Time: 	 4 	 8 	 35 	 65 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 273.0
-fitness breakdown: 273.0*1.0 + (0.0*0.0)
-Items: 
-
-Agent A25	[P31] | Steps: 4
-	Path: 	[P31]	[P31]	[S23]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]
-	Time: 	 4 	 8 	 35 	 65 
-
-Agent A28	[P33] | Steps: 9
-	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
-
-Agent A29	[P32] | Steps: 5
-	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
-	Cost: 	[54]	[30]	[30]	[14]	[14]
-	Time: 	 54 	 84 	 114 	 128 	 142 
-
-Agent A26	[P30]	[P35] | Steps: 10
-	Path: 	[S12]	[S11]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[59]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 102 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
-
-Agent A27	[P34] | Steps: 5
-	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
-	Cost: 	[8]	[8]	[23]	[30]	[30]
-	Time: 	 8 	 16 	 39 	 69 	 99 
+Agent A25	[P31]	[P34] | Steps: 8
+	Path: 	[P31]	[P31]	[S23]	[S22]	[P34]	[S22]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[23]	[23]	[30]	[30]
+	Time: 	 4 	 8 	 35 	 65 	 88 	 111 	 141 	 171 
 Colisions: 
 
 Population size:100
@@ -796,12 +747,76 @@ Mutation prob.: 0.025
 fitness: 278.0
 fitness breakdown: 278.0*1.0 + (0.0*0.0)
 
-Agent A25	 Idle
+Agent A27	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 75 	 89 	 103 
 
-Agent A27	[P35]	[P32] | Steps: 9
-	Path: 	[S12]	[S13]	[S14]	[P35]	[S22]	[S23]	[P32]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[57]	[23]	[30]	[27]	[27]	[30]
-	Time: 	 13 	 43 	 73 	 130 	 153 	 183 	 210 	 237 	 267 
+Agent A25	[P34]	[P31] | Steps: 8
+	Path: 	[S23]	[S22]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]
+	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]
+	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 
+
+Agent A26	[P29] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P29]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
+
+Agent A28	[P33]	[P30] | Steps: 11
+	Path: 	[P33]	[P33]	[S18]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 278.0
+fitness breakdown: 278.0*1.0 + (30.0*0.0)
+Items: 
+
+Agent A25	[P34]	[P31] | Steps: 8
+	Path: 	[S23]	[S22]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]
+	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]
+	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 
+
+Agent A26	[P29] | Steps: 7
+	Path: 	[S12]	[S13]	[S14]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 153 	 183 	 213 
+
+Agent A28	[P30]	[P33] | Steps: 11
+	Path: 	[P33]	[P33]	[S18]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
+
+Agent A27	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 75 	 89 	 103 
+Colisions: 
+--------Node-----------------------------------
+	S23->S22		S22->S23	 Intersection
+	A25			A27		
+Costs	[31.0 , 61.0]		[15.0 , 45.0]	
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 278.0
+fitness breakdown: 278.0*1.0 + (80.0*0.0)
+
+Agent A25	 Idle
 
 Agent A29	[P34]	[P31] | Steps: 11
 	Path: 	[P34]	[P34]	[S18]	[S19]	[P31]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
@@ -814,6 +829,52 @@ Agent A28	[P30]	[P33] | Steps: 7
 	Time: 	 15 	 69 	 123 	 153 	 183 	 197 	 211 
 
 Agent A26	 Idle
+
+Agent A27	[P35]	[P32] | Steps: 9
+	Path: 	[S12]	[S13]	[S14]	[P35]	[S22]	[S23]	[P32]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[57]	[23]	[30]	[27]	[27]	[30]
+	Time: 	 13 	 43 	 73 	 130 	 153 	 183 	 210 	 237 	 267 
+Colisions: 
+--------Node-----------------------------------
+	S22->S22		S14->S22	 Super Intersection
+	A28			A27		
+Costs	[15.0 , 123.0]		[73.0 , 153.0]	
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 273.0
+fitness breakdown: 273.0*1.0 + (0.0*0.0)
+
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A29	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[54]	[30]	[30]	[14]	[14]
+	Time: 	 54 	 84 	 114 	 128 	 142 
+
+Agent A26	[P35]	[P30] | Steps: 10
+	Path: 	[S12]	[S11]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A25	[P31] | Steps: 4
+	Path: 	[P31]	[P31]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]
+	Time: 	 4 	 8 	 35 	 65 
+
+Agent A27	[P34] | Steps: 5
+	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 99 
 Colisions: 
 
 Population size:100
@@ -824,13 +885,33 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 553.0
-fitness breakdown: 553.0*1.0 + (0.0*0.0)
+fitness: 273.0
+fitness breakdown: 273.0*1.0 + (0.0*0.0)
 
-Agent A25	[P27]	[P32]	[P29]	[P28]	[P26]	[P30]	[P31] | Steps: 25
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P27]	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[P28]	[P28]	[P26]	[P26]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[0]	[19]	[0]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[54]	[0]	[39]	[0]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 104 	 123 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 357 	 357 	 396 	 396 	 411 	 441 	 468 	 495 	 525 	 539 	 553 
+Agent A29	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[54]	[30]	[30]	[14]	[14]
+	Time: 	 54 	 84 	 114 	 128 	 142 
+
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A25	[P31] | Steps: 4
+	Path: 	[P31]	[P31]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]
+	Time: 	 4 	 8 	 35 	 65 
+
+Agent A27	[P34] | Steps: 5
+	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 99 
+
+Agent A26	[P35]	[P30] | Steps: 12
+	Path: 	[S12]	[S11]	[P35]	[P35]	[P30]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 102 	 108 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
 Colisions: 
 
 Population size:100
@@ -841,14 +922,34 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 553.0
-fitness breakdown: 553.0*1.0 + (0.0*0.0)
+fitness: 273.0
+fitness breakdown: 273.0*1.0 + (0.0*0.0)
 Items: 
 
-Agent A25	[P29]	[P28]	[P30]	[P26]	[P32]	[P31]	[P27] | Steps: 21
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[P28]	[P26]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[54]	[39]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 357 	 396 	 411 	 441 	 468 	 495 	 525 	 539 	 553 
+Agent A27	[P34] | Steps: 5
+	Path: 	[P34]	[P34]	[S22]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 99 
+
+Agent A25	[P31] | Steps: 4
+	Path: 	[P31]	[P31]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]
+	Time: 	 4 	 8 	 35 	 65 
+
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A26	[P30]	[P35] | Steps: 10
+	Path: 	[S12]	[S11]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A29	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[54]	[30]	[30]	[14]	[14]
+	Time: 	 54 	 84 	 114 	 128 	 142 
 Colisions: 
 
 Population size:100
@@ -859,13 +960,40 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 551.0
-fitness breakdown: 551.0*1.0 + (0.0*0.0)
+fitness: 363.0
+fitness breakdown: 363.0*1.0 + (0.0*0.0)
 
-Agent A25	[P27]	[P32]	[P29]	[P26]	[P28]	[P30]	[P31] | Steps: 21
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[P26]	[P28]	[S14]	[S15]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[15]	[39]	[26]	[30]	[53]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 318 	 357 	 383 	 413 	 466 	 493 	 523 	 537 	 551 
+Agent A26	[P28]	[P33]	[P30] | Steps: 14
+	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 333 	 363 
+
+Agent A25	[P31]	[P32]	[P27]	[P29] | Steps: 13
+	Path: 	[P31]	[P31]	[S23]	[E24]	[P32]	[E24]	[S23]	[S22]	[P27]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[14]	[14]	[30]	[30]	[15]	[39]	[54]	[30]	[30]
+	Time: 	 4 	 8 	 35 	 65 	 79 	 93 	 123 	 153 	 168 	 207 	 261 	 291 	 321 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 363.0
+fitness breakdown: 363.0*1.0 + (0.0*0.0)
+
+Agent A25	[P31]	[P29]	[P27]	[P32] | Steps: 11
+	Path: 	[P31]	[P31]	[S15]	[S14]	[P29]	[P27]	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[4]	[4]	[53]	[30]	[26]	[39]	[15]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 61 	 91 	 117 	 156 	 171 	 201 	 231 	 245 	 259 
+
+Agent A26	[P28]	[P33]	[P30] | Steps: 14
+	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 333 	 363 
 Colisions: 
 
 Population size:100
@@ -921,18 +1049,23 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 363.0
-fitness breakdown: 363.0*1.0 + (0.0*0.0)
+fitness: 278.0
+fitness breakdown: 278.0*1.0 + (0.0*0.0)
 
-Agent A25	[P31]	[P32]	[P27]	[P29] | Steps: 13
-	Path: 	[P31]	[P31]	[S23]	[E24]	[P32]	[E24]	[S23]	[S22]	[P27]	[P29]	[S22]	[S23]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]	[14]	[14]	[30]	[30]	[15]	[39]	[54]	[30]	[30]
-	Time: 	 4 	 8 	 35 	 65 	 79 	 93 	 123 	 153 	 168 	 207 	 261 	 291 	 321 
+Agent A25	[P34] | Steps: 9
+	Path: 	[S12]	[S11]	[P34]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[21]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 123 	 153 	 183 	 213 	 243 	 273 
 
-Agent A26	[P28]	[P33]	[P30] | Steps: 14
-	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 333 	 363 
+Agent A27	[P32]	[P29] | Steps: 11
+	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
+
+Agent A26	[P33]	[P28]	[P30]	[P31] | Steps: 10
+	Path: 	[P33]	[P33]	[P28]	[S14]	[S15]	[P30]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[8]	[8]	[31]	[26]	[30]	[53]	[27]	[30]	[14]	[14]
+	Time: 	 8 	 16 	 47 	 73 	 103 	 156 	 183 	 213 	 227 	 241 
 Colisions: 
 
 Population size:100
@@ -946,6 +1079,38 @@ Mutation prob.: 0.025
 fitness: 290.0
 fitness breakdown: 290.0*1.0 + (0.0*0.0)
 
+Agent A25	[P28] | Steps: 7
+	Path: 	[S12]	[S13]	[S14]	[P28]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 153 	 183 	 213 
+
+Agent A26	[P33]	[P30]	[P31] | Steps: 9
+	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 	 167 	 181 
+
+Agent A27	[P32]	[P34]	[P29] | Steps: 12
+	Path: 	[P32]	[P32]	[S18]	[S19]	[P34]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 119 	 125 	 140 	 170 	 200 	 230 	 260 	 290 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 290.0
+fitness breakdown: 290.0*1.0 + (0.0*0.0)
+
+Agent A25	[P28] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P28]	[P28]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
+
 Agent A27	[P32]	[P34]	[P29] | Steps: 14
 	Path: 	[P32]	[P32]	[S18]	[S19]	[P34]	[P34]	[P29]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[19]	[19]	[30]	[30]	[21]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
@@ -955,11 +1120,6 @@ Agent A26	[P33]	[P30]	[P31] | Steps: 9
 	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
 	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
 	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 	 167 	 181 
-
-Agent A25	[P28] | Steps: 8
-	Path: 	[S12]	[S13]	[S14]	[P28]	[P28]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
 Colisions: 
 
 Population size:100
@@ -974,12 +1134,7 @@ fitness: 290.0
 fitness breakdown: 290.0*1.0 + (0.0*0.0)
 Items: 
 
-Agent A27	[P34]	[P32]	[P29] | Steps: 12
-	Path: 	[P32]	[P32]	[S18]	[S19]	[P34]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 119 	 125 	 140 	 170 	 200 	 230 	 260 	 290 
-
-Agent A26	[P30]	[P33]	[P31] | Steps: 9
+Agent A26	[P31]	[P30]	[P33] | Steps: 9
 	Path: 	[P33]	[P33]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
 	Cost: 	[8]	[8]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
 	Time: 	 8 	 16 	 39 	 69 	 96 	 123 	 153 	 167 	 181 
@@ -988,6 +1143,11 @@ Agent A25	[P28] | Steps: 7
 	Path: 	[S12]	[S13]	[S14]	[P28]	[S22]	[S23]	[E24]
 	Cost: 	[13]	[30]	[30]	[26]	[54]	[30]	[30]
 	Time: 	 13 	 43 	 73 	 99 	 153 	 183 	 213 
+
+Agent A27	[P32]	[P34]	[P29] | Steps: 12
+	Path: 	[P32]	[P32]	[S18]	[S19]	[P34]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 119 	 125 	 140 	 170 	 200 	 230 	 260 	 290 
 Colisions: 
 
 Population size:100
@@ -998,23 +1158,25 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 278.0
-fitness breakdown: 278.0*1.0 + (0.0*0.0)
+fitness: 290.0
+fitness breakdown: 290.0*1.0 + (0.0*0.0)
 
-Agent A25	[P34] | Steps: 9
-	Path: 	[S12]	[S11]	[P34]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[59]	[21]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 102 	 123 	 153 	 183 	 213 	 243 	 273 
+Agent A27	[P32]	[P31] | Steps: 9
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]	[S23]	[P31]	[S23]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]	[30]	[27]	[27]	[30]
+	Time: 	 15 	 45 	 75 	 89 	 103 	 133 	 160 	 187 	 217 
 
-Agent A26	[P33]	[P28]	[P30]	[P31] | Steps: 10
-	Path: 	[P33]	[P33]	[P28]	[S14]	[S15]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[8]	[8]	[31]	[26]	[30]	[53]	[27]	[30]	[14]	[14]
-	Time: 	 8 	 16 	 47 	 73 	 103 	 156 	 183 	 213 	 227 	 241 
+Agent A28	[P33]	[P35]	[P30] | Steps: 12
+	Path: 	[P33]	[P33]	[S18]	[S19]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 119 	 125 	 140 	 170 	 200 	 230 	 260 	 290 
 
-Agent A27	[P32]	[P29] | Steps: 11
-	Path: 	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 113 	 128 	 158 	 188 	 218 	 248 	 278 
+Agent A25	 Idle
+
+Agent A26	[P34]	[P29] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P34]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[57]	[31]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 130 	 161 	 215 	 245 	 275 
 Colisions: 
 
 Population size:100
@@ -1028,10 +1190,37 @@ Mutation prob.: 0.025
 fitness: 273.0
 fitness breakdown: 273.0*1.0 + (0.0*0.0)
 
+Agent A26	[P35]	[P30] | Steps: 10
+	Path: 	[S12]	[S11]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
 Agent A27	[P32] | Steps: 5
 	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
 	Cost: 	[15]	[30]	[30]	[14]	[14]
 	Time: 	 15 	 45 	 75 	 89 	 103 
+
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A25	[P31]	[P29]	[P34] | Steps: 9
+	Path: 	[P31]	[P31]	[S15]	[S14]	[P29]	[P34]	[S22]	[S23]	[E24]
+	Cost: 	[4]	[4]	[53]	[30]	[26]	[31]	[23]	[30]	[30]
+	Time: 	 4 	 8 	 61 	 91 	 117 	 148 	 171 	 201 	 231 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 273.0
+fitness breakdown: 273.0*1.0 + (0.0*0.0)
 
 Agent A25	[P29]	[P34]	[P31] | Steps: 11
 	Path: 	[S15]	[S14]	[P29]	[P29]	[P34]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]
@@ -1047,6 +1236,11 @@ Agent A26	[P35]	[P30] | Steps: 12
 	Path: 	[S12]	[S11]	[P35]	[P35]	[P30]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[13]	[30]	[59]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 13 	 43 	 102 	 102 	 108 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A27	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 75 	 89 	 103 
 Colisions: 
 
 Population size:100
@@ -1061,20 +1255,20 @@ fitness: 273.0
 fitness breakdown: 273.0*1.0 + (120.0*0.0)
 Items: 
 
-Agent A28	[P33] | Steps: 9
-	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+Agent A27	[P32] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 75 	 89 	 103 
 
 Agent A25	[P31]	[P34]	[P29] | Steps: 9
 	Path: 	[S15]	[S14]	[P29]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]
 	Cost: 	[49]	[30]	[26]	[31]	[23]	[30]	[27]	[27]	[30]
 	Time: 	 49 	 79 	 105 	 136 	 159 	 189 	 216 	 243 	 273 
 
-Agent A27	[P32] | Steps: 5
-	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]
-	Cost: 	[15]	[30]	[30]	[14]	[14]
-	Time: 	 15 	 45 	 75 	 89 	 103 
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
 
 Agent A26	[P35]	[P30] | Steps: 10
 	Path: 	[S12]	[S11]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
@@ -1099,24 +1293,67 @@ Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
 fitness: 290.0
-fitness breakdown: 290.0*1.0 + (0.0*0.0)
+fitness breakdown: 290.0*1.0 + (30.0*0.0)
+
+Agent A29	[P34]	[P31]	[P36] | Steps: 12
+	Path: 	[P34]	[P34]	[S18]	[S19]	[P31]	[P36]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[15]	[6]	[21]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 113 	 119 	 140 	 170 	 200 	 230 	 260 	 290 
+
+Agent A28	[P33] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 75 	 89 	 103 
 
 Agent A25	 Idle
 
-Agent A28	[P33]	[P35]	[P30] | Steps: 12
-	Path: 	[P33]	[P33]	[S18]	[S19]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 119 	 125 	 140 	 170 	 200 	 230 	 260 	 290 
+Agent A26	[P32]	[P35]	[P30] | Steps: 9
+	Path: 	[P32]	[P32]	[S23]	[S22]	[P35]	[P30]	[S22]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[23]	[31]	[54]	[30]	[30]
+	Time: 	 4 	 8 	 35 	 65 	 88 	 119 	 173 	 203 	 233 
 
-Agent A27	[P32]	[P31] | Steps: 9
-	Path: 	[S22]	[S23]	[E24]	[P32]	[E24]	[S23]	[P31]	[S23]	[E24]
-	Cost: 	[15]	[30]	[30]	[14]	[14]	[30]	[27]	[27]	[30]
-	Time: 	 15 	 45 	 75 	 89 	 103 	 133 	 160 	 187 	 217 
+Agent A27	 Idle
+Colisions: 
+--------Node-----------------------------------
+	S22->S23		S23->S22	 Intersection
+	A28			A26		
+Costs	[15.0 , 45.0]		[35.0 , 65.0]	
 
-Agent A26	[P34]	[P29] | Steps: 8
-	Path: 	[S12]	[S13]	[S14]	[P34]	[P29]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[57]	[31]	[54]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 130 	 161 	 215 	 245 	 275 
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 286.0
+fitness breakdown: 286.0*1.0 + (0.0*0.0)
+
+Agent A29	[P36] | Steps: 6
+	Path: 	[S14]	[P36]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[26]	[60]	[60]	[30]	[30]	[80]
+	Time: 	 26 	 86 	 146 	 176 	 206 	 286 
+
+Agent A25	[P31]	[P34]	[P32] | Steps: 10
+	Path: 	[P31]	[P31]	[S23]	[S22]	[P34]	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[23]	[23]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 88 	 111 	 141 	 171 	 185 	 199 
+
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+
+Agent A26	[P35] | Steps: 9
+	Path: 	[S12]	[S11]	[P35]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[21]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A27	[P30] | Steps: 11
+	Path: 	[S22]	[S21]	[S20]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[15]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 15 	 45 	 75 	 105 	 120 	 135 	 165 	 195 	 225 	 255 	 285 
 Colisions: 
 
 Population size:100
@@ -1130,6 +1367,11 @@ Mutation prob.: 0.025
 fitness: 286.0
 fitness breakdown: 286.0*1.0 + (0.0*0.0)
 
+Agent A25	[P34]	[P31]	[P32] | Steps: 10
+	Path: 	[S23]	[S22]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
+
 Agent A27	[P30] | Steps: 11
 	Path: 	[S22]	[S21]	[S20]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[15]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
@@ -1140,20 +1382,15 @@ Agent A26	[P35] | Steps: 10
 	Cost: 	[13]	[30]	[59]	[0]	[21]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 13 	 43 	 102 	 102 	 123 	 153 	 183 	 213 	 243 	 273 
 
-Agent A29	[P36] | Steps: 6
-	Path: 	[S14]	[P36]	[S14]	[S15]	[S16]	[E24]
-	Cost: 	[26]	[60]	[60]	[30]	[30]	[80]
-	Time: 	 26 	 86 	 146 	 176 	 206 	 286 
-
 Agent A28	[P33] | Steps: 9
 	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
 
-Agent A25	[P34]	[P31]	[P32] | Steps: 10
-	Path: 	[S23]	[S22]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]	[P32]	[E24]
-	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
+Agent A29	[P36] | Steps: 6
+	Path: 	[S14]	[P36]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[26]	[60]	[60]	[30]	[30]	[80]
+	Time: 	 26 	 86 	 146 	 176 	 206 	 286 
 Colisions: 
 
 Population size:100
@@ -1173,10 +1410,10 @@ Agent A25	[P32]	[P34]	[P31] | Steps: 10
 	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
 	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
 
-Agent A28	[P33] | Steps: 9
-	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
+Agent A29	[P36] | Steps: 6
+	Path: 	[S14]	[P36]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[26]	[60]	[60]	[30]	[30]	[80]
+	Time: 	 26 	 86 	 146 	 176 	 206 	 286 
 
 Agent A26	[P35] | Steps: 9
 	Path: 	[S12]	[S11]	[P35]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
@@ -1188,15 +1425,15 @@ Agent A27	[P30] | Steps: 11
 	Cost: 	[15]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 15 	 45 	 75 	 105 	 120 	 135 	 165 	 195 	 225 	 255 	 285 
 
-Agent A29	[P36] | Steps: 6
-	Path: 	[S14]	[P36]	[S14]	[S15]	[S16]	[E24]
-	Cost: 	[26]	[60]	[60]	[30]	[30]	[80]
-	Time: 	 26 	 86 	 146 	 176 	 206 	 286 
+Agent A28	[P33] | Steps: 9
+	Path: 	[P33]	[P33]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[19]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 19 	 38 	 68 	 98 	 128 	 158 	 188 	 218 	 248 
 Colisions: 
 --------Node-----------------------------------
-	S19->S20		S20->S19	 Intersection
-	A28			A27		
-Costs	[98.0 , 128.0]		[75.0 , 105.0]	
+	S20->S19		S19->S20	 Intersection
+	A27			A28		
+Costs	[75.0 , 105.0]		[98.0 , 128.0]	
 
 Population size:100
 Max generations:100
@@ -1206,48 +1443,18 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 290.0
-fitness breakdown: 290.0*1.0 + (30.0*0.0)
+fitness: 375.0
+fitness breakdown: 375.0*1.0 + (0.0*0.0)
 
-Agent A26	[P32]	[P35]	[P30] | Steps: 9
-	Path: 	[P32]	[P32]	[S23]	[S22]	[P35]	[P30]	[S22]	[S23]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]	[23]	[31]	[54]	[30]	[30]
-	Time: 	 4 	 8 	 35 	 65 	 88 	 119 	 173 	 203 	 233 
+Agent A26	[P30]	[P33]	[P28]	[P31] | Steps: 12
+	Path: 	[S22]	[S23]	[P30]	[S23]	[S22]	[P33]	[P28]	[S22]	[S23]	[E24]	[P31]	[E24]
+	Cost: 	[15]	[30]	[27]	[27]	[30]	[23]	[31]	[54]	[30]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 72 	 99 	 129 	 152 	 183 	 237 	 267 	 297 	 311 	 325 
 
-Agent A29	[P34]	[P31]	[P36] | Steps: 12
-	Path: 	[P34]	[P34]	[S18]	[S19]	[P31]	[P36]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[19]	[19]	[30]	[30]	[15]	[6]	[21]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 19 	 38 	 68 	 98 	 113 	 119 	 140 	 170 	 200 	 230 	 260 	 290 
-
-Agent A28	[P33] | Steps: 5
-	Path: 	[S22]	[S23]	[E24]	[P33]	[E24]
-	Cost: 	[15]	[30]	[30]	[14]	[14]
-	Time: 	 15 	 45 	 75 	 89 	 103 
-
-Agent A27	 Idle
-
-Agent A25	 Idle
-Colisions: 
---------Node-----------------------------------
-	S23->S22		S22->S23	 Intersection
-	A26			A28		
-Costs	[35.0 , 65.0]		[15.0 , 45.0]	
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 553.0
-fitness breakdown: 553.0*1.0 + (0.0*0.0)
-
-Agent A25	[P27]	[P32]	[P29]	[P28]	[P33]	[P26]	[P30]	[P31] | Steps: 27
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P27]	[P32]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[P28]	[P28]	[P33]	[P33]	[P26]	[P26]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[0]	[19]	[0]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[54]	[0]	[31]	[0]	[8]	[0]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 104 	 123 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 357 	 357 	 388 	 388 	 396 	 396 	 411 	 441 	 468 	 495 	 525 	 539 	 553 
+Agent A25	[P27]	[P32]	[P34]	[P29] | Steps: 15
+	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P34]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
 Colisions: 
 
 Population size:100
@@ -1258,31 +1465,18 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 553.0
-fitness breakdown: 553.0*1.0 + (0.0*0.0)
-Items: 
+fitness: 433.0
+fitness breakdown: 433.0*1.0 + (0.0*0.0)
 
-Agent A25	[P29]	[P28]	[P33]	[P27]	[P32]	[P30]	[P31]	[P26] | Steps: 22
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[P28]	[P33]	[P26]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[54]	[31]	[8]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 357 	 388 	 396 	 411 	 441 	 468 	 495 	 525 	 539 	 553 
-Colisions: 
+Agent A25	[P31]	[P27]	[P34]	[P30]	[P32] | Steps: 19
+	Path: 	[P31]	[P31]	[S23]	[S22]	[P27]	[P34]	[S22]	[S21]	[S20]	[S19]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[15]	[8]	[23]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 80 	 88 	 111 	 141 	 171 	 201 	 216 	 231 	 261 	 291 	 321 	 351 	 381 	 395 	 409 
 
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 551.0
-fitness breakdown: 551.0*1.0 + (0.0*0.0)
-
-Agent A25	[P27]	[P32]	[P29]	[P26]	[P33]	[P28]	[P30]	[P31] | Steps: 22
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P29]	[S19]	[S20]	[S21]	[S22]	[P26]	[P33]	[P28]	[S14]	[S15]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[15]	[8]	[31]	[26]	[30]	[53]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 213 	 243 	 273 	 303 	 318 	 326 	 357 	 383 	 413 	 466 	 493 	 523 	 537 	 551 
+Agent A26	[P33]	[P28]	[P29] | Steps: 14
+	Path: 	[S12]	[S11]	[S10]	[P33]	[P28]	[S10]	[S11]	[S12]	[S13]	[S14]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[50]	[19]	[31]	[30]	[30]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 123 	 142 	 173 	 203 	 233 	 263 	 293 	 319 	 373 	 403 	 433 
 Colisions: 
 
 Population size:100
@@ -1338,18 +1532,23 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 375.0
-fitness breakdown: 375.0*1.0 + (0.0*0.0)
+fitness: 363.0
+fitness breakdown: 363.0*1.0 + (0.0*0.0)
 
-Agent A25	[P27]	[P32]	[P34]	[P29] | Steps: 15
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P34]	[P29]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
+Agent A27	[P33]	[P32]	[P34] | Steps: 16
+	Path: 	[P33]	[P33]	[S23]	[S22]	[S21]	[S20]	[S19]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 95 	 125 	 155 	 170 	 185 	 215 	 245 	 275 	 305 	 335 	 349 	 363 
 
-Agent A26	[P30]	[P33]	[P28]	[P31] | Steps: 12
-	Path: 	[S22]	[S23]	[P30]	[S23]	[S22]	[P33]	[P28]	[S22]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[15]	[30]	[27]	[27]	[30]	[23]	[31]	[54]	[30]	[30]	[14]	[14]
-	Time: 	 15 	 45 	 72 	 99 	 129 	 152 	 183 	 237 	 267 	 297 	 311 	 325 
+Agent A26	[P30]	[P35] | Steps: 11
+	Path: 	[S9]	[S10]	[P30]	[P35]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+
+Agent A25	[P31]	[P28]	[P29] | Steps: 13
+	Path: 	[S14]	[P31]	[S14]	[S13]	[S12]	[P28]	[S12]	[S13]	[S14]	[P29]	[S22]	[S23]	[E24]
+	Cost: 	[21]	[26]	[26]	[30]	[30]	[13]	[13]	[30]	[30]	[65]	[15]	[30]	[30]
+	Time: 	 21 	 47 	 73 	 103 	 133 	 146 	 159 	 189 	 219 	 284 	 299 	 329 	 359 
 Colisions: 
 
 Population size:100
@@ -1363,6 +1562,38 @@ Mutation prob.: 0.025
 fitness: 370.0
 fitness breakdown: 370.0*1.0 + (0.0*0.0)
 
+Agent A25	[P31]	[P33] | Steps: 12
+	Path: 	[S19]	[S18]	[P31]	[S18]	[S19]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[1]	[30]	[49]	[49]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 1 	 31 	 80 	 129 	 159 	 174 	 189 	 219 	 249 	 279 	 309 	 339 
+
+Agent A26	[P32]	[P30]	[P28]	[P34]	[P35] | Steps: 11
+	Path: 	[S14]	[P32]	[P30]	[S22]	[S23]	[P28]	[P34]	[S23]	[E24]	[P35]	[E24]
+	Cost: 	[21]	[26]	[39]	[15]	[30]	[31]	[4]	[27]	[30]	[14]	[14]
+	Time: 	 21 	 47 	 86 	 101 	 131 	 162 	 166 	 193 	 223 	 237 	 251 
+
+Agent A27	[P29] | Steps: 11
+	Path: 	[S9]	[S10]	[S11]	[S12]	[P29]	[S12]	[S13]	[S14]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[30]	[30]	[13]	[13]	[30]	[30]	[80]	[30]	[30]
+	Time: 	 54 	 84 	 114 	 144 	 157 	 170 	 200 	 230 	 310 	 340 	 370 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 370.0
+fitness breakdown: 370.0*1.0 + (0.0*0.0)
+
+Agent A27	[P29] | Steps: 11
+	Path: 	[S9]	[S10]	[S11]	[S12]	[P29]	[S12]	[S13]	[S14]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[30]	[30]	[13]	[13]	[30]	[30]	[80]	[30]	[30]
+	Time: 	 54 	 84 	 114 	 144 	 157 	 170 	 200 	 230 	 310 	 340 	 370 
+
 Agent A26	[P32]	[P30]	[P28]	[P34]	[P35] | Steps: 15
 	Path: 	[S14]	[P32]	[P32]	[P30]	[P30]	[S22]	[S23]	[P28]	[P28]	[P34]	[P34]	[S23]	[E24]	[P35]	[E24]
 	Cost: 	[21]	[26]	[0]	[39]	[0]	[15]	[30]	[31]	[0]	[4]	[0]	[27]	[30]	[14]	[14]
@@ -1372,11 +1603,6 @@ Agent A25	[P31]	[P33] | Steps: 12
 	Path: 	[S19]	[S18]	[P31]	[S18]	[S19]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[1]	[30]	[49]	[49]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 1 	 31 	 80 	 129 	 159 	 174 	 189 	 219 	 249 	 279 	 309 	 339 
-
-Agent A27	[P29] | Steps: 11
-	Path: 	[S9]	[S10]	[S11]	[S12]	[P29]	[S12]	[S13]	[S14]	[S22]	[S23]	[E24]
-	Cost: 	[54]	[30]	[30]	[30]	[13]	[13]	[30]	[30]	[80]	[30]	[30]
-	Time: 	 54 	 84 	 114 	 144 	 157 	 170 	 200 	 230 	 310 	 340 	 370 
 Colisions: 
 
 Population size:100
@@ -1391,7 +1617,12 @@ fitness: 370.0
 fitness breakdown: 370.0*1.0 + (0.0*0.0)
 Items: 
 
-Agent A26	[P32]	[P35]	[P28]	[P30]	[P34] | Steps: 11
+Agent A25	[P33]	[P31] | Steps: 12
+	Path: 	[S19]	[S18]	[P31]	[S18]	[S19]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[1]	[30]	[49]	[49]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 1 	 31 	 80 	 129 	 159 	 174 	 189 	 219 	 249 	 279 	 309 	 339 
+
+Agent A26	[P34]	[P28]	[P35]	[P30]	[P32] | Steps: 11
 	Path: 	[S14]	[P32]	[P30]	[S22]	[S23]	[P28]	[P34]	[S23]	[E24]	[P35]	[E24]
 	Cost: 	[21]	[26]	[39]	[15]	[30]	[31]	[4]	[27]	[30]	[14]	[14]
 	Time: 	 21 	 47 	 86 	 101 	 131 	 162 	 166 	 193 	 223 	 237 	 251 
@@ -1400,11 +1631,6 @@ Agent A27	[P29] | Steps: 11
 	Path: 	[S9]	[S10]	[S11]	[S12]	[P29]	[S12]	[S13]	[S14]	[S22]	[S23]	[E24]
 	Cost: 	[54]	[30]	[30]	[30]	[13]	[13]	[30]	[30]	[80]	[30]	[30]
 	Time: 	 54 	 84 	 114 	 144 	 157 	 170 	 200 	 230 	 310 	 340 	 370 
-
-Agent A25	[P31]	[P33] | Steps: 12
-	Path: 	[S19]	[S18]	[P31]	[S18]	[S19]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[1]	[30]	[49]	[49]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 1 	 31 	 80 	 129 	 159 	 174 	 189 	 219 	 249 	 279 	 309 	 339 
 Colisions: 
 
 Population size:100
@@ -1415,23 +1641,60 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 363.0
-fitness breakdown: 363.0*1.0 + (0.0*0.0)
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (0.0*0.0)
 
-Agent A25	[P31]	[P28]	[P29] | Steps: 13
-	Path: 	[S14]	[P31]	[S14]	[S13]	[S12]	[P28]	[S12]	[S13]	[S14]	[P29]	[S22]	[S23]	[E24]
-	Cost: 	[21]	[26]	[26]	[30]	[30]	[13]	[13]	[30]	[30]	[65]	[15]	[30]	[30]
-	Time: 	 21 	 47 	 73 	 103 	 133 	 146 	 159 	 189 	 219 	 284 	 299 	 329 	 359 
+Agent A27	[P29]	[P34] | Steps: 12
+	Path: 	[S12]	[S11]	[S10]	[P29]	[P34]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 213 	 243 	 273 	 303 	 333 
 
-Agent A26	[P30]	[P35] | Steps: 11
-	Path: 	[S9]	[S10]	[P30]	[P35]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+Agent A25	[P36]	[P31] | Steps: 11
+	Path: 	[S9]	[S10]	[S11]	[P36]	[P31]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[30]	[59]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 114 	 173 	 179 	 194 	 224 	 254 	 284 	 314 	 344 
 
-Agent A27	[P33]	[P32]	[P34] | Steps: 16
-	Path: 	[P33]	[P33]	[S23]	[S22]	[S21]	[S20]	[S19]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]	[P34]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]	[14]	[14]
-	Time: 	 4 	 8 	 35 	 65 	 95 	 125 	 155 	 170 	 185 	 215 	 245 	 275 	 305 	 335 	 349 	 363 
+Agent A26	[P33]	[P32] | Steps: 8
+	Path: 	[S23]	[E24]	[P33]	[E24]	[S23]	[P32]	[S23]	[E24]
+	Cost: 	[31]	[30]	[14]	[14]	[30]	[27]	[27]	[30]
+	Time: 	 31 	 61 	 75 	 89 	 119 	 146 	 173 	 203 
+
+Agent A28	[P30]	[P35] | Steps: 6
+	Path: 	[P35]	[P30]	[P35]	[S22]	[S23]	[E24]
+	Cost: 	[8]	[31]	[31]	[23]	[30]	[30]
+	Time: 	 8 	 39 	 70 	 93 	 123 	 153 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (0.0*0.0)
+
+Agent A27	[P30] | Steps: 10
+	Path: 	[S9]	[S10]	[S11]	[S12]	[S13]	[S14]	[P30]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[30]	[30]	[30]	[30]	[65]	[15]	[30]	[30]
+	Time: 	 54 	 84 	 114 	 144 	 174 	 204 	 269 	 284 	 314 	 344 
+
+Agent A25	[P31]	[P36]	[P33] | Steps: 13
+	Path: 	[S19]	[S18]	[P31]	[P36]	[S18]	[S19]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[1]	[30]	[49]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 1 	 31 	 80 	 99 	 129 	 159 	 174 	 189 	 219 	 249 	 279 	 309 	 339 
+
+Agent A26	[P29]	[P32] | Steps: 11
+	Path: 	[S14]	[S13]	[S12]	[P29]	[S12]	[S13]	[S14]	[P32]	[S22]	[S23]	[E24]
+	Cost: 	[21]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 21 	 51 	 81 	 94 	 107 	 137 	 167 	 193 	 247 	 277 	 307 
+
+Agent A28	[P34]	[P35] | Steps: 6
+	Path: 	[P34]	[P34]	[S23]	[E24]	[P35]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 79 	 93 
 Colisions: 
 
 Population size:100
@@ -1455,15 +1718,15 @@ Agent A26	[P29]	[P32] | Steps: 12
 	Cost: 	[21]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
 	Time: 	 21 	 51 	 81 	 94 	 107 	 137 	 167 	 193 	 193 	 247 	 277 	 307 
 
-Agent A28	[P34]	[P35] | Steps: 6
-	Path: 	[P34]	[P34]	[S23]	[E24]	[P35]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]	[14]	[14]
-	Time: 	 4 	 8 	 35 	 65 	 79 	 93 
-
 Agent A27	[P30] | Steps: 11
 	Path: 	[S9]	[S10]	[S11]	[S12]	[S13]	[S14]	[P30]	[P30]	[S22]	[S23]	[E24]
 	Cost: 	[54]	[30]	[30]	[30]	[30]	[30]	[65]	[0]	[15]	[30]	[30]
 	Time: 	 54 	 84 	 114 	 144 	 174 	 204 	 269 	 269 	 284 	 314 	 344 
+
+Agent A28	[P34]	[P35] | Steps: 6
+	Path: 	[P34]	[P34]	[S23]	[E24]	[P35]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 79 	 93 
 Colisions: 
 
 Population size:100
@@ -1478,20 +1741,20 @@ fitness: 344.0
 fitness breakdown: 344.0*1.0 + (0.0*0.0)
 Items: 
 
-Agent A25	[P36]	[P31]	[P33] | Steps: 13
-	Path: 	[S19]	[S18]	[P31]	[P36]	[S18]	[S19]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[1]	[30]	[49]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 1 	 31 	 80 	 99 	 129 	 159 	 174 	 189 	 219 	 249 	 279 	 309 	 339 
+Agent A28	[P35]	[P34] | Steps: 6
+	Path: 	[P34]	[P34]	[S23]	[E24]	[P35]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 79 	 93 
 
 Agent A27	[P30] | Steps: 10
 	Path: 	[S9]	[S10]	[S11]	[S12]	[S13]	[S14]	[P30]	[S22]	[S23]	[E24]
 	Cost: 	[54]	[30]	[30]	[30]	[30]	[30]	[65]	[15]	[30]	[30]
 	Time: 	 54 	 84 	 114 	 144 	 174 	 204 	 269 	 284 	 314 	 344 
 
-Agent A28	[P34]	[P35] | Steps: 6
-	Path: 	[P34]	[P34]	[S23]	[E24]	[P35]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]	[14]	[14]
-	Time: 	 4 	 8 	 35 	 65 	 79 	 93 
+Agent A25	[P33]	[P36]	[P31] | Steps: 13
+	Path: 	[S19]	[S18]	[P31]	[P36]	[S18]	[S19]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[1]	[30]	[49]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 1 	 31 	 80 	 99 	 129 	 159 	 174 	 189 	 219 	 249 	 279 	 309 	 339 
 
 Agent A26	[P29]	[P32] | Steps: 11
 	Path: 	[S14]	[S13]	[S12]	[P29]	[S12]	[S13]	[S14]	[P32]	[S22]	[S23]	[E24]
@@ -1507,28 +1770,67 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
+fitness: 333.0
+fitness breakdown: 333.0*1.0 + (0.0*0.0)
+
+Agent A27	[P34] | Steps: 11
+	Path: 	[S12]	[S11]	[S10]	[P34]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[50]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 123 	 153 	 183 	 213 	 243 	 273 	 303 	 333 
+
+Agent A26	[P32]	[P35]	[P30]	[P33] | Steps: 11
+	Path: 	[P32]	[P32]	[S23]	[S22]	[P35]	[P30]	[S22]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[23]	[31]	[54]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 88 	 119 	 173 	 203 	 233 	 247 	 261 
+
+Agent A29	[P31]	[P36] | Steps: 10
+	Path: 	[S18]	[S19]	[P31]	[P36]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[49]	[30]	[15]	[6]	[21]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 49 	 79 	 94 	 100 	 121 	 151 	 181 	 211 	 241 	 271 
+
+Agent A25	 Idle
+
+Agent A28	[P37] | Steps: 6
+	Path: 	[S14]	[P37]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[65]	[60]	[60]	[30]	[30]	[80]
+	Time: 	 65 	 125 	 185 	 215 	 245 	 325 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
 fitness: 344.0
 fitness breakdown: 344.0*1.0 + (0.0*0.0)
 
-Agent A28	[P30]	[P35] | Steps: 6
-	Path: 	[P35]	[P30]	[P35]	[S22]	[S23]	[E24]
-	Cost: 	[8]	[31]	[31]	[23]	[30]	[30]
-	Time: 	 8 	 39 	 70 	 93 	 123 	 153 
+Agent A29	[P32] | Steps: 11
+	Path: 	[S22]	[S21]	[S20]	[S19]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[15]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 15 	 45 	 75 	 105 	 120 	 135 	 165 	 195 	 225 	 255 	 285 
 
-Agent A26	[P33]	[P32] | Steps: 8
-	Path: 	[S23]	[E24]	[P33]	[E24]	[S23]	[P32]	[S23]	[E24]
-	Cost: 	[31]	[30]	[14]	[14]	[30]	[27]	[27]	[30]
-	Time: 	 31 	 61 	 75 	 89 	 119 	 146 	 173 	 203 
+Agent A25	[P31] | Steps: 5
+	Path: 	[S14]	[P31]	[S22]	[S23]	[E24]
+	Cost: 	[21]	[26]	[54]	[30]	[30]
+	Time: 	 21 	 47 	 101 	 131 	 161 
 
-Agent A25	[P36]	[P31] | Steps: 11
-	Path: 	[S9]	[S10]	[S11]	[P36]	[P31]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[54]	[30]	[30]	[59]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 54 	 84 	 114 	 173 	 179 	 194 	 224 	 254 	 284 	 314 	 344 
+Agent A28	[P37] | Steps: 9
+	Path: 	[S12]	[S11]	[P37]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[21]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 123 	 153 	 183 	 213 	 243 	 273 
 
-Agent A27	[P29]	[P34] | Steps: 12
-	Path: 	[S12]	[S11]	[S10]	[P29]	[P34]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 213 	 243 	 273 	 303 	 333 
+Agent A27	[P33]	[P36]	[P34] | Steps: 10
+	Path: 	[P33]	[P33]	[S23]	[S22]	[P36]	[S22]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[23]	[23]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 88 	 111 	 141 	 171 	 185 	 199 
+
+Agent A26	[P30]	[P35] | Steps: 11
+	Path: 	[S9]	[S10]	[P30]	[P35]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
 Colisions: 
 
 Population size:100
@@ -1547,6 +1849,16 @@ Agent A25	[P31] | Steps: 6
 	Cost: 	[21]	[26]	[0]	[54]	[30]	[30]
 	Time: 	 21 	 47 	 47 	 101 	 131 	 161 
 
+Agent A28	[P37] | Steps: 10
+	Path: 	[S12]	[S11]	[P37]	[P37]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[0]	[21]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 102 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A27	[P36]	[P33]	[P34] | Steps: 10
+	Path: 	[S23]	[S22]	[P36]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
+
 Agent A26	[P30]	[P35] | Steps: 13
 	Path: 	[S9]	[S10]	[P30]	[P30]	[P35]	[P35]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[54]	[30]	[31]	[0]	[19]	[0]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
@@ -1556,16 +1868,6 @@ Agent A29	[P32] | Steps: 11
 	Path: 	[S22]	[S21]	[S20]	[S19]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[15]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 15 	 45 	 75 	 105 	 120 	 135 	 165 	 195 	 225 	 255 	 285 
-
-Agent A27	[P36]	[P33]	[P34] | Steps: 10
-	Path: 	[S23]	[S22]	[P36]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
-	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
-
-Agent A28	[P37] | Steps: 10
-	Path: 	[S12]	[S11]	[P37]	[P37]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[59]	[0]	[21]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 102 	 102 	 123 	 153 	 183 	 213 	 243 	 273 
 Colisions: 
 
 Population size:100
@@ -1580,11 +1882,6 @@ fitness: 344.0
 fitness breakdown: 344.0*1.0 + (30.0*0.0)
 Items: 
 
-Agent A29	[P32] | Steps: 11
-	Path: 	[S22]	[S21]	[S20]	[S19]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[15]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 15 	 45 	 75 	 105 	 120 	 135 	 165 	 195 	 225 	 255 	 285 
-
 Agent A26	[P30]	[P35] | Steps: 11
 	Path: 	[S9]	[S10]	[P30]	[P35]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
@@ -1595,15 +1892,20 @@ Agent A25	[P31] | Steps: 5
 	Cost: 	[21]	[26]	[54]	[30]	[30]
 	Time: 	 21 	 47 	 101 	 131 	 161 
 
-Agent A27	[P34]	[P36]	[P33] | Steps: 10
-	Path: 	[S23]	[S22]	[P36]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
-	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
+Agent A29	[P32] | Steps: 11
+	Path: 	[S22]	[S21]	[S20]	[S19]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[15]	[30]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 15 	 45 	 75 	 105 	 120 	 135 	 165 	 195 	 225 	 255 	 285 
 
 Agent A28	[P37] | Steps: 9
 	Path: 	[S12]	[S11]	[P37]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
 	Cost: 	[13]	[30]	[59]	[21]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 13 	 43 	 102 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A27	[P36]	[P33]	[P34] | Steps: 10
+	Path: 	[S23]	[S22]	[P36]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
 Colisions: 
 --------Node-----------------------------------
 	S19->S19		S11->S19	 Super Intersection
@@ -1618,31 +1920,23 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 333.0
-fitness breakdown: 333.0*1.0 + (0.0*0.0)
+fitness: 420.0
+fitness breakdown: 420.0*1.0 + (46.0*0.0)
 
-Agent A25	 Idle
+Agent A25	[P29]	[P34]	[P31]	[P28]	[P35] | Steps: 16
+	Path: 	[S9]	[S10]	[P29]	[P34]	[S18]	[S19]	[P31]	[S19]	[S20]	[S21]	[S22]	[P28]	[P35]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[15]	[8]	[23]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 209 	 224 	 254 	 284 	 314 	 329 	 337 	 360 	 390 	 420 
 
-Agent A26	[P32]	[P35]	[P30]	[P33] | Steps: 11
-	Path: 	[P32]	[P32]	[S23]	[S22]	[P35]	[P30]	[S22]	[S23]	[E24]	[P33]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]	[23]	[31]	[54]	[30]	[30]	[14]	[14]
-	Time: 	 4 	 8 	 35 	 65 	 88 	 119 	 173 	 203 	 233 	 247 	 261 
-
-Agent A28	[P37] | Steps: 6
-	Path: 	[S14]	[P37]	[S14]	[S15]	[S16]	[E24]
-	Cost: 	[65]	[60]	[60]	[30]	[30]	[80]
-	Time: 	 65 	 125 	 185 	 215 	 245 	 325 
-
-Agent A27	[P34] | Steps: 11
-	Path: 	[S12]	[S11]	[S10]	[P34]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[50]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 123 	 153 	 183 	 213 	 243 	 273 	 303 	 333 
-
-Agent A29	[P31]	[P36] | Steps: 10
-	Path: 	[S18]	[S19]	[P31]	[P36]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[49]	[30]	[15]	[6]	[21]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 49 	 79 	 94 	 100 	 121 	 151 	 181 	 211 	 241 	 271 
+Agent A26	[P32]	[P27]	[P30]	[P33] | Steps: 16
+	Path: 	[P32]	[P32]	[S15]	[S14]	[S13]	[S12]	[P27]	[S12]	[S13]	[S14]	[P30]	[S22]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[4]	[4]	[53]	[30]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[54]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 61 	 91 	 121 	 151 	 164 	 177 	 207 	 237 	 263 	 317 	 347 	 377 	 391 	 405 
 Colisions: 
+--------Node-----------------------------------
+	S22->S22		S14->S22	 Super Intersection
+	A25			A26		
+Costs	[314.0 , 360.0]		[237.0 , 317.0]	
 
 Population size:100
 Max generations:100
@@ -1652,48 +1946,18 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 565.0
-fitness breakdown: 565.0*1.0 + (0.0*0.0)
+fitness: 375.0
+fitness breakdown: 375.0*1.0 + (0.0*0.0)
 
-Agent A25	[P27]	[P32]	[P34]	[P29]	[P28]	[P33]	[P26]	[P30]	[P31] | Steps: 30
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P27]	[P32]	[P32]	[S18]	[S19]	[P34]	[P34]	[P29]	[P29]	[S19]	[S20]	[S21]	[S22]	[P28]	[P28]	[P33]	[P33]	[P26]	[P26]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[0]	[19]	[0]	[30]	[30]	[21]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[54]	[0]	[31]	[0]	[8]	[0]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 104 	 123 	 123 	 153 	 183 	 204 	 204 	 210 	 210 	 225 	 255 	 285 	 315 	 369 	 369 	 400 	 400 	 408 	 408 	 423 	 453 	 480 	 507 	 537 	 551 	 565 
-Colisions: 
+Agent A26	[P28]	[P33]	[P35]	[P30] | Steps: 15
+	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
 
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 565.0
-fitness breakdown: 565.0*1.0 + (0.0*0.0)
-Items: 
-
-Agent A25	[P26]	[P31]	[P28]	[P30]	[P34]	[P32]	[P33]	[P29]	[P27] | Steps: 23
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P34]	[P29]	[S19]	[S20]	[S21]	[S22]	[P28]	[P33]	[P26]	[S22]	[S23]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[54]	[31]	[8]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 369 	 400 	 408 	 423 	 453 	 480 	 507 	 537 	 551 	 565 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 563.0
-fitness breakdown: 563.0*1.0 + (0.0*0.0)
-
-Agent A25	[P27]	[P32]	[P29]	[P34]	[P26]	[P33]	[P28]	[P30]	[P31] | Steps: 23
-	Path: 	[S12]	[S11]	[S10]	[P27]	[P32]	[S18]	[S19]	[P29]	[P34]	[S19]	[S20]	[S21]	[S22]	[P26]	[P33]	[P28]	[S14]	[S15]	[P30]	[S23]	[E24]	[P31]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[6]	[21]	[30]	[30]	[30]	[15]	[8]	[31]	[26]	[30]	[53]	[27]	[30]	[14]	[14]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 204 	 225 	 255 	 285 	 315 	 330 	 338 	 369 	 395 	 425 	 478 	 505 	 535 	 549 	 563 
+Agent A25	[P31]	[P29]	[P34]	[P27]	[P32] | Steps: 12
+	Path: 	[P31]	[P31]	[S15]	[S14]	[P29]	[P34]	[P27]	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[4]	[4]	[53]	[30]	[26]	[31]	[8]	[15]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 61 	 91 	 117 	 148 	 156 	 171 	 201 	 231 	 245 	 259 
 Colisions: 
 
 Population size:100
@@ -1730,15 +1994,15 @@ fitness: 375.0
 fitness breakdown: 375.0*1.0 + (0.0*0.0)
 Items: 
 
-Agent A26	[P30]	[P35]	[P28]	[P33] | Steps: 15
-	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
-
-Agent A25	[P31]	[P27]	[P29]	[P32]	[P34] | Steps: 12
+Agent A25	[P34]	[P27]	[P29]	[P31]	[P32] | Steps: 12
 	Path: 	[S15]	[S14]	[P29]	[P34]	[P27]	[S22]	[S23]	[P31]	[S23]	[E24]	[P32]	[E24]
 	Cost: 	[49]	[30]	[26]	[31]	[8]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
 	Time: 	 49 	 79 	 105 	 136 	 144 	 159 	 189 	 216 	 243 	 273 	 287 	 301 
+
+Agent A26	[P30]	[P33]	[P28]	[P35] | Steps: 15
+	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
 Colisions: 
 
 Population size:100
@@ -1749,18 +2013,47 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
-fitness: 420.0
-fitness breakdown: 420.0*1.0 + (0.0*0.0)
+fitness: 375.0
+fitness breakdown: 375.0*1.0 + (0.0*0.0)
 
-Agent A26	[P32]	[P27]	[P30]	[P33] | Steps: 16
-	Path: 	[P32]	[P32]	[S15]	[S14]	[S13]	[S12]	[P27]	[S12]	[S13]	[S14]	[P30]	[S22]	[S23]	[E24]	[P33]	[E24]
-	Cost: 	[4]	[4]	[53]	[30]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[54]	[30]	[30]	[14]	[14]
-	Time: 	 4 	 8 	 61 	 91 	 121 	 151 	 164 	 177 	 207 	 237 	 263 	 317 	 347 	 377 	 391 	 405 
+Agent A26	[P32]	[P35]	[P28]	[P30]	[P33] | Steps: 13
+	Path: 	[P32]	[P32]	[S23]	[S22]	[P35]	[P28]	[P35]	[P30]	[S22]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[23]	[8]	[8]	[31]	[54]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 88 	 96 	 104 	 135 	 189 	 219 	 249 	 263 	 277 
 
-Agent A25	[P29]	[P34]	[P31]	[P28]	[P35] | Steps: 16
-	Path: 	[S9]	[S10]	[P29]	[P34]	[S18]	[S19]	[P31]	[S19]	[S20]	[S21]	[S22]	[P28]	[P35]	[S22]	[S23]	[E24]
-	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[15]	[8]	[23]	[30]	[30]
-	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 209 	 224 	 254 	 284 	 314 	 329 	 337 	 360 	 390 	 420 
+Agent A27	[P29]	[P34]	[P31]	[P36] | Steps: 15
+	Path: 	[S12]	[S11]	[S10]	[P29]	[P34]	[S18]	[S19]	[P31]	[P36]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[6]	[21]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 204 	 225 	 255 	 285 	 315 	 345 	 375 
+
+Agent A25	 Idle
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 375.0
+fitness breakdown: 375.0*1.0 + (0.0*0.0)
+
+Agent A27	[P36] | Steps: 6
+	Path: 	[S14]	[P36]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[65]	[60]	[60]	[30]	[30]	[80]
+	Time: 	 65 	 125 	 185 	 215 	 245 	 325 
+
+Agent A25	[P31]	[P29]	[P34]	[P32] | Steps: 11
+	Path: 	[P31]	[P31]	[S15]	[S14]	[P29]	[P34]	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[4]	[4]	[53]	[30]	[26]	[31]	[23]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 61 	 91 	 117 	 148 	 171 	 201 	 231 	 245 	 259 
+
+Agent A26	[P28]	[P33]	[P35]	[P30] | Steps: 15
+	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
 Colisions: 
 
 Population size:100
@@ -1802,114 +2095,21 @@ fitness: 375.0
 fitness breakdown: 375.0*1.0 + (0.0*0.0)
 Items: 
 
-Agent A25	[P34]	[P29]	[P32]	[P31] | Steps: 11
+Agent A25	[P32]	[P34]	[P29]	[P31] | Steps: 11
 	Path: 	[S15]	[S14]	[P29]	[P34]	[S22]	[S23]	[P31]	[S23]	[E24]	[P32]	[E24]
 	Cost: 	[49]	[30]	[26]	[31]	[23]	[30]	[27]	[27]	[30]	[14]	[14]
 	Time: 	 49 	 79 	 105 	 136 	 159 	 189 	 216 	 243 	 273 	 287 	 301 
-
-Agent A26	[P33]	[P30]	[P28]	[P35] | Steps: 15
-	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
 
 Agent A27	[P36] | Steps: 6
 	Path: 	[S14]	[P36]	[S14]	[S15]	[S16]	[E24]
 	Cost: 	[65]	[60]	[60]	[30]	[30]	[80]
 	Time: 	 65 	 125 	 185 	 215 	 245 	 325 
+
+Agent A26	[P35]	[P33]	[P28]	[P30] | Steps: 15
+	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
 Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 375.0
-fitness breakdown: 375.0*1.0 + (0.0*0.0)
-
-Agent A26	[P32]	[P35]	[P28]	[P30]	[P33] | Steps: 13
-	Path: 	[P32]	[P32]	[S23]	[S22]	[P35]	[P28]	[P35]	[P30]	[S22]	[S23]	[E24]	[P33]	[E24]
-	Cost: 	[4]	[4]	[27]	[30]	[23]	[8]	[8]	[31]	[54]	[30]	[30]	[14]	[14]
-	Time: 	 4 	 8 	 35 	 65 	 88 	 96 	 104 	 135 	 189 	 219 	 249 	 263 	 277 
-
-Agent A25	 Idle
-
-Agent A27	[P29]	[P34]	[P31]	[P36] | Steps: 15
-	Path: 	[S12]	[S11]	[S10]	[P29]	[P34]	[S18]	[S19]	[P31]	[P36]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[15]	[6]	[21]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 198 	 204 	 225 	 255 	 285 	 315 	 345 	 375 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 375.0
-fitness breakdown: 375.0*1.0 + (0.0*0.0)
-
-Agent A26	[P30] | Steps: 11
-	Path: 	[S9]	[S10]	[P30]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[54]	[30]	[31]	[0]	[49]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 54 	 84 	 115 	 115 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
-
-Agent A28	[P35]	[P37]	[P32] | Steps: 17
-	Path: 	[S12]	[S11]	[S10]	[P35]	[P35]	[S18]	[S19]	[P37]	[P37]	[P32]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[50]	[0]	[30]	[30]	[21]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 123 	 123 	 153 	 183 	 204 	 204 	 210 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
-
-Agent A25	[P31] | Steps: 6
-	Path: 	[S14]	[P31]	[P31]	[S22]	[S23]	[E24]
-	Cost: 	[21]	[26]	[0]	[54]	[30]	[30]
-	Time: 	 21 	 47 	 47 	 101 	 131 	 161 
-
-Agent A27	[P36]	[P29]	[P33]	[P34] | Steps: 13
-	Path: 	[S23]	[S22]	[P36]	[P36]	[P29]	[P29]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
-	Cost: 	[31]	[30]	[23]	[0]	[8]	[0]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 31 	 61 	 84 	 84 	 92 	 92 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
-Colisions: 
-
-Population size:100
-Max generations:100
-Selection:Tournament(2)
-Recombination:PMX recombination (0.8)
-Recombination prob.: 0.8
-Mutation:Inversion mutation (0.025)
-Mutation prob.: 0.025
-
-fitness: 375.0
-fitness breakdown: 375.0*1.0 + (46.0*0.0)
-Items: 
-
-Agent A28	[P37]	[P35]	[P32] | Steps: 14
-	Path: 	[S12]	[S11]	[S10]	[P35]	[S18]	[S19]	[P37]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[50]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
-
-Agent A26	[P30] | Steps: 10
-	Path: 	[S9]	[S10]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
-	Cost: 	[54]	[30]	[31]	[49]	[30]	[30]	[30]	[30]	[30]	[30]
-	Time: 	 54 	 84 	 115 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
-
-Agent A27	[P33]	[P36]	[P29]	[P34] | Steps: 11
-	Path: 	[S23]	[S22]	[P36]	[P29]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
-	Cost: 	[31]	[30]	[23]	[8]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
-	Time: 	 31 	 61 	 84 	 92 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
-
-Agent A25	[P31] | Steps: 5
-	Path: 	[S14]	[P31]	[S22]	[S23]	[E24]
-	Cost: 	[21]	[26]	[54]	[30]	[30]
-	Time: 	 21 	 47 	 101 	 131 	 161 
-Colisions: 
---------Node-----------------------------------
-	S22->S22		S14->S22	 Super Intersection
-	A27			A25		
-Costs	[61.0 , 107.0]		[21.0 , 101.0]	
 
 Population size:100
 Max generations:100
@@ -1951,8 +2151,193 @@ Recombination prob.: 0.8
 Mutation:Inversion mutation (0.025)
 Mutation prob.: 0.025
 
+fitness: 375.0
+fitness breakdown: 375.0*1.0 + (0.0*0.0)
+
+Agent A26	[P30] | Steps: 10
+	Path: 	[S9]	[S10]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[49]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+
+Agent A28	[P35]	[P37]	[P32] | Steps: 14
+	Path: 	[S12]	[S11]	[S10]	[P35]	[S18]	[S19]	[P37]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[50]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
+
+Agent A27	[P33]	[P29]	[P36]	[P34] | Steps: 11
+	Path: 	[P33]	[P33]	[S23]	[S22]	[P29]	[P36]	[S22]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[15]	[8]	[23]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 80 	 88 	 111 	 141 	 171 	 185 	 199 
+
+Agent A25	[P31] | Steps: 5
+	Path: 	[S14]	[P31]	[S22]	[S23]	[E24]
+	Cost: 	[21]	[26]	[54]	[30]	[30]
+	Time: 	 21 	 47 	 101 	 131 	 161 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 375.0
+fitness breakdown: 375.0*1.0 + (0.0*0.0)
+
+Agent A28	[P35]	[P37]	[P32] | Steps: 17
+	Path: 	[S12]	[S11]	[S10]	[P35]	[P35]	[S18]	[S19]	[P37]	[P37]	[P32]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[50]	[0]	[30]	[30]	[21]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 123 	 123 	 153 	 183 	 204 	 204 	 210 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
+
+Agent A26	[P30] | Steps: 11
+	Path: 	[S9]	[S10]	[P30]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[0]	[49]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 115 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+
+Agent A27	[P36]	[P29]	[P33]	[P34] | Steps: 13
+	Path: 	[S23]	[S22]	[P36]	[P36]	[P29]	[P29]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[31]	[30]	[23]	[0]	[8]	[0]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 31 	 61 	 84 	 84 	 92 	 92 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
+
+Agent A25	[P31] | Steps: 6
+	Path: 	[S14]	[P31]	[P31]	[S22]	[S23]	[E24]
+	Cost: 	[21]	[26]	[0]	[54]	[30]	[30]
+	Time: 	 21 	 47 	 47 	 101 	 131 	 161 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 375.0
+fitness breakdown: 375.0*1.0 + (46.0*0.0)
+Items: 
+
+Agent A26	[P30] | Steps: 10
+	Path: 	[S9]	[S10]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[49]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+
+Agent A27	[P29]	[P36]	[P34]	[P33] | Steps: 11
+	Path: 	[S23]	[S22]	[P36]	[P29]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[31]	[30]	[23]	[8]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 31 	 61 	 84 	 92 	 107 	 137 	 164 	 191 	 221 	 235 	 249 
+
+Agent A25	[P31] | Steps: 5
+	Path: 	[S14]	[P31]	[S22]	[S23]	[E24]
+	Cost: 	[21]	[26]	[54]	[30]	[30]
+	Time: 	 21 	 47 	 101 	 131 	 161 
+
+Agent A28	[P32]	[P35]	[P37] | Steps: 14
+	Path: 	[S12]	[S11]	[S10]	[P35]	[S18]	[S19]	[P37]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[50]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
+Colisions: 
+--------Node-----------------------------------
+	S22->S22		S14->S22	 Super Intersection
+	A27			A25		
+Costs	[61.0 , 107.0]		[21.0 , 101.0]	
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (0.0*0.0)
+
+Agent A28	[P30] | Steps: 11
+	Path: 	[S12]	[S11]	[S10]	[P30]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[49]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 153 	 183 	 213 	 243 	 273 	 303 	 333 
+
+Agent A25	[P38]	[P31]	[P33] | Steps: 9
+	Path: 	[P38]	[P38]	[S14]	[P31]	[S14]	[S15]	[P33]	[S23]	[E24]
+	Cost: 	[39]	[39]	[60]	[26]	[26]	[30]	[53]	[27]	[30]
+	Time: 	 39 	 78 	 138 	 164 	 190 	 220 	 273 	 300 	 330 
+
+Agent A27	[P34] | Steps: 4
+	Path: 	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[31]	[30]	[14]	[14]
+	Time: 	 31 	 61 	 75 	 89 
+
+Agent A29	[P36]	[P37]	[P32] | Steps: 14
+	Path: 	[P36]	[P36]	[S22]	[S21]	[S20]	[S19]	[P37]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[8]	[8]	[23]	[30]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 8 	 16 	 39 	 69 	 99 	 129 	 150 	 156 	 171 	 201 	 231 	 261 	 291 	 321 
+
+Agent A26	[P35] | Steps: 10
+	Path: 	[S9]	[S10]	[P35]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[50]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
 fitness: 386.0
 fitness breakdown: 386.0*1.0 + (0.0*0.0)
+
+Agent A26	[P30]	[P35]	[P37]	[P32] | Steps: 14
+	Path: 	[S9]	[S10]	[P30]	[P35]	[S18]	[S19]	[P37]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 215 	 221 	 236 	 266 	 296 	 326 	 356 	 386 
+
+Agent A29	[P34] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 75 	 89 	 103 
+
+Agent A28	[P31] | Steps: 7
+	Path: 	[S12]	[S13]	[S14]	[P31]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 153 	 183 	 213 
+
+Agent A25	[P38] | Steps: 6
+	Path: 	[P38]	[P38]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[39]	[39]	[60]	[30]	[30]	[80]
+	Time: 	 39 	 78 	 138 	 168 	 198 	 278 
+
+Agent A27	[P33]	[P36] | Steps: 8
+	Path: 	[P33]	[P33]	[S23]	[S22]	[P36]	[S22]	[S23]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[23]	[23]	[30]	[30]
+	Time: 	 4 	 8 	 35 	 65 	 88 	 111 	 141 	 171 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 386.0
+fitness breakdown: 386.0*1.0 + (0.0*0.0)
+
+Agent A29	[P34] | Steps: 5
+	Path: 	[S22]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[15]	[30]	[30]	[14]	[14]
+	Time: 	 15 	 45 	 75 	 89 	 103 
+
+Agent A27	[P36]	[P33] | Steps: 8
+	Path: 	[S23]	[S22]	[P36]	[S22]	[S23]	[P33]	[S23]	[E24]
+	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]
+	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 
 
 Agent A25	[P38] | Steps: 6
 	Path: 	[P38]	[P38]	[S14]	[S15]	[S16]	[E24]
@@ -1964,7 +2349,40 @@ Agent A26	[P30]	[P35]	[P37]	[P32] | Steps: 18
 	Cost: 	[54]	[30]	[31]	[0]	[19]	[0]	[30]	[30]	[21]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
 	Time: 	 54 	 84 	 115 	 115 	 134 	 134 	 164 	 194 	 215 	 215 	 221 	 221 	 236 	 266 	 296 	 326 	 356 	 386 
 
-Agent A27	[P36]	[P33] | Steps: 8
+Agent A28	[P31] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P31]	[P31]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 386.0
+fitness breakdown: 386.0*1.0 + (30.0*0.0)
+Items: 
+
+Agent A25	[P38] | Steps: 6
+	Path: 	[P38]	[P38]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[39]	[39]	[60]	[30]	[30]	[80]
+	Time: 	 39 	 78 	 138 	 168 	 198 	 278 
+
+Agent A26	[P30]	[P35]	[P37]	[P32] | Steps: 14
+	Path: 	[S9]	[S10]	[P30]	[P35]	[S18]	[S19]	[P37]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 215 	 221 	 236 	 266 	 296 	 326 	 356 	 386 
+
+Agent A28	[P31] | Steps: 7
+	Path: 	[S12]	[S13]	[S14]	[P31]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 99 	 153 	 183 	 213 
+
+Agent A27	[P33]	[P36] | Steps: 8
 	Path: 	[S23]	[S22]	[P36]	[S22]	[S23]	[P33]	[S23]	[E24]
 	Cost: 	[31]	[30]	[23]	[23]	[30]	[27]	[27]	[30]
 	Time: 	 31 	 61 	 84 	 107 	 137 	 164 	 191 	 221 
@@ -1973,9 +2391,500 @@ Agent A29	[P34] | Steps: 5
 	Path: 	[S22]	[S23]	[E24]	[P34]	[E24]
 	Cost: 	[15]	[30]	[30]	[14]	[14]
 	Time: 	 15 	 45 	 75 	 89 	 103 
-
-Agent A28	[P31] | Steps: 8
-	Path: 	[S12]	[S13]	[S14]	[P31]	[P31]	[S22]	[S23]	[E24]
-	Cost: 	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
-	Time: 	 13 	 43 	 73 	 99 	 99 	 153 	 183 	 213 
 Colisions: 
+--------Node-----------------------------------
+	S23->S22		S22->S23	 Intersection
+	A27			A29		
+Costs	[31.0 , 61.0]		[15.0 , 45.0]	
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 379.0
+fitness breakdown: 379.0*1.0 + (0.0*0.0)
+
+Agent A26	[P28]	[P33]	[P35]	[P30] | Steps: 15
+	Path: 	[S12]	[S11]	[S10]	[P28]	[P33]	[S18]	[S19]	[P35]	[P30]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 104 	 123 	 153 	 183 	 204 	 210 	 225 	 255 	 285 	 315 	 345 	 375 
+
+Agent A25	[P31]	[P36]	[P29]	[P34]	[P27]	[P32] | Steps: 14
+	Path: 	[P31]	[P31]	[S15]	[S14]	[P36]	[S14]	[P29]	[P34]	[P27]	[S22]	[S23]	[E24]	[P32]	[E24]
+	Cost: 	[4]	[4]	[53]	[30]	[60]	[60]	[26]	[31]	[8]	[15]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 61 	 91 	 151 	 211 	 237 	 268 	 276 	 291 	 321 	 351 	 365 	 379 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 470.0
+fitness breakdown: 470.0*1.0 + (0.0*0.0)
+
+Agent A25	[P34]	[P29]	[P27]	[P30] | Steps: 15
+	Path: 	[S9]	[S10]	[P34]	[P29]	[S10]	[S11]	[S12]	[P27]	[S12]	[S13]	[S14]	[P30]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[50]	[19]	[31]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 54 	 84 	 134 	 153 	 184 	 214 	 244 	 257 	 270 	 300 	 330 	 356 	 410 	 440 	 470 
+
+Agent A26	[P32]	[P28]	[P35]	[P31]	[P36]	[P33] | Steps: 20
+	Path: 	[P32]	[P32]	[S23]	[S22]	[P28]	[P35]	[S22]	[S21]	[S20]	[S19]	[P31]	[P36]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[4]	[4]	[27]	[30]	[15]	[8]	[23]	[30]	[30]	[30]	[15]	[6]	[21]	[30]	[30]	[30]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 35 	 65 	 80 	 88 	 111 	 141 	 171 	 201 	 216 	 222 	 243 	 273 	 303 	 333 	 363 	 393 	 407 	 421 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 471.0
+fitness breakdown: 471.0*1.0 + (0.0*0.0)
+
+Agent A25	[P34]	[P29]	[P27]	[P30] | Steps: 18
+	Path: 	[S9]	[S10]	[P34]	[P34]	[P29]	[P29]	[S10]	[S11]	[S12]	[P27]	[S12]	[S13]	[S14]	[P30]	[P30]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[50]	[0]	[19]	[0]	[31]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[0]	[54]	[30]	[30]
+	Time: 	 54 	 84 	 134 	 134 	 153 	 153 	 184 	 214 	 244 	 257 	 270 	 300 	 330 	 356 	 356 	 410 	 440 	 470 
+
+Agent A26	[P36]	[P31]	[P35]	[P28]	[P32]	[P33] | Steps: 24
+	Path: 	[S23]	[S22]	[S21]	[S20]	[S19]	[P36]	[P36]	[P31]	[P31]	[S19]	[S20]	[S21]	[S22]	[P35]	[P35]	[P28]	[P28]	[S22]	[S23]	[P32]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[31]	[30]	[30]	[30]	[30]	[21]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[23]	[0]	[8]	[0]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 31 	 61 	 91 	 121 	 151 	 172 	 172 	 178 	 178 	 193 	 223 	 253 	 283 	 306 	 306 	 314 	 314 	 329 	 359 	 386 	 413 	 443 	 457 	 471 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 471.0
+fitness breakdown: 471.0*1.0 + (0.0*0.0)
+Items: 
+
+Agent A25	[P30]	[P27]	[P34]	[P29] | Steps: 15
+	Path: 	[S9]	[S10]	[P34]	[P29]	[S10]	[S11]	[S12]	[P27]	[S12]	[S13]	[S14]	[P30]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[50]	[19]	[31]	[30]	[30]	[13]	[13]	[30]	[30]	[26]	[54]	[30]	[30]
+	Time: 	 54 	 84 	 134 	 153 	 184 	 214 	 244 	 257 	 270 	 300 	 330 	 356 	 410 	 440 	 470 
+
+Agent A26	[P35]	[P36]	[P28]	[P31]	[P32]	[P33] | Steps: 20
+	Path: 	[S23]	[S22]	[S21]	[S20]	[S19]	[P36]	[P31]	[S19]	[S20]	[S21]	[S22]	[P35]	[P28]	[S22]	[S23]	[P32]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[31]	[30]	[30]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[23]	[8]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 31 	 61 	 91 	 121 	 151 	 172 	 178 	 193 	 223 	 253 	 283 	 306 	 314 	 329 	 359 	 386 	 413 	 443 	 457 	 471 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 360.0
+fitness breakdown: 360.0*1.0 + (0.0*0.0)
+
+Agent A25	[P31]	[P36]	[P33] | Steps: 13
+	Path: 	[S19]	[S18]	[P31]	[P36]	[S18]	[S19]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[1]	[30]	[49]	[19]	[30]	[30]	[15]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 1 	 31 	 80 	 99 	 129 	 159 	 174 	 189 	 219 	 249 	 279 	 309 	 339 
+
+Agent A26	[P29]	[P34]	[P28]	[P35] | Steps: 14
+	Path: 	[S14]	[S13]	[S12]	[P29]	[S12]	[S13]	[S14]	[S15]	[P34]	[P28]	[S23]	[E24]	[P35]	[E24]
+	Cost: 	[21]	[30]	[30]	[13]	[13]	[30]	[30]	[30]	[53]	[4]	[31]	[30]	[14]	[14]
+	Time: 	 21 	 51 	 81 	 94 	 107 	 137 	 167 	 197 	 250 	 254 	 285 	 315 	 329 	 343 
+
+Agent A27	[P32]	[P30]	[P37] | Steps: 13
+	Path: 	[S9]	[S10]	[S11]	[S12]	[S13]	[S14]	[P32]	[P37]	[P30]	[P37]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[30]	[30]	[30]	[30]	[26]	[31]	[8]	[8]	[23]	[30]	[30]
+	Time: 	 54 	 84 	 114 	 144 	 174 	 204 	 230 	 261 	 269 	 277 	 300 	 330 	 360 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 386.0
+fitness breakdown: 386.0*1.0 + (0.0*0.0)
+
+Agent A26	[P32]	[P30]	[P35]	[P28]	[P33] | Steps: 12
+	Path: 	[P32]	[P32]	[S15]	[S14]	[P30]	[P35]	[P28]	[S22]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[4]	[4]	[53]	[30]	[26]	[31]	[8]	[15]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 61 	 91 	 117 	 148 	 156 	 171 	 201 	 231 	 245 	 259 
+
+Agent A25	[P29]	[P34]	[P36]	[P31] | Steps: 14
+	Path: 	[S9]	[S10]	[P29]	[P34]	[S18]	[S19]	[P36]	[P31]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 215 	 221 	 236 	 266 	 296 	 326 	 356 	 386 
+
+Agent A27	[P37] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P37]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[13]	[30]	[30]	[60]	[60]	[30]	[30]	[80]
+	Time: 	 13 	 43 	 73 	 133 	 193 	 223 	 253 	 333 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 386.0
+fitness breakdown: 386.0*1.0 + (0.0*0.0)
+
+Agent A26	[P30]	[P35]	[P28]	[P32]	[P33] | Steps: 15
+	Path: 	[S15]	[S14]	[P30]	[P30]	[P35]	[P35]	[P28]	[P28]	[S22]	[S23]	[P32]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[49]	[30]	[26]	[0]	[31]	[0]	[8]	[0]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 49 	 79 	 105 	 105 	 136 	 136 	 144 	 144 	 159 	 189 	 216 	 243 	 273 	 287 	 301 
+
+Agent A25	[P29]	[P34]	[P36]	[P31] | Steps: 18
+	Path: 	[S9]	[S10]	[P29]	[P29]	[P34]	[P34]	[S18]	[S19]	[P36]	[P36]	[P31]	[P31]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[0]	[19]	[0]	[30]	[30]	[21]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 115 	 134 	 134 	 164 	 194 	 215 	 215 	 221 	 221 	 236 	 266 	 296 	 326 	 356 	 386 
+
+Agent A27	[P37] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P37]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[13]	[30]	[30]	[60]	[60]	[30]	[30]	[80]
+	Time: 	 13 	 43 	 73 	 133 	 193 	 223 	 253 	 333 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 386.0
+fitness breakdown: 386.0*1.0 + (0.0*0.0)
+Items: 
+
+Agent A25	[P36]	[P34]	[P31]	[P29] | Steps: 14
+	Path: 	[S9]	[S10]	[P29]	[P34]	[S18]	[S19]	[P36]	[P31]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 215 	 221 	 236 	 266 	 296 	 326 	 356 	 386 
+
+Agent A26	[P33]	[P30]	[P35]	[P32]	[P28] | Steps: 12
+	Path: 	[S15]	[S14]	[P30]	[P35]	[P28]	[S22]	[S23]	[P32]	[S23]	[E24]	[P33]	[E24]
+	Cost: 	[49]	[30]	[26]	[31]	[8]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 49 	 79 	 105 	 136 	 144 	 159 	 189 	 216 	 243 	 273 	 287 	 301 
+
+Agent A27	[P37] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[P37]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[13]	[30]	[30]	[60]	[60]	[30]	[30]	[80]
+	Time: 	 13 	 43 	 73 	 133 	 193 	 223 	 253 	 333 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 365.0
+fitness breakdown: 365.0*1.0 + (30.0*0.0)
+
+Agent A27	[P35] | Steps: 10
+	Path: 	[S9]	[S10]	[S11]	[S12]	[S13]	[S14]	[S15]	[S16]	[P35]	[E24]
+	Cost: 	[54]	[30]	[30]	[30]	[30]	[30]	[30]	[30]	[66]	[14]
+	Time: 	 54 	 84 	 114 	 144 	 174 	 204 	 234 	 264 	 330 	 344 
+
+Agent A26	[P32]	[P34] | Steps: 7
+	Path: 	[S14]	[P32]	[S14]	[S15]	[P34]	[S23]	[E24]
+	Cost: 	[21]	[26]	[26]	[30]	[53]	[27]	[30]
+	Time: 	 21 	 47 	 73 	 103 	 156 	 183 	 213 
+
+Agent A28	[P29]	[P37]	[P30] | Steps: 13
+	Path: 	[S15]	[S14]	[S13]	[S12]	[P29]	[S12]	[S13]	[S14]	[P37]	[P30]	[S22]	[S23]	[E24]
+	Cost: 	[49]	[30]	[30]	[30]	[13]	[13]	[30]	[30]	[57]	[8]	[15]	[30]	[30]
+	Time: 	 49 	 79 	 109 	 139 	 152 	 165 	 195 	 225 	 282 	 290 	 305 	 335 	 365 
+
+Agent A25	[P31]	[P36]	[P38]	[P33] | Steps: 14
+	Path: 	[S19]	[S18]	[P31]	[P36]	[S18]	[S19]	[P38]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[1]	[30]	[49]	[19]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 1 	 31 	 80 	 99 	 129 	 159 	 180 	 186 	 201 	 231 	 261 	 291 	 321 	 351 
+Colisions: 
+--------Node-----------------------------------
+	S14->S15		S15->S14	 Intersection
+	A26			A28		
+Costs	[73.0 , 103.0]		[49.0 , 79.0]	
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (0.0*0.0)
+
+Agent A25	[P38] | Steps: 6
+	Path: 	[P38]	[P38]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[39]	[39]	[60]	[30]	[30]	[80]
+	Time: 	 39 	 78 	 138 	 168 	 198 	 278 
+
+Agent A28	[P37]	[P32] | Steps: 10
+	Path: 	[S12]	[S11]	[P37]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A26	[P30]	[P35] | Steps: 11
+	Path: 	[S9]	[S10]	[P30]	[P35]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+
+Agent A27	[P33]	[P31]	[P36]	[P29]	[P34] | Steps: 12
+	Path: 	[P33]	[P33]	[S15]	[S14]	[P31]	[P36]	[P29]	[S22]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[4]	[4]	[53]	[30]	[26]	[31]	[8]	[15]	[30]	[30]	[14]	[14]
+	Time: 	 4 	 8 	 61 	 91 	 117 	 148 	 156 	 171 	 201 	 231 	 245 	 259 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (0.0*0.0)
+
+Agent A27	[P31]	[P36]	[P29]	[P33]	[P34] | Steps: 15
+	Path: 	[S15]	[S14]	[P31]	[P31]	[P36]	[P36]	[P29]	[P29]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[49]	[30]	[26]	[0]	[31]	[0]	[8]	[0]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 49 	 79 	 105 	 105 	 136 	 136 	 144 	 144 	 159 	 189 	 216 	 243 	 273 	 287 	 301 
+
+Agent A26	[P30]	[P35] | Steps: 13
+	Path: 	[S9]	[S10]	[P30]	[P30]	[P35]	[P35]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[0]	[19]	[0]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 115 	 134 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+
+Agent A25	[P38] | Steps: 6
+	Path: 	[P38]	[P38]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[39]	[39]	[60]	[30]	[30]	[80]
+	Time: 	 39 	 78 	 138 	 168 	 198 	 278 
+
+Agent A28	[P37]	[P32] | Steps: 12
+	Path: 	[S12]	[S11]	[P37]	[P37]	[P32]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[0]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 102 	 108 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (120.0*0.0)
+Items: 
+
+Agent A26	[P35]	[P30] | Steps: 11
+	Path: 	[S9]	[S10]	[P30]	[P35]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+
+Agent A28	[P37]	[P32] | Steps: 10
+	Path: 	[S12]	[S11]	[P37]	[P32]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[59]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 13 	 43 	 102 	 108 	 123 	 153 	 183 	 213 	 243 	 273 
+
+Agent A25	[P38] | Steps: 6
+	Path: 	[P38]	[P38]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[39]	[39]	[60]	[30]	[30]	[80]
+	Time: 	 39 	 78 	 138 	 168 	 198 	 278 
+
+Agent A27	[P34]	[P33]	[P29]	[P36]	[P31] | Steps: 12
+	Path: 	[S15]	[S14]	[P31]	[P36]	[P29]	[S22]	[S23]	[P33]	[S23]	[E24]	[P34]	[E24]
+	Cost: 	[49]	[30]	[26]	[31]	[8]	[15]	[30]	[27]	[27]	[30]	[14]	[14]
+	Time: 	 49 	 79 	 105 	 136 	 144 	 159 	 189 	 216 	 243 	 273 	 287 	 301 
+Colisions: 
+--------Node-----------------------------------
+	S23 Same Node(s)
+	A28			A27		
+Costs	[213.0 , 243.0]		[189.0 , 243.0]	
+--------Node-----------------------------------
+	E24 Same Node(s)
+	A28			A27		
+Costs	[243.0 , 273.0]		[243.0 , 273.0]	
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (0.0*0.0)
+
+Agent A25	[P36]	[P31] | Steps: 11
+	Path: 	[S19]	[S18]	[P36]	[P31]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[1]	[30]	[30]	[19]	[49]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 1 	 31 	 61 	 80 	 129 	 159 	 189 	 219 	 249 	 279 	 309 
+
+Agent A29	[P39]	[P32] | Steps: 9
+	Path: 	[S12]	[S13]	[S14]	[P39]	[S14]	[P32]	[S22]	[S23]	[E24]
+	Cost: 	[13]	[30]	[30]	[60]	[60]	[26]	[54]	[30]	[30]
+	Time: 	 13 	 43 	 73 	 133 	 193 	 219 	 273 	 303 	 333 
+
+Agent A28	[P38]	[P33] | Steps: 13
+	Path: 	[S23]	[S22]	[S21]	[S20]	[S19]	[P38]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[31]	[30]	[30]	[30]	[30]	[21]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 31 	 61 	 91 	 121 	 151 	 172 	 178 	 193 	 223 	 253 	 283 	 313 	 343 
+
+Agent A26	[P34]	[P30]	[P35] | Steps: 11
+	Path: 	[S14]	[S15]	[P34]	[S23]	[S22]	[P30]	[S22]	[S23]	[E24]	[P35]	[E24]
+	Cost: 	[21]	[30]	[53]	[27]	[30]	[15]	[15]	[30]	[30]	[14]	[14]
+	Time: 	 21 	 51 	 104 	 131 	 161 	 176 	 191 	 221 	 251 	 265 	 279 
+
+Agent A27	[P37] | Steps: 10
+	Path: 	[S9]	[S10]	[S11]	[S12]	[S13]	[S14]	[P37]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[30]	[30]	[30]	[30]	[57]	[23]	[30]	[30]
+	Time: 	 54 	 84 	 114 	 144 	 174 	 204 	 261 	 284 	 314 	 344 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (0.0*0.0)
+
+Agent A28	[P34]	[P32]	[P37]	[P30] | Steps: 10
+	Path: 	[P34]	[P34]	[S15]	[S14]	[P32]	[P37]	[P30]	[S22]	[S23]	[E24]
+	Cost: 	[4]	[4]	[53]	[30]	[26]	[31]	[8]	[15]	[30]	[30]
+	Time: 	 4 	 8 	 61 	 91 	 117 	 148 	 156 	 171 	 201 	 231 
+
+Agent A26	[P39] | Steps: 6
+	Path: 	[P39]	[P39]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[39]	[39]	[60]	[30]	[30]	[80]
+	Time: 	 39 	 78 	 138 	 168 	 198 	 278 
+
+Agent A29	[P35] | Steps: 7
+	Path: 	[S12]	[S13]	[S14]	[S15]	[S16]	[P35]	[E24]
+	Cost: 	[13]	[30]	[30]	[30]	[30]	[66]	[14]
+	Time: 	 13 	 43 	 73 	 103 	 133 	 199 	 213 
+
+Agent A27	[P31]	[P36] | Steps: 11
+	Path: 	[S9]	[S10]	[P31]	[P36]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+
+Agent A25	[P38]	[P33] | Steps: 9
+	Path: 	[P33]	[P38]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[14]	[6]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 14 	 20 	 26 	 41 	 71 	 101 	 131 	 161 	 191 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (0.0*0.0)
+
+Agent A29	[P35] | Steps: 8
+	Path: 	[S12]	[S13]	[S14]	[S15]	[S16]	[P35]	[P35]	[E24]
+	Cost: 	[13]	[30]	[30]	[30]	[30]	[66]	[0]	[14]
+	Time: 	 13 	 43 	 73 	 103 	 133 	 199 	 199 	 213 
+
+Agent A26	[P39] | Steps: 6
+	Path: 	[P39]	[P39]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[39]	[39]	[60]	[30]	[30]	[80]
+	Time: 	 39 	 78 	 138 	 168 	 198 	 278 
+
+Agent A25	[P38]	[P33] | Steps: 10
+	Path: 	[P33]	[P38]	[P33]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[14]	[6]	[6]	[0]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 14 	 20 	 26 	 26 	 41 	 71 	 101 	 131 	 161 	 191 
+
+Agent A28	[P32]	[P30]	[P37]	[P34] | Steps: 13
+	Path: 	[S15]	[S14]	[P32]	[P32]	[P37]	[P30]	[P37]	[P37]	[S22]	[S23]	[P34]	[S23]	[E24]
+	Cost: 	[49]	[30]	[26]	[0]	[31]	[8]	[8]	[0]	[23]	[30]	[27]	[27]	[30]
+	Time: 	 49 	 79 	 105 	 105 	 136 	 144 	 152 	 152 	 175 	 205 	 232 	 259 	 289 
+
+Agent A27	[P31]	[P36] | Steps: 13
+	Path: 	[S9]	[S10]	[P31]	[P31]	[P36]	[P36]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[0]	[19]	[0]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 115 	 134 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+Colisions: 
+
+Population size:100
+Max generations:100
+Selection:Tournament(2)
+Recombination:PMX recombination (0.8)
+Recombination prob.: 0.8
+Mutation:Inversion mutation (0.025)
+Mutation prob.: 0.025
+
+fitness: 344.0
+fitness breakdown: 344.0*1.0 + (30.0*0.0)
+Items: 
+
+Agent A25	[P38]	[P33] | Steps: 9
+	Path: 	[P33]	[P38]	[P33]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[14]	[6]	[6]	[15]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 14 	 20 	 26 	 41 	 71 	 101 	 131 	 161 	 191 
+
+Agent A28	[P32]	[P34]	[P37]	[P30] | Steps: 11
+	Path: 	[S15]	[S14]	[P32]	[P37]	[P30]	[P37]	[S22]	[S23]	[P34]	[S23]	[E24]
+	Cost: 	[49]	[30]	[26]	[31]	[8]	[8]	[23]	[30]	[27]	[27]	[30]
+	Time: 	 49 	 79 	 105 	 136 	 144 	 152 	 175 	 205 	 232 	 259 	 289 
+
+Agent A29	[P35] | Steps: 7
+	Path: 	[S12]	[S13]	[S14]	[S15]	[S16]	[P35]	[E24]
+	Cost: 	[13]	[30]	[30]	[30]	[30]	[66]	[14]
+	Time: 	 13 	 43 	 73 	 103 	 133 	 199 	 213 
+
+Agent A27	[P36]	[P31] | Steps: 11
+	Path: 	[S9]	[S10]	[P31]	[P36]	[S18]	[S19]	[S20]	[S21]	[S22]	[S23]	[E24]
+	Cost: 	[54]	[30]	[31]	[19]	[30]	[30]	[30]	[30]	[30]	[30]	[30]
+	Time: 	 54 	 84 	 115 	 134 	 164 	 194 	 224 	 254 	 284 	 314 	 344 
+
+Agent A26	[P39] | Steps: 6
+	Path: 	[P39]	[P39]	[S14]	[S15]	[S16]	[E24]
+	Cost: 	[39]	[39]	[60]	[30]	[30]	[80]
+	Time: 	 39 	 78 	 138 	 168 	 198 	 278 
+Colisions: 
+--------Node-----------------------------------
+	S15->S14		S14->S15	 Intersection
+	A28			A29		
+Costs	[49.0 , 79.0]		[73.0 , 103.0]	

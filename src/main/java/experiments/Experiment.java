@@ -8,10 +8,15 @@ import ga.Problem;
 import gui.SimulationPanel;
 import picking.HybridClusterPicking;
 import picking.HybridPickingIndividual;
+import picking.Item;
+import picking.Picking;
+import utils.Graphs.GraphNode;
 import weka.core.pmml.jaxbbindings.Cluster;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Experiment<E extends ExperimentsFactory, P extends Problem> {
 
@@ -49,12 +54,29 @@ public class Experiment<E extends ExperimentsFactory, P extends Problem> {
                 GASingleton.getInstance().setDefaultBestInRun(problem.getNewIndividual());
                 cl = factory.generateCLInstance(run + 1);
                 cl.run(problem);
-            }else if(factory.heuristic.equals("Hybrid")){
+            } else if (factory.heuristic.equals("Hybrid")) {
                 cl = factory.generateCLInstance(run + 1);
-                hybridGA = factory.generateHybridGAInstance(run+1);
-                hybridGA.run(new HybridClusterPicking(cl.generateClusters(run+1)));
-            }
-            else if (factory.heuristic.equals("GA")) {
+                hybridGA = factory.generateHybridGAInstance(run + 1);
+                hybridGA.run(new HybridClusterPicking(cl.generateClusters(run + 1)));
+            } else if (factory.heuristic.equals("GAxN")) {
+                GASingleton.getInstance().setDefaultGA(ga);
+                GASingleton.getInstance().setDefaultBestInRun(problem.getNewIndividual());
+                cl = factory.generateCLInstance(run + 1);
+                ga = factory.generateGAxNInstance(run + 1);
+                HashMap<GraphNode, List<GraphNode>> map = cl.generateClusters(run + 1);
+                GASingleton.getInstance().setTaskMap(map);
+                GASingleton.getInstance().setMultipleGA(true);
+                Map.Entry<GraphNode, List<GraphNode>> entry = map.entrySet().iterator().next();
+                GraphNode key = entry.getKey();
+                List<GraphNode> value = entry.getValue();
+                List<Item> items = new ArrayList<>();
+
+                for (GraphNode node : value) {
+                    items.add(new Item(node));
+                }
+                ga.run(new Picking(items));
+
+            } else if (factory.heuristic.equals("GA")) {
                 ga = factory.generateGAInstance(run + 1);
                 ga.run(problem);
             } else {

@@ -12,8 +12,10 @@ import ga.selectionMethods.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import statistics.MultipleGaListener;
 import statistics.StatisticBestAverage;
 import statistics.StatisticBestInRun;
 import weka.core.pmml.jaxbbindings.Cluster;
@@ -101,7 +103,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
 
 
         //PROBLEM 
-        picking = Picking.buildKnapsackExperiment(num_columns, numAgents, numPicks,  this.numRuns);
+        picking = Picking.buildKnapsackExperiment(num_columns, numAgents, numPicks, this.numRuns);
         //picking.setFitnessType(fitnessType);
 
         String experimentTextualRepresentation = buildExperimentTextualRepresentation();
@@ -144,9 +146,37 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
                 time_weight,
                 seed);
 
+        GASingleton.getInstance().setSeed(seed);
         for (ExperimentListener statistic : statistics) {
             ga.addGAListener((GAListener) statistic);
         }
+        return ga;
+    }
+
+    @Override
+    public GeneticAlgorithm generateGAxNInstance(int seed) {
+        GeneticAlgorithm<PickingIndividual, Picking> ga;
+
+        ga = new GeneticAlgorithm<>(
+                populationSize,
+                maxGenerations,
+                selection,
+                mutation,
+                recombination,
+                new Random(seed),
+                numAgents,
+                numPicks,
+                num_columns,
+                time_weight,
+                seed);
+
+        List<GAListener> listeners = new ArrayList<>();
+        for (ExperimentListener ex: statistics){
+            listeners.add((GAListener) ex);
+        }
+        MultipleGaListener listener = new MultipleGaListener(1, numAgents, listeners, populationSize, maxGenerations, selection, recombination, mutation);
+        ga.addGAListener(listener);
+
         return ga;
     }
 
@@ -165,6 +195,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
         }
         return hybridGA;
     }
+
     public Clustering generateCLInstance(int seed) {
         Clustering cl = new Clustering(seed);
         for (ExperimentListener statistic : statistics) {

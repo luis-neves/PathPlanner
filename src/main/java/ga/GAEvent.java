@@ -22,7 +22,11 @@ public class GAEvent {
     public void setStopped(boolean stopped){
         this.stopped = stopped;
     }
-    
+
+    public void setSource(GeneticAlgorithm source) {
+        this.source = source;
+    }
+
     public GeneticAlgorithm getSource(){
         return source;
     }
