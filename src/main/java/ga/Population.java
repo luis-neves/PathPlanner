@@ -58,7 +58,7 @@ public class Population <I extends Individual, P extends Problem<I>>{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (I individual: individuals) {
-            sb.append(individual);
+            sb.append(individual.printJustGenome() + "\n");
         }
         return sb.toString();
     }

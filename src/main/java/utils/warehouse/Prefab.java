@@ -2,7 +2,7 @@ package utils.warehouse;
 
 import java.util.Comparator;
 
-public class Prefab {
+public class Prefab implements Cloneable {
     private int id;
     private PrefabType type;
     private String name;
@@ -11,6 +11,11 @@ public class Prefab {
     private String codeD = "";
     private Coordenates position;
     private Coordenates rotation;
+
+    @Override
+    public Prefab clone() throws CloneNotSupportedException {
+        return (Prefab) super.clone();
+    }
 
     public String getCode() {
         return code;

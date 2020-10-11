@@ -10,6 +10,7 @@ import gui.MainFrame;
 import picking.Item;
 import picking.Picking;
 import picking.PickingIndividual;
+import utils.Graphs.EnvironmentNodeGraph;
 import utils.Graphs.FitnessNode;
 import utils.Graphs.FitnessResults;
 import utils.Graphs.GraphNode;
@@ -60,13 +61,13 @@ public class MultipleGaListener implements GAListener {
         bestIndividuals.add((PickingIndividual) e.getSource().getBestInRun());
         fullPath.putAll(e.getSource().getBestInRun().getResults().getTaskedAgentsFullNodes());
         agentsOnly.putAll(e.getSource().getBestInRun().getResults().getTaskedAgentsOnly());
-        if (ga_iteration-1 == max_agents){
+        if (ga_iteration - 1 == max_agents) {
             Individual biggest_task_ind = null;
             float fitness = 0;
             float time = 0;
 
-            for(Individual ind : bestIndividuals){
-                if(ind.getFitness() > fitness){
+            for (Individual ind : bestIndividuals) {
+                if (ind.getFitness() > fitness) {
                     biggest_task_ind = ind;
                     fitness = ind.getResults().getFitness();
                     time = ind.getResults().getTime();
@@ -76,9 +77,10 @@ public class MultipleGaListener implements GAListener {
             FitnessResults bestInRun = new FitnessResults();
             bestInRun.setTaskedAgentsFullNodes(fullPath);
             bestInRun.setTaskedAgentsOnly(agentsOnly);
+            bestInRun.setTaskedAgentsFullNodesNoPackages(fullPath);
             bestInRun.setTime(time);
             bestInRun.setFitness(fitness);
-
+            EnvironmentNodeGraph.checkColisions2(bestInRun);
             biggest_task_ind.setResults(bestInRun);
 
             GeneticAlgorithm ga = e.getSource();
@@ -92,7 +94,6 @@ public class MultipleGaListener implements GAListener {
             for (GAListener listener : statistics) {
                 listener.runEnded(e);
             }
-
             return;
         }
         int i = 1;
@@ -113,6 +114,7 @@ public class MultipleGaListener implements GAListener {
                     items.add(new Item(node));
                 }
                 myGA.run(new Picking(items));
+
                 return;
             }
             i++;

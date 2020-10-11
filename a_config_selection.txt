@@ -1,20 +1,20 @@
-Runs: 5
+Runs: 100
 
 Population size: 100
 
 Max generations: 100
 
-Num Picks: 5,6,7,8,9,10
+Num Picks: 75,80,85,90,95,100
 
-Num Agents: 2,3,4,5
+Num Agents: 1,2,3,4,5
 
-Num Columns:8
+Num Columns:12
 
 Time Weight: 1
 
 Heuristic: GA, GAxN, K-Means, Hybrid
 
-// , , 
+// , , GA, GAxN, K-Means, Hybrid
 //--------------------------------
 
 Selection: tournament

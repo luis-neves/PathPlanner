@@ -10,6 +10,7 @@ import gui.SimulationPanel;
 import picking.Item;
 import statistics.MultipleGaListener;
 import utils.Graphs.FitnessNode;
+import utils.Graphs.FitnessResults;
 import utils.Graphs.GraphNode;
 
 import java.lang.reflect.Array;
@@ -119,10 +120,18 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         //System.out.println("\n" + this.toString());
         if (GASingleton.getInstance().getTaskMap() != null) {
             Item[] problemItems = problem.getNewIndividual().getGenome(-1);
+            if (problemItems.length == 0) {
+                bestInRun = (I) GASingleton.getInstance().getDefaultBestInRun();
+                bestInRun.setResults(new FitnessResults(-1));
+                this.lastGentListIndex = GASingleton.getInstance().addLastGenGA(this, lastGentListIndex);
+                fireRunEnded(new GAEvent(this));
+                return bestInRun;
+            }
             baseGenome = new ArrayList<>();
             for (int i = 0; i < problemItems.length; i++) {
                 baseGenome.add(problemItems[i].node);
             }
+
             this.lastGentListIndex = GASingleton.getInstance().addLastGenGA(this, lastGentListIndex);
         }
         population = new Population<>(populationSize, problem);
@@ -193,7 +202,9 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
 
     private void mutation(Population<I, P> population) {
         for (int i = 0; i < populationSize; i++) {
-            mutation.run(population.getIndividual(i));
+            if (GeneticAlgorithm.random.nextDouble() < mutation.getProbability()) {
+                mutation.run(population.getIndividual(i));
+            }
         }
     }
 
@@ -272,7 +283,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
     }
 
     public void fireRunEnded(GAEvent e) {
-        if (!listeners.get(0).getClass().equals(MainFrame.class) && !listeners.get(0).getClass().equals(MultipleGaListener.class)){
+        if (!listeners.get(0).getClass().equals(MainFrame.class) && !listeners.get(0).getClass().equals(MultipleGaListener.class)) {
             if (GASingleton.getInstance().getTaskMap() != null) {
                 GASingleton.getInstance().fixMultipleGAs();
                 GASingleton.getInstance().setTaskMap(null);

@@ -65,8 +65,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private Graph problemGraph;
     private int seed = 0;
     private int num_rows = 8;
-    private int num_agents = 3;
-    private int num_products = 10;
+    private int num_agents = 5;
+    private int num_products = 20;
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
@@ -323,7 +323,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         double new_y = Math.ceil(((y - y_min) * MAX_DRAW_Y / (y_max - y_min)));
         double new_real_x = ((x - x_min) * max_real_x / (x_max - x_min));
         double new_real_y = ((y - y_min) * max_real_y / (y_max - y_min));
-        System.out.println();
         GraphNode n = new GraphNode(graph.getNumNodes(), (float) new_real_x, (float) new_real_y, GraphNodeType.SIMPLE);
         graph.createGraphNode(n);
         return graph;
@@ -592,7 +591,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
 
         GraphNode product = new GraphNode(20);
-        product.setType(GraphNodeType.PRODUCT);
+        product.setType(GraphNodeType.AGENT);
         product.setLocation(new Coordenates(170, 40, 0));
 
         GraphNode product2 = new GraphNode(21);
@@ -727,7 +726,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             }*/
             // gfx.drawLine(p.x,p.y,p2.x,p2.y);
             gfx.setColor(Color.BLACK);
-
         }
         for (
                 int i = 0; i < graph.getEdges().
@@ -748,9 +746,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
         }
         //environmentPanel.getGraphics().drawImage(image, 0, 0, this);
-        environmentPanel.getGraphics().
-
-                drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
+        environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
 
         if (graph.containsProblem() && !justDraw) {
             environmentNodeGraph = new EnvironmentNodeGraph(graph);
@@ -891,10 +887,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         }
     }
 
-    public HashMap<GraphNode, List<GraphNode>> generateClusters(int seed) throws Exception {
+    public HashMap<GraphNode, List<GraphNode>> generateClusters(int seed, boolean apply_heuristic) throws Exception {
         try {
             Clustering clustering = new Clustering(problemGraph, MAX_KMEANS_ITERATIONS);
-            return clustering.generateClusters(seed);
+            return clustering.generateClusters(seed, apply_heuristic);
         } catch (Exception ex) {
             System.err.println("Unable to buld Clusterer: " + ex.getMessage());
             ex.printStackTrace();
@@ -1188,77 +1184,77 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                     prefabList = parsePrefabs(warehouse.getChildNodes().item(i));
                 }
             }
+            //FILL
+            PrefabManager prefabManager = new PrefabManager(prefabList, config);
+            //TODO
             for (int i = 0; i < warehouse.getChildNodes().getLength(); i++) {
                 if (warehouse.getChildNodes().item(i).getNodeName().equals("racks")) {
-                    prefabList = parseRacks(warehouse.getChildNodes().item(i), prefabList);
+                    prefabManager = parseRacks(warehouse.getChildNodes().item(i), prefabManager);
                 }
                 if (warehouse.getChildNodes().item(i).getNodeName().equals("structures")) {
-                    prefabList = parseStructuresExtra(warehouse.getChildNodes().item(i), prefabList);
+                    prefabManager = parseStructuresExtra(warehouse.getChildNodes().item(i), prefabManager);
                 }
                 if (warehouse.getChildNodes().item(i).getNodeName().equals("devices")) {
-                    prefabList = parseDevicesExtra(warehouse.getChildNodes().item(i), prefabList);
+                    prefabManager = parseDevicesExtra(warehouse.getChildNodes().item(i), prefabManager);
+                }
+                if (warehouse.getChildNodes().item(i).getNodeName().equals("markers")) {
+                    prefabManager = parseMarkersExtra(warehouse.getChildNodes().item(i), prefabManager);
                 }
             }
-            Collections.sort(prefabList, new CustomComparator());
 
+
+
+            //Collections.sort(prefabList, new CustomComparator());
+
+            prefabManager.fillAllPrefabs();
+            for (Prefab prefab : prefabManager.getAllPrefabs()){
+                System.out.println(prefab.toString());
+            }
+
+            draw_prefabs(prefabManager);
+
+            /*
             for (int i = 0; i < prefabList.size(); i++) {
                 System.out.println(prefabList.get(i));
-            }
-
-
-            Rack rack = findFirst(prefabList, Rack.class);
-            Device device = findFirst(prefabList, Device.class);
-            Structure structure = findFirst(prefabList, Structure.class);
-
-
-            int[][] grid = new int[Math.round(config.getDepth()) / Math.round(device.getSize().getZ())][Math.round(config.getWidth()) / Math.round(device.getSize().getX())];
-            System.out.println(Math.round(device.getSize().getX()));
-            grid[Math.round((rack.getPosition().getZ()))][Math.round(rack.getPosition().getX())] = 1;
-            grid[grid.length + 1 - Math.round(device.getPosition().getZ())][grid[0].length + 1 - Math.round(device.getPosition().getX())] = 3;
-            grid[Math.round(structure.getPosition().getZ())][Math.round(structure.getPosition().getX())] = 1;
-
-            int rackPositionX = Math.round(rack.getPosition().getX());
-            int rackPositionY = Math.round(rack.getPosition().getZ());
-            int rackWidthX = Math.round(rack.getSize().getX()) / Math.round(device.getSize().getX());
-            int rackWidthY = Math.round(rack.getSize().getZ()) / Math.round(device.getSize().getZ());
-
-            System.out.println(Math.round(device.getPosition().getZ()) + " " + Math.round(device.getPosition().getX()));
-            System.out.println(rackPositionX + "," + rackPositionY + "," + rackWidthX + "," + rackWidthY);
-
-            for (int i = rackPositionY; i < (rackPositionY + rackWidthY); i++) {
-                for (int j = rackPositionX; j < (rackPositionX + rackWidthX); j++) {
-                    System.out.println("[" + i + "][" + j + "]");
-                    grid[i][j] = 1;
-                }
-            }
-
-            System.out.println("[" + grid.length + "][" + grid[0].length + "]");
-
-            if (grid.length > grid[0].length || grid[0].length > grid.length && grid.length > 30) {
-                CELL_SIZE = FIXED_CELL_SIZE / (grid.length / 12);
-            } else {
-                CELL_SIZE = FIXED_CELL_SIZE / (grid[0].length / 12);
-            }
-
-            environment = new Environment(grid, false, 0, 0, 0);
-            environment.addEnvironmentListener(this);
-
-            buildImage(environment);
-
-            SwingWorker worker = new SwingWorker<Void, Void>() {
-                public Void doInBackground() {
-                    environmentUpdated();
-                    //environment.run();
-                    return null;
-                }
-            };
-            worker.execute();
+            }*/
 
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+
+    private void draw_prefabs(PrefabManager prefabManager) {
+
+        DetailsPage frame = new DetailsPage(prefabManager);
+
+        /*prefabManager.changeAxis();
+        prefabManager.fixSizesToInteger();
+        prefabManager.fixRotation();*/
+
+        LinkedList<Shape> shapes = prefabManager.generateShapes();
+
+        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+        gfx = (Graphics2D) image.getGraphics();
+
+        for (Shape shape :shapes){
+            gfx.draw(shape);
+        }
+
+        environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
+
+
+
+
+
+
+        //gfx.drawLine(Math.round(start.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(start.getLocation().getY() * AMPLIFY_MULTIPLIER) + (NODE_SIZE / 2), Math.round(end.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(end.getLocation().getY() * AMPLIFY_MULTIPLIER) + (NODE_SIZE / 2));
+        //gfx.drawString("" + (int) graph.getEdges().get(i).getWeight(), x, y);
+
+
+
+    }
+
 
     public class CustomComparator implements Comparator<Prefab> {
         @Override
@@ -1285,27 +1281,90 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         return null;
     }
 
-    private LinkedList parseStructuresExtra(Node item, LinkedList prefabList) {
+    private PrefabManager parseStructuresExtra(Node item, PrefabManager prefabManager) {
         for (int i = 0; i < item.getChildNodes().getLength(); i++) {
             String prefabChild = item.getChildNodes().item(i).getNodeName();
             if ("entry".equals(prefabChild)) {
-                prefabList = parseStructuresExtraExtry(item.getChildNodes().item(i), prefabList);
+                prefabManager = parseStructuresExtraExtry(item.getChildNodes().item(i), prefabManager);
             }
         }
-        return prefabList;
+        return prefabManager;
     }
 
-    private LinkedList parseDevicesExtra(Node item, LinkedList prefabList) {
+    private PrefabManager parseMarkersExtra(Node item, PrefabManager prefabManager) {
         for (int i = 0; i < item.getChildNodes().getLength(); i++) {
             String prefabChild = item.getChildNodes().item(i).getNodeName();
             if ("entry".equals(prefabChild)) {
-                prefabList = parseDevicesExtraEntry(item.getChildNodes().item(i), prefabList);
+                prefabManager = parseMarkersExtraEntry(item.getChildNodes().item(i), prefabManager);
             }
         }
-        return prefabList;
+        return prefabManager;
     }
 
-    private LinkedList<Prefab> parseDevicesExtraEntry(Node item, LinkedList<Prefab> prefabList) {
+    private PrefabManager parseDevicesExtra(Node item, PrefabManager prefabManager) {
+        for (int i = 0; i < item.getChildNodes().getLength(); i++) {
+            String prefabChild = item.getChildNodes().item(i).getNodeName();
+            if ("entry".equals(prefabChild)) {
+                prefabManager = parseDevicesExtraEntry(item.getChildNodes().item(i), prefabManager);
+            }
+        }
+        return prefabManager;
+    }
+
+    private PrefabManager parseMarkersExtraEntry(Node item, PrefabManager prefabManager) {
+        String markerSTR = "";
+        Marker marker = new Marker();
+
+
+        Coordenates position = new Coordenates();
+        Coordenates rotation = new Coordenates();
+
+        for (int i = 0; i < item.getChildNodes().getLength(); i++) {
+            markerSTR = item.getChildNodes().item(i).getNodeName();
+            switch (markerSTR) {
+                case "prefabID":
+                    Integer prefabID = Integer.parseInt(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                    try {
+                        marker = (Marker) prefabManager.findPrefabID(prefabID).clone();
+                    } catch (CloneNotSupportedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+        }
+        for (int i = 0; i < item.getChildNodes().getLength(); i++) {
+            markerSTR = item.getChildNodes().item(i).getNodeName();
+            switch (markerSTR) {
+                case "mkCode":
+                    marker.setCode(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                    break;
+                case "positionX":
+                    position.setX(Float.parseFloat(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
+                    break;
+                case "positionY":
+                    position.setY(Float.parseFloat(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
+                    break;
+                case "positionZ":
+                    position.setZ(Float.parseFloat(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
+                    break;
+                case "rotationX":
+                    rotation.setX(Float.parseFloat(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
+                    break;
+                case "rotationY":
+                    rotation.setY(Float.parseFloat(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
+                    break;
+                case "rotationZ":
+                    rotation.setZ(Float.parseFloat(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
+                    break;
+            }
+        }
+        marker.setPosition(position);
+        marker.setRotation(rotation);
+        prefabManager.addMarker(marker);
+        return prefabManager;
+    }
+
+    private PrefabManager parseDevicesExtraEntry(Node item, PrefabManager prefabManager) {
         String structureSTR = "";
         Device device = new Device();
 
@@ -1317,10 +1376,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             switch (structureSTR) {
                 case "prefabID":
                     Integer prefabID = Integer.parseInt(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
-                    for (int j = 0; j < prefabList.size(); j++) {
-                        if (prefabList.get(j).getId() == prefabID) {
-                            device = (Device) prefabList.get(prefabID);
-                        }
+                    try {
+                        device = (Device) prefabManager.findPrefabID(prefabID).clone();
+                    } catch (CloneNotSupportedException e) {
+                        e.printStackTrace();
                     }
                     break;
             }
@@ -1357,10 +1416,11 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         }
         device.setPosition(position);
         device.setRotation(rotation);
-        return prefabList;
+        prefabManager.addDevice(device);
+        return prefabManager;
     }
 
-    private LinkedList<Prefab> parseStructuresExtraExtry(Node item, LinkedList<Prefab> prefabList) {
+    private PrefabManager parseStructuresExtraExtry(Node item, PrefabManager prefabManager) {
         String structureSTR = "";
         Structure structure = new Structure();
 
@@ -1372,10 +1432,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             switch (structureSTR) {
                 case "prefabID":
                     Integer prefabID = Integer.parseInt(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
-                    for (int j = 0; j < prefabList.size(); j++) {
-                        if (prefabList.get(j).getId() == prefabID) {
-                            structure = (Structure) prefabList.get(prefabID);
-                        }
+                    try {
+                        structure = (Structure) prefabManager.findPrefabID(prefabID).clone();
+                    } catch (CloneNotSupportedException e) {
+                        e.printStackTrace();
                     }
                     break;
             }
@@ -1411,35 +1471,41 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         }
         structure.setPosition(position);
         structure.setRotation(rotation);
-        return prefabList;
+        prefabManager.addStructure(structure);
+        return prefabManager;
     }
 
-    private LinkedList<Prefab> parseRacks(Node item, LinkedList<Prefab> prefabs) {
+    private PrefabManager parseRacks(Node item, PrefabManager prefabManager) {
         for (int i = 0; i < item.getChildNodes().getLength(); i++) {
             String prefabChild = item.getChildNodes().item(i).getNodeName();
             if ("entry".equals(prefabChild)) {
-                prefabs = parseRackEntry(item.getChildNodes().item(i), prefabs);
+                prefabManager = parseRackEntry(item.getChildNodes().item(i), prefabManager);
             }
         }
-        return prefabs;
+        return prefabManager;
     }
 
-    private LinkedList<Prefab> parseRackEntry(Node item, LinkedList<Prefab> prefabs) {
+    private PrefabManager parseRackEntry(Node item, PrefabManager prefabManager) {
         int prefabIDX = -1;
         Rack rack = new Rack();
         Coordenates position = new Coordenates();
         Coordenates rotation = new Coordenates();
         for (int i = 0; i < item.getChildNodes().getLength(); i++) {
             String rackEntry = item.getChildNodes().item(i).getNodeName();
+            boolean break_flag = false;
             switch (rackEntry) {
                 case "prefabID":
                     Integer prefabID = Integer.parseInt(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
-                    for (int j = 0; j < prefabs.size(); j++) {
-                        if (prefabs.get(j).getId() == prefabID) {
-                            rack = (Rack) prefabs.get(prefabID);
-                        }
+                    try {
+                        rack = (Rack) prefabManager.findPrefabID(prefabID).clone();
+                    } catch (CloneNotSupportedException e) {
+                        e.printStackTrace();
                     }
+                    break_flag = true;
                     break;
+            }
+            if (break_flag == true) {
+                break;
             }
         }
 
@@ -1480,7 +1546,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         }
         rack.setPosition(position);
         rack.setRotation(rotation);
-        return prefabs;
+        prefabManager.addRack(rack);
+        return prefabManager;
     }
 
     private Rack parseRackShelvesExtras(Node item, Rack rack) {
@@ -1626,6 +1693,11 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 case 2: //Device
                     if (item.getChildNodes().item(i).getNodeName().equals("devType")) {
                         prefab = new Device(prefab, Integer.parseInt(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
+                    }
+                    break;
+                case 3: //Marker
+                    if (item.getChildNodes().item(i).getNodeName().equals("mkType")) {
+                        prefab = new Marker(prefab, Integer.parseInt(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
                     }
                     break;
             }

@@ -188,7 +188,7 @@ public class Graph {
             }
         }
         if(products.isEmpty()){
-            System.out.println();
+            System.out.println("Empty products");
         }
         return products;
     }

@@ -66,10 +66,12 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
 
     public abstract String printGenome();
 
+    public abstract String printJustGenome();
+
     @Override
     public abstract I clone();
 
-    public abstract Item getGene(int agent, int index);
+    public abstract Item getGene(GraphNode agent, int index);
 
     public abstract Item[] getGenome(int agent);
 
@@ -77,7 +79,7 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
 
     public abstract void replaceFromChild(GraphNode agent, List<Item> genome);
 
-    public abstract void setGene(Integer agent,Integer index, Item value);
+    public abstract void setGene(GraphNode agent,Integer index, Item value);
 
     public abstract int getNumGenes(int agent);
 

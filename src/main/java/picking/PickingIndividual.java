@@ -121,10 +121,10 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
         genome[auxI] = aux;
         for (int i = 0; i < other.getGenome(-1).length; i++) {
             if (other.getGenome(-1)[i].name.equals(aux.name)) {
-                other.setGene(-1, i, replace);
+                other.setGene(null, i, replace);
             }
         }
-        other.setGene(-1, index, aux);
+        other.setGene(null, index, aux);
     }
 
 
@@ -133,7 +133,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
         StringBuilder sb = new StringBuilder();
         sb.append("\nfitness: " + fitness);
         sb.append("\nfitness breakdown: " + printFitnessBreakdown());
-        //sb.append("\nItems: ");
+        sb.append("\nItems: ");
         sb.append(printGenome());
         //sb.append("\nPicks Per Agent:" + picksPerAgent);
 
@@ -156,6 +156,15 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
     }
 
     @Override
+    public String printJustGenome() {
+        String str = "";
+        for (int i = 0; i < genome.length; i++){
+            str += "[" + genome[i].node.printName() + "]";
+        }
+        return str;
+    }
+
+    @Override
     public PickingIndividual clone() {
         return new PickingIndividual(this);
     }
@@ -175,7 +184,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
     }
 
     @Override
-    public void setGene(Integer agent, Integer index, Item value) {
+    public void setGene(GraphNode agent, Integer index, Item value) {
         this.genome[index] = value;
     }
 

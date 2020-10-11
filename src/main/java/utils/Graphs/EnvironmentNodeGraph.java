@@ -45,10 +45,15 @@ public class EnvironmentNodeGraph {
             aStar.setInitialGraphNode(agent);
             List<GraphNode> agentFinalPath = new ArrayList<>();
             List<GraphNode> products = entry.getValue();
-            for (GraphNode product : products) {
-                if (product == null) {
-                    System.out.println("bad");
+
+            for(GraphNode prod: products){
+                if(products.indexOf(prod) != products.lastIndexOf(prod)){
+                    System.out.println("problem");
                 }
+            }
+
+            for (int i = 0; i < products.size(); i++){
+                GraphNode product = products.get(i);
                 aStar.setFinalGraphNode(product);
                 agentFinalPath.addAll(aStar.findGraphPath(products));
                 aStar.setInitialGraphNode(product);
@@ -81,7 +86,6 @@ public class EnvironmentNodeGraph {
         results.setTime(highest);
         results.setTaskedAgentsOnly(pathMap);
         results = checkColisions2(results);
-
 
         return results;
     }
@@ -120,7 +124,7 @@ public class EnvironmentNodeGraph {
                 results.addTaskedAgentOnly(findEqual(items[i].node), taskedAgentOnly);
                 FitnessCosts costs = calculateFitness(agentFinalPath, findEqual(items[i].node));
                 if (costs.costs.size() != agentFinalPath.size()) {
-                    System.out.println();
+                    System.out.println("Diferent costs");
                 }
                 results.addTaskedAgent(findEqual(items[i].node), agentFinalPath, costs.costs);
                 //System.out.println("\nFitness 1 - " + fitness + " - ");
@@ -157,7 +161,7 @@ public class EnvironmentNodeGraph {
         //printFinalPath(agentFinalPath);
         FitnessCosts costs = calculateFitness(agentFinalPath, lastAgent);
         if (costs.costs.size() != agentFinalPath.size()) {
-            System.out.println();
+            System.out.println("Diferent costs");
         }
         results.addTaskedAgent(lastAgent, agentFinalPath, costs.costs);
         //System.out.println("Full F - " + fitness);

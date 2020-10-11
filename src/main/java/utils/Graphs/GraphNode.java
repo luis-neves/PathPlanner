@@ -114,6 +114,16 @@ public class GraphNode {
         return neighbours;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof GraphNode) {
+            return this.getGraphNodeId() == ((GraphNode) obj).getGraphNodeId();
+        } else {
+            return false;
+        }
+
+    }
+
     public double getNodeWeight(GraphNode node) {
         for (int i = 0; i < neighbours.size(); i++) {
             if (neighbours.get(i).getEnd().getGraphNodeId() == node.getGraphNodeId()) {

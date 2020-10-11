@@ -22,6 +22,7 @@ public class Picking implements Problem<PickingIndividual> {
         if (items == null) {
             throw new IllegalArgumentException();
         }
+
         this.items = items;
         maxVP = computeMaxVP();
     }

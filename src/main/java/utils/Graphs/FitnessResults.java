@@ -13,6 +13,22 @@ public class FitnessResults {
     private float time;
     private float picksPerAgent;
 
+    public FitnessResults(int i) {
+        if(i == -1){
+            this.fitness = 0;
+            this.time = 0;
+            this.picksPerAgent = 0;
+            this.taskedAgentsOnly = new HashMap<>();
+            this.taskedAgentsFullNodes = new HashMap<>();
+            this.taskedAgentsFullNodesNoPackages = new HashMap<>();
+            this.colisions = new ArrayList<>();
+            this.numCollisions = 0;
+            this.path = new ArrayList<>();
+            this.collisionPenalty = 0;
+            this.weightsPenalty = 0;
+        }
+    }
+
 
     public int compareTo(FitnessResults i) {
         return Float.compare(i.getFitness(), this.fitness);
@@ -136,6 +152,7 @@ public class FitnessResults {
         try {
             String str = "Results: ";
             str+= "\nFitness: " + this.fitness + " Time: " + this.time;
+            List<GraphNode> fullResult = new ArrayList<>();
             for (Map.Entry<GraphNode, List<FitnessNode>> entry : getTaskedAgentsFullNodes().entrySet()) {
                 GraphNode agent = entry.getKey();
                 List<FitnessNode> agentPath = entry.getValue();
@@ -144,9 +161,12 @@ public class FitnessResults {
                     if (taskedAgentsOnly.get(agent) != null) {
                         List<GraphNode> taskedAgentsOnly = getTaskedAgentsOnly().get(agent);
                         for (int i = 0; i < taskedAgentsOnly.size(); i++) {
+                            fullResult.add(taskedAgentsOnly.get(i));
                             str += "\t[" + taskedAgentsOnly.get(i).getType().toLetter() + taskedAgentsOnly.get(i).getGraphNodeId() + "]";
                         }
                     }
+                    fullResult.add(agent);
+
                     str += " | Steps: " + agentPath.size();
                     str += "\n\tPath: ";
                     for (int i = 0; i < agentPath.size(); i++) {
@@ -164,9 +184,13 @@ public class FitnessResults {
                     str += "\t Idle";
                 }
             }
-            str += "\n Colisions: ";
+            str += "\nColisions: ";
             for (int i = 0; i < getColisions().size(); i++) {
                 str += getColisions().get(i).print();
+            }
+            str += "\n\nInd ";
+            for (GraphNode n : fullResult){
+                str += "[" + n.printName() + "]";
             }
             return str;
         } catch (NullPointerException e) {

@@ -55,15 +55,18 @@ public class Experiment<E extends ExperimentsFactory, P extends Problem> {
                 cl = factory.generateCLInstance(run + 1);
                 cl.run(problem);
             } else if (factory.heuristic.equals("Hybrid")) {
+                GASingleton.getInstance().setTaskMap(null);
+                GASingleton.getInstance().setMultipleGA(false);
+
                 cl = factory.generateCLInstance(run + 1);
                 hybridGA = factory.generateHybridGAInstance(run + 1);
-                hybridGA.run(new HybridClusterPicking(cl.generateClusters(run + 1)));
+                hybridGA.run(new HybridClusterPicking(cl.generateClusters(run + 1, false)));
             } else if (factory.heuristic.equals("GAxN")) {
                 GASingleton.getInstance().setDefaultGA(ga);
                 GASingleton.getInstance().setDefaultBestInRun(problem.getNewIndividual());
                 cl = factory.generateCLInstance(run + 1);
                 ga = factory.generateGAxNInstance(run + 1);
-                HashMap<GraphNode, List<GraphNode>> map = cl.generateClusters(run + 1);
+                HashMap<GraphNode, List<GraphNode>> map = cl.generateClusters(run + 1, false);
                 GASingleton.getInstance().setTaskMap(map);
                 GASingleton.getInstance().setMultipleGA(true);
                 Map.Entry<GraphNode, List<GraphNode>> entry = map.entrySet().iterator().next();

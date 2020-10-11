@@ -1,7 +1,10 @@
 package ga.geneticOperators;
 
+import ga.GeneticAlgorithm;
 import ga.Individual;
+import picking.HybridPickingIndividual;
 import picking.Item;
+import utils.Graphs.GraphNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,9 +18,17 @@ public class RecombinationCX<I extends Individual> extends Recombination<I> {
 
     @Override
     public void run(I ind1, I ind2) {
-
-        List<Item> genome1 = Arrays.asList(ind1.getGenome(-1));
-        List<Item> genome2 = Arrays.asList(ind2.getGenome(-1));
+        List<Item> genome1 = null;
+        List<Item> genome2 = null;
+        GraphNode agent = null;
+        if (ind1 instanceof HybridPickingIndividual) {
+            agent = ind1.getAgent(GeneticAlgorithm.random.nextInt(ind1.getNumGenes()));
+            genome1 = Arrays.asList(ind1.getGenome(agent));
+            genome2 = Arrays.asList(ind2.getGenome(agent));
+        } else {
+            genome1 = Arrays.asList(ind1.getGenome(-1));
+            genome2 = Arrays.asList(ind2.getGenome(-1));
+        }
         if (!genome1.equals(genome2)) {
             List<Item> child = new ArrayList<>();
             List<Item> inCycle = new ArrayList<>();
@@ -39,8 +50,8 @@ public class RecombinationCX<I extends Individual> extends Recombination<I> {
                 }
             }
 
-            ind1.replaceFromChild(null, child);
-            ind2.replaceFromChild(null, child);
+            ind1.replaceFromChild(agent, child);
+            ind2.replaceFromChild(agent, child);
         } else {
 
         }

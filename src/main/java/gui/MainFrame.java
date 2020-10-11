@@ -101,7 +101,7 @@ public class MainFrame extends JFrame implements GAListener {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Hybrid");
                 try {
-                    HashMap<GraphNode, List<GraphNode>> map = simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText()));
+                    HashMap<GraphNode, List<GraphNode>> map = simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText()), false);
                     bestIndividualPanel.textArea.setText("");
                     seriesBestIndividual.clear();
                     seriesAverage.clear();
@@ -128,7 +128,7 @@ public class MainFrame extends JFrame implements GAListener {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Multiple GA");
                 try {
-                    HashMap<GraphNode, List<GraphNode>> map = simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText()));
+                    HashMap<GraphNode, List<GraphNode>> map = simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText()), false);
                     GASingleton.getInstance().setMultipleGA(true);
                     bestIndividualPanel.textArea.setText("");
                     seriesBestIndividual.clear();
@@ -213,7 +213,7 @@ public class MainFrame extends JFrame implements GAListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    simulationPanel.runCluster(simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText())));
+                    simulationPanel.runCluster(simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText()), true));
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

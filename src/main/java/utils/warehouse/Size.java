@@ -43,4 +43,9 @@ public class Size {
     public String toString() {
         return " size (" + x + "," + y + "," + z + ")";
     }
+
+    public void amplifyINT(float amplifyX, float amplifyY) {
+        this.x = Math.round(x * amplifyX);
+        this.y = Math.round(y * amplifyY);
+    }
 }

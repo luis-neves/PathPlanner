@@ -42,6 +42,7 @@ public class RecombinationPMX<I extends Individual> extends Recombination<I> {
         List<Item> offspring1 = new ArrayList<Item>(Arrays.asList(ind1.getGenome(agent)));
         List<Item> offspring2 = new ArrayList<Item>(Arrays.asList(ind2.getGenome(agent)));
 
+
         Map<Item, Item> mapping1 = new HashMap<Item, Item>(length * 2);
         Map<Item, Item> mapping2 = new HashMap<Item, Item>(length * 2);
         for (int i = 0; i < length; i++) {

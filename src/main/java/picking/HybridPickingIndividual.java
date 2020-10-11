@@ -28,7 +28,6 @@ public class HybridPickingIndividual extends MultipleVectorIndividual<HybridClus
             FitnessResults results = SimulationPanel.environmentNodeGraph.calculatePath(genome);
             this.results = results;
             fitness = results.getFitness() * GASingleton.getInstance().getTimeWeight();
-
             fitness += ((results.getCollisionPenalty() * results.getNumCollisions()) * GASingleton.getInstance().getColisionWeight()) * GASingleton.getInstance().getColisionWeight();
             int agentsPick = 0;
             avgPicksPerAgent = 0;
@@ -129,7 +128,26 @@ public class HybridPickingIndividual extends MultipleVectorIndividual<HybridClus
      */
     @Override
     public int compareTo(HybridPickingIndividual i) {
-        return this.fitness == i.getFitness() ? 0 : this.fitness < i.getFitness() ? 1 : -1;
+        return this.fitness == i.getFitness() ? 0 : this.fitness < i.fitness ? 1 : -1;
+    }
+
+    @Override
+    public String printJustGenome() {
+        String str = "";
+        if (genome != null)
+            for (Map.Entry<GraphNode, List<GraphNode>> entry : genome.entrySet()) {
+                GraphNode agent = entry.getKey();
+                List<GraphNode> nodes = entry.getValue();
+
+                if (!nodes.isEmpty()) {
+                    for (GraphNode n : nodes) {
+                        str += "[" + n.printName() + "]";
+                    }
+                }
+                str += "[" + agent.printName() + "]";
+            }
+        str += " " + fitness;
+        return str;
     }
 
     @Override
@@ -154,6 +172,11 @@ public class HybridPickingIndividual extends MultipleVectorIndividual<HybridClus
             if (index == indexToGet) {
                 GraphNode agent = entry.getKey();
                 List<GraphNode> nodes = entry.getValue();
+                for (GraphNode node : nodes){
+                    if (nodes.indexOf(node) != nodes.lastIndexOf(node)){
+                        System.out.println("Same nodes");
+                    }
+                }
                 Item[] items = new Item[nodes.size()];
                 for (int i = 0; i < nodes.size(); i++) {
                     GraphNode node = nodes.get(i);
@@ -176,17 +199,10 @@ public class HybridPickingIndividual extends MultipleVectorIndividual<HybridClus
     }
 
     @Override
-    public void setGene(Integer agentIdx, Integer idx, Item value) {
-        int index = 0;
-        for (Map.Entry<GraphNode, List<GraphNode>> entry : genome.entrySet()) {
-            if (index == agentIdx) {
-                List<GraphNode> list = genome.get(entry.getKey());
-                list.remove(value.node);
-                list.add(idx, value.node);
-                break;
-            }
-            index++;
-        }
+    public void setGene(GraphNode agent, Integer idx, Item value) {
+        List<GraphNode> list = genome.get(agent);
+        list.remove(value.node);
+        list.add(idx, value.node);
     }
 
     @Override

@@ -38,13 +38,13 @@ public class Rack extends Prefab {
 
     @Override
     public String toString() {
-        return  "Rack " + super.toString() + "\n\t (" + getId() + "," + getType() + "," + getName() + ")"  + printShelves();
+        return this.row + " " + "Rack " + super.toString() + "\n\t (" + getId() + "," + getType() + "," + getName() + ")" + printShelves();
     }
 
     private String printShelves() {
         String shelvesSTR = "";
         for (int i = 0; i < shelves.size(); i++) {
-           shelvesSTR += shelves.get(i).toString();
+            shelvesSTR += shelves.get(i).toString();
         }
         return shelvesSTR;
     }

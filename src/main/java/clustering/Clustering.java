@@ -99,7 +99,7 @@ public class Clustering {
         return new EnvironmentNodeGraph.FitnessCosts(new ArrayList<>(), 0);
     }
 
-    public HashMap<GraphNode, List<GraphNode>> generateClusters(int seed) throws Exception {
+    public HashMap<GraphNode, List<GraphNode>> generateClusters(int seed, boolean apply_heuristic) throws Exception {
         SimpleKMeans kmeans = new SimpleKMeans();
         kmeans.setNumClusters(problemGraph.getAgentsNum());
         kmeans.setMaxIterations(MAX_KMEANS_ITERATIONS);
@@ -167,13 +167,30 @@ public class Clustering {
                 clusterList.add(problemGraph.getProducts().get(i));
             }
             attributeAgentsToCluster(clusters);
-            HashMap<GraphNode, List<GraphNode>> taskMap = generateTasks();
+            HashMap<GraphNode, List<GraphNode>> taskMap;
+            if(apply_heuristic) {
+                taskMap = generateTasks();
+            }else{
+                taskMap = randomTask();
+            }
             return taskMap;
         } catch (Exception ex) {
             System.err.println("Unable to buld Clusterer: " + ex.getMessage());
             ex.printStackTrace();
         }
         return null;
+    }
+
+    private HashMap<GraphNode, List<GraphNode>> randomTask() {
+        HashMap<GraphNode, List<GraphNode>> taskMap = new HashMap<>();
+        for (GraphNode agent : problemGraph.getAgents()) {
+            MyCluster cluster = agent.getCluster();
+            if(cluster == null){
+                System.out.println("null cluster");
+            }
+            taskMap.put(agent, problemGraph.getProductsByCluster(agent.getCluster()));
+        }
+        return taskMap;
     }
 
     private HashMap<GraphNode, List<GraphNode>> generateTasks() {
@@ -213,6 +230,8 @@ public class Clustering {
         }
         return taskMap;
     }
+
+
 
     private MyCluster findMyCluster(int assignment, List<MyCluster> clusters) {
         for (int i = 0; i < clusters.size(); i++) {
@@ -274,8 +293,9 @@ public class Clustering {
 
     public <P extends Problem> void run(P problem) throws Exception {
         this.bestInRun = GASingleton.getInstance().getDefaultBestInRun();
-        bestInRun.setResults(calculatePath(generateClusters(seed)));
+        bestInRun.setResults(calculatePath(generateClusters(seed, false)));
         GeneticAlgorithm ga = GASingleton.getInstance().getDefaultGA();
+        EnvironmentNodeGraph.checkColisions2(bestInRun.getResults());
         ga.setBestInRun(bestInRun);
         fireRunEnded(new GAEvent(ga));
     }

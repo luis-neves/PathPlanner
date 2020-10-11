@@ -6,6 +6,7 @@ import utils.Graphs.FitnessResults;
 import utils.Graphs.Graph;
 import utils.Graphs.GraphNode;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
 
     public VectorIndividual(P problem, List<Item> items) {
         super(problem);
+        Collections.shuffle(items, GeneticAlgorithm.random);
         genome = items.toArray(new Item[items.size()]);
     }
 
@@ -31,7 +33,7 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
     }
 
     @Override
-    public Item getGene(int agent, int index) {
+    public Item getGene(GraphNode agent, int index) {
         return genome[index];
     }
 
@@ -94,11 +96,12 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
     @Override
     public String printGenome() {
         if (GASingleton.getInstance().isNodeProblem()) {
+            /*
             String str = "";/*
             for (int i = 0; i < getGenome(-1).length; i++) {
                 str += "[" + getGenome(-1)[i].name + "]" + (i == (getGenome(-1).length - 1) ? "" : ",");
             }
-            str += ",[" + GASingleton.getInstance().getLastAgent().printName() + "]";*/
+            str += ",[" + GASingleton.getInstance().getLastAgent().printName() + "]";
             str += printTaskedAgents();
             return str;
         } else {
@@ -118,13 +121,22 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
                 itemsStr += " \n Agente " + genome[i].name + ": " + itensAgent;
                 itensAgent = "";
 
+            }*/
+        }
+        if(results != null){
+            return results.printTaskedAgents();
+        }else {
+            String str = "";
+            for (int i = 0; i < getGenome(-1).length; i++) {
+                str += "[" + getGenome(-1)[i].name + "]" + (i == (getGenome(-1).length - 1) ? "" : ",");
             }
-            return itemsStr;
+            str += ",[" + GASingleton.getInstance().getLastAgent().printName() + "]";
+            return str;
         }
     }
 
 
-    public void setGene(int agent, int index, Item value) {
+    public void setGene(GraphNode agent, int index, Item value) {
         genome[index] = value;
     }
 

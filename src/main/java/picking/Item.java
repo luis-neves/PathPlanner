@@ -4,6 +4,7 @@ import armazem.Cell;
 import utils.Graphs.GraphNode;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Item {
 
@@ -48,6 +49,19 @@ public class Item {
         this.agents = agent;
         this.agentDistance = agentDistance;
         this.exit = exit;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Objects.equals(node.getGraphNodeId(), item.node.getGraphNodeId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(node);
     }
 
     public Integer getLowestAgentDistance(boolean index) {

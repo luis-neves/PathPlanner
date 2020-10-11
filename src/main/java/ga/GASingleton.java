@@ -197,14 +197,12 @@ public class GASingleton {
                 for (int j = 0; j < distanceMatrix[i].length; j++) {
                     System.out.print(distanceMatrix[i][j] + " \t");
                 }
-                System.out.println();
             }
         } else {
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[i].length; j++) {
                     System.out.print(matrix[i][j] == null ? "------- \t" : matrix[i][j] + "\t");
                 }
-                System.out.println();
             }
         }
 
@@ -487,9 +485,10 @@ public class GASingleton {
     public GraphNode getResponsibleAgentFromArray(GraphNode node) {
         try {
             for (int i = 0; i < lastGenGAs.length; i++) {
-                if (lastGenGAs[i].getGa().getBaseGenome().contains(node)) {
-                    return lastGenGAs[i].getLastAgent();
-                }
+                if (lastGenGAs[i].getGa().getBaseGenome() != null)
+                    if (lastGenGAs[i].getGa().getBaseGenome().contains(node)) {
+                        return lastGenGAs[i].getLastAgent();
+                    }
             }
         } catch (NullPointerException e) {
             e.printStackTrace();
@@ -498,6 +497,15 @@ public class GASingleton {
     }
 
     public GraphNode getResponsibleAgent(GraphNode node) {
+        if (node == null) {
+            for (Map.Entry<GraphNode, List<GraphNode>> entry : this.taskMap.entrySet()) {
+                GraphNode agent = entry.getKey();
+                List<GraphNode> task = entry.getValue();
+                if (task.isEmpty()) {
+                    return agent;
+                }
+            }
+        }
         for (Map.Entry<GraphNode, List<GraphNode>> entry : this.taskMap.entrySet()) {
             GraphNode agent = entry.getKey();
             List<GraphNode> task = entry.getValue();
@@ -517,12 +525,20 @@ public class GASingleton {
     public <P extends Problem<I>, I extends Individual> int addLastGenGA(GeneticAlgorithm ipGeneticAlgorithm, int index) {
         if (index == -1) {
             for (int i = 0; i < lastGenGAs.length; i++) {
-                if (lastGenGAs[i].getGa() == null) {
-                    lastGenGAs[i].setGa(ipGeneticAlgorithm);
-                    lastGenGAs[i].setLastAgent(getResponsibleAgent((GraphNode) ipGeneticAlgorithm.getBaseGenome().get(0)));
-                    lastGenGAs[i].setGenBestFitness(new Float[ipGeneticAlgorithm.getMaxGenerations() + 1]);
-                    lastGenGAs[i].setGenAvgFitness(new Float[ipGeneticAlgorithm.getMaxGenerations() + 1]);
-                    return i;
+                try {
+                    if (lastGenGAs[i].getGa() == null) {
+                        lastGenGAs[i].setGa(ipGeneticAlgorithm);
+                        if (ipGeneticAlgorithm.getBaseGenome() == null) {
+                            lastGenGAs[i].setLastAgent(getResponsibleAgent(null));
+                        } else {
+                            lastGenGAs[i].setLastAgent(getResponsibleAgent((GraphNode) ipGeneticAlgorithm.getBaseGenome().get(0)));
+                        }
+                        lastGenGAs[i].setGenBestFitness(new Float[ipGeneticAlgorithm.getMaxGenerations() + 1]);
+                        lastGenGAs[i].setGenAvgFitness(new Float[ipGeneticAlgorithm.getMaxGenerations() + 1]);
+                        return i;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         } else {
@@ -537,9 +553,10 @@ public class GASingleton {
 
     public EnvironmentNodeGraph getRespectiveEnvironment(GraphNode node) {
         for (int i = 0; i < lastGenGAs.length; i++) {
-            if (lastGenGAs[i].getGa().getBaseGenome().contains(node)) {
-                return lastGenGAs[i].getEnvironment();
-            }
+            if (lastGenGAs[i].getGa().getBaseGenome() != null)
+                if (lastGenGAs[i].getGa().getBaseGenome().contains(node)) {
+                    return lastGenGAs[i].getEnvironment();
+                }
         }
         return null;
     }

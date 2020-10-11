@@ -1,7 +1,7 @@
 package utils.warehouse;
 
 public enum PrefabType {
-    RACK,STRUCTURE,DEVICE, UNKNOWN;
+    RACK,STRUCTURE,DEVICE,MARKER, UNKNOWN;
 
 
     public static PrefabType parse(int value){
@@ -12,6 +12,8 @@ public enum PrefabType {
                 return STRUCTURE;
             case 2:
                 return DEVICE;
+            case 3:
+                return MARKER;
         }
         return  UNKNOWN;
     }
@@ -24,6 +26,8 @@ public enum PrefabType {
                 return 1;
             case DEVICE:
                 return 2;
+            case MARKER:
+                return 3;
         }
         return -1;
     }

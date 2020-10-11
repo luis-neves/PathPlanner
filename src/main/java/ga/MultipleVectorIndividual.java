@@ -5,10 +5,7 @@ import utils.Graphs.FitnessNode;
 import utils.Graphs.Graph;
 import utils.Graphs.GraphNode;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public abstract class MultipleVectorIndividual<P extends Problem, I extends MultipleVectorIndividual> extends Individual<P, I> {
 
@@ -20,7 +17,10 @@ public abstract class MultipleVectorIndividual<P extends Problem, I extends Mult
         for (Map.Entry<GraphNode, List<GraphNode>> entry : items.entrySet()) {
             GraphNode agent = entry.getKey();
             List<GraphNode> agentPath = entry.getValue();
-            genome.put(agent, agentPath);
+            List<GraphNode> path = new ArrayList<>();
+            path.addAll(agentPath);
+            Collections.shuffle(path, GeneticAlgorithm.random);
+            genome.put(agent, path);
         }
     }
 
@@ -30,7 +30,9 @@ public abstract class MultipleVectorIndividual<P extends Problem, I extends Mult
         for (Map.Entry<GraphNode, List<GraphNode>> entry : original.genome.entrySet()) {
             GraphNode agent = entry.getKey();
             List<GraphNode> agentPath = entry.getValue();
-            genome.put(agent, agentPath);
+            List<GraphNode> path = new ArrayList<>();
+            path.addAll(agentPath);
+            genome.put(agent, path);
         }
     }
 
@@ -52,15 +54,8 @@ public abstract class MultipleVectorIndividual<P extends Problem, I extends Mult
     }
 
     @Override
-    public Item getGene(int agent, int idx) {
-        int index = 0;
-        for (Map.Entry<GraphNode, List<GraphNode>> entry : genome.entrySet()) {
-            if (index == agent) {
-                return new Item(genome.get(entry.getKey()).get(idx));
-            }
-            index++;
-        }
-        return null;
+    public Item getGene(GraphNode agent, int idx) {
+        return new Item(genome.get(agent).get(idx));
     }
 
 

@@ -47,4 +47,23 @@ public class Coordenates {
     public boolean isSame(Coordenates location) {
         return this.getX() == location.getX() && this.getY() == location.getY() && this.getZ() == location.getZ();
     }
+
+    public void amplifyINT(float amplifyX, float amplifyY) {
+        this.x = Math.round(x * amplifyX);
+        this.y = Math.round(y * amplifyY);
+    }
+
+    public boolean hasValue() {
+        if (x != 0 || y != 0 || z != 0){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hasZvalue() {
+        if (z != 0){
+            return true;
+        }
+        return false;
+    }
 }

@@ -5,6 +5,7 @@ import ga.Individual;
 import ga.VectorIndividual;
 import picking.HybridPickingIndividual;
 import picking.Item;
+import utils.Graphs.GraphNode;
 
 public class MutationSwap<I extends Individual> extends Mutation<I> {
 
@@ -15,15 +16,16 @@ public class MutationSwap<I extends Individual> extends Mutation<I> {
     @Override
     public void run(I individual) {
         int indSize = 0;
-        int agent = -1;
+        int agent_idx = -1;
+        GraphNode agent = null;
         if (individual.getClass().equals(HybridPickingIndividual.class)) {
             int numAgents = individual.getNumGenes();
-            agent = GeneticAlgorithm.random.nextInt(numAgents - 1);
-            indSize = individual.getNumGenes(agent);
+            agent_idx = GeneticAlgorithm.random.nextInt(numAgents - 1);
+            indSize = individual.getNumGenes(agent_idx);
+            agent = individual.getAgent(agent_idx);
         } else {
             indSize = individual.getNumGenes();
         }
-        if (GeneticAlgorithm.random.nextDouble() < probability) {
             int index1, index2 = 0;
             do {
                 index1 = GeneticAlgorithm.random.nextInt(indSize);
@@ -33,7 +35,7 @@ public class MutationSwap<I extends Individual> extends Mutation<I> {
             Item item2 = individual.getGene(agent, index2);
             individual.setGene(agent, index2, item1);
             individual.setGene(agent, index1, item2);
-        }
+
     }
 
     @Override
