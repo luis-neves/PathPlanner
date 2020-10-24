@@ -187,7 +187,7 @@ public class Graph {
                 products.add(getGraphNodes().get(i));
             }
         }
-        if(products.isEmpty()){
+        if (products.isEmpty()) {
             System.out.println("Empty products");
         }
         return products;
@@ -231,6 +231,19 @@ public class Graph {
         return closest;
     }
 
+    public GraphNode findClosestNode(float x, float y, float sensibility) {
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            GraphNode node = getGraphNodes().get(i);
+            if (x - sensibility < node.getLocation().getX() && node.getLocation().getX() < x + sensibility) {
+                if(y - sensibility < node.getLocation().getY() && node.getLocation().getY() < y + sensibility){
+                    return node;
+                }
+            }
+
+        }
+        return null;
+    }
+
     public void bridge(GraphNode node1, GraphNode node2) {
         Edge edge = new Edge(node1, node2, node1.getDistance(node2), this.getEdges().size());
         this.getTrueNode(node1).addNeighbour(edge);
@@ -249,7 +262,7 @@ public class Graph {
         GraphNode mostRight = null;
         for (int i = 0; i < getGraphNodes().size(); i++) {
             if (mostRight == null || mostRight.getLocation().getX() < getGraphNodes().get(i).getLocation().getX()) {
-                mostRight =  getGraphNodes().get(i);
+                mostRight = getGraphNodes().get(i);
             }
         }
         return Math.round(mostRight.getLocation().getX());
@@ -259,9 +272,18 @@ public class Graph {
         GraphNode mostBottom = null;
         for (int i = 0; i < getGraphNodes().size(); i++) {
             if (mostBottom == null || mostBottom.getLocation().getY() < getGraphNodes().get(i).getLocation().getY()) {
-                mostBottom =  getGraphNodes().get(i);
+                mostBottom = getGraphNodes().get(i);
             }
         }
         return Math.round(mostBottom.getLocation().getY());
+    }
+
+    public void createGraphNode(int x, int y, GraphNodeType type) {
+        this.GraphNodes.add(new GraphNode(this.numberOfGraphNodes, (float) x, (float) y, type));
+        this.numberOfGraphNodes++;
+    }
+
+    public GraphNode getLastNode() {
+        return GraphNodes.get(GraphNodes.size()-1);
     }
 }

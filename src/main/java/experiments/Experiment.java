@@ -6,10 +6,7 @@ import ga.GASingleton;
 import ga.GeneticAlgorithm;
 import ga.Problem;
 import gui.SimulationPanel;
-import picking.HybridClusterPicking;
-import picking.HybridPickingIndividual;
-import picking.Item;
-import picking.Picking;
+import picking.*;
 import utils.Graphs.GraphNode;
 import weka.core.pmml.jaxbbindings.Cluster;
 
@@ -50,18 +47,20 @@ public class Experiment<E extends ExperimentsFactory, P extends Problem> {
         for (int run = 0; run < numRuns; run++) {
             ga = factory.generateGAInstance(run + 1);
             if (factory.heuristic.equals("K-Means")) {
+                //System.out.print("\nKmeans ");
                 GASingleton.getInstance().setDefaultGA(ga);
                 GASingleton.getInstance().setDefaultBestInRun(problem.getNewIndividual());
                 cl = factory.generateCLInstance(run + 1);
                 cl.run(problem);
             } else if (factory.heuristic.equals("Hybrid")) {
+                //System.out.print("\nHybrid ");
                 GASingleton.getInstance().setTaskMap(null);
                 GASingleton.getInstance().setMultipleGA(false);
-
                 cl = factory.generateCLInstance(run + 1);
                 hybridGA = factory.generateHybridGAInstance(run + 1);
                 hybridGA.run(new HybridClusterPicking(cl.generateClusters(run + 1, false)));
             } else if (factory.heuristic.equals("GAxN")) {
+                //System.out.print("\nGAxN ");
                 GASingleton.getInstance().setDefaultGA(ga);
                 GASingleton.getInstance().setDefaultBestInRun(problem.getNewIndividual());
                 cl = factory.generateCLInstance(run + 1);
@@ -80,7 +79,12 @@ public class Experiment<E extends ExperimentsFactory, P extends Problem> {
                 ga.run(new Picking(items));
 
             } else if (factory.heuristic.equals("GA")) {
+                //System.out.print("\nGA original" + ((PickingExperimentsFactory) this.factory).maxGenerations + " ag"+((PickingExperimentsFactory) this.factory).numAgents + " ");
+                int backup = ((PickingExperimentsFactory) this.factory).maxGenerations;
+                ((PickingExperimentsFactory) this.factory).maxGenerations =
+                        ((PickingExperimentsFactory) this.factory).maxGenerations * ((PickingExperimentsFactory) this.factory).numAgents;
                 ga = factory.generateGAInstance(run + 1);
+                ((PickingExperimentsFactory) this.factory).maxGenerations = backup;
                 ga.run(problem);
             } else {
                 //ga.run(problem);

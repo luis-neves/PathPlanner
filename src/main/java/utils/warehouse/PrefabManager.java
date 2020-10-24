@@ -3,18 +3,21 @@ package utils.warehouse;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class PrefabManager {
     private static final float AMPLIFY_Y = 20;
     private static final float AMPLIFY_X = 20;
+    private static final Integer PREFAB_RACK = 0;
+    private static final Integer PREFAB_STRUCTURE = 1;
     LinkedList prefabList;
     LinkedList<Rack> racks;
     LinkedList<Structure> structures;
     LinkedList<Device> devices;
     LinkedList<Marker> markers;
     LinkedList<Prefab> allPrefabs;
-    Config config;
+    public Config config;
 
     public PrefabManager(LinkedList prefabList, Config config) {
         this.prefabList = prefabList;
@@ -100,21 +103,37 @@ public class PrefabManager {
 
     public void fixRotation() {
         fillAllPrefabs();
+
+
     }
 
-    public LinkedList<Shape> generateShapes() {
-        LinkedList<Shape> shapes = new LinkedList<>();
+    public HashMap<Integer, LinkedList<Shape>> generateShapes() {
+        HashMap<Integer, LinkedList<Shape>> shapes = new HashMap<>();
+        LinkedList<Shape> racks = new LinkedList<>();
+        LinkedList<Shape> structures = new LinkedList<>();
         for (Prefab prefab : allPrefabs) {
             Rectangle2D rec = new Rectangle(Math.round(prefab.getPosition().getX()), Math.round(prefab.getPosition().getY()), Math.round(prefab.getSize().getX()), Math.round(prefab.getSize().getY()));
             if (prefab.getRotation().hasZvalue()) {
                 AffineTransform tx = new AffineTransform();
                 tx.rotate(Math.toRadians(360) - Math.toRadians(prefab.getRotation().getZ()), Math.round(prefab.getPosition().getX()), Math.round(prefab.getPosition().getY()));
                 Shape newShape = tx.createTransformedShape(rec);
-                shapes.add(newShape);
+                if(prefab instanceof Rack){
+                    racks.add(newShape);
+                }
+                if (prefab instanceof Structure){
+                    structures.add(newShape);
+                }
             } else {
-                shapes.add(rec);
+                if(prefab instanceof Rack){
+                    racks.add(rec);
+                }
+                if (prefab instanceof Structure){
+                        structures.add(rec);
+                }
             }
         }
+        shapes.put(PREFAB_RACK, racks);
+        shapes.put(PREFAB_STRUCTURE, structures);
         return shapes;
     }
 

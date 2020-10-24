@@ -23,8 +23,8 @@ import weka.core.pmml.jaxbbindings.Cluster;
 public class PickingExperimentsFactory extends ExperimentsFactory {
 
     private int populationSize;
-    private int maxGenerations;
-    private int numAgents;
+    public int maxGenerations;
+    public int numAgents;
     private int numPicks;
     private SelectionMethod<PickingIndividual, Picking> selection;
     private Recombination<PickingIndividual> recombination;
@@ -171,7 +171,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
                 seed);
 
         List<GAListener> listeners = new ArrayList<>();
-        for (ExperimentListener ex: statistics){
+        for (ExperimentListener ex : statistics) {
             listeners.add((GAListener) ex);
         }
         MultipleGaListener listener = new MultipleGaListener(1, numAgents, listeners, populationSize, maxGenerations, selection, recombination, mutation);
@@ -184,7 +184,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
     public GeneticAlgorithm generateHybridGAInstance(int seed) {
         GeneticAlgorithm hybridGA = new GeneticAlgorithm<HybridPickingIndividual, HybridClusterPicking>(
                 populationSize,
-                maxGenerations,
+                maxGenerations * numAgents,
                 selection.makeHybrid(),
                 mutation.makeHybrid(),
                 recombination.makeHybrid(),

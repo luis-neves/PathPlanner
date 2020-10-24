@@ -65,8 +65,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private Graph problemGraph;
     private int seed = 0;
     private int num_rows = 8;
-    private int num_agents = 5;
-    private int num_products = 20;
+    private int num_agents = 4;
+    private int num_products = 30;
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
@@ -1195,10 +1195,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                     prefabManager = parseStructuresExtra(warehouse.getChildNodes().item(i), prefabManager);
                 }
                 if (warehouse.getChildNodes().item(i).getNodeName().equals("devices")) {
-                    prefabManager = parseDevicesExtra(warehouse.getChildNodes().item(i), prefabManager);
+                    //prefabManager = parseDevicesExtra(warehouse.getChildNodes().item(i), prefabManager);
                 }
                 if (warehouse.getChildNodes().item(i).getNodeName().equals("markers")) {
-                    prefabManager = parseMarkersExtra(warehouse.getChildNodes().item(i), prefabManager);
+                    //prefabManager = parseMarkersExtra(warehouse.getChildNodes().item(i), prefabManager);
                 }
             }
 
@@ -1231,18 +1231,15 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         /*prefabManager.changeAxis();
         prefabManager.fixSizesToInteger();
         prefabManager.fixRotation();*/
-
+        /*
         LinkedList<Shape> shapes = prefabManager.generateShapes();
-
         image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
         gfx = (Graphics2D) image.getGraphics();
-
         for (Shape shape :shapes){
             gfx.draw(shape);
         }
-
         environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
-
+        */
 
 
 

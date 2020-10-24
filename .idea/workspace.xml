@@ -6,67 +6,26 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="21/09/2020&#10;bug fixes ¯\_(ツ)_/¯">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/DetailsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Marker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistic_average_fitness.xls.txt" afterDir="false" />
+    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="11/10/2020&#10;Experiments done">
+      <change afterPath="$PROJECT_DIR$/input_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a_config_selection.txt" beforeDir="false" afterPath="$PROJECT_DIR$/a_config_selection.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.xml" beforeDir="false" afterPath="$PROJECT_DIR$/input.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clustering/Clustering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clustering/Clustering.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/experiments/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/experiments/Experiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GASingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GASingleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ga/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GeneticAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/MultipleVectorIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/MultipleVectorIndividual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/Population.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/VectorIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/VectorIndividual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationFirstLast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationFirstLast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationInversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationInversion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationSwap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationSwap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationCX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationCX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationPMX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationPMX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/Tournament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/DetailsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DetailsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/HybridPickingIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/HybridPickingIndividual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/Picking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/Picking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/PickingIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/PickingIndividual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/statistics/MultipleGaListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/statistics/MultipleGaListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/EnvironmentNodeGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/EnvironmentNodeGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/FitnessResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/FitnessResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/picking/PickingExperimentsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/PickingExperimentsFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Coordenates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Coordenates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Prefab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Prefab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Rack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Rack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Size.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statistic_average_fitness.xls" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_average_fitness.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistic_average_fitness.xls.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/statistic_best_per_experiment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_best_per_experiment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statistic_best_per_experiment_fitness.xls" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_best_per_experiment_fitness.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/AlgoritmoGenetico.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/AlgoritmoGenetico.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/experiments/Experiment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/experiments/Experiment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/GASingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/GASingleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/GeneticAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/Individual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/Population.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/Population.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/VectorIndividual.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/VectorIndividual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationFirstLast.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationFirstLast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationInversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationInversion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationSwap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationSwap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationCX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationCX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationPMX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationPMX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/selectionMethods/Tournament.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/selectionMethods/Tournament.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/MainFrame$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$3.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$CustomComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$CustomComparator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$IterativeAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$IterativeAgent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraph_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraph_actionAdapter.class" afterDir="false" />
@@ -75,20 +34,8 @@
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonTestColision_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonTestColision_actionAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/picking/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/Picking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/picking/Picking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/PickingIndividual.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/picking/PickingIndividual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph$FitnessCosts.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph$FitnessCosts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/FitnessResults.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/FitnessResults.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/picking/PickingExperimentsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/picking/PickingExperimentsFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/GraphNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/GraphNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Coordenates.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/Coordenates.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Prefab.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/Prefab.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/PrefabType$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/PrefabType$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/PrefabType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/PrefabType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Rack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/Rack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Size.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/Size.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -542,6 +489,20 @@
       <workItem from="1601944916516" duration="664000" />
       <workItem from="1602145301925" duration="21347000" />
       <workItem from="1602242708819" duration="354000" />
+      <workItem from="1602429134002" duration="1530000" />
+      <workItem from="1602745699741" duration="2673000" />
+      <workItem from="1602847264443" duration="5035000" />
+      <workItem from="1602935774501" duration="632000" />
+      <workItem from="1602963184002" duration="783000" />
+      <workItem from="1603021321972" duration="1818000" />
+      <workItem from="1603111009389" duration="614000" />
+      <workItem from="1603197836335" duration="4000" />
+      <workItem from="1603204844575" duration="676000" />
+      <workItem from="1603239865523" duration="32000" />
+      <workItem from="1603297387110" duration="638000" />
+      <workItem from="1603314061704" duration="978000" />
+      <workItem from="1603352432933" duration="25003000" />
+      <workItem from="1603493342959" duration="789000" />
     </task>
     <task id="LOCAL-00001" summary="forgot">
       <created>1582509185139</created>
@@ -669,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600703744366</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="11/10/2020&#10;Experiments done">
+      <created>1602429435488</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1602429435488</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,37 +677,18 @@
     <MESSAGE value="26/08/2020&#10;[GAxN] done&#10;[play] not working" />
     <MESSAGE value="09/03/2020&#10;Backup" />
     <MESSAGE value="21/09/2020&#10;bug fixes ¯\_(ツ)_/¯" />
-    <option name="LAST_COMMIT_MESSAGE" value="21/09/2020&#10;bug fixes ¯\_(ツ)_/¯" />
+    <MESSAGE value="11/10/2020&#10;Experiments done" />
+    <option name="LAST_COMMIT_MESSAGE" value="11/10/2020&#10;Experiments done" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="71" key="#Project_Structure" timestamp="1594741657462">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1594741657462" />
     <state x="599" y="267" key="#com.intellij.debugger.actions.ViewTextAction" timestamp="1599079921810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="599" y="267" key="#com.intellij.debugger.actions.ViewTextAction/0.0.1536.824@0.0.1536.824" timestamp="1599079921810" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594751516087">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1594751516087" />
     <state x="1065" y="102" key="#com.intellij.ide.util.MemberChooser" timestamp="1602170023388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="1065" y="102" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1602170023388" />
-    <state x="527" y="196" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1594751513681">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="527" y="196" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1594751513681" />
-    <state x="627" y="123" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1594826377658">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="627" y="123" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1594826377658" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593978990292">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1593978990292" />
     <state x="432" y="167" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1595101314251">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -748,10 +697,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="682" y="165" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1599079852115" />
-    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2" timestamp="1600703740464">
+    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2" timestamp="1602429431069">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1600703740464" />
+    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1602429431069" />
     <state width="464" height="466" key="DebuggerActiveHint" timestamp="1600791207981">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -764,22 +713,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="946" y="230" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595687845183" />
-    <state width="1307" height="234" key="GridCell.Tab.0.bottom" timestamp="1602243065148">
+    <state width="1296" height="154" key="GridCell.Tab.0.bottom" timestamp="1603494131638">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1307" height="234" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602243065148" />
-    <state width="1307" height="234" key="GridCell.Tab.0.center" timestamp="1602243065148">
+    <state width="1296" height="154" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603494131638" />
+    <state width="1296" height="154" key="GridCell.Tab.0.center" timestamp="1603494131638">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1307" height="234" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602243065148" />
-    <state width="1307" height="234" key="GridCell.Tab.0.left" timestamp="1602243065148">
+    <state width="1296" height="154" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603494131638" />
+    <state width="1296" height="154" key="GridCell.Tab.0.left" timestamp="1603494131638">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1307" height="234" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602243065148" />
-    <state width="1307" height="234" key="GridCell.Tab.0.right" timestamp="1602243065148">
+    <state width="1296" height="154" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603494131638" />
+    <state width="1296" height="154" key="GridCell.Tab.0.right" timestamp="1603494131638">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1307" height="234" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602243065148" />
+    <state width="1296" height="154" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603494131638" />
     <state width="1072" height="287" key="GridCell.Tab.1.bottom" timestamp="1602170470735">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -800,14 +749,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="149" y="0" width="1268" height="824" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595927948764" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1600703748945">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1602429438348">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600703748945" />
-    <state x="506" y="281" key="classpath-attribute-editor" timestamp="1594748651866">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="506" y="281" key="classpath-attribute-editor/0.0.1536.824@0.0.1536.824" timestamp="1594748651866" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602429438348" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1597699213065">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -816,18 +761,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1599078979897" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1594753353945">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1594753353945" />
     <state x="526" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1595103335317">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1595103335317" />
-    <state x="516" y="410" key="com.intellij.jarRepository.RepositoryAttachDialog-SEARCH" timestamp="1594826538536">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="516" y="410" key="com.intellij.jarRepository.RepositoryAttachDialog-SEARCH/0.0.1536.824@0.0.1536.824" timestamp="1594826538536" />
     <state x="408" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595597664451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

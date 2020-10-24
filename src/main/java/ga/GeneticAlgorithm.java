@@ -109,7 +109,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         this.selection = selection;
         this.mutation = mutation;
         this.recombination = recombination;
-
+        //System.out.print(" after " + this.getMaxGenerations());
         GASingleton.getInstance().setTimeWeight(time_weight);
         GASingleton.getInstance().setColisionWeight(1 - time_weight);
         GASingleton.getInstance().getSimulationPanel().generateExperimentGraph(num_columns, agents, picks, seed);
