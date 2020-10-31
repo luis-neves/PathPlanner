@@ -152,6 +152,14 @@ public class GraphNode {
         this.heuristic = 0;
     }
 
+    public GraphNode(int id, float x, float y, float z, GraphNodeType type) {
+        this.id = id;
+        this.type = type;
+        this.location = new Coordenates(x, y, z);
+        this.f = 0;
+        this.heuristic = 0;
+    }
+
     public GraphNode(int id, GraphNode node, GraphNodeType type) {
         this.id = id;
         this.type = type;

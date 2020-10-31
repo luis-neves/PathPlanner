@@ -7,10 +7,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class PrefabManager {
-    private static final float AMPLIFY_Y = 20;
-    private static final float AMPLIFY_X = 20;
+
+    public static final float AMPLIFY_Y = 20;
+    public static final float AMPLIFY_X = 20;
     private static final Integer PREFAB_RACK = 0;
     private static final Integer PREFAB_STRUCTURE = 1;
+
     LinkedList prefabList;
     LinkedList<Rack> racks;
     LinkedList<Structure> structures;

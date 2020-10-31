@@ -10,23 +10,25 @@ import java.util.Collection;
 import java.util.List;
 
 public class Graph {
-    private List<GraphNode> GraphNodes;
+    private List<GraphNode> graphNodes;
     private List<Edge> edges;
 
-    public Graph(List<Edge> edges, List<GraphNode> graphNodes, int numberOfEdges, int numberOfGraphNodes) {
+
+
+    public Graph(List<Edge> edges, List<GraphNode> graphNodes, int numberOfEdges, int numberOfgraphNodes) {
         this.edges = edges;
-        this.GraphNodes = graphNodes;
+        this.graphNodes = graphNodes;
         this.numberOfEdges = numberOfEdges;
-        this.numberOfGraphNodes = numberOfGraphNodes;
+        this.numberOfgraphNodes = numberOfgraphNodes;
     }
 
     public Graph() {
-        GraphNodes = new ArrayList<GraphNode>();
+        graphNodes = new ArrayList<GraphNode>();
         edges = new ArrayList<Edge>();
     }
 
-    public void setNumberOfGraphNodes(int numberOfGraphNodes) {
-        this.numberOfGraphNodes = numberOfGraphNodes;
+    public void setNumberOfgraphNodes(int numberOfgraphNodes) {
+        this.numberOfgraphNodes = numberOfgraphNodes;
     }
 
     public List<Edge> getEdges() {
@@ -37,7 +39,7 @@ public class Graph {
         this.edges = edges;
     }
 
-    private int numberOfGraphNodes = 0;
+    private int numberOfgraphNodes = 0;
     private int numberOfEdges = 0;
 
     public int getNumberOfEdges() {
@@ -49,12 +51,12 @@ public class Graph {
     }
 
     public boolean checkForAvailability() { // will be used in Main.java
-        return this.numberOfGraphNodes > 1;
+        return this.numberOfgraphNodes > 1;
     }
 
     public void createGraphNode(GraphNode GraphNode) {
-        this.GraphNodes.add(GraphNode);
-        this.numberOfGraphNodes++; // a GraphNode has been added
+        this.graphNodes.add(GraphNode);
+        this.numberOfgraphNodes++; // a GraphNode has been added
     }
 
     public void createEdge(Edge edge) {
@@ -78,12 +80,12 @@ public class Graph {
         this.numberOfEdges++; // a GraphNode has been added
     }
 
-    public int getNumberOfGraphNodes() {
-        return this.numberOfGraphNodes;
+    public int getNumberOfgraphNodes() {
+        return this.numberOfgraphNodes;
     }
 
     public List<GraphNode> getGraphNodes() {
-        return GraphNodes;
+        return graphNodes;
     }
 
     public GraphNode getTrueNode(GraphNode graphNode) {
@@ -98,17 +100,17 @@ public class Graph {
     @Override
     public Graph clone() {
         Graph graph = new Graph();
-        List<GraphNode> GraphNodes = new ArrayList<>();
+        List<GraphNode> graphNodes = new ArrayList<>();
         List<Edge> edges = new ArrayList<>();
-        GraphNodes.addAll(getGraphNodes());
+        graphNodes.addAll(getGraphNodes());
         edges.addAll(getEdges());
         graph.setEdges(edges);
-        graph.setGraphNodes(GraphNodes);
+        graph.setgraphNodes(graphNodes);
         return graph;
     }
 
-    private void setGraphNodes(List<GraphNode> graphNodes) {
-        this.GraphNodes = graphNodes;
+    public void setgraphNodes(List<GraphNode> graphNodes) {
+        this.graphNodes = graphNodes;
     }
 
     public boolean containsProblem() {
@@ -129,8 +131,18 @@ public class Graph {
         }
     }
 
-    public void removeNode(GraphNode currentObjective) {
-        GraphNodes.remove(currentObjective);
+    public void removeNode(GraphNode node) {
+        if (node != null) {
+            graphNodes.remove(node);
+            List<Edge> toRemove = new ArrayList<>();
+            for (Edge edge : edges) {
+                if (edge.getEnd().equals(node) || edge.getStart().equals(node)) {
+                    toRemove.add(edge);
+                }
+            }
+            edges.removeAll(toRemove);
+            numberOfgraphNodes--;
+        }
     }
 
     public void makeDelivering(GraphNode node) {
@@ -213,8 +225,8 @@ public class Graph {
     }
 
     public int getNumNodes() {
-        if (GraphNodes != null) {
-            return this.GraphNodes.size();
+        if (graphNodes != null) {
+            return this.graphNodes.size();
         } else {
             return 0;
         }
@@ -235,7 +247,7 @@ public class Graph {
         for (int i = 0; i < getGraphNodes().size(); i++) {
             GraphNode node = getGraphNodes().get(i);
             if (x - sensibility < node.getLocation().getX() && node.getLocation().getX() < x + sensibility) {
-                if(y - sensibility < node.getLocation().getY() && node.getLocation().getY() < y + sensibility){
+                if (y - sensibility < node.getLocation().getY() && node.getLocation().getY() < y + sensibility) {
                     return node;
                 }
             }
@@ -279,11 +291,28 @@ public class Graph {
     }
 
     public void createGraphNode(int x, int y, GraphNodeType type) {
-        this.GraphNodes.add(new GraphNode(this.numberOfGraphNodes, (float) x, (float) y, type));
-        this.numberOfGraphNodes++;
+        this.graphNodes.add(new GraphNode(this.numberOfgraphNodes, (float) x, (float) y, type));
+        this.numberOfgraphNodes++;
     }
 
     public GraphNode getLastNode() {
-        return GraphNodes.get(GraphNodes.size()-1);
+        if (graphNodes.size() > 0) {
+            return graphNodes.get(graphNodes.size() - 1);
+        }
+        return null;
+
+    }
+
+    public void makeNeighbors(GraphNode start_node, GraphNode end_node) {
+        try {
+            Edge e = new Edge(start_node, end_node, start_node.getDistance(end_node), edges.size());
+            edges.add(e);
+            start_node.addNeighbour(e);
+            e.setEnd(start_node);
+            e.setStart(end_node);
+            end_node.addNeighbour(e);
+        }catch (Exception e){
+            System.out.println();
+        }
     }
 }

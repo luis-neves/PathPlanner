@@ -1207,9 +1207,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             //Collections.sort(prefabList, new CustomComparator());
 
             prefabManager.fillAllPrefabs();
+            /*
             for (Prefab prefab : prefabManager.getAllPrefabs()){
                 System.out.println(prefab.toString());
-            }
+            }*/
 
             draw_prefabs(prefabManager);
 

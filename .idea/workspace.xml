@@ -2,28 +2,25 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="AlgoritmoGenetico:jar" />
       <artifact name="AlgoritmoGenetico_Mav:jar" />
+      <artifact name="Maven__net_sf_jni4net_jni4net_j_0_8_8_0" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="11/10/2020&#10;Experiments done">
-      <change afterPath="$PROJECT_DIR$/input_2.xml" afterDir="false" />
+    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="24/10/2020&#10;Drawing">
+      <change afterPath="$PROJECT_DIR$/graph.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a_config_selection.txt" beforeDir="false" afterPath="$PROJECT_DIR$/a_config_selection.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.xml" beforeDir="false" afterPath="$PROJECT_DIR$/input.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/experiments/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/experiments/Experiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GeneticAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/AlgoritmoGenetico_jar/AlgoritmoGenetico.jar" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/AlgoritmoGenetico_jar/AlgoritmoGenetico.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/DetailsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DetailsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/PickingExperimentsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/picking/PickingExperimentsFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Coordenates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Coordenates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistic_average_fitness.xls" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_average_fitness.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistic_average_fitness.xls.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistic_best_per_experiment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_best_per_experiment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistic_best_per_experiment_fitness.xls" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_best_per_experiment_fitness.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/AlgoritmoGenetico.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/AlgoritmoGenetico.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/experiments/Experiment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/experiments/Experiment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/armazem/AStar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/armazem/AStar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationCX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationCX.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$CustomComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$CustomComparator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel.class" afterDir="false" />
@@ -34,8 +31,10 @@
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonTestColision_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonTestColision_actionAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/PickingExperimentsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/picking/PickingExperimentsFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/GraphNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/GraphNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Coordenates.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/Coordenates.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -503,6 +502,12 @@
       <workItem from="1603314061704" duration="978000" />
       <workItem from="1603352432933" duration="25003000" />
       <workItem from="1603493342959" duration="789000" />
+      <workItem from="1603503871717" duration="139000" />
+      <workItem from="1603630994433" duration="3635000" />
+      <workItem from="1603750727813" duration="1340000" />
+      <workItem from="1603842211316" duration="4006000" />
+      <workItem from="1603893803450" duration="14999000" />
+      <workItem from="1604086863802" duration="1204000" />
     </task>
     <task id="LOCAL-00001" summary="forgot">
       <created>1582509185139</created>
@@ -637,7 +642,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602429435488</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="24/10/2020&#10;Drawing">
+      <created>1603503982060</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1603503982060</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,7 +690,8 @@
     <MESSAGE value="09/03/2020&#10;Backup" />
     <MESSAGE value="21/09/2020&#10;bug fixes ¯\_(ツ)_/¯" />
     <MESSAGE value="11/10/2020&#10;Experiments done" />
-    <option name="LAST_COMMIT_MESSAGE" value="11/10/2020&#10;Experiments done" />
+    <MESSAGE value="24/10/2020&#10;Drawing" />
+    <option name="LAST_COMMIT_MESSAGE" value="24/10/2020&#10;Drawing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="599" y="267" key="#com.intellij.debugger.actions.ViewTextAction" timestamp="1599079921810">
@@ -689,18 +702,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="1065" y="102" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1602170023388" />
-    <state x="432" y="167" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1595101314251">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="432" y="167" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1595101314251" />
     <state x="682" y="165" key="#xdebugger.XInspectDialog" timestamp="1599079852115">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="682" y="165" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1599079852115" />
-    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2" timestamp="1602429431069">
+    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2" timestamp="1603503972232">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1602429431069" />
+    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1603503972232" />
     <state width="464" height="466" key="DebuggerActiveHint" timestamp="1600791207981">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -713,46 +722,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="946" y="230" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595687845183" />
-    <state width="1296" height="154" key="GridCell.Tab.0.bottom" timestamp="1603494131638">
+    <state width="1285" height="121" key="GridCell.Tab.0.bottom" timestamp="1604108787765">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1296" height="154" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603494131638" />
-    <state width="1296" height="154" key="GridCell.Tab.0.center" timestamp="1603494131638">
+    <state width="1285" height="121" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604108787765" />
+    <state width="1285" height="121" key="GridCell.Tab.0.center" timestamp="1604108787764">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1296" height="154" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603494131638" />
-    <state width="1296" height="154" key="GridCell.Tab.0.left" timestamp="1603494131638">
+    <state width="1285" height="121" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604108787764" />
+    <state width="1285" height="121" key="GridCell.Tab.0.left" timestamp="1604108787764">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1296" height="154" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603494131638" />
-    <state width="1296" height="154" key="GridCell.Tab.0.right" timestamp="1603494131638">
+    <state width="1285" height="121" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604108787764" />
+    <state width="1285" height="121" key="GridCell.Tab.0.right" timestamp="1604108787765">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1296" height="154" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603494131638" />
-    <state width="1072" height="287" key="GridCell.Tab.1.bottom" timestamp="1602170470735">
+    <state width="1285" height="121" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604108787765" />
+    <state width="1071" height="287" key="GridCell.Tab.1.bottom" timestamp="1603986073578">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1072" height="287" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602170470735" />
-    <state width="1072" height="287" key="GridCell.Tab.1.center" timestamp="1602170470735">
+    <state width="1071" height="287" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603986073578" />
+    <state width="1071" height="287" key="GridCell.Tab.1.center" timestamp="1603986073578">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1072" height="287" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1602170470735" />
-    <state width="1072" height="287" key="GridCell.Tab.1.left" timestamp="1602170470735">
+    <state width="1071" height="287" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1603986073578" />
+    <state width="1071" height="287" key="GridCell.Tab.1.left" timestamp="1603986073578">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1072" height="287" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1602170470735" />
-    <state width="1072" height="287" key="GridCell.Tab.1.right" timestamp="1602170470735">
+    <state width="1071" height="287" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1603986073578" />
+    <state width="1071" height="287" key="GridCell.Tab.1.right" timestamp="1603986073578">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1072" height="287" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1602170470735" />
-    <state x="149" y="0" width="1268" height="824" key="SettingsEditor" timestamp="1595927948764">
+    <state width="1071" height="287" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1603986073578" />
+    <state x="149" y="0" width="1268" height="824" key="SettingsEditor" timestamp="1603899952436">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="149" y="0" width="1268" height="824" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595927948764" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1602429438348">
+    <state x="149" y="0" width="1268" height="824" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603899952436" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1603503986519">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602429438348" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603503986519" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1597699213065">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -761,10 +770,6 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1599078979897" />
-    <state x="526" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1595103335317">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="526" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1595103335317" />
     <state x="408" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595597664451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -787,6 +792,15 @@
     <state x="426" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1599090379540" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gui/DetailsPage.java</url>
+          <line>190</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="ga.bestInRun" />
