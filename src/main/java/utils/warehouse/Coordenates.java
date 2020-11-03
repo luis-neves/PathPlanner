@@ -4,9 +4,8 @@ public class Coordenates {
     private float x;
     private float y;
     private float z;
-
+    Coordenates amplified;
     public Coordenates() {
-
     }
 
     public float getX() {
@@ -37,6 +36,10 @@ public class Coordenates {
         this.x = x;
         this.y = y;
         this.z = z;
+        amplified = new Coordenates();
+        amplified.x = x;
+        amplified.y = y;
+        amplified.z = z;
     }
 
     @Override
@@ -69,4 +72,15 @@ public class Coordenates {
         }
         return false;
     }
-}
+
+    public Coordenates amplified(float amplify) {
+        amplified.x = x*amplify;
+        amplified.y = y*amplify;
+        amplified.z = z*amplify;
+        return amplified;
+    }
+    public Coordenates amplified() {
+        return amplified;
+    }
+
+    }

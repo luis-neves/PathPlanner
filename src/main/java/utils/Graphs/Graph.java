@@ -14,7 +14,6 @@ public class Graph {
     private List<Edge> edges;
 
 
-
     public Graph(List<Edge> edges, List<GraphNode> graphNodes, int numberOfEdges, int numberOfgraphNodes) {
         this.edges = edges;
         this.graphNodes = graphNodes;
@@ -62,20 +61,15 @@ public class Graph {
     public void createEdge(Edge edge) {
         edge.getStart().addNeighbour(edge);
         edge.getEnd().addNeighbour(edge);
-        if (edge.getStart().getDrawLocation() == null) {
-            if (edge.getStart().getLocation().getX() == edge.getEnd().getLocation().getX()) {
-                edge.setLocation(new Coordenates(edge.getStart().getLocation().getX(), 0, 0));
-            } else if (edge.getStart().getLocation().getY() == edge.getEnd().getLocation().getY()) {
-                edge.setLocation(new Coordenates(0, edge.getStart().getLocation().getY(), 0));
-            }
-        } else {
-            if (edge.getStart().getDrawLocation().getX() == edge.getEnd().getDrawLocation().getX()) {
-                edge.setLocation(new Coordenates(edge.getStart().getDrawLocation().getX(), 0, 0));
-            } else if (edge.getStart().getDrawLocation().getY() == edge.getEnd().getDrawLocation().getY()) {
-                edge.setLocation(new Coordenates(0, edge.getStart().getDrawLocation().getY(), 0));
-            }
+        if (edge.getStart().getLocation().getX() == edge.getEnd().getLocation().getX()) {
+            edge.setLocation(new Coordenates(Math.abs(edge.getStart().getLocation().getX() - edge.getEnd().getLocation().getX()), 0, 0));
+        } else if (edge.getStart().getLocation().getY() == edge.getEnd().getLocation().getY()) {
+            edge.setLocation(new Coordenates(0,Math.abs(edge.getStart().getLocation().getY() - edge.getEnd().getLocation().getY()), 0));
         }
+        else {
+            edge.setLocation(new Coordenates(Math.abs(edge.getStart().getLocation().getX() - edge.getEnd().getLocation().getX()), Math.abs(edge.getStart().getLocation().getY() - edge.getEnd().getLocation().getY()), Math.abs(edge.getStart().getLocation().getZ() - edge.getEnd().getLocation().getZ())));
 
+        }
         this.edges.add(edge);
         this.numberOfEdges++; // a GraphNode has been added
     }
@@ -95,6 +89,11 @@ public class Graph {
             }
         }
         return null;
+    }
+    public void amplify(float value){
+        for(GraphNode node : graphNodes){
+            node.setAmplify(value);
+        }
     }
 
     @Override
@@ -303,16 +302,45 @@ public class Graph {
 
     }
 
-    public void makeNeighbors(GraphNode start_node, GraphNode end_node) {
+
+    public void makeNeighbors(GraphNode start_node, GraphNode end_node, boolean product_line) {
         try {
-            Edge e = new Edge(start_node, end_node, start_node.getDistance(end_node), edges.size());
-            edges.add(e);
-            start_node.addNeighbour(e);
-            e.setEnd(start_node);
-            e.setStart(end_node);
-            end_node.addNeighbour(e);
-        }catch (Exception e){
+            Edge e = findEdge(start_node, end_node);
+            if (e == null){
+                e = new Edge(start_node, end_node, start_node.getDistance(end_node), edges.size(), product_line);
+                e.setEnd(start_node);
+                e.setStart(end_node);
+                createEdge(e);
+            }
+            else{
+                e.setProduct_line(product_line);
+            }
+        } catch (Exception e) {
             System.out.println();
+        }
+    }
+
+    private Edge findEdge(GraphNode start_node, GraphNode end_node) {
+        for (Edge edge : edges){
+            if(edge.getEnd() == end_node && edge.getStart() == start_node){
+                return edge;
+            }
+            if(edge.getEnd() == start_node && edge.getStart() == end_node){
+                return edge;
+            }
+        }
+        return null;
+    }
+
+    public void clear() {
+        graphNodes.clear();
+        edges.clear();
+    }
+
+    public void deAmplify(float amplify_x) {
+        for(GraphNode node : graphNodes){
+            node.getLocation().setX(node.getLocation().getX()/amplify_x);
+            node.getLocation().setY(node.getLocation().getY()/amplify_x);
         }
     }
 }

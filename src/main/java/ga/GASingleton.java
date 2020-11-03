@@ -12,6 +12,7 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 import picking.Item;
 import picking.Picking;
 import picking.PickingIndividual;
@@ -24,6 +25,7 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.IOException;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -59,6 +61,7 @@ public class GASingleton {
     private boolean multipleGA;
     private Individual defaultBestInRun;
     private GeneticAlgorithm defaultGA;
+    private Graph graph;
 
     public GeneticAlgorithm getDefaultGA() {
         return defaultGA;
@@ -182,6 +185,7 @@ public class GASingleton {
         this.weightsPenaltyWeight = 0.0f;
         this.timeWeight = 0.5f;
         this.colisionWeight = 0.5f;
+        this.graph = new Graph();
     }
 
     public static GASingleton getInstance() {
@@ -594,6 +598,68 @@ public class GASingleton {
         this.defaultBestInRun = defaultBestInRun;
     }
 
+    public void readGraphFile(File file) {
+        List<GraphNode> graphNodes = new ArrayList<>();
+        List<Edge> edgeList = new ArrayList<>();
+        graph.clear();
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(file);
+            doc.getDocumentElement().normalize();
+            Element graphElement = doc.getDocumentElement();
+            float amplify_x = Float.parseFloat(graphElement.getAttributes().getNamedItem("amplify_x").getNodeValue());
+            float amplify_y = Float.parseFloat(graphElement.getAttributes().getNamedItem("amplify_y").getNodeValue());
+
+
+
+            for (int i = 0; i < graphElement.getChildNodes().getLength(); i++) {
+                if (graphElement.getChildNodes().item(i).getNodeName().equals("Nodes")) {
+                    graphNodes = parseNodes(graphElement.getChildNodes().item(i));
+                }
+            }
+            graph.setgraphNodes(graphNodes);
+            graph.deAmplify(amplify_x);
+            for (int i = 0; i < graphElement.getChildNodes().getLength(); i++) {
+                if (graphElement.getChildNodes().item(i).getNodeName().equals("Edges")) {
+                    edgeList = parseEdges(graphElement.getChildNodes().item(i));
+                }
+            }
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private List<GraphNode> parseNodes(Node item) {
+        List<GraphNode> nodes = new ArrayList<>();
+        for (int i = 0; i < item.getChildNodes().getLength(); i++) {
+            if (item.getChildNodes().item(i).getNodeName().equals("Node")) {
+                String[] loc = item.getChildNodes().item(i).getAttributes().item(1).getNodeValue().split(",");
+
+                GraphNode node = new GraphNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().item(0).getNodeValue()),
+                        Float.parseFloat(loc[0]), Float.parseFloat(loc[1]),
+                        Float.parseFloat(loc[2]),
+                        GraphNodeType.valueOf(item.getChildNodes().item(i).getAttributes().item(2).getNodeValue()));
+                nodes.add(node);
+            }
+        }
+        return nodes;
+    }
+
+    private List<Edge> parseEdges(Node item) {
+        for (int i = 0; i < item.getChildNodes().getLength(); i++) {
+            if (item.getChildNodes().item(i).getNodeName().equals("Edge")) {
+                GraphNode end = graph.findNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().item(0).getNodeValue()));
+                Boolean product_line = Boolean.parseBoolean(item.getChildNodes().item(i).getAttributes().item(1).getNodeValue());
+                GraphNode start = graph.findNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().item(2).getNodeValue()));
+                graph.makeNeighbors(start, end, product_line);
+            }
+        }
+        return graph.getEdges();
+    }
+
+    public Graph getGraph() {
+        return graph;
+    }
 
     //Document doc = builder.newDocument();
 

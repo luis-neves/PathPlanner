@@ -8,6 +8,8 @@ import clustering.Clustering;
 import ga.GASingleton;
 import ga.KMeans.AstarDistance;
 import ga.KMeans.MyCluster;
+import org.jfree.ui.HorizontalAlignment;
+import org.jfree.ui.tabbedui.VerticalLayout;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -56,7 +58,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
     JButton jButtonRun = new JButton("Simulate Environment");
     JButton buttonRunFromFile = new JButton("Open Environment File");
-    JButton buttonRunXML = new JButton("XML");
+    JButton buttonRunXML = new JButton("Modelo");
+    JButton buttonZoomIN = new JButton("+");
+    JButton buttonZoomOUT = new JButton("-");
+    JButton buttonImportGraph = new JButton("Import Graph");
     JButton buttonRunNodeGraph = new JButton("NG");
     JButton buttonRandomProblem = new JButton("RNG");
     JButton buttonRandomProblemSeed = new JButton("LNG");
@@ -65,21 +70,27 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private Graph problemGraph;
     private int seed = 0;
     private int num_rows = 8;
-    private int num_agents = 4;
-    private int num_products = 30;
+    private int num_agents = 2;
+    private int num_products = 5;
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
-    private boolean AMPLIFY = false;
+    private float AMPLIFY = 1;
     private float AMPLIFY_MULTIPLIER = 20.0f;
 
     public SimulationPanel() {
         //environmentPanel.setPreferredSize(new Dimension(N * CELL_SIZE + GRID_TO_PANEL_GAP * 2, N * CELL_SIZE + GRID_TO_PANEL_GAP * 2));
-        environmentPanel.setPreferredSize(new Dimension(400, 200));
+        environmentPanel.setPreferredSize(new Dimension(800, 800));
 
+        JPanel panelButtonsNorth = new JPanel(new GridLayout());
         setLayout(new BorderLayout());
-        add(environmentPanel, BorderLayout.CENTER);
-        JPanel panelButtons = new JPanel();
+        ScrollPane scrollPane = new ScrollPane(ScrollPane.SCROLLBARS_AS_NEEDED);
+        scrollPane.add(environmentPanel);
+        add(scrollPane, BorderLayout.CENTER);
+        panelButtonsNorth.add(buttonZoomIN);
+        panelButtonsNorth.add(buttonImportGraph);
+        panelButtonsNorth.add(buttonZoomOUT);
+        JPanel panelButtons = new JPanel(new GridLayout());
         //panelButtons.add(jButtonRun);
         //panelButtons.add(buttonRunFromFile);
         panelButtons.add(buttonRunXML);
@@ -88,6 +99,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         panelButtons.add(buttonRandomProblemSeed);
         panelButtons.add(buttonTestColision);
         add(panelButtons, BorderLayout.SOUTH);
+        add(panelButtonsNorth, BorderLayout.NORTH);
 
         jButtonRun.addActionListener(new SimulationPanel_jButtonRun_actionAdapter(this));
         buttonRunFromFile.addActionListener(new SimulationPanel_jButtonRunFromFile_actionAdapter(this));
@@ -96,6 +108,9 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         buttonRandomProblem.addActionListener(new SimulationPanel_jButtonGenRandNodeGraph_actionAdapter(this));
         buttonRandomProblemSeed.addActionListener(new SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter(this));
         buttonTestColision.addActionListener(new SimulationPanel_jButtonTestColision_actionAdapter(this));
+        buttonZoomIN.addActionListener(new SimulationPanel_jButtonZoomIn_actionAdapter(this));
+        buttonZoomOUT.addActionListener(new SimulationPanel_jButtonZoomOut_actionAdapter(this));
+        buttonImportGraph.addActionListener(new SimulationPanel_jButtonImportGraph_actionAdapter(this));
 
         GASingleton.getInstance().setSimulationPanel(this);
 
@@ -119,6 +134,44 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         };
         worker.execute();
     }
+
+    public void jButtonZoomIn_actionPerformed(ActionEvent e) {
+        //ZOOM IN
+        AMPLIFY += 0.2f;
+        problemGraph.amplify(AMPLIFY);
+        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+        gfx = (Graphics2D) image.getGraphics();
+        draw(problemGraph, false, this.gfx, this.image);
+    }
+
+    public void jButtonZoomOut_actionPerformed(ActionEvent e) {
+        //ZOOM OUT
+        AMPLIFY -= 0.2f;
+        problemGraph.amplify(AMPLIFY);
+        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+        gfx = (Graphics2D) image.getGraphics();
+        draw(problemGraph, false, this.gfx, this.image);
+    }
+
+    public void jButtonImportGraph_actionPerformed(ActionEvent e) {
+        //IMPORT GRAPH
+        JFileChooser fc = new JFileChooser(new java.io.File("."));
+        fc.setSelectedFile(new File("graph.xml"));
+        int returnVal = fc.showOpenDialog(this);
+        try {
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fc.getSelectedFile();
+                GASingleton.getInstance().readGraphFile(file);
+                image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+                gfx = (Graphics2D) image.getGraphics();
+                this.problemGraph = GASingleton.getInstance().getGraph();
+                draw(problemGraph, false, this.gfx, this.image);
+            }
+        } catch (NoSuchElementException e2) {
+            JOptionPane.showMessageDialog(this, "File format not valid", "Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 
     public void jButtonTestColision_actionPerformed(ActionEvent e) {
         //test Colision
@@ -343,15 +396,19 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
     public void jButtonRandNodeGraphProblem_actionPerformed(ActionEvent e) {
         //environmentPanel.updateUI();
-
-        Graph graph2 = exampleGraph(num_rows);
+        Graph graph2;
+        if (GASingleton.getInstance().getGraph().getGraphNodes().size() == 0) {
+            graph2 = exampleGraph(num_rows);
+        } else {
+            graph2 = GASingleton.getInstance().getGraph().clone();
+        }
         graph2 = randomProblem(graph2, num_agents, num_products, -1);
         graph2 = fixNeighboursFixed(graph2);
         problemGraph = graph2;
+        problemGraph.amplify(AMPLIFY);
         image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
         gfx = (Graphics2D) image.getGraphics();
-
-        draw(graph2, false, this.gfx, this.image);
+        draw(problemGraph, false, this.gfx, this.image);
     }
 
     public void generateExperimentGraph(int num_colums, int num_agents, int num_products, int seed) {
@@ -401,7 +458,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             Edge edge;
             do {
                 edge = graph.getEdges().get(r.nextInt(graph.getEdges().size()));
-            } while (edge.getLocation().getX() == 0);
+            } while (!edge.isProduct_line());
             GraphNode start = edge.getStart();
             GraphNode end = edge.getEnd();
             GraphNode product = new GraphNode(graph.getGraphNodes().size() + 1);
@@ -410,30 +467,49 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 product.setType(GraphNodeType.AGENT);
                 agentCount++;
             }
-            if (edge.getLocation().getX() == 0) {
+            if (edge.getStart().getLocation().getX() == edge.getEnd().getLocation().getX()) {
+                float YStart = start.getLocation().getY();
+                float YEnd = end.getLocation().getY();
+                float result = 0;
+                do {
+                    try {
+                        result = r.nextInt(Math.round(Math.abs(YStart - YEnd))) + (Math.min(YStart, YEnd));
+                    } catch (Exception e) {
+                        System.out.println();
+                    }
+                } while (result == YStart || result == YEnd);
+                product.setLocation(new Coordenates(edge.getStart().getLocation().getX(), result, 0));
+            } else if (edge.getStart().getLocation().getY() == edge.getEnd().getLocation().getY()) {
                 float xStart = start.getLocation().getX();
                 float xEnd = end.getLocation().getX();
                 float result;
-                do {
-                    result = r.nextInt((int) Math.abs(xStart - xEnd)) + (Math.min(xStart, xEnd));
-                } while (result == xStart || result == xEnd);
-                product.setLocation(new Coordenates(result, edge.getLocation().getY(), 0));
-            } else {
-                float yStart = start.getLocation().getY();
-                float yEnd = end.getLocation().getY();
-                float result;
                 try {
                     do {
-                        Float range = (Math.abs(yStart - yEnd)) + (Math.min(yStart, yEnd));
-                        result = r.nextInt((int) (range * 1000));
-                        result = (int) (result / 1000);
-
-                    } while (result == yStart || result == yEnd);
-                    product.setLocation(new Coordenates(edge.getLocation().getX(), result, 0));
-
+                        result = r.nextInt(Math.round(Math.abs(xStart - xEnd))) + (Math.min(xStart, xEnd));
+                    } while (result == xStart || result == xEnd);
+                    product.setLocation(new Coordenates(result, edge.getStart().getLocation().getY(), 0));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                if (GASingleton.getInstance().isSimulatingWeights()) {
+                    product.setWeightPhysical(r.nextInt(MAX_WEIGHT));
+                    product.setWeightSupported((r.nextInt(4) + 1) * product.getWeightPhysical());
+                }
+            } else {
+                System.out.println();
+                float x1 = start.getLocation().getX();
+                float x2 = end.getLocation().getX();
+                float y1 = start.getLocation().getY();
+                float y2 = end.getLocation().getY();
+                float ratio = (y2 - y1) / (x2 - x1);
+                float width = Math.abs(x2 - x1);
+                int value = r.nextInt(Math.round(width));
+                float x = x1 + value;
+                float y = y1 + (ratio * value);
+                if (x1 < x2)
+                    x = x2 + value;
+                product.setLocation(new Coordenates(x, y, 0));
+                product.getLocation().amplified(AMPLIFY);
                 if (GASingleton.getInstance().isSimulatingWeights()) {
                     product.setWeightPhysical(r.nextInt(MAX_WEIGHT));
                     product.setWeightSupported((r.nextInt(4) + 1) * product.getWeightPhysical());
@@ -459,7 +535,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             graph2 = randomProblem(graph2, num_agents, num_products, seed);
             graph2 = fixNeighboursFixed(graph2);
             problemGraph = graph2;
-            draw(graph2, false, this.gfx, this.image);
+            draw(problemGraph, false, this.gfx, this.image);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -486,7 +562,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             if (GASingleton.getInstance().getCm() != null) {
                 GASingleton.getInstance().getCm().SendMessageAsync(Util.GenerateId(), "request", "getAllOrders", GASingleton.erpID, "text/plain", "", "1");
             }
-
             graph2 = fixNeighboursFixed(graph2);
             image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
             gfx = (Graphics2D) image.getGraphics();
@@ -675,8 +750,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                     graph.createEdge(c1c2);
                 }
             }
-            Edge aibi = new Edge(ai, bi, ai.getLocation().getY() - bi.getLocation().getY(), i);
-            Edge bici = new Edge(bi, ci, bi.getLocation().getY() - ci.getLocation().getY(), i + num_rows * 4);
+            Edge aibi = new Edge(ai, bi, ai.getLocation().getY() - bi.getLocation().getY(), i, true);
+            Edge bici = new Edge(bi, ci, bi.getLocation().getY() - ci.getLocation().getY(), i + num_rows * 4, true);
 
 
             if (graph.checkForAvailability()) {
@@ -693,11 +768,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         List<GraphNode> nodes = graph.getGraphNodes();
         for (int i = 0; i < nodes.size(); i++) {
             GraphNode node = nodes.get(i);
-            Point p = new Point(Math.round(node.getLocation().getX()), Math.round(node.getLocation().getY()));
-
-            if (AMPLIFY == true) {
-                p = new Point(Math.round(node.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(node.getLocation().getY() * AMPLIFY_MULTIPLIER));
-            }
+            Point p = new Point(Math.round(node.getLocationAmplified().getX()), Math.round(node.getLocationAmplified().getY()));
             if (node.getType() == GraphNodeType.AGENT) {
                 gfx.setColor(node.getCluster() == null ? Color.black : node.getCluster().getColor());
                 gfx.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
@@ -716,34 +787,13 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             if (node.getType() != GraphNodeType.DELIVERING/* && node.getType() != GraphNodeType.SIMPLE*/) {
                 gfx.drawString("" + node.getType().toLetter() + node.getGraphNodeId(), p.x + (NODE_SIZE / 2), p.y + (NODE_SIZE / 2) + MARGIN);
             }
-            /*for(int j = 0; j < node.getNeighbours().size(); j++){
-                GraphNode startNode = nodes.get(node.getNeighbours().get(j).getIdOfStartGraphNode() - 1);
-                int id = node.getNeighbours().get(j).getIdOfEndGraphNode();
-                GraphNode endNode = nodes.get(id-1);
-                gfx.drawLine(Math.round(startNode.getLocation().getX()),Math.round(startNode.getLocation().getY()),Math.round(endNode.getLocation().getX()),Math.round(endNode.getLocation().getY()));
-                gfx.drawString("" +node.getNeighbours().get(j).getWeight(),  (Math.round(endNode.getLocation().getX()) + Math.round(startNode.getLocation().getX())) / 2, (Math.round(endNode.getLocation().getY()) + Math.round(startNode.getLocation().getY()) / 2));
-                System.out.println(node.getNeighbours().get(j).getWeight());
-            }*/
-            // gfx.drawLine(p.x,p.y,p2.x,p2.y);
             gfx.setColor(Color.BLACK);
         }
-        for (
-                int i = 0; i < graph.getEdges().
-
-                size();
-
-                i++) {
+        for (int i = 0; i < graph.getEdges().size(); i++) {
             GraphNode start = graph.getEdges().get(i).getStart();
             GraphNode end = graph.getEdges().get(i).getEnd();
-            if (AMPLIFY) {
-                gfx.drawLine(Math.round(start.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(start.getLocation().getY() * AMPLIFY_MULTIPLIER) + (NODE_SIZE / 2), Math.round(end.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(end.getLocation().getY() * AMPLIFY_MULTIPLIER) + (NODE_SIZE / 2));
-            } else {
-                gfx.drawLine(Math.round(start.getLocation().getX()), Math.round(start.getLocation().getY()) + (NODE_SIZE / 2), Math.round(end.getLocation().getX()), Math.round(end.getLocation().getY()) + (NODE_SIZE / 2));
-
-            }
-
+            gfx.drawLine(Math.round(start.getLocationAmplified().getX()), Math.round(start.getLocationAmplified().getY()) + (NODE_SIZE / 2), Math.round(end.getLocationAmplified().getX()), Math.round(end.getLocationAmplified().getY()) + (NODE_SIZE / 2));
             //gfx.drawString("" + (int) graph.getEdges().get(i).getWeight(), x, y);
-
         }
         //environmentPanel.getGraphics().drawImage(image, 0, 0, this);
         environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
@@ -819,7 +869,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 } else {
                     for (IterativeAgent iterativeAgent : iterativeAgents) {
                         Coordenates location = iterativeAgent.followObjective();
-                        Point p = new Point((int) location.getX(), (int) location.getY());
+                        Point p = new Point((int) location.amplified().getX(), (int) location.amplified().getY());
                         draw(problemGraph, true, gfx2, backup);
                         gfx2.setColor(Color.RED);
                         gfx2.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
@@ -1079,31 +1129,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         }
     }
 
-    private class AgentsWithClosestProduct {
-        private GraphNode agent;
-        private ProductsWithDistance closestProduct;
-
-        public AgentsWithClosestProduct(GraphNode agent, ProductsWithDistance closestProduct) {
-            this.agent = agent;
-            this.closestProduct = closestProduct;
-        }
-
-        public GraphNode getAgent() {
-            return agent;
-        }
-
-        public void setAgent(GraphNode agent) {
-            this.agent = agent;
-        }
-
-        public ProductsWithDistance getClosestProduct() {
-            return closestProduct;
-        }
-
-        public void setClosestProduct(ProductsWithDistance closestProduct) {
-            this.closestProduct = closestProduct;
-        }
-    }
 
     private MyCluster findMyCluster(int assignment, List<MyCluster> clusters) {
         for (int i = 0; i < clusters.size(); i++) {
@@ -1203,7 +1228,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             }
 
 
-
             //Collections.sort(prefabList, new CustomComparator());
 
             prefabManager.fillAllPrefabs();
@@ -1226,9 +1250,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     }
 
     private void draw_prefabs(PrefabManager prefabManager) {
-
         DetailsPage frame = new DetailsPage(prefabManager);
-
         /*prefabManager.changeAxis();
         prefabManager.fixSizesToInteger();
         prefabManager.fixRotation();*/
@@ -1243,12 +1265,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         */
 
 
-
-
-
         //gfx.drawLine(Math.round(start.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(start.getLocation().getY() * AMPLIFY_MULTIPLIER) + (NODE_SIZE / 2), Math.round(end.getLocation().getX() * AMPLIFY_MULTIPLIER), Math.round(end.getLocation().getY() * AMPLIFY_MULTIPLIER) + (NODE_SIZE / 2));
         //gfx.drawString("" + (int) graph.getEdges().get(i).getWeight(), x, y);
-
 
 
     }
@@ -2027,5 +2045,47 @@ class SimulationPanel_jButtonTestColision_actionAdapter implements ActionListene
 
     public void actionPerformed(ActionEvent e) {
         adaptee.jButtonTestColision_actionPerformed(e);
+    }
+}
+
+class SimulationPanel_jButtonZoomIn_actionAdapter implements ActionListener {
+
+    private SimulationPanel adaptee;
+
+    SimulationPanel_jButtonZoomIn_actionAdapter(SimulationPanel adaptee) {
+        this.adaptee = adaptee;
+    }
+
+
+    public void actionPerformed(ActionEvent e) {
+        adaptee.jButtonZoomIn_actionPerformed(e);
+    }
+}
+
+class SimulationPanel_jButtonZoomOut_actionAdapter implements ActionListener {
+
+    private SimulationPanel adaptee;
+
+    SimulationPanel_jButtonZoomOut_actionAdapter(SimulationPanel adaptee) {
+        this.adaptee = adaptee;
+    }
+
+
+    public void actionPerformed(ActionEvent e) {
+        adaptee.jButtonZoomOut_actionPerformed(e);
+    }
+}
+
+class SimulationPanel_jButtonImportGraph_actionAdapter implements ActionListener {
+
+    private SimulationPanel adaptee;
+
+    SimulationPanel_jButtonImportGraph_actionAdapter(SimulationPanel adaptee) {
+        this.adaptee = adaptee;
+    }
+
+
+    public void actionPerformed(ActionEvent e) {
+        adaptee.jButtonImportGraph_actionPerformed(e);
     }
 }

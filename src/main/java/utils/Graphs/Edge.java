@@ -6,6 +6,7 @@ public class Edge {
     private GraphNode start;
     private GraphNode end;
     private double weight;
+    private boolean product_line;
     private Coordenates location;
     private int num_directions = 1;
 
@@ -72,6 +73,23 @@ public class Edge {
         this.end = e;
         this.weight = w;
         this.id = id;
+        this.product_line = false;
+    }
+
+    public boolean isProduct_line() {
+        return product_line;
+    }
+
+    public void setProduct_line(boolean product_line) {
+        this.product_line = product_line;
+    }
+
+    public Edge(GraphNode s, GraphNode e, double w, int id, boolean product_line) {
+        this.start = s;
+        this.end = e;
+        this.weight = w;
+        this.id = id;
+        this.product_line = product_line;
     }
 
     @Override

@@ -12,6 +12,9 @@ import javax.swing.*;
 
 public class Main {
 
+    final String dir = System.getProperty("user.dir");
+
+
     public Main() {
 
         //SERVICE BUS
@@ -23,8 +26,9 @@ public class Main {
             System.out.println("before bridge");
             Bridge.init();
             System.out.println("after bridge");
-            File proxyAssembyFile = new File("./ClassLib.j4n.dll");
+            File proxyAssembyFile = new File(dir +"/ClassLib.j4n.dll");
             Bridge.LoadAndRegisterAssemblyFrom(proxyAssembyFile);
+            System.out.println("after assembly");
         } catch (Exception e) {
             infoBox(e.getLocalizedMessage(), "Error");
             e.printStackTrace();

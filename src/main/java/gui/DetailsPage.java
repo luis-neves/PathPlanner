@@ -50,7 +50,9 @@ public class DetailsPage extends JFrame {
     private static final int MAX_HEIGHT = 800;
     private static final int LINE_PIXEL_SENSIBILITY = 10;
     private static final int NODE_SIZE = 5;
-
+    public Line_Type line_type = Line_Type.SIMPLE;
+    public Node_Action node_action = Node_Action.DRAW;
+    public PaintSurface surface;
     PrefabManager prefabManager;
     Graph graph = new Graph();
 
@@ -64,7 +66,6 @@ public class DetailsPage extends JFrame {
     public DetailsPage(PrefabManager prefabManager) throws HeadlessException {
         this.prefabManager = prefabManager;
         this.setTitle("Details");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         prefabManager.fixSizesToInteger();
 
         this.setSize(new Dimension(Math.round(prefabManager.config.getWidth()) + (int) prefabManager.config.getWidth() / 2, Math.round(prefabManager.config.getDepth()) + (int) prefabManager.config.getDepth() / 2));
@@ -73,8 +74,79 @@ public class DetailsPage extends JFrame {
         HashMap<Integer, LinkedList<Shape>> shapes = prefabManager.generateShapes();
         setLayout(new BorderLayout());
         setupMenuBar(graph);
+        surface = new PaintSurface(shapes, prefabManager, graph);
 
-        PaintSurface surface = new PaintSurface(shapes, prefabManager, graph);
+        JPanel panelButtonsNorth = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        JLabel product_text = new JLabel("Line Type");
+        panelButtonsNorth.add(product_text, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        JButton buttonSimpleLine = new JButton("Simple");
+        panelButtonsNorth.add(buttonSimpleLine, gbc);
+
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        JButton buttonProductLine = new JButton("Product");
+        panelButtonsNorth.add(buttonProductLine, gbc);
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        JButton buttonExitLine = new JButton("Exit");
+        panelButtonsNorth.add(buttonExitLine, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        JLabel node_action_label = new JLabel("Node Action");
+        panelButtonsNorth.add(node_action_label, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        JButton button_draw = new JButton("Draw");
+        panelButtonsNorth.add(button_draw, gbc);
+
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        JButton button_remove = new JButton("Remove");
+        panelButtonsNorth.add(button_remove, gbc);
+
+        gbc.gridwidth = 2;
+
+        buttonSimpleLine.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                line_type = Line_Type.SIMPLE;
+            }
+        });
+        buttonProductLine.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                line_type = Line_Type.PRODUCT;
+            }
+        });
+        buttonExitLine.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                line_type = Line_Type.EXIT;
+            }
+        });
+
+        button_draw.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                node_action = Node_Action.DRAW;
+            }
+        });
+        button_remove.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                node_action = Node_Action.REMOVE;
+            }
+        });
+
+        add(panelButtonsNorth, BorderLayout.NORTH);
         add(surface, BorderLayout.CENTER);
         this.setVisible(true);
 
@@ -88,6 +160,7 @@ public class DetailsPage extends JFrame {
             public void keyPressed(KeyEvent e) {
                 if ((e.getKeyCode() == KeyEvent.VK_Z) && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
                     graph.removeNode(graph.getLastNode());
+                    surface.repaint();
                 }
             }
 
@@ -136,6 +209,7 @@ public class DetailsPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //Load GRAPH XML
                 LoadGraph();
+                surface.repaint();
             }
         });
         menu.add(menuItem);
@@ -145,6 +219,7 @@ public class DetailsPage extends JFrame {
     private void LoadGraph() {
 
         JFileChooser fc = new JFileChooser(new java.io.File("."));
+        fc.setSelectedFile(new File("graph.xml"));
         int returnVal = fc.showOpenDialog(this);
         try {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -158,9 +233,10 @@ public class DetailsPage extends JFrame {
 
     }
 
-    private void readGraphFile(File file) {
+    public void readGraphFile(File file) {
         List<GraphNode> graphNodes = new ArrayList<>();
         List<Edge> edgeList = new ArrayList<>();
+        graph.clear();
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -178,6 +254,7 @@ public class DetailsPage extends JFrame {
                     edgeList = parseEdges(graphElement.getChildNodes().item(i));
                 }
             }
+
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
@@ -187,8 +264,9 @@ public class DetailsPage extends JFrame {
         for (int i = 0; i < item.getChildNodes().getLength(); i++) {
             if (item.getChildNodes().item(i).getNodeName().equals("Edge")) {
                 GraphNode end = graph.findNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().item(0).getNodeValue()));
-                GraphNode start = graph.findNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().item(1).getNodeValue()));
-                graph.makeNeighbors(start, end);
+                Boolean product_line = Boolean.parseBoolean(item.getChildNodes().item(i).getAttributes().item(1).getNodeValue());
+                GraphNode start = graph.findNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().item(2).getNodeValue()));
+                graph.makeNeighbors(start, end, product_line);
             }
         }
         return graph.getEdges();
@@ -212,11 +290,11 @@ public class DetailsPage extends JFrame {
 
     private void exportGraph(Graph graph) {
         JFileChooser fc = new JFileChooser(new java.io.File("."));
+        fc.setSelectedFile(new File("graph.xml"));
         int returnVal = fc.showSaveDialog(this);
-
         try {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
-                FileWriter fw = new FileWriter(fc.getSelectedFile() + ".xml");
+                FileWriter fw = new FileWriter(fc.getSelectedFile());
                 fw.write(generateXMLGraphString(graph));
                 fw.close();
             }
@@ -273,6 +351,11 @@ public class DetailsPage extends JFrame {
                 Attr attr_end = doc.createAttribute("end");
                 attr_end.setValue(edge.getEnd().getGraphNodeId() + "");
                 edgeElement.setAttributeNode(attr_end);
+
+                Attr attr_product_line = doc.createAttribute("product_line");
+                attr_product_line.setValue(edge.isProduct_line() + "");
+                edgeElement.setAttributeNode(attr_product_line);
+
                 edges.appendChild(edgeElement);
             }
             rootElement.appendChild(edges);
@@ -321,11 +404,17 @@ public class DetailsPage extends JFrame {
                 public void mousePressed(MouseEvent e) {
                     startDrag = new Point(e.getX(), e.getY());
                     endDrag = startDrag;
+                    if (node_action == Node_Action.REMOVE){
+                        GraphNode node = graph.findClosestNode(e.getX(),e.getY(), LINE_PIXEL_SENSIBILITY);
+                        if (node != null){
+                            graph.removeNode(node);
+                        }
+                    }
                     repaint();
                 }
 
                 public void mouseReleased(MouseEvent e) {
-                    if (startDrag.x == e.getX() && startDrag.y == e.getY()) {
+                    if (startDrag.x == e.getX() && startDrag.y == e.getY() && node_action == Node_Action.REMOVE) {
 
                     } else {
                         GraphNode node = graph.findClosestNode(startDrag.x, startDrag.y, LINE_PIXEL_SENSIBILITY * 2);
@@ -352,15 +441,16 @@ public class DetailsPage extends JFrame {
 
                         node = graph.findClosestNode(endDrag.x, endDrag.y, LINE_PIXEL_SENSIBILITY * 2);
                         if (node == null) {
-                            graph.createGraphNode(endDrag.x, endDrag.y, GraphNodeType.SIMPLE);
+                            graph.createGraphNode(endDrag.x, endDrag.y, line_type == Line_Type.EXIT ? GraphNodeType.EXIT : GraphNodeType.SIMPLE);
                             end_node = graph.getLastNode();
                         } else {
+                            end_node = node;
                             endDrag.x = (int) end_node.getLocation().getX();
                             endDrag.y = (int) end_node.getLocation().getY();
-                            end_node = node;
+                            node.setType(line_type == Line_Type.EXIT ? GraphNodeType.EXIT : GraphNodeType.SIMPLE);
                             endDrag = new Point((int) end_node.getLocation().getX(), (int) end_node.getLocation().getY());
                         }
-                        graph.makeNeighbors(start_node, end_node);
+                        graph.makeNeighbors(start_node, end_node, line_type == Line_Type.PRODUCT);
                         //Shape r = makeLine(startDrag.x, startDrag.y, endDrag.x, endDrag.y);
                         //drawables.add(r);
                         startDrag = null;
@@ -397,7 +487,7 @@ public class DetailsPage extends JFrame {
             Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             paintBackground(g2);
-            Color[] colors = {Color.GREEN, Color.LIGHT_GRAY};
+            Color[] colors = {Color.CYAN, Color.LIGHT_GRAY};
             int colorIndex = 0;
 
             g2.setStroke(new BasicStroke(2));
@@ -427,6 +517,7 @@ public class DetailsPage extends JFrame {
             }
             for (Edge e : graph.getEdges()) {
                 Shape r = makeLine((int) e.getStart().getLocation().getX(), (int) e.getStart().getLocation().getY(), (int) e.getEnd().getLocation().getX(), (int) e.getEnd().getLocation().getY());
+                g2.setPaint(e.isProduct_line() ? Color.BLUE : Color.DARK_GRAY);
                 g2.draw(r);
             }
 
@@ -459,5 +550,8 @@ public class DetailsPage extends JFrame {
             return Math.abs(y1 - y2) < LINE_PIXEL_SENSIBILITY;
         }
 
+    }
+    private enum Node_Action{
+        DRAW,REMOVE
     }
 }

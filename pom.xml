@@ -25,31 +25,6 @@
             <artifactId>json</artifactId>
             <version>20190722</version>
         </dependency>
-        <!--
-        <dependency>
-            <groupId>weka</groupId>
-            <artifactId>stable</artifactId>
-            <version>3.8.4</version>
-            <scope>system</scope>
-            <type>jar</type>
-            <systemPath>${project.basedir}/lib/weka-stable-3.8.4.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>jcommon</groupId>
-            <artifactId>jcommon</artifactId>
-            <version>1.0.16</version>
-            <scope>system</scope>
-            <type>jar</type>
-            <systemPath>${project.basedir}/lib/jcommon-1.0.16.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>jfreechart</groupId>
-            <artifactId>jcommon</artifactId>
-            <version>1.0.13</version>
-            <scope>provided</scope>
-            <type>jar</type>
-            <systemPath>${project.basedir}/lib/jfreechart-1.0.13.jar</systemPath>
-        </dependency>!-->
         <dependency>
             <groupId>jfree</groupId>
             <artifactId>jcommon</artifactId>
@@ -66,15 +41,22 @@
             <artifactId>jni4net.j</artifactId>
             <version>0.8.8.0</version>
         </dependency>
-        <!--<dependency>
-            <groupId>jni4net</groupId>
-            <artifactId>myjni4net</artifactId>
-            <version>1.0</version>
-        </dependency>!-->
         <dependency>
             <groupId>ClassLib</groupId>
             <artifactId>ClassLib.j4n</artifactId>
             <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+            <scope>compile</scope> <!-- CHANGE HERE -->
         </dependency>
         <dependency>
             <groupId>nz.ac.waikato.cms.weka</groupId>
@@ -82,9 +64,9 @@
             <version>3.8.4</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>

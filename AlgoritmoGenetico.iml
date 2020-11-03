@@ -49,7 +49,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/ClassLib.j4n.jar!/" />
@@ -71,6 +71,8 @@
     <orderEntry type="library" name="Maven: bouncycastle:bcprov-jdk14:138" level="project" />
     <orderEntry type="library" name="Maven: net.sf.jni4net:jni4net.j:0.8.8.0" level="project" />
     <orderEntry type="library" name="Maven: ClassLib:ClassLib.j4n:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka:weka-stable:3.8.4" level="project" />
     <orderEntry type="library" name="Maven: com.github.vbmacher:java-cup:11b-20160615" level="project" />
     <orderEntry type="library" name="Maven: com.github.vbmacher:java-cup-runtime:11b-20160615" level="project" />

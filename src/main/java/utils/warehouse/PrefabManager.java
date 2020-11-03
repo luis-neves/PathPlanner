@@ -149,8 +149,6 @@ public class PrefabManager {
         for (Prefab prefab : allPrefabs) {
             ((Prefab) prefab).getPosition().amplifyINT(AMPLIFY_X, AMPLIFY_Y);
         }
-
-
     }
 
     public LinkedList<Prefab> getAllPrefabs() {

@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/classes/artifacts/Maven__net_sf_jni4net_jni4net_j_0_8_8_0</output-path>
     <root id="root">
       <element id="library" level="project" name="Maven: net.sf.jni4net:jni4net.j:0.8.8.0" />
+      <element id="library" level="project" name="ClassLib.j4n" />
     </root>
   </artifact>
 </component>

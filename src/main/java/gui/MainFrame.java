@@ -85,7 +85,7 @@ public class MainFrame extends JFrame implements GAListener {
                 BorderFactory.createEmptyBorder(1, 1, 1, 1)));
 
         panelNorthLeft.add(panelParameters, java.awt.BorderLayout.WEST);
-        JPanel panelButtons = new JPanel();
+        JPanel panelButtons = new JPanel(new GridLayout());
         panelButtons.add(buttonStop);
         panelButtons.add(buttonRunHeuristic);
         panelButtons.add(buttonRunHybrid);
@@ -95,7 +95,6 @@ public class MainFrame extends JFrame implements GAListener {
         panelButtons.add(buttonVisualize);
         panelButtons.add(buttonFastVisualize);
         buttonStop.setEnabled(false);
-
         buttonRunHybrid.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -133,7 +132,6 @@ public class MainFrame extends JFrame implements GAListener {
                     bestIndividualPanel.textArea.setText("");
                     seriesBestIndividual.clear();
                     seriesAverage.clear();
-
                     //picking.setProb1s(Double.parseDouble(panelParameters.jTextFieldProb1s.getText()));
                     int i = 0;
                     gaIndex = 0;
@@ -923,6 +921,8 @@ class PanelParameters extends PanelAtributesValue {
                 JCheckBox cbLog = (JCheckBox) actionEvent.getSource();
                 if (cbLog.isSelected()) {
                     System.out.println("Communication Enabled");
+                    System.out.println(new MyCallbacks());
+                    System.out.println(new TopicsConfiguration());
                     CommunicationManager cm = new CommunicationManager(CLIENT_ID, new TopicsConfiguration(), new MyCallbacks());
                     GASingleton.getInstance().setCm(cm);
                     GASingleton.getInstance().initializeCommunication();

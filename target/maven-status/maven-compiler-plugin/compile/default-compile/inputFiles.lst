@@ -40,6 +40,7 @@ C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\Colision.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\PrefabType.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\armazem\Cell.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\RecombinationOneCut.java
+C:\Aulas\I&D\ArwarePathFinder\src\main\java\gui\DetailsPage.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\MutationFirstLast.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\communication\MyCallbacks.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\selectionMethods\Ranking.java
@@ -60,8 +61,12 @@ C:\Aulas\I&D\ArwarePathFinder\src\main\java\experiments\Experiment.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\RecombinationPMX.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\armazem\Saida.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\Config.java
+C:\Aulas\I&D\ArwarePathFinder\src\main\java\clustering\Clustering.java
+C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\multiple\GAwithEnvironment.java
+C:\Aulas\I&D\ArwarePathFinder\src\main\java\statistics\MultipleGaListener.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\statistics\StatisticBestAverage.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\Area.java
+C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\PrefabManager.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\communication\Operator.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\GAEvent.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\MutationInversion.java
@@ -77,6 +82,7 @@ C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\Maths.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\GASingleton.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\experiments\ExperimentEvent.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\Graphs\EnvironmentNodeGraph.java
+C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\Marker.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\Population.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\Structure.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\Graphs\FitnessNode.java

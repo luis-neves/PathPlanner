@@ -13,7 +13,7 @@ import javax.xml.stream.Location;
 import java.util.*;
 
 public class GraphNode {
-    private Coordenates drawLocation;
+    private float amplify = 1;
     private int id;
     private Coordenates location;
     private double heuristic;
@@ -22,6 +22,14 @@ public class GraphNode {
     private float weightPhysical;
     private float weightSupported;
     private MyCluster cluster;
+
+    public float getAmplify() {
+        return amplify;
+    }
+
+    public void setAmplify(float amplify) {
+        this.amplify = amplify;
+    }
 
     public float getWeightSupported() {
         if (this.getType() == GraphNodeType.PRODUCT) {
@@ -81,6 +89,9 @@ public class GraphNode {
 
     public Coordenates getLocation() {
         return location;
+    }
+    public Coordenates getLocationAmplified() {
+        return location.amplified(amplify);
     }
 
     public void setLocation(Coordenates location) {
@@ -281,7 +292,7 @@ public class GraphNode {
 
     @Override
     public String toString() {
-        return this.type.toLetter() + "" + this.id + " " + this.getHeuristica() + " Cost " + this.getF() + " " + getType().toString() + " " + this.getLocation().toString() + "\n\t\t" + (drawLocation != null ? drawLocation.toString() : "");
+        return this.type.toLetter() + "" + this.id + " " + this.getHeuristica() + " Cost " + this.getF() + " " + getType().toString() + " " + this.getLocation().toString() + "\n\t\t";
     }
 
     public Edge getNeighbourEdge(GraphNode graphNode) {
@@ -366,13 +377,6 @@ public class GraphNode {
         return cluster;
     }
 
-    public Coordenates getDrawLocation() {
-        return drawLocation;
-    }
-
-    public void setDrawLocation(Coordenates drawLocation) {
-        this.drawLocation = drawLocation;
-    }
 
     public String printName() {
         return this.getType().toLetter() + "" + this.getGraphNodeId();
