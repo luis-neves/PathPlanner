@@ -1,5 +1,6 @@
 gui\PanelParameters$1.class
 gui\SimulationPanel_jButtonTestColision_actionAdapter.class
+gui\DetailsPage$Node_Action.class
 ga\geneticOperators\MutationSwap.class
 ga\GAListener.class
 gui\MainFrame.class
@@ -11,12 +12,14 @@ utils\warehouse\Prefab.class
 gui\SimulationPanel_jButtonRunFromXML_actionAdapter.class
 utils\warehouse\Structure.class
 picking\Item.class
+gui\DetailsPage$8.class
 gui\PanelParameters$JComboBoxSelectionMethods_ActionAdapter.class
 armazem\AStar$3.class
 utils\warehouse\Colision.class
 gui\PanelParameters$JComboBoxFitnessFunction_ActionAdapter.class
 gui\SimulationPanel_jButtonGenRandNodeGraph_actionAdapter.class
 gui\PanelParameters$7.class
+gui\DetailsPage$5.class
 utils\warehouse\Area.class
 armazem\Encomenda.class
 gui\DetailsPage$PaintSurface$2.class
@@ -34,6 +37,7 @@ utils\Graphs\Edge.class
 utils\Graphs\GraphNodeType.class
 gui\MainFrame$5.class
 gui\SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter.class
+gui\DetailsPage$6.class
 gui\SimulationPanel$2.class
 ga\geneticOperators\Recombination.class
 picking\HybridClusterPicking.class
@@ -44,6 +48,7 @@ gui\SimulationPanel_jButtonRunFromFile_actionAdapter.class
 ga\KMeans\AstarDistance.class
 picking\PickingIndividual.class
 ga\GASingleton.class
+gui\SimulationPanel_jButtonImportGraph_actionAdapter.class
 utils\AlgoritmoOrdenacao.class
 utils\Comparacao.class
 gui\ButtonDataSet_actionAdapter.class
@@ -51,6 +56,7 @@ ga\geneticOperators\GeneticOperator.class
 gui\PanelAtributesValue.class
 statistics\StatisticBestAverage.class
 utils\warehouse\XMLInfo.class
+gui\DetailsPage$7.class
 utils\Graphs\FitnessResults.class
 gui\ButtonRunExperiments_actionAdapter.class
 gui\DetailsPage.class
@@ -63,6 +69,7 @@ gui\ButtonRun_actionAdapter.class
 armazem\Agent.class
 ga\geneticOperators\MutationInversion.class
 ga\Problem.class
+gui\SimulationPanel_jButtonZoomIn_actionAdapter.class
 gui\MainFrame$6.class
 ga\geneticOperators\RecombinationOneCut.class
 gui\DetailsPage$PaintSurface.class
@@ -86,10 +93,10 @@ ga\selectionMethods\RouletteWheel.class
 armazem\Cell.class
 ga\selectionMethods\Ranking.class
 gui\DetailsPage$PaintSurface$1.class
+gui\SimulationPanel_jButtonZoomOut_actionAdapter.class
 ga\Individual.class
 communication\Product.class
 gui\ButtonStop_actionAdapter.class
-gui\SimulationPanel$AgentsWithClosestProduct.class
 gui\PanelParameters.class
 experiments\Parameter.class
 statistics\StatisticBestInRun.class
@@ -121,6 +128,7 @@ gui\PanelParameters$6.class
 gui\MainFrame$2.class
 gui\MainFrame$8.class
 armazem\Prateleira.class
+gui\Line_Type.class
 armazem\Perception.class
 ga\MultipleVectorIndividual.class
 picking\PickingExperimentsFactory.class
@@ -140,6 +148,7 @@ utils\Graphs\EnvironmentNodeGraph.class
 experiments\ExperimentListener.class
 gui\MainFrame$9.class
 ga\geneticOperators\RecombinationOX.class
+gui\DetailsPage$4.class
 ga\geneticOperators\RecombinationCX.class
 gui\Main.class
 clustering\Clustering.class

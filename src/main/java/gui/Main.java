@@ -26,7 +26,7 @@ public class Main {
             System.out.println("before bridge");
             Bridge.init();
             System.out.println("after bridge");
-            File proxyAssembyFile = new File(dir +"/ClassLib.j4n.dll");
+            File proxyAssembyFile = new File(dir +"/lib/ClassLib.j4n.dll");
             Bridge.LoadAndRegisterAssemblyFrom(proxyAssembyFile);
             System.out.println("after assembly");
         } catch (Exception e) {

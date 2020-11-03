@@ -42,6 +42,7 @@ C:\Aulas\I&D\ArwarePathFinder\src\main\java\armazem\Cell.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\RecombinationOneCut.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\gui\DetailsPage.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\MutationFirstLast.java
+C:\Aulas\I&D\ArwarePathFinder\src\main\java\gui\Line_Type.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\communication\MyCallbacks.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\selectionMethods\Ranking.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\picking\HybridClusterPicking.java

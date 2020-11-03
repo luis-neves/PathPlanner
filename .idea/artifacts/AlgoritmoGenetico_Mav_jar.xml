@@ -21,9 +21,13 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/javax.ejb.jar" path-in-jar="/" />
       <element id="library" level="module" name="jcommon-1.0.16.jar" module-name="AlgoritmoGenetico" />
       <element id="library" level="module" name="jfreechart-1.0.13.jar" module-name="AlgoritmoGenetico" />
-      <element id="artifact" artifact-name="Maven__net_sf_jni4net_jni4net_j_0_8_8_0" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/weka-stable-3.8.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/ClassLib.j4n.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: net.sf.jni4net:jni4net.j:0.8.8.0" />
+      <element id="library" level="application" name="jni4net.j-0.8.8.0" />
+      <element id="library" level="application" name="nu.validator.htmlparser:htmlparser:1.4" />
+      <element id="library" level="application" name="nz.ac.waikato.cms.weka:weka-stable:3.8.4" />
+      <element id="library" level="application" name="org.codehaus.jackson:jackson-jaxrs:1.9.0" />
     </root>
   </artifact>
 </component>
