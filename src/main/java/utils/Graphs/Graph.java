@@ -2,11 +2,8 @@ package utils.Graphs;
 
 import ga.KMeans.MyCluster;
 import utils.warehouse.Coordenates;
-import weka.core.Attribute;
 
-import javax.xml.stream.Location;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Graph {
@@ -61,15 +58,6 @@ public class Graph {
     public void createEdge(Edge edge) {
         edge.getStart().addNeighbour(edge);
         edge.getEnd().addNeighbour(edge);
-        if (edge.getStart().getLocation().getX() == edge.getEnd().getLocation().getX()) {
-            edge.setLocation(new Coordenates(Math.abs(edge.getStart().getLocation().getX() - edge.getEnd().getLocation().getX()), 0, 0));
-        } else if (edge.getStart().getLocation().getY() == edge.getEnd().getLocation().getY()) {
-            edge.setLocation(new Coordenates(0,Math.abs(edge.getStart().getLocation().getY() - edge.getEnd().getLocation().getY()), 0));
-        }
-        else {
-            edge.setLocation(new Coordenates(Math.abs(edge.getStart().getLocation().getX() - edge.getEnd().getLocation().getX()), Math.abs(edge.getStart().getLocation().getY() - edge.getEnd().getLocation().getY()), Math.abs(edge.getStart().getLocation().getZ() - edge.getEnd().getLocation().getZ())));
-
-        }
         this.edges.add(edge);
         this.numberOfEdges++; // a GraphNode has been added
     }
@@ -90,8 +78,9 @@ public class Graph {
         }
         return null;
     }
-    public void amplify(float value){
-        for(GraphNode node : graphNodes){
+
+    public void amplify(float value) {
+        for (GraphNode node : graphNodes) {
             node.setAmplify(value);
         }
     }
@@ -99,12 +88,13 @@ public class Graph {
     @Override
     public Graph clone() {
         Graph graph = new Graph();
-        List<GraphNode> graphNodes = new ArrayList<>();
-        List<Edge> edges = new ArrayList<>();
-        graphNodes.addAll(getGraphNodes());
-        edges.addAll(getEdges());
-        graph.setEdges(edges);
-        graph.setgraphNodes(graphNodes);
+        for (GraphNode node : getGraphNodes()) {
+            graph.createGraphNode((GraphNode) node.clone());
+        }
+        for (Edge edge : this.edges) {
+            graph.makeNeighbors(graph.findNode(edge.getStart().getGraphNodeId()),
+                    graph.findNode(edge.getEnd().getGraphNodeId()), edge.isProduct_line());
+        }
         return graph;
     }
 
@@ -191,6 +181,16 @@ public class Graph {
         return products;
     }
 
+    public List<GraphNode> getProducts_Agents() {
+        List<GraphNode> products = new ArrayList<>();
+        for (int i = 0; i < getGraphNodes().size(); i++) {
+            if (getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT || getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
+                products.add(getGraphNodes().get(i));
+            }
+        }
+        return products;
+    }
+
     public List<GraphNode> getProductsByCluster(MyCluster cluster) {
         List<GraphNode> products = new ArrayList<>();
         for (int i = 0; i < getGraphNodes().size(); i++) {
@@ -250,7 +250,6 @@ public class Graph {
                     return node;
                 }
             }
-
         }
         return null;
     }
@@ -290,7 +289,11 @@ public class Graph {
     }
 
     public void createGraphNode(int x, int y, GraphNodeType type) {
-        this.graphNodes.add(new GraphNode(this.numberOfgraphNodes, (float) x, (float) y, type));
+        int index = -1;
+        do {
+            index++;
+        } while (findNode(index) != null);
+        this.graphNodes.add(new GraphNode(index, (float) x, (float) y, type));
         this.numberOfgraphNodes++;
     }
 
@@ -306,13 +309,12 @@ public class Graph {
     public void makeNeighbors(GraphNode start_node, GraphNode end_node, boolean product_line) {
         try {
             Edge e = findEdge(start_node, end_node);
-            if (e == null){
+            if (e == null) {
                 e = new Edge(start_node, end_node, start_node.getDistance(end_node), edges.size(), product_line);
                 e.setEnd(start_node);
                 e.setStart(end_node);
                 createEdge(e);
-            }
-            else{
+            } else {
                 e.setProduct_line(product_line);
             }
         } catch (Exception e) {
@@ -321,11 +323,11 @@ public class Graph {
     }
 
     private Edge findEdge(GraphNode start_node, GraphNode end_node) {
-        for (Edge edge : edges){
-            if(edge.getEnd() == end_node && edge.getStart() == start_node){
+        for (Edge edge : edges) {
+            if (edge.getEnd() == end_node && edge.getStart() == start_node) {
                 return edge;
             }
-            if(edge.getEnd() == start_node && edge.getStart() == end_node){
+            if (edge.getEnd() == start_node && edge.getStart() == end_node) {
                 return edge;
             }
         }
@@ -338,9 +340,36 @@ public class Graph {
     }
 
     public void deAmplify(float amplify_x) {
-        for(GraphNode node : graphNodes){
-            node.getLocation().setX(node.getLocation().getX()/amplify_x);
-            node.getLocation().setY(node.getLocation().getY()/amplify_x);
+        for (GraphNode node : graphNodes) {
+            node.getLocation().setX(node.getLocation().getX() / amplify_x);
+            node.getLocation().setY(node.getLocation().getY() / amplify_x);
         }
+    }
+
+    public Edge findClosestEdge(GraphNode product_agent) {
+        Edge closestEdge = null;
+        List<Edge> candidate_edges = new ArrayList<>();
+        for (Edge edge : this.getEdges()) {
+            if (edge.getLocation().getX() == product_agent.getLocation().getX() || edge.getLocation().getY() == product_agent.getLocation().getY()) {
+                candidate_edges.add(edge);
+            }
+            if (edge.getLocation().getX() == product_agent.getLocation().getX() && edge.getLocation().getY() == product_agent.getLocation().getY()) {
+                return edge;
+            }
+        }
+        if (candidate_edges.size() > 0) {
+            closestEdge = candidate_edges.get(0);
+            float closest_dist = Math.abs(closestEdge.getLocation().getY() - product_agent.getLocation().getY());
+            for (Edge edge : candidate_edges) {
+                if (edge.getLocation().getX() == product_agent.getLocation().getX()) {
+                    float distance = Math.abs(edge.getLocation().getY() - product_agent.getLocation().getY());
+                    if (distance < closest_dist) {
+                        closest_dist = distance;
+                        closestEdge = edge;
+                    }
+                }
+            }
+        }
+        return closestEdge;
     }
 }

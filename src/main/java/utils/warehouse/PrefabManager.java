@@ -1,5 +1,7 @@
 package utils.warehouse;
 
+import utils.Graphs.GraphNode;
+
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
@@ -119,18 +121,19 @@ public class PrefabManager {
                 AffineTransform tx = new AffineTransform();
                 tx.rotate(Math.toRadians(360) - Math.toRadians(prefab.getRotation().getZ()), Math.round(prefab.getPosition().getX()), Math.round(prefab.getPosition().getY()));
                 Shape newShape = tx.createTransformedShape(rec);
-                if(prefab instanceof Rack){
+                if (prefab instanceof Rack) {
                     racks.add(newShape);
                 }
-                if (prefab instanceof Structure){
+                if (prefab instanceof Structure) {
                     structures.add(newShape);
                 }
+                prefab.setShape(newShape);
             } else {
-                if(prefab instanceof Rack){
+                if (prefab instanceof Rack) {
                     racks.add(rec);
                 }
-                if (prefab instanceof Structure){
-                        structures.add(rec);
+                if (prefab instanceof Structure) {
+                    structures.add(rec);
                 }
             }
         }
@@ -153,5 +156,21 @@ public class PrefabManager {
 
     public LinkedList<Prefab> getAllPrefabs() {
         return allPrefabs;
+    }
+
+    public Rack findRack(int x, int y, float sensibility) {
+        for (int i = 0; i < getRacks().size(); i++) {
+            Rack rack = getRacks().get(i);
+            if (rack.getShape() != null) {
+                int new_x = Math.round((int)rack.getShape().getBounds().getCenterX());
+                int new_y = Math.round((int)rack.getShape().getBounds().getCenterY());
+                if (x - sensibility < new_x && new_x < x + sensibility) {
+                    if (y - sensibility < new_y && new_y < y + sensibility) {
+                        return rack;
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

@@ -8,10 +8,7 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 import picking.Picking;
 import utils.Graphs.*;
-import utils.warehouse.Prefab;
-import utils.warehouse.PrefabManager;
-import utils.warehouse.Structure;
-import utils.warehouse.XMLInfo;
+import utils.warehouse.*;
 
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
@@ -112,6 +109,12 @@ public class DetailsPage extends JFrame {
         JButton button_remove = new JButton("Remove");
         panelButtonsNorth.add(button_remove, gbc);
 
+        gbc.gridx = 3;
+        gbc.gridy = 1;
+        JButton button_generateProduct = new JButton("Generate Product");
+        panelButtonsNorth.add(button_generateProduct, gbc);
+
+
         gbc.gridwidth = 2;
 
         buttonSimpleLine.addActionListener(new ActionListener() {
@@ -143,6 +146,13 @@ public class DetailsPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 node_action = Node_Action.REMOVE;
+            }
+        });
+
+        button_generateProduct.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                node_action = Node_Action.GENERATE_PRODUCT;
             }
         });
 
@@ -404,17 +414,19 @@ public class DetailsPage extends JFrame {
                 public void mousePressed(MouseEvent e) {
                     startDrag = new Point(e.getX(), e.getY());
                     endDrag = startDrag;
-                    if (node_action == Node_Action.REMOVE){
-                        GraphNode node = graph.findClosestNode(e.getX(),e.getY(), LINE_PIXEL_SENSIBILITY);
-                        if (node != null){
+                    if (node_action == Node_Action.REMOVE) {
+                        GraphNode node = graph.findClosestNode(e.getX(), e.getY(), LINE_PIXEL_SENSIBILITY);
+                        if (node != null) {
                             graph.removeNode(node);
                         }
+                    } else if (node_action == Node_Action.GENERATE_PRODUCT) {
+                        find_rack_gen_product(e.getX(), e.getY());
                     }
                     repaint();
                 }
 
                 public void mouseReleased(MouseEvent e) {
-                    if (startDrag.x == e.getX() && startDrag.y == e.getY() && node_action == Node_Action.REMOVE) {
+                    if (startDrag.x == e.getX() && startDrag.y == e.getY() || node_action == Node_Action.REMOVE || node_action == Node_Action.GENERATE_PRODUCT) {
 
                     } else {
                         GraphNode node = graph.findClosestNode(startDrag.x, startDrag.y, LINE_PIXEL_SENSIBILITY * 2);
@@ -466,6 +478,16 @@ public class DetailsPage extends JFrame {
                     repaint();
                 }
             });
+        }
+
+        private void find_rack_gen_product(int x, int y) {
+            Rack rack = prefabManager.findRack(x, y, LINE_PIXEL_SENSIBILITY);
+            if (rack != null) {
+                int new_x = Math.round((int)rack.getShape().getBounds().getCenterX());
+                int new_y = Math.round((int)rack.getShape().getBounds().getCenterY());
+                int id = Integer.parseInt(rack.getCode().split("RC")[1]);
+                graph.createGraphNode(new GraphNode(id, new_x, new_y, GraphNodeType.PRODUCT));
+            }
         }
 
         private void paintBackground(Graphics2D g2) {
@@ -551,7 +573,8 @@ public class DetailsPage extends JFrame {
         }
 
     }
-    private enum Node_Action{
-        DRAW,REMOVE
+
+    private enum Node_Action {
+        DRAW, REMOVE, GENERATE_PRODUCT
     }
 }

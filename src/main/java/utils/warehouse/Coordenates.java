@@ -8,6 +8,11 @@ public class Coordenates {
     public Coordenates() {
     }
 
+    @Override
+    public Object clone() {
+        return new Coordenates(x,y,z);
+    }
+
     public float getX() {
         return x;
     }

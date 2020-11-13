@@ -600,7 +600,13 @@ public class MainFrame extends JFrame implements GAListener {
             boolean stopRun,
             boolean experiments,
             boolean runExperiments) {
-
+        buttonRunFromMemory.setEnabled(dataSet);
+        buttonRunHeuristic.setEnabled(dataSet);
+        buttonRunMultipleGA.setEnabled(dataSet);
+        buttonSlowVisualize.setEnabled(dataSet);
+        buttonVisualize.setEnabled(dataSet);
+        buttonFastVisualize.setEnabled(dataSet);
+        buttonRunHybrid.setEnabled(dataSet);
         buttonStop.setEnabled(stopRun);
         buttonExperiments.setEnabled(experiments);
         buttonRunExperiments.setEnabled(runExperiments);
@@ -921,8 +927,6 @@ class PanelParameters extends PanelAtributesValue {
                 JCheckBox cbLog = (JCheckBox) actionEvent.getSource();
                 if (cbLog.isSelected()) {
                     System.out.println("Communication Enabled");
-                    System.out.println(new MyCallbacks());
-                    System.out.println(new TopicsConfiguration());
                     CommunicationManager cm = new CommunicationManager(CLIENT_ID, new TopicsConfiguration(), new MyCallbacks());
                     GASingleton.getInstance().setCm(cm);
                     GASingleton.getInstance().initializeCommunication();

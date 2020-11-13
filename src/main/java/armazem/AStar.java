@@ -131,9 +131,9 @@ public class AStar {
 
         while (!isEmptyGraph(openGraphList)) {
             GraphNode currentNode = openGraphList.poll();   //get last
-            closedNodeSet.add(currentNode);                 //remove current node
-            if (isFinalGraphNode(currentNode)) {
-                return getGraphPath(currentNode);
+            closedNodeSet.add(graph.findNode(currentNode.getGraphNodeId()));                 //remove current node
+            if (isFinalGraphNode(graph.findNode(currentNode.getGraphNodeId()))) {
+                return getGraphPath(graph.findNode(currentNode.getGraphNodeId()));
             } else {
                 addAdjacentGraphNodes(currentNode, taskedNodes);
             }
@@ -148,6 +148,7 @@ public class AStar {
         openList.add(initialNode);
 
         while (!isEmpty(openList)) {
+
             Cell currentNode = openList.poll();
             closedSet.add(currentNode);
             if (isFinalNode(currentNode)) {
@@ -249,10 +250,10 @@ public class AStar {
         List<GraphNode> neighbourNodes = currentNode.getNeighbourNodesWithoutProducts(taskedNodes);
         //System.out.println("DEBUG" +currentNode);
         for (int i = 0; i < neighbourNodes.size(); i++) {
-            if (!getClosedNodeSet().contains(neighbourNodes.get(i))) {
-                if (!openGraphList.contains(neighbourNodes.get(i))) {
-                    neighbourNodes.get(i).setNodeData(currentNode, currentNode.getNodeWeight(neighbourNodes.get(i)));
-                    openGraphList.add(neighbourNodes.get(i));
+            if (!getClosedNodeSet().contains(graph.findNode(neighbourNodes.get(i).getGraphNodeId()))) {
+                if (!openGraphList.contains(graph.findNode(neighbourNodes.get(i).getGraphNodeId()))) {
+                    graph.findNode(neighbourNodes.get(i).getGraphNodeId()).setNodeData(graph.findNode(currentNode.getGraphNodeId()), graph.findNode(currentNode.getGraphNodeId()).getNodeWeight(graph.findNode(neighbourNodes.get(i).getGraphNodeId())));
+                    openGraphList.add(graph.findNode(neighbourNodes.get(i).getGraphNodeId()));
                 }
             } else {
                 continue;

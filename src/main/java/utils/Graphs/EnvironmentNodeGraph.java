@@ -60,7 +60,12 @@ public class EnvironmentNodeGraph {
             }
             aStar.setFinalGraphNode(graph.getExit());
             agentFinalPath.addAll(aStar.findGraphPath(products));
-
+            if(agentFinalPath.size() >= 4){
+                if (agentFinalPath.get(0).equals(agentFinalPath.get(2)) && agentFinalPath.get(1).equals(agentFinalPath.get(3))){
+                    agentFinalPath.remove(0);
+                    agentFinalPath.remove(1);
+                }
+            }
             if (agentFinalPath.get(0).getType() == GraphNodeType.AGENT) {
                 agentFinalPath.remove(0);
             }
@@ -102,26 +107,26 @@ public class EnvironmentNodeGraph {
         List<GraphNode> agentFinalPath = new ArrayList<>();
 
         for (int i = 0; i < items.length; i++) {
-            List<GraphNode> taskedAgentOnly = new ArrayList<>();
+            List<GraphNode> products_for_tasks = new ArrayList<>();
             if (items[i].node.getType() == GraphNodeType.PRODUCT) {
                 agentPath.add(items[i]);
             } else if (items[i].node.getType() == GraphNodeType.AGENT) {
                 AStar aStar = new AStar(graph);
                 aStar.setInitialGraphNode(findEqual(items[i].node));
                 for (int j = 0; j < agentPath.size(); j++) {
-                    taskedAgentOnly.add(findEqual(agentPath.get(j).node));
+                    products_for_tasks.add(findEqual(agentPath.get(j).node));
                 }
                 for (int j = 0; j < agentPath.size(); j++) {
                     aStar.setFinalGraphNode(findEqual(agentPath.get(j).node));
-                    agentFinalPath.addAll(aStar.findGraphPath(taskedAgentOnly));
+                    agentFinalPath.addAll(aStar.findGraphPath(products_for_tasks));
                     aStar.setInitialGraphNode(findEqual(agentPath.get(j).node));
                 }
                 if (!agentPath.isEmpty()) {
                     aStar.setFinalGraphNode(findExits(graph).get(0));
-                    agentFinalPath.addAll(aStar.findGraphPath(taskedAgentOnly));
+                    agentFinalPath.addAll(aStar.findGraphPath(products_for_tasks));
                     finalPath.addAll(agentFinalPath);
                 }
-                results.addTaskedAgentOnly(findEqual(items[i].node), taskedAgentOnly);
+                results.addTaskedAgentOnly(findEqual(items[i].node), products_for_tasks);
                 FitnessCosts costs = calculateFitness(agentFinalPath, findEqual(items[i].node));
                 if (costs.costs.size() != agentFinalPath.size()) {
                     System.out.println("Diferent costs");
@@ -134,28 +139,36 @@ public class EnvironmentNodeGraph {
                 aStar.setFinalGraphNode(null);
                 agentPath.clear();
                 agentFinalPath.clear();
-                taskedAgentOnly.clear();
+                products_for_tasks.clear();
             }
         }
         AStar aStar = new AStar(graph);
         aStar.setInitialGraphNode(lastAgent);
-        List<GraphNode> taskedAgentOnly = new ArrayList<>();
+        List<GraphNode> products_for_tasks = new ArrayList<>();
 
         for (int j = 0; j < agentPath.size(); j++) {
-            taskedAgentOnly.add(findEqual(agentPath.get(j).node));
+            products_for_tasks.add(findEqual(agentPath.get(j).node));
         }
 
         for (int j = 0; j < agentPath.size(); j++) {
             aStar.setFinalGraphNode(findEqual(agentPath.get(j).node));
-            agentFinalPath.addAll(aStar.findGraphPath(taskedAgentOnly));
+            agentFinalPath.addAll(aStar.findGraphPath(products_for_tasks));
             aStar.setInitialGraphNode(findEqual(agentPath.get(j).node));
         }
-        results.addTaskedAgentOnly(lastAgent, taskedAgentOnly);
+        if(agentFinalPath.size() >= 4){
+            if (agentFinalPath.get(0).equals(agentFinalPath.get(2)) && agentFinalPath.get(1).equals(agentFinalPath.get(3))){
+                agentFinalPath.remove(0);
+                agentFinalPath.remove(1);
+            }
+        }
+
+        results.addTaskedAgentOnly(lastAgent, products_for_tasks);
         if (!agentPath.isEmpty()) {
             aStar.setFinalGraphNode(findExits(graph).get(0));
-            agentFinalPath.addAll(aStar.findGraphPath(taskedAgentOnly));
+            agentFinalPath.addAll(aStar.findGraphPath(products_for_tasks));
             finalPath.addAll(agentFinalPath);
         }
+
 
         //System.out.println("\nFitness 2 - " + calculateFitness(agentFinalPath) +  " ");
         //printFinalPath(agentFinalPath);
@@ -172,7 +185,7 @@ public class EnvironmentNodeGraph {
         aStar.setFinalGraphNode(null);
         agentPath.clear();
         agentFinalPath.clear();
-        taskedAgentOnly.clear();
+        products_for_tasks.clear();
         //System.out.println("FINISHED A*");
         //FOR EXIT
 
@@ -384,7 +397,9 @@ public class EnvironmentNodeGraph {
                 if (i < finalPath.size() - 1) {
                     GraphNode start = finalPath.get(i);
                     GraphNode end = finalPath.get(i + 1);
-                    costs.add(start.getDistance(end));
+                    float distance = start.getDistance(end);
+                    costs.add(distance);
+                    fitness += distance;
                 }
             }
             //costs.add(finalPath.get(finalPath.size() - 1).getDistance(findExits(graph).get(0)));
@@ -412,6 +427,7 @@ public class EnvironmentNodeGraph {
         for (int i = 0; i < finalPath.size(); i++) {
             System.out.print("[" + finalPath.get(i).getType().toLetter() + finalPath.get(i).getGraphNodeId() + "]");
         }
+        System.out.println();
     }
 
     private GraphNode findEqual(GraphNode node) {

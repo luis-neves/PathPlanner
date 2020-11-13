@@ -27,6 +27,29 @@ public class GraphNode {
         return amplify;
     }
 
+    public GraphNode(float amplify, int id, Coordenates location, double heuristic, GraphNode parent, GraphNodeType type, float weightPhysical, float weightSupported, MyCluster cluster, int f, int g, List<Edge> neighbours) {
+        this.amplify = amplify;
+        this.id = id;
+        this.location = (Coordenates) location.clone();
+        this.type = type;
+    }
+
+    @Override
+    protected Object clone() {
+        return new GraphNode(this.amplify,
+                this.id,
+                this.location,
+                this.heuristic,
+                this.parent,
+                this.type,
+                this.weightPhysical,
+                this.weightSupported,
+                this.cluster,
+                this.f,
+                this.g,
+                this.neighbours);
+    }
+
     public void setAmplify(float amplify) {
         this.amplify = amplify;
     }
@@ -90,6 +113,7 @@ public class GraphNode {
     public Coordenates getLocation() {
         return location;
     }
+
     public Coordenates getLocationAmplified() {
         return location.amplified(amplify);
     }

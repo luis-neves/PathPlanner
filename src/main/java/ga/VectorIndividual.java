@@ -130,7 +130,7 @@ public abstract class VectorIndividual<P extends Problem, I extends VectorIndivi
             for (int i = 0; i < getGenome(-1).length; i++) {
                 str += "[" + getGenome(-1)[i].name + "]" + (i == (getGenome(-1).length - 1) ? "" : ",");
             }
-            str += ",[" + GASingleton.getInstance().getLastAgent().printName() + "]";
+            str += ",[" + ((GASingleton.getInstance().getLastAgent() != null) ? GASingleton.getInstance().getLastAgent().printName() : "null")+ "]";
             return str;
         }
     }

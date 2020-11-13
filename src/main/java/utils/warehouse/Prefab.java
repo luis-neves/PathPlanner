@@ -1,5 +1,6 @@
 package utils.warehouse;
 
+import java.awt.*;
 import java.util.Comparator;
 
 public class Prefab implements Cloneable {
@@ -11,6 +12,7 @@ public class Prefab implements Cloneable {
     private String codeD = "";
     private Coordenates position;
     private Coordenates rotation;
+    private Shape shape;
 
     @Override
     public Prefab clone() throws CloneNotSupportedException {
@@ -54,6 +56,14 @@ public class Prefab implements Cloneable {
         this.type = PrefabType.parse(type);
         this.name = name;
         this.size = size;
+    }
+
+    public Shape getShape() {
+        return shape;
+    }
+
+    public void setShape(Shape shape) {
+        this.shape = shape;
     }
 
     public Prefab() {

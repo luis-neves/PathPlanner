@@ -71,7 +71,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private int seed = 0;
     private int num_rows = 8;
     private int num_agents = 2;
-    private int num_products = 5;
+    private int num_products = 10;
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
@@ -164,8 +164,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 GASingleton.getInstance().readGraphFile(file);
                 image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
                 gfx = (Graphics2D) image.getGraphics();
-                this.problemGraph = GASingleton.getInstance().getGraph();
-                draw(problemGraph, false, this.gfx, this.image);
+                this.graph = GASingleton.getInstance().getGraph().clone();
+                this.problemGraph = graph;
+                problemGraph.amplify(AMPLIFY);
+                draw(graph, false, this.gfx, this.image);
             }
         } catch (NoSuchElementException e2) {
             JOptionPane.showMessageDialog(this, "File format not valid", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -338,7 +340,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.findNode(12), GraphNodeType.PRODUCT));
         graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.findNode(12).getLocation().getX(), graph.findNode(12).getLocation().getY() + 1, GraphNodeType.PRODUCT));
         //graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.getExit(), GraphNodeType.AGENT));
-        graph = fixNeighboursFixed(graph);
+        graph = fixNeighbours_New(graph);
         for (GraphNode n : graph.getGraphNodes()) {
             System.out.println(n.toString());
         }
@@ -399,22 +401,24 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         Graph graph2;
         if (GASingleton.getInstance().getGraph().getGraphNodes().size() == 0) {
             graph2 = exampleGraph(num_rows);
+            graph = graph2.clone();
         } else {
             graph2 = GASingleton.getInstance().getGraph().clone();
+            graph = graph2.clone();
         }
         graph2 = randomProblem(graph2, num_agents, num_products, -1);
-        graph2 = fixNeighboursFixed(graph2);
+        graph2 = fixNeighbours_New(graph2);
         problemGraph = graph2;
         problemGraph.amplify(AMPLIFY);
         image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
         gfx = (Graphics2D) image.getGraphics();
-        draw(problemGraph, false, this.gfx, this.image);
+        draw(graph2, false, this.gfx, this.image);
     }
 
     public void generateExperimentGraph(int num_colums, int num_agents, int num_products, int seed) {
         Graph graph2 = exampleGraph(num_colums);
         graph2 = randomProblem(graph2, num_agents, num_products, seed);
-        graph2 = fixNeighboursFixed(graph2);
+        graph2 = fixNeighbours_New(graph2);
 
         image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
         gfx = (Graphics2D) image.getGraphics();
@@ -531,11 +535,11 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             //environmentPanel.updateUI();
             image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
             gfx = (Graphics2D) image.getGraphics();
-            Graph graph2 = exampleGraph(num_rows);
+            Graph graph2 = graph.clone();
             graph2 = randomProblem(graph2, num_agents, num_products, seed);
-            graph2 = fixNeighboursFixed(graph2);
+            graph2 = fixNeighbours_New(graph2);
             problemGraph = graph2;
-            draw(problemGraph, false, this.gfx, this.image);
+            draw(graph2, false, this.gfx, this.image);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -562,7 +566,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             if (GASingleton.getInstance().getCm() != null) {
                 GASingleton.getInstance().getCm().SendMessageAsync(Util.GenerateId(), "request", "getAllOrders", GASingleton.erpID, "text/plain", "", "1");
             }
-            graph2 = fixNeighboursFixed(graph2);
+            graph2 = fixNeighbours_New(graph2);
             image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
             gfx = (Graphics2D) image.getGraphics();
             this.problemGraph = graph2;
@@ -570,6 +574,29 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    private Graph fixNeighbours_New(Graph graph) {
+        for (GraphNode product_agent : graph.getProducts_Agents()) {
+            Edge edge = graph.findClosestEdge(product_agent);
+            edge.addProduct(product_agent);
+        }
+        List<Edge> mainEdges = new ArrayList<>();
+        mainEdges.addAll(graph.getEdges());
+        for (Edge edge : mainEdges) {
+            if (edge.getProducts().size() > 0) {
+                for (GraphNode product1 : edge.getProducts()) {
+                    graph.makeNeighbors(product1, edge.getStart(), true);
+                    graph.makeNeighbors(product1, edge.getEnd(), true);
+                    for (GraphNode product2 : edge.getProducts()) {
+                        if (!product1.equals(product2)) {
+                            graph.makeNeighbors(product1, product2, true);
+                        }
+                    }
+                }
+            }
+        }
+        return graph;
     }
 
 
@@ -801,18 +828,16 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         if (graph.containsProblem() && !justDraw) {
             environmentNodeGraph = new EnvironmentNodeGraph(graph);
             List<Item> items = new ArrayList<>();
-            List<GraphNode> agents = new ArrayList<>();
-            for (int i = 0; i < graph.getGraphNodes().size(); i++) {
-                if (graph.getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT || graph.getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
-                    if (graph.getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
-                        agents.add(graph.getGraphNodes().get(i));
-                    }
-                    Item item = new Item((graph.getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT ? "P" : graph.getGraphNodes().get(i).getType() == GraphNodeType.AGENT ? "A" : "N") + graph.getGraphNodes().get(i).getGraphNodeId(), graph.getGraphNodes().get(i));
-                    items.add(item);
-                }
+            for (GraphNode product : graph.getProducts()) {
+                Item item = new Item(product.printName(), product);
+                items.add(item);
+            }
+            for (int i = 0; i < graph.getAgents().size(); i++) {
+                Item item = new Item(graph.getAgents().get(i).printName(), graph.getAgents().get(i));
+                items.add(item);
             }
             GASingleton.getInstance().setItems(items);
-            GASingleton.getInstance().setLastAgent(agents.get(agents.size() - 1));
+            GASingleton.getInstance().setLastAgent(graph.getAgents().get(graph.getAgents().size()-1));
             GASingleton.getInstance().setNodeProblem(true);
         }
 
@@ -1231,10 +1256,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             //Collections.sort(prefabList, new CustomComparator());
 
             prefabManager.fillAllPrefabs();
-            /*
+
             for (Prefab prefab : prefabManager.getAllPrefabs()){
                 System.out.println(prefab.toString());
-            }*/
+            }
 
             draw_prefabs(prefabManager);
 

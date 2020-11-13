@@ -142,7 +142,9 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
 
     private String printFitnessBreakdown() {
         String str = "";
-        str += results.getFitness() + "*" + GASingleton.getInstance().getTimeWeight() + " + (" + (results.getCollisionPenalty() * results.getNumCollisions()) + (GASingleton.getInstance().isSimulatingWeights() ? " * " + GASingleton.getInstance().getColisionWeight() + (") + (" + (results.getWeightsPenalty()) + " * " + GASingleton.getInstance().getWeightsPenaltyWeight() + ")") : "*" + GASingleton.getInstance().getColisionWeight() + ")");
+        if (results != null) {
+            str += results.getFitness() + "*" + GASingleton.getInstance().getTimeWeight() + " + (" + (results.getCollisionPenalty() * results.getNumCollisions()) + (GASingleton.getInstance().isSimulatingWeights() ? " * " + GASingleton.getInstance().getColisionWeight() + (") + (" + (results.getWeightsPenalty()) + " * " + GASingleton.getInstance().getWeightsPenaltyWeight() + ")") : "*" + GASingleton.getInstance().getColisionWeight() + ")");
+        }
         return str;
     }
 
@@ -158,7 +160,7 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
     @Override
     public String printJustGenome() {
         String str = "";
-        for (int i = 0; i < genome.length; i++){
+        for (int i = 0; i < genome.length; i++) {
             str += "[" + genome[i].node.printName() + "]";
         }
         return str;

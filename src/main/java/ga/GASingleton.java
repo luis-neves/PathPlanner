@@ -619,7 +619,7 @@ public class GASingleton {
                 }
             }
             graph.setgraphNodes(graphNodes);
-            graph.deAmplify(amplify_x);
+            //graph.deAmplify(amplify_x);
             for (int i = 0; i < graphElement.getChildNodes().getLength(); i++) {
                 if (graphElement.getChildNodes().item(i).getNodeName().equals("Edges")) {
                     edgeList = parseEdges(graphElement.getChildNodes().item(i));

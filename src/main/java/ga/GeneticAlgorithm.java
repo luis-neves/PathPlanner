@@ -131,7 +131,6 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
             for (int i = 0; i < problemItems.length; i++) {
                 baseGenome.add(problemItems[i].node);
             }
-
             this.lastGentListIndex = GASingleton.getInstance().addLastGenGA(this, lastGentListIndex);
         }
         population = new Population<>(populationSize, problem);
