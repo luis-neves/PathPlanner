@@ -135,6 +135,7 @@ public class PrefabManager {
                 if (prefab instanceof Structure) {
                     structures.add(rec);
                 }
+                prefab.setShape(rec);
             }
         }
         shapes.put(PREFAB_RACK, racks);

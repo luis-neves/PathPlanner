@@ -45,7 +45,7 @@ public class DetailsPage extends JFrame {
     private static final int GRID_TO_PANEL_GAP = 20;
     private static final int MAX_WIDTH = 1600;
     private static final int MAX_HEIGHT = 800;
-    private static final int LINE_PIXEL_SENSIBILITY = 10;
+    private static final int LINE_PIXEL_SENSIBILITY = 20;
     private static final int NODE_SIZE = 5;
     public Line_Type line_type = Line_Type.SIMPLE;
     public Node_Action node_action = Node_Action.DRAW;
@@ -486,7 +486,7 @@ public class DetailsPage extends JFrame {
                 int new_x = Math.round((int)rack.getShape().getBounds().getCenterX());
                 int new_y = Math.round((int)rack.getShape().getBounds().getCenterY());
                 int id = Integer.parseInt(rack.getCode().split("RC")[1]);
-                graph.createGraphNode(new GraphNode(id, new_x, new_y, GraphNodeType.PRODUCT));
+                graph.createGraphNodeOnClosestEdge(new GraphNode(id, new_x, new_y, GraphNodeType.PRODUCT));
             }
         }
 

@@ -1,6 +1,5 @@
 package utils.Graphs;
 
-import org.jfree.data.time.TimePeriodValues;
 import utils.warehouse.Coordenates;
 
 import java.util.ArrayList;
@@ -9,6 +8,7 @@ import java.util.List;
 public class Edge {
     private boolean horizontal_edge = false;
     private boolean vertical_edge = false;
+    private boolean oblique_edge = false;
     private GraphNode start;
     private GraphNode end;
     private double weight;
@@ -85,10 +85,13 @@ public class Edge {
         float x2 = e.getLocation().getX();
         float y1 = s.getLocation().getY();
         float y2 = e.getLocation().getY();
-        if (x1 == x2)
-            this.horizontal_edge = true;
-        if (y1 == y2)
-            this.horizontal_edge = false;
+        if (x1 == x2) {
+            this.setVertical_edge(true);
+        } else if (y1 == y2) {
+            this.setHorizontal_edge(true);
+        }else{
+            this.setOblique_edge(true);
+        }
         this.location = new Coordenates(x1 == x2 ? x2 : (x1 + x2) / 2, y1 == y2 ? y2 : (y1 + y2) / 2, 0);
         this.id = id;
         this.product_line = false;
@@ -111,10 +114,13 @@ public class Edge {
         float x2 = e.getLocation().getX();
         float y1 = s.getLocation().getY();
         float y2 = e.getLocation().getY();
-        if (x1 == x2)
-            this.horizontal_edge = true;
-        if (y1 == y2)
-            this.horizontal_edge = false;
+        if (x1 == x2) {
+            this.setVertical_edge(true);
+        } else if (y1 == y2) {
+            this.setHorizontal_edge(true);
+        }else{
+            this.setOblique_edge(true);
+        }
         this.location = new Coordenates(x1 == x2 ? x2 : (x1 + x2) / 2, y1 == y2 ? y2 : (y1 + y2) / 2, 0);
         this.id = id;
         this.product_line = product_line;
@@ -122,7 +128,18 @@ public class Edge {
 
     @Override
     public String toString() {
-        return "Edge " + id + " W " + getWeight() + " Start " + getStart().getGraphNodeId() + " End " + getEnd().getGraphNodeId();
+        return "Edge " + id + " W " + getWeight() + " Start " + getStart().getGraphNodeId() + " End " + getEnd().getGraphNodeId() + " " + printDecline();
+    }
+
+    private String printDecline() {
+        if (this.isVertical_edge()){
+            return "VERTICAL";
+        }else if(this.isHorizontal_edge()) {
+            return "HORIZONTAL";
+        }else if(this.isOblique_edge()){
+            return "OBLIQUE";
+        }
+        return "NULL";
     }
 
     public GraphNode getOtherEnd(GraphNode graphNode) {
@@ -139,5 +156,29 @@ public class Edge {
 
     public List<GraphNode> getProducts() {
         return products;
+    }
+
+    public boolean isHorizontal_edge() {
+        return horizontal_edge;
+    }
+
+    public void setHorizontal_edge(boolean horizontal_edge) {
+        this.horizontal_edge = horizontal_edge;
+    }
+
+    public boolean isVertical_edge() {
+        return vertical_edge;
+    }
+
+    public void setVertical_edge(boolean vertical_edge) {
+        this.vertical_edge = vertical_edge;
+    }
+
+    public boolean isOblique_edge() {
+        return oblique_edge;
+    }
+
+    public void setOblique_edge(boolean oblique_edge) {
+        this.oblique_edge = oblique_edge;
     }
 }

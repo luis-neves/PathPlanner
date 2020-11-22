@@ -71,7 +71,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private int seed = 0;
     private int num_rows = 8;
     private int num_agents = 2;
-    private int num_products = 10;
+    private int num_products = 8;
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
@@ -111,7 +111,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         buttonZoomIN.addActionListener(new SimulationPanel_jButtonZoomIn_actionAdapter(this));
         buttonZoomOUT.addActionListener(new SimulationPanel_jButtonZoomOut_actionAdapter(this));
         buttonImportGraph.addActionListener(new SimulationPanel_jButtonImportGraph_actionAdapter(this));
-
         GASingleton.getInstance().setSimulationPanel(this);
 
     }
@@ -179,222 +178,11 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         //test Colision
         image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
         gfx = (Graphics2D) image.getGraphics();
-        //Graph graph2 = exampleGraph(num_rows);
-        Graph graph2 = sampleGraph();
-        //graph2 = randomProblem(graph2, num_agents, num_products, -1);
-        //graph2 = fixNeighboursFixed(graph2);
-        // graph2 = randomProblem(graph2, 2, 5, -1);
-        // graph2 = fixNeighboursFixed(graph2);
-        problemGraph = graph2;
-        draw(graph2, false, this.gfx, this.image);
-        /*
-        FitnessResults results = GASingleton.getInstance().getBestInRun();
-        int agent_id = 23;
-        int agent_id_2 = 19;
-        List<FitnessNode> nodes = results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id));
-        nodes.remove(2);
-        nodes.get(2).setCost(40f);
-        List<FitnessNode> nodesClone2 = new ArrayList<>();
-        for (int i = 0; i < nodes.size(); i++) {
-            if (nodes.get(i).getNode().getType() != GraphNodeType.PRODUCT) {
-                nodesClone2.add(nodes.get(i));
-            }
-        }
-        results.getTaskedAgentsFullNodes().replace(problemGraph.findNode(agent_id), nodes);
-        results.getTaskedAgentsFullNodesNoPackages().replace(problemGraph.findNode(agent_id), nodesClone2);
-        results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id_2)).clear();
-        List<FitnessNode> nodes19 = results.getTaskedAgentsFullNodes().get(problemGraph.findNode(agent_id_2));
-
-        nodes19 = insertFakeFitnessNode(nodes19, 0, 8, 60);
-        nodes19 = insertFakeFitnessNode(nodes19, 1, 9, 30);
-        nodes19 = insertFakeFitnessNode(nodes19, 2, 25, 40);
-        nodes19 = insertFakeFitnessNode(nodes19, 3, 15, 40);
-        nodes19 = insertFakeFitnessNode(nodes19, 4, 16, 30);
-        nodes19 = insertFakeFitnessNode(nodes19, 5, 17, 30);
-        nodes19 = insertFakeFitnessNode(nodes19, 6, 18, 30);
-
-        results.getTaskedAgentsFullNodes().replace(problemGraph.findNode(agent_id_2), nodes19);
-        List<FitnessNode> nodesClone = new ArrayList<>();
-
-        for (int i = 0; i < nodes19.size(); i++) {
-            if (nodes19.get(i).getNode().getType() != GraphNodeType.PRODUCT) {
-                nodesClone.add(nodes19.get(i));
-            }
-        }
-        results.getTaskedAgentsFullNodesNoPackages().replace(problemGraph.findNode(agent_id_2), nodesClone);
-
-        results = GASingleton.getInstance().checkResultsForColision(results);
-        GASingleton.getInstance().setBestInRun(results);
-        GASingleton.getInstance().getBestIndividualPanel().textArea.setText(GASingleton.getInstance().getBestInRun().printTaskedAgents());*/
-    }
-
-    private Graph sampleGraph() {
-        Graph graph = new Graph();
-        //graph = insertNodeFromPixelCoords(graph, 115, 355);
-        graph = insertNodeFromPixelCoords(graph, 285, 370);
-
-        //graph = insertNodeFromPixelCoords(graph, 115, 500);
-        graph = insertNodeFromPixelCoords(graph, 285, 560);
-
-        //graph = insertNodeFromPixelCoords(graph, 250, 500);
-        graph = insertNodeFromPixelCoords(graph, 470, 560);
-
-        //graph = insertNodeFromPixelCoords(graph, 250, 355);
-        graph = insertNodeFromPixelCoords(graph, 470, 370);
-
-        //graph = insertNodeFromPixelCoords(graph, 250, 640);
-        graph = insertNodeFromPixelCoords(graph, 470, 760);
-
-        //graph = insertNodeFromPixelCoords(graph, 420, 355);
-        graph = insertNodeFromPixelCoords(graph, 680, 370);
-
-        //graph = insertNodeFromPixelCoords(graph, 420, 500);
-        graph = insertNodeFromPixelCoords(graph, 680, 560);
-
-        //graph = insertNodeFromPixelCoords(graph, 420, 640);
-        graph = insertNodeFromPixelCoords(graph, 680, 760);
-
-        //graph = insertNodeFromPixelCoords(graph, 550, 355);
-        graph = insertNodeFromPixelCoords(graph, 875, 370);
-
-        //graph = insertNodeFromPixelCoords(graph, 550, 450);
-        graph = insertNodeFromPixelCoords(graph, 875, 500);
-
-        //graph = insertNodeFromPixelCoords(graph, 550, 500);
-        graph = insertNodeFromPixelCoords(graph, 875, 560);
-
-        //graph = insertNodeFromPixelCoords(graph, 600, 450);
-        graph = insertNodeFromPixelCoords(graph, 930, 500);
-
-        //graph = insertNodeFromPixelCoords(graph, 600, 315);
-        graph = insertNodeFromPixelCoords(graph, 930, 295);
-
-        //graph = insertNodeFromPixelCoords(graph, 600, 530);
-        graph = insertNodeFromPixelCoords(graph, 930, 610);
-
-        //graph = insertNodeFromPixelCoords(graph, 600, 640);
-        graph = insertNodeFromPixelCoords(graph, 930, 760);
-
-        //graph = insertNodeFromPixelCoords(graph, 740, 315);
-        graph = insertNodeFromPixelCoords(graph, 1140, 295);
-
-        //graph = insertNodeFromPixelCoords(graph, 740, 450);
-        graph = insertNodeFromPixelCoords(graph, 1140, 500);
-
-        //graph = insertNodeFromPixelCoords(graph, 770, 640);
-        graph = insertNodeFromPixelCoords(graph, 1175, 760);
-
-        //graph = insertNodeFromPixelCoords(graph, 770, 530);
-        graph = insertNodeFromPixelCoords(graph, 1175, 610);
-
-        //graph = insertNodeFromPixelCoords(graph, 850, 450);
-        graph = insertNodeFromPixelCoords(graph, 1295, 500);
-
-        //graph = insertNodeFromPixelCoords(graph, 850, 530);
-        graph = insertNodeFromPixelCoords(graph, 1295, 610);
-
-        //graph = insertNodeFromPixelCoords(graph, 930, 530);
-        graph = insertNodeFromPixelCoords(graph, 1400, 610);
-
-        //graph = insertNodeFromPixelCoords(graph, 930, 640);
-        graph = insertNodeFromPixelCoords(graph, 1400, 760);
-
-        //graph = insertNodeFromPixelCoords(graph, 1130, 315);
-        graph = insertNodeFromPixelCoords(graph, 1675, 320);
-
-        //graph = insertNodeFromPixelCoords(graph, 1130, 530);
-        graph = insertNodeFromPixelCoords(graph, 1675, 610);
-
-        graph.findNode(4).setType(GraphNodeType.EXIT);
-        graph.bridge(graph.findNode(0), graph.findNode(1));
-        graph.bridge(graph.findNode(0), graph.findNode(3));
-        graph.bridge(graph.findNode(1), graph.findNode(2));
-        graph.bridge(graph.findNode(3), graph.findNode(2));
-        graph.bridge(graph.findNode(2), graph.findNode(6));
-        graph.bridge(graph.findNode(2), graph.findNode(3));
-        graph.bridge(graph.findNode(2), graph.findNode(4));
-        graph.bridge(graph.findNode(6), graph.findNode(7));
-        graph.bridge(graph.findNode(6), graph.findNode(5));
-        graph.bridge(graph.findNode(6), graph.findNode(10));
-        graph.bridge(graph.findNode(3), graph.findNode(5));
-        graph.bridge(graph.findNode(8), graph.findNode(5));
-        graph.bridge(graph.findNode(9), graph.findNode(8));
-        graph.bridge(graph.findNode(9), graph.findNode(10));
-        graph.bridge(graph.findNode(9), graph.findNode(11));
-        graph.bridge(graph.findNode(11), graph.findNode(12));
-        graph.bridge(graph.findNode(11), graph.findNode(13));
-        graph.bridge(graph.findNode(11), graph.findNode(16));
-        graph.bridge(graph.findNode(14), graph.findNode(13));
-        graph.bridge(graph.findNode(16), graph.findNode(15));
-        graph.bridge(graph.findNode(16), graph.findNode(19));
-        graph.bridge(graph.findNode(20), graph.findNode(19));
-        graph.bridge(graph.findNode(20), graph.findNode(18));
-        graph.bridge(graph.findNode(20), graph.findNode(21));
-        graph.bridge(graph.findNode(24), graph.findNode(21));
-        graph.bridge(graph.findNode(24), graph.findNode(23));
-        graph.bridge(graph.findNode(22), graph.findNode(21));
-        graph.bridge(graph.findNode(17), graph.findNode(18));
-        graph.bridge(graph.findNode(13), graph.findNode(18));
-        //graph = randomProblem(graph, 1, 2, -1);
-        graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.findNode(23), GraphNodeType.AGENT));
-        graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.findNode(12), GraphNodeType.PRODUCT));
-        graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.findNode(12).getLocation().getX(), graph.findNode(12).getLocation().getY() + 1, GraphNodeType.PRODUCT));
-        //graph.createGraphNode(new GraphNode(graph.getNumNodes(), graph.getExit(), GraphNodeType.AGENT));
-        graph = fixNeighbours_New(graph);
-        for (GraphNode n : graph.getGraphNodes()) {
-            System.out.println(n.toString());
-        }
-        graph.flipHorizontal(23.8f);
-
-        /*
-        GraphNode n_115_355= new GraphNode(graph.getNumNodes(), 0, 25, GraphNodeType.SIMPLE);
-        graph.createGraphNode(n_115_355);
-        GraphNode n_1130_315= new GraphNode(graph.getNumNodes(), 400, 0, GraphNodeType.EXIT);
-        graph.createGraphNode(n_1130_315);
-        GraphNode n_1130_530 = new GraphNode(graph.getNumNodes(), 400, 132, GraphNodeType.SIMPLE);
-        graph.createGraphNode(n_1130_530);
-        GraphNode n_115_500 = new GraphNode(graph.getNumNodes(), 0, 114, GraphNodeType.SIMPLE);
-        graph.createGraphNode(n_115_500);
-        //GraphNode n10_130 = new GraphNode(graph.getNumNodes(), 10, 100, GraphNodeType.SIMPLE);
-        */
-        //graph.createGraphNode(n10_130);
-        // graph.bridge(n_115_355, n_115_500);
-        //graph.bridge(n_115_500, n400_100);
-        //graph.bridge(n_1130_530, n_1130_315);
-        //graph.createEdge();
-        return graph;
-    }
-
-    private Graph insertNodeFromPixelCoords(Graph graph, int x, int y) {
-        int x_min = 230;
-        int x_max = 1790;
-        int y_min = 295;
-        int y_max = 790;
-
-        float max_real_x = 23.8f;
-        float max_real_y = 7.25f;
-
-        double new_x = Math.ceil(((x - x_min) * MAX_DRAW_X / (x_max - x_min)));
-        double new_y = Math.ceil(((y - y_min) * MAX_DRAW_Y / (y_max - y_min)));
-        double new_real_x = ((x - x_min) * max_real_x / (x_max - x_min));
-        double new_real_y = ((y - y_min) * max_real_y / (y_max - y_min));
-        GraphNode n = new GraphNode(graph.getNumNodes(), (float) new_real_x, (float) new_real_y, GraphNodeType.SIMPLE);
-        graph.createGraphNode(n);
-        return graph;
     }
 
 
-    private List<FitnessNode> insertFakeFitnessNode(List<FitnessNode> nodes, int index, int nID, float cost) {
-        Float time = 0f;
-        if (index > 0) {
-            time = nodes.get(index - 1).getTime();
-        }
-        nodes.add(index, new FitnessNode(nodes.size(), problemGraph.findNode(nID), cost, (time + cost)));
-        for (int i = index + 1; i < nodes.size(); i++) {
-            nodes.get(i).setTime(nodes.get(i).getTime() + cost);
-        }
-        return nodes;
-    }
+
+
 
     public void jButtonRandNodeGraphProblem_actionPerformed(ActionEvent e) {
         //environmentPanel.updateUI();
@@ -581,8 +369,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
             Edge edge = graph.findClosestEdge(product_agent);
             edge.addProduct(product_agent);
         }
-        List<Edge> mainEdges = new ArrayList<>();
-        mainEdges.addAll(graph.getEdges());
+        List<Edge> mainEdges = new ArrayList<>(graph.getEdges());
         for (Edge edge : mainEdges) {
             if (edge.getProducts().size() > 0) {
                 for (GraphNode product1 : edge.getProducts()) {

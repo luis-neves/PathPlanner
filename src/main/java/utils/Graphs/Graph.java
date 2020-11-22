@@ -314,11 +314,12 @@ public class Graph {
                 e.setEnd(start_node);
                 e.setStart(end_node);
                 createEdge(e);
+                System.out.println(e);
             } else {
                 e.setProduct_line(product_line);
             }
         } catch (Exception e) {
-            System.out.println();
+            System.out.println("Cant make neighbors");
         }
     }
 
@@ -346,30 +347,119 @@ public class Graph {
         }
     }
 
-    public Edge findClosestEdge(GraphNode product_agent) {
-        Edge closestEdge = null;
-        List<Edge> candidate_edges = new ArrayList<>();
-        for (Edge edge : this.getEdges()) {
-            if (edge.getLocation().getX() == product_agent.getLocation().getX() || edge.getLocation().getY() == product_agent.getLocation().getY()) {
-                candidate_edges.add(edge);
-            }
-            if (edge.getLocation().getX() == product_agent.getLocation().getX() && edge.getLocation().getY() == product_agent.getLocation().getY()) {
-                return edge;
-            }
-        }
-        if (candidate_edges.size() > 0) {
-            closestEdge = candidate_edges.get(0);
-            float closest_dist = Math.abs(closestEdge.getLocation().getY() - product_agent.getLocation().getY());
-            for (Edge edge : candidate_edges) {
-                if (edge.getLocation().getX() == product_agent.getLocation().getX()) {
-                    float distance = Math.abs(edge.getLocation().getY() - product_agent.getLocation().getY());
-                    if (distance < closest_dist) {
-                        closest_dist = distance;
-                        closestEdge = edge;
+    public Edge findClosestEdge(GraphNode graphNode) {
+        Edge closest = null;
+        float distance = Float.MAX_VALUE;
+        Coordenates oblique_location = null;
+        for (Edge edge : edges) {
+            if (edge.isProduct_line()) {
+                if (edge.isVertical_edge() &&
+                        ((graphNode.getLocation().getY() < edge.getEnd().getLocation().getY() && graphNode.getLocation().getY() > edge.getStart().getLocation().getY()) ||
+                                (graphNode.getLocation().getY() > edge.getEnd().getLocation().getY() && graphNode.getLocation().getY() < edge.getStart().getLocation().getY()))) {
+                    if (graphNode.getDistance(edge.getLocation().getX(), graphNode.getLocation().getY()) < distance) {
+                        closest = edge;
+                        distance = graphNode.getDistance(edge.getLocation().getX(), graphNode.getLocation().getY());
+                    }
+                } else if (edge.isHorizontal_edge() && ((graphNode.getLocation().getX() < edge.getEnd().getLocation().getX() && graphNode.getLocation().getX() > edge.getStart().getLocation().getX()) ||
+                        (graphNode.getLocation().getX() > edge.getEnd().getLocation().getX() && graphNode.getLocation().getX() < edge.getStart().getLocation().getX()))) {
+                    if (graphNode.getDistance(graphNode.getLocation().getX(), edge.getLocation().getX()) < distance) {
+                        closest = edge;
+                        distance = graphNode.getDistance(edge.getLocation().getX(), graphNode.getLocation().getY());
+                    }
+                } else if (edge.isOblique_edge()) {
+                    GraphNode node_on_line = put_node_in_obliqueLine(edge, graphNode);
+                    if(node_on_line.getDistance(graphNode) < distance){
+                        closest = edge;
+                        distance = node_on_line.getDistance(graphNode);
+                        oblique_location = node_on_line.getLocation();
                     }
                 }
             }
         }
-        return closestEdge;
+        return closest;
+    }
+
+    public void createGraphNodeOnClosestEdge(GraphNode graphNode) {
+        Edge closest = null;
+        float distance = Float.MAX_VALUE;
+        Coordenates oblique_location = null;
+        for (Edge edge : edges) {
+            if (edge.isProduct_line()) {
+                if (edge.isVertical_edge() &&
+                        ((graphNode.getLocation().getY() < edge.getEnd().getLocation().getY() && graphNode.getLocation().getY() > edge.getStart().getLocation().getY()) ||
+                                (graphNode.getLocation().getY() > edge.getEnd().getLocation().getY() && graphNode.getLocation().getY() < edge.getStart().getLocation().getY()))) {
+                    if (graphNode.getDistance(edge.getLocation().getX(), graphNode.getLocation().getY()) < distance) {
+                        closest = edge;
+                        distance = graphNode.getDistance(edge.getLocation().getX(), graphNode.getLocation().getY());
+                    }
+                } else if (edge.isHorizontal_edge() && ((graphNode.getLocation().getX() < edge.getEnd().getLocation().getX() && graphNode.getLocation().getX() > edge.getStart().getLocation().getX()) ||
+                        (graphNode.getLocation().getX() > edge.getEnd().getLocation().getX() && graphNode.getLocation().getX() < edge.getStart().getLocation().getX()))) {
+                    if (graphNode.getDistance(graphNode.getLocation().getX(), edge.getLocation().getX()) < distance) {
+                        closest = edge;
+                        distance = graphNode.getDistance(edge.getLocation().getX(), graphNode.getLocation().getY());
+                    }
+                } else if (edge.isOblique_edge()) {
+                    GraphNode node_on_line = put_node_in_obliqueLine(edge, graphNode);
+                    if(node_on_line.getDistance(graphNode) < distance){
+                        closest = edge;
+                        distance = node_on_line.getDistance(graphNode);
+                        oblique_location = node_on_line.getLocation();
+                    }
+                }
+            }
+        }
+        if (closest != null) {
+            if (closest.isVertical_edge())
+                graphNode.getLocation().setX(closest.getLocation().getX());
+            if (closest.isHorizontal_edge()) {
+                graphNode.getLocation().setY(closest.getLocation().getY());
+                System.out.println(distance);
+            }
+            if (closest.isOblique_edge()) {
+                graphNode.setLocation(oblique_location);
+            }
+            this.graphNodes.add(graphNode);
+            this.numberOfgraphNodes++;
+        }
+    }
+
+    private GraphNode put_node_in_obliqueLine(Edge edge, GraphNode graphNode) {
+
+        System.out.println("Start " + edge.getStart());
+        System.out.println("End " + edge.getEnd());
+
+        float x1 = edge.getStart().getLocation().getX();
+        float x2 = edge.getEnd().getLocation().getX();
+        float y1 = edge.getStart().getLocation().getY();
+        float y2 = edge.getEnd().getLocation().getY();
+
+        if (x2 < x1) {
+            float backup_x = x1;
+            float backup_y = y1;
+            x1 = x2;
+            x2 = backup_x;
+            y1 = y2;
+            y2 = backup_y;
+        }
+
+
+        double m = (y2 - y1) / (x2 - x1);
+        double b = y1 - m * (x1);
+
+        //f(x) -> y = mx + b
+        //f'(x) -> y = (-1/m)x + b
+        //x(m1 - m2) = b2 - b1
+        //x = (b2 - b1) / (m1 - m2)
+
+        float x = graphNode.getLocation().getX();
+        float y = graphNode.getLocation().getY();
+
+        double mi = (-1 / m);
+        double bi = y - mi * (x);
+
+        double new_x = (bi - b) / (m - mi);
+        double new_y = mi * new_x + bi;
+
+        return new GraphNode(this.getNumNodes(), (float) new_x, (float) new_y, GraphNodeType.PRODUCT);
     }
 }
