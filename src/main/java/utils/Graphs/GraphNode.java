@@ -21,6 +21,16 @@ public class GraphNode {
     private GraphNodeType type;
     private float weightPhysical;
     private float weightSupported;
+    private boolean contains_product = false;
+
+    public boolean contains_product() {
+        return contains_product;
+    }
+
+    public void setContains_product(boolean contains_product) {
+        this.contains_product = contains_product;
+    }
+
     private MyCluster cluster;
 
     public float getAmplify() {

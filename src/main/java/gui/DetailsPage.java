@@ -286,12 +286,15 @@ public class DetailsPage extends JFrame {
         List<GraphNode> nodes = new ArrayList<>();
         for (int i = 0; i < item.getChildNodes().getLength(); i++) {
             if (item.getChildNodes().item(i).getNodeName().equals("Node")) {
-                String[] loc = item.getChildNodes().item(i).getAttributes().item(1).getNodeValue().split(",");
+                String[] loc = item.getChildNodes().item(i).getAttributes().getNamedItem("loc").getNodeValue().split(",");
 
-                GraphNode node = new GraphNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().item(0).getNodeValue()),
+                GraphNode node = new GraphNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().getNamedItem("id").getNodeValue()),
                         Float.parseFloat(loc[0]), Float.parseFloat(loc[1]),
                         Float.parseFloat(loc[2]),
-                        GraphNodeType.valueOf(item.getChildNodes().item(i).getAttributes().item(2).getNodeValue()));
+                        GraphNodeType.valueOf(item.getChildNodes().item(i).getAttributes().getNamedItem("type").getNodeValue()));
+                if (Boolean.parseBoolean(item.getChildNodes().item(i).getAttributes().getNamedItem("contains_product").getNodeValue())){
+                    node.setContains_product(true);
+                }
                 nodes.add(node);
             }
         }
@@ -343,6 +346,9 @@ public class DetailsPage extends JFrame {
                 Attr attr_type = doc.createAttribute("type");
                 attr_type.setValue(node.getType() + "");
                 nodeElement.setAttributeNode(attr_type);
+                Attr contains_product = doc.createAttribute("contains_product");
+                contains_product.setValue(node.contains_product() + "");
+                nodeElement.setAttributeNode(contains_product);
                 Attr attr_loc = doc.createAttribute("loc");
                 attr_loc.setValue(node.getLocation().printOnlyValues());
                 nodeElement.setAttributeNode(attr_loc);
@@ -427,7 +433,10 @@ public class DetailsPage extends JFrame {
 
                 public void mouseReleased(MouseEvent e) {
                     if (startDrag.x == e.getX() && startDrag.y == e.getY() || node_action == Node_Action.REMOVE || node_action == Node_Action.GENERATE_PRODUCT) {
-
+                        if (line_type == Line_Type.PRODUCT && startDrag.x == e.getX() && startDrag.y == e.getY()) {
+                            GraphNode node = graph.findClosestNode(startDrag.x, startDrag.y, LINE_PIXEL_SENSIBILITY * 2);
+                            node.setContains_product(true);
+                        }
                     } else {
                         GraphNode node = graph.findClosestNode(startDrag.x, startDrag.y, LINE_PIXEL_SENSIBILITY * 2);
                         if (node == null) {
@@ -483,8 +492,8 @@ public class DetailsPage extends JFrame {
         private void find_rack_gen_product(int x, int y) {
             Rack rack = prefabManager.findRack(x, y, LINE_PIXEL_SENSIBILITY);
             if (rack != null) {
-                int new_x = Math.round((int)rack.getShape().getBounds().getCenterX());
-                int new_y = Math.round((int)rack.getShape().getBounds().getCenterY());
+                int new_x = Math.round((int) rack.getShape().getBounds().getCenterX());
+                int new_y = Math.round((int) rack.getShape().getBounds().getCenterY());
                 int id = Integer.parseInt(rack.getCode().split("RC")[1]);
                 graph.createGraphNodeOnClosestEdge(new GraphNode(id, new_x, new_y, GraphNodeType.PRODUCT));
             }
@@ -534,6 +543,9 @@ public class DetailsPage extends JFrame {
                 g2.fill(s);
             }
             for (GraphNode node : graph.getGraphNodes()) {
+                g2.setPaint(Color.BLACK);
+                if (node.contains_product())
+                    g2.setPaint(Color.BLUE);
                 g2.drawOval((int) node.getLocation().getX() - (NODE_SIZE / 2), (int) node.getLocation().getY() - (NODE_SIZE / 2), NODE_SIZE, NODE_SIZE);
                 g2.drawString(node.printName(), (int) node.getLocation().getX() + (NODE_SIZE), (int) node.getLocation().getY() - (NODE_SIZE));
             }

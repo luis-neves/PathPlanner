@@ -368,7 +368,7 @@ public class Graph {
                     }
                 } else if (edge.isOblique_edge()) {
                     GraphNode node_on_line = put_node_in_obliqueLine(edge, graphNode);
-                    if(node_on_line.getDistance(graphNode) < distance){
+                    if (node_on_line.getDistance(graphNode) < distance) {
                         closest = edge;
                         distance = node_on_line.getDistance(graphNode);
                         oblique_location = node_on_line.getLocation();
@@ -381,6 +381,7 @@ public class Graph {
 
     public void createGraphNodeOnClosestEdge(GraphNode graphNode) {
         Edge closest = null;
+        GraphNode closest_product_node = null;
         float distance = Float.MAX_VALUE;
         Coordenates oblique_location = null;
         for (Edge edge : edges) {
@@ -400,11 +401,19 @@ public class Graph {
                     }
                 } else if (edge.isOblique_edge()) {
                     GraphNode node_on_line = put_node_in_obliqueLine(edge, graphNode);
-                    if(node_on_line.getDistance(graphNode) < distance){
+                    if (node_on_line.getDistance(graphNode) < distance) {
                         closest = edge;
                         distance = node_on_line.getDistance(graphNode);
                         oblique_location = node_on_line.getLocation();
                     }
+                }
+            }
+        }
+        for (GraphNode node : getGraphNodes()) {
+            if (node.contains_product()) {
+                if (node.getDistance(graphNode) < distance) {
+                    closest = null;
+                    closest_product_node = node;
                 }
             }
         }
@@ -413,11 +422,14 @@ public class Graph {
                 graphNode.getLocation().setX(closest.getLocation().getX());
             if (closest.isHorizontal_edge()) {
                 graphNode.getLocation().setY(closest.getLocation().getY());
-                System.out.println(distance);
             }
             if (closest.isOblique_edge()) {
                 graphNode.setLocation(oblique_location);
             }
+            this.graphNodes.add(graphNode);
+            this.numberOfgraphNodes++;
+        } else if(closest_product_node != null){
+            graphNode.setLocation(closest_product_node.getLocation());
             this.graphNodes.add(graphNode);
             this.numberOfgraphNodes++;
         }
