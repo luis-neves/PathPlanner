@@ -292,7 +292,7 @@ public class DetailsPage extends JFrame {
                         Float.parseFloat(loc[0]), Float.parseFloat(loc[1]),
                         Float.parseFloat(loc[2]),
                         GraphNodeType.valueOf(item.getChildNodes().item(i).getAttributes().getNamedItem("type").getNodeValue()));
-                if (Boolean.parseBoolean(item.getChildNodes().item(i).getAttributes().getNamedItem("contains_product").getNodeValue())){
+                if (Boolean.parseBoolean(item.getChildNodes().item(i).getAttributes().getNamedItem("contains_product").getNodeValue())) {
                     node.setContains_product(true);
                 }
                 nodes.add(node);
@@ -389,7 +389,6 @@ public class DetailsPage extends JFrame {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            ;
         }
         return xmlString;
 
@@ -435,7 +434,8 @@ public class DetailsPage extends JFrame {
                     if (startDrag.x == e.getX() && startDrag.y == e.getY() || node_action == Node_Action.REMOVE || node_action == Node_Action.GENERATE_PRODUCT) {
                         if (line_type == Line_Type.PRODUCT && startDrag.x == e.getX() && startDrag.y == e.getY()) {
                             GraphNode node = graph.findClosestNode(startDrag.x, startDrag.y, LINE_PIXEL_SENSIBILITY * 2);
-                            node.setContains_product(true);
+                            if (node != null)
+                                node.setContains_product(true);
                         }
                     } else {
                         GraphNode node = graph.findClosestNode(startDrag.x, startDrag.y, LINE_PIXEL_SENSIBILITY * 2);

@@ -20,12 +20,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.text.DefaultCaret;
 
 import picking.*;
 import org.jfree.chart.ChartFactory;
@@ -65,6 +67,7 @@ public class MainFrame extends JFrame implements GAListener {
     private SwingWorker<Void, Void> worker;
     private boolean stop = false;
     private int gaIndex;
+    private PanelTextArea eventsPanel;
 
     public MainFrame() {
         try {
@@ -122,6 +125,8 @@ public class MainFrame extends JFrame implements GAListener {
                 }
             }
         });
+
+
         buttonRunMultipleGA.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -265,13 +270,19 @@ public class MainFrame extends JFrame implements GAListener {
         northPanel.add(chartPanel, java.awt.BorderLayout.CENTER);
         panelNorthLeft.add(simulationPanel, BorderLayout.CENTER);
         //Center panel
-        bestIndividualPanel = new PanelTextArea("Best solution: ", 20, 40);
+        bestIndividualPanel = new PanelTextArea("Best solution: ", 10, 100);
         GASingleton.getInstance().setBestIndividualPanel(bestIndividualPanel);
-        JPanel centerPanel = new JPanel(new BorderLayout());
+        JPanel centerPanel = new JPanel(new GridLayout(2, 1));
         centerPanel.add(bestIndividualPanel, java.awt.BorderLayout.CENTER);
+        eventsPanel = new PanelTextArea("Events: ", 10, 40);
+        DefaultCaret caret = (DefaultCaret)eventsPanel.textArea.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+        centerPanel.add(eventsPanel);
 
         //South Panel
         JPanel southPanel = new JPanel();
+
+
         southPanel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createTitledBorder(""),
                 BorderFactory.createEmptyBorder(1, 1, 1, 1)));
@@ -293,6 +304,13 @@ public class MainFrame extends JFrame implements GAListener {
         this.getContentPane().add(globalPanel);
 
         pack();
+        System.setOut(new PrintStream(System.out) {
+            public void println(String s) {
+                super.println(s);
+                GASingleton.getInstance().getMainFrame().logMessage(s, 0);
+            }
+            // override some other methods?
+        });
     }
 
     public void finishedShow() {
@@ -373,6 +391,14 @@ public class MainFrame extends JFrame implements GAListener {
         };
 
         worker.execute();
+    }
+
+    public void logMessage(String message, int column) {
+        eventsPanel.textArea.append("\n");
+        for (int i = 0; i < column; i++) {
+            eventsPanel.textArea.append("\t");
+        }
+        eventsPanel.textArea.append(message);
     }
 
     private void runHybridGA(HashMap<GraphNode, List<GraphNode>> map) {
@@ -734,8 +760,6 @@ class PanelParameters extends PanelAtributesValue {
     public static final String PROB_MUTATION = "0.01";
     public static final String PROB_1S = "0.05";
     public static final String WEIGHT_WEIGHT = "0.5";
-    private static final String CLIENT_ID = "planeador";
-
     private final JPanel weightsPanel;
     private final JLabel weightsLabel;
     JTextField jTextFieldSeed = new JTextField(SEED, TEXT_FIELD_LENGHT);
@@ -927,9 +951,8 @@ class PanelParameters extends PanelAtributesValue {
                 JCheckBox cbLog = (JCheckBox) actionEvent.getSource();
                 if (cbLog.isSelected()) {
                     System.out.println("Communication Enabled");
-                    CommunicationManager cm = new CommunicationManager(CLIENT_ID, new TopicsConfiguration(), new MyCallbacks());
+                    CommunicationManager cm = new CommunicationManager(GASingleton.CLIENT_ID, new TopicsConfiguration(), new MyCallbacks());
                     GASingleton.getInstance().setCm(cm);
-                    GASingleton.getInstance().initializeCommunication();
                 } else {
                     System.out.println("Communication Disabled");
                     GASingleton.getInstance().setCm(null);

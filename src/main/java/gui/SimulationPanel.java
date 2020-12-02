@@ -3,8 +3,13 @@ package gui;
 import armazem.AStar;
 import armazem.Environment;
 import armazem.EnvironmentListener;
+import classlib.CommunicationManager;
+import classlib.TopicsConfiguration;
 import classlib.Util;
 import clustering.Clustering;
+import communication.CommunicationVariables;
+import communication.MyCallbacks;
+import communication.Operator;
 import ga.GASingleton;
 import ga.KMeans.AstarDistance;
 import ga.KMeans.MyCluster;
@@ -65,7 +70,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     JButton buttonRunNodeGraph = new JButton("NG");
     JButton buttonRandomProblem = new JButton("RNG");
     JButton buttonRandomProblemSeed = new JButton("LNG");
-    JButton buttonTestColision = new JButton("X");
+    JButton buttonVersionTest = new JButton("V1.0");
     private Graph graph;
     private Graph problemGraph;
     private int seed = 0;
@@ -75,7 +80,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
-    private float AMPLIFY = 1;
+    private float AMPLIFY = 0.2f;
     private float AMPLIFY_MULTIPLIER = 20.0f;
 
     public SimulationPanel() {
@@ -97,7 +102,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         panelButtons.add(buttonRunNodeGraph);
         panelButtons.add(buttonRandomProblem);
         panelButtons.add(buttonRandomProblemSeed);
-        panelButtons.add(buttonTestColision);
+        panelButtons.add(buttonVersionTest);
         add(panelButtons, BorderLayout.SOUTH);
         add(panelButtonsNorth, BorderLayout.NORTH);
 
@@ -107,7 +112,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         buttonRunNodeGraph.addActionListener(new SimulationPanel_jButtonRunNodeGraph_actionAdapter(this));
         buttonRandomProblem.addActionListener(new SimulationPanel_jButtonGenRandNodeGraph_actionAdapter(this));
         buttonRandomProblemSeed.addActionListener(new SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter(this));
-        buttonTestColision.addActionListener(new SimulationPanel_jButtonTestColision_actionAdapter(this));
+        buttonVersionTest.addActionListener(new SimulationPanel_jbuttonVersionTest_actionAdapter(this));
         buttonZoomIN.addActionListener(new SimulationPanel_jButtonZoomIn_actionAdapter(this));
         buttonZoomOUT.addActionListener(new SimulationPanel_jButtonZoomOut_actionAdapter(this));
         buttonImportGraph.addActionListener(new SimulationPanel_jButtonImportGraph_actionAdapter(this));
@@ -174,14 +179,59 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     }
 
 
-    public void jButtonTestColision_actionPerformed(ActionEvent e) {
-        //test Colision
-        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
-        gfx = (Graphics2D) image.getGraphics();
+    public void jbuttonVersionTest_actionPerformed(ActionEvent e) {
+        try {
+            //Test Version
+            //0 - Init Comms
+            GASingleton.getInstance().getMainFrame().logMessage("Step 0\tInit Comms", 0);
+            CommunicationManager cm = new CommunicationManager(GASingleton.CLIENT_ID, new TopicsConfiguration(), new MyCallbacks());
+            GASingleton.getInstance().setCm(cm);
+            GASingleton.getInstance().getMainFrame().logMessage("CLIENT_ID: " + GASingleton.CLIENT_ID, 2);
+            GASingleton.getInstance().getMainFrame().logMessage("ERP_ID: " + GASingleton.erpID, 2);
+            GASingleton.getInstance().getMainFrame().logMessage("RA_ID: " + GASingleton.RA_ID + "[MAC]", 2);
+            GASingleton.getInstance().getMainFrame().logMessage("LOC_FINA_ID: " + GASingleton.LOC_FINA_ID, 2);
+            GASingleton.getInstance().getMainFrame().logMessage("LOC_APROX_ID: " + GASingleton.LOC_APROX_ID, 2);
+            GASingleton.getInstance().getMainFrame().logMessage("MODELADOR_ID: " + GASingleton.MODELADOR_ID, 2);
+
+            //1 - load graph.xml or get from modelador
+            GASingleton.getInstance().getMainFrame().logMessage("Step 1\tLoad Graph file (graph.xml)", 0);
+            GASingleton.getInstance().readGraphFile(new File("graph.xml"));
+            if (GASingleton.getInstance().getGraph() != null) {
+                //Load graph image
+                image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+                gfx = (Graphics2D) image.getGraphics();
+                this.graph = GASingleton.getInstance().getGraph().clone();
+                this.problemGraph = graph;
+                problemGraph.amplify(AMPLIFY);
+                draw(graph, false, this.gfx, this.image);
+                GASingleton.getInstance().getMainFrame().logMessage("Complete", 1);
+                //
+            } else {
+                //GET FROM MODELADOR
+                GASingleton.getInstance().getMainFrame().logMessage("Step 1\tGet Graph from Modelador", 0);
+                cm.SendMessageAsync(Util.GenerateId(), "request", "updateXML", GASingleton.MODELADOR_ID, "application/xml", "", "1");
+
+            }
+            //get products from ERP if operators are available
+            GASingleton.getInstance().getMainFrame().logMessage("Step 2\tChecking availability", 0);
+
+            //SEND availability
+            if (GASingleton.getInstance().getCommunication_variables().getOperators().size() > 0) {
+
+            } else {
+                GASingleton.getInstance().getMainFrame().logMessage("No operators available", 1);
+                GASingleton.getInstance().getMainFrame().logMessage("Waiting for operators...", 1);
+
+                GASingleton.getInstance().getCommunication_variables().addOperator("Placeholder", true);
+            }
+            //send task to an operator
+            //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", GASingleton.getInstance().getCommunication_variables().getOperators().get(0).getId(), "application/xml", xmlString, "1");
+
+        } catch (Exception ex) {
+            GASingleton.getInstance().getMainFrame().logMessage(ex.getMessage(), 0);
+        }
+
     }
-
-
-
 
 
     public void jButtonRandNodeGraphProblem_actionPerformed(ActionEvent e) {
@@ -624,7 +674,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                 items.add(item);
             }
             GASingleton.getInstance().setItems(items);
-            GASingleton.getInstance().setLastAgent(graph.getAgents().get(graph.getAgents().size()-1));
+            GASingleton.getInstance().setLastAgent(graph.getAgents().get(graph.getAgents().size() - 1));
             GASingleton.getInstance().setNodeProblem(true);
         }
 
@@ -843,6 +893,8 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
         return problemGraph;
     }
 
+
+
     /*
     private HashMap<Integer, ArrayList<GraphNode>> fixAgentClusters(HashMap<Integer, ArrayList<GraphNode>> clusterMap) {
         //CLUSERINGGGG
@@ -1044,7 +1096,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
             prefabManager.fillAllPrefabs();
 
-            for (Prefab prefab : prefabManager.getAllPrefabs()){
+            for (Prefab prefab : prefabManager.getAllPrefabs()) {
                 System.out.println(prefab.toString());
             }
 
@@ -1846,17 +1898,17 @@ class SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter implements Actio
     }
 }
 
-class SimulationPanel_jButtonTestColision_actionAdapter implements ActionListener {
+class SimulationPanel_jbuttonVersionTest_actionAdapter implements ActionListener {
 
     private SimulationPanel adaptee;
 
-    SimulationPanel_jButtonTestColision_actionAdapter(SimulationPanel adaptee) {
+    SimulationPanel_jbuttonVersionTest_actionAdapter(SimulationPanel adaptee) {
         this.adaptee = adaptee;
     }
 
 
     public void actionPerformed(ActionEvent e) {
-        adaptee.jButtonTestColision_actionPerformed(e);
+        adaptee.jbuttonVersionTest_actionPerformed(e);
     }
 }
 

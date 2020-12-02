@@ -4,6 +4,8 @@ import classlib.BusMessage;
 import classlib.ICommunicationManagerCallbacks;
 import classlib.Util;
 import ga.GASingleton;
+import gui.DetailsPage;
+import gui.SimulationPanel;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
@@ -70,10 +72,12 @@ public class MyCallbacks implements ICommunicationManagerCallbacks {
                 System.out.println("REQUEST message ready to be processed.");
                 if (busMessage.getInfoIdentifier().equals("Disponivel")) {
                     String[] split = busMessage.getFromTopic().split("Topic");
-                    Operator operator = GASingleton.getInstance().findOperator(split[0]);
+                    Operator operator = GASingleton.getInstance().getCommunication_variables().findOperator(split[0]);
                     if (operator == null) {
-                        GASingleton.getInstance().addOperator(split[0], Boolean.parseBoolean(busMessage.getContent()));
+                        GASingleton.getInstance().getCommunication_variables().addOperator(split[0], Boolean.parseBoolean(busMessage.getContent()));
                         System.out.println("New Operator " + split[0] + " " + busMessage.getContent());
+                        GASingleton.getInstance().getMainFrame().logMessage("New Operator " + split[0] + " " + busMessage.getContent(), 0);
+
                     } else {
                         operator.setAvailable(Boolean.parseBoolean(busMessage.getContent()));
                         System.out.println("Operator " + operator.getId() + " " + operator.isAvailable());
@@ -83,14 +87,24 @@ public class MyCallbacks implements ICommunicationManagerCallbacks {
                 break;
             case "response":
                 System.out.println("RESPONSE message ready to be processed.");
-                if(busMessage.getInfoIdentifier().equals("getAllOrders") && busMessage.getDataFormat().equals("application/json")){
+                if (busMessage.getInfoIdentifier().equals("getAllOrders") && busMessage.getDataFormat().equals("application/json")) {
                     //GET ALL ORDERS FROM ERP
                     ObjectMapper mapper = new ObjectMapper();
                     try {
                         List<Product> products = mapper.readValue(busMessage.getContent(), List.class);
-                        System.out.println("Received "+products.size() + " products from ERP");
+                        System.out.println("Received " + products.size() + " products from ERP");
                     } catch (IOException e) {
                         e.printStackTrace();
+                    }
+                }else if(busMessage.getInfoIdentifier().equals("updateXML") && busMessage.getDataFormat().equals("application/xml")){
+                   String xml_str =  busMessage.getContent();
+                    try {
+                        GASingleton.getInstance().write_modelador_xml_to_file("warehouse_model.xml", xml_str);
+                        GASingleton.getInstance().getMainFrame().logMessage("Succesfully saved warehouse_model.xml", 0);
+                    } catch (IOException e) {
+                        GASingleton.getInstance().getMainFrame().logMessage("Error while saving warehouse_model.xml", 0);
+                        GASingleton.getInstance().getMainFrame().logMessage(e.getMessage(), 0);
+
                     }
                 }
                 //TODO: process message..

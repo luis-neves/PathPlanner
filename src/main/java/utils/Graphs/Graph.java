@@ -314,7 +314,6 @@ public class Graph {
                 e.setEnd(start_node);
                 e.setStart(end_node);
                 createEdge(e);
-                System.out.println(e);
             } else {
                 e.setProduct_line(product_line);
             }
@@ -428,7 +427,7 @@ public class Graph {
             }
             this.graphNodes.add(graphNode);
             this.numberOfgraphNodes++;
-        } else if(closest_product_node != null){
+        } else if (closest_product_node != null) {
             graphNode.setLocation(closest_product_node.getLocation());
             this.graphNodes.add(graphNode);
             this.numberOfgraphNodes++;
@@ -436,10 +435,6 @@ public class Graph {
     }
 
     private GraphNode put_node_in_obliqueLine(Edge edge, GraphNode graphNode) {
-
-        System.out.println("Start " + edge.getStart());
-        System.out.println("End " + edge.getEnd());
-
         float x1 = edge.getStart().getLocation().getX();
         float x2 = edge.getEnd().getLocation().getX();
         float y1 = edge.getStart().getLocation().getY();
@@ -472,6 +467,10 @@ public class Graph {
         double new_x = (bi - b) / (m - mi);
         double new_y = mi * new_x + bi;
 
-        return new GraphNode(this.getNumNodes(), (float) new_x, (float) new_y, GraphNodeType.PRODUCT);
+        if (x1 < new_x && new_x < x2) {
+            return new GraphNode(this.getNumNodes(), (float) new_x, (float) new_y, GraphNodeType.PRODUCT);
+        }else{
+            return null;
+        }
     }
 }

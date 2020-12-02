@@ -3,8 +3,10 @@ package ga;
 import armazem.Cell;
 import classlib.CommunicationManager;
 import classlib.Util;
+import communication.CommunicationVariables;
 import communication.Operator;
 import ga.multiple.GAwithEnvironment;
+import gui.Main;
 import gui.MainFrame;
 import gui.PanelTextArea;
 import gui.SimulationPanel;
@@ -25,13 +27,14 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class GASingleton {
+public class GASingleton implements Observer {
     private static GASingleton instance;
 
     private List<Item> items;
@@ -51,8 +54,7 @@ public class GASingleton {
     private CommunicationManager cm;
     private float timeWeight;
     private int numExperiments;
-    private List<Operator> operators;
-    public static String erpID = "erp";
+    private CommunicationVariables communication_variables;
     private int seed;
     private HashMap<GraphNode, List<GraphNode>> itemMap;
     private Graph problemGraph;
@@ -62,6 +64,14 @@ public class GASingleton {
     private Individual defaultBestInRun;
     private GeneticAlgorithm defaultGA;
     private Graph graph;
+    public static final String CLIENT_ID = "planeador";
+    public static final String erpID = "erp";
+    public static final String RA_ID = "ra";
+    public static final String LOC_FINA_ID = "locfina";
+    public static final String LOC_APROX_ID = "locaproximada";
+    public static final String MODELADOR_ID = "modelador";
+    public static final int NUM_OPERATORS = 1;
+
 
     public GeneticAlgorithm getDefaultGA() {
         return defaultGA;
@@ -83,25 +93,22 @@ public class GASingleton {
         this.lastGenGAs = lastGenGAs;
     }
 
-    public Operator findOperator(String id) {
-        for (int i = 0; i < operators.size(); i++) {
-            if (operators.get(i).getId().equals(id)) {
-                return operators.get(i);
+
+    @Override
+    public void update(Observable o, Object arg) {
+        CommunicationVariables comms = (CommunicationVariables) o;
+        if (comms.isOperators_ready()) {
+            GASingleton.getInstance().getMainFrame().logMessage("Operators Ready ", 1);
+            for (Operator operator : comms.getOperators()) {
+                GASingleton.getInstance().getMainFrame().logMessage(operator.toString(), 1);
+
             }
         }
-        return null;
-    }
+        //Make sure all operators, erp, locs are ready to begin
+        if (comms.isOperators_ready() && comms.isErp_ready() && comms.isLoc_aprox_ready() && comms.isLoc_fina_ready()) {
 
-    public List<Operator> getOperators() {
-        return operators;
-    }
-
-    public void setOperators(List<Operator> operators) {
-        this.operators = operators;
-    }
-
-    public void addOperator(String id, boolean disponivel) {
-        this.operators.add(new Operator(id, disponivel));
+            //BEGIN PROCESS
+        }
     }
 
     public CommunicationManager getCm() {
@@ -186,6 +193,7 @@ public class GASingleton {
         this.timeWeight = 0.5f;
         this.colisionWeight = 0.5f;
         this.graph = new Graph();
+        this.communication_variables = new CommunicationVariables(this);
     }
 
     public static GASingleton getInstance() {
@@ -374,16 +382,23 @@ public class GASingleton {
 
                 String xmlString = writer.getBuffer().toString();
                 System.out.println(xmlString);
-                cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", GASingleton.getInstance().getOperators().get(0).getId(), "application/xml", xmlString, "1");
+                //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", GASingleton.getInstance().communication_variables.getOperators().get(0).getId(), "application/xml", xmlString, "1");
                 //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", "ra1", "application/xml", xmlString, "1");
             }
-
             System.out.println("\nDone creating/sending XML File");
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
         } catch (TransformerException tfe) {
             tfe.printStackTrace();
         }
+    }
+
+    public void write_modelador_xml_to_file(String fileName, String str)
+            throws IOException {
+        FileOutputStream outputStream = new FileOutputStream(fileName);
+        byte[] strToBytes = str.getBytes();
+        outputStream.write(strToBytes);
+        outputStream.close();
     }
 
     public FitnessResults getBestInRun() {
@@ -443,13 +458,6 @@ public class GASingleton {
         return numExperiments;
     }
 
-    public void initializeCommunication() {
-        this.operators = new ArrayList<>();
-        //cm.InitializeAsync();
-        //cm.SubscribeContentAsync("Disponivel", "ra1");
-        //cm.SubscribeContentAsync("Disponivel", "ra2");
-
-    }
 
     public void setSeed(int seed) {
         this.seed = seed;
@@ -612,7 +620,6 @@ public class GASingleton {
             float amplify_y = Float.parseFloat(graphElement.getAttributes().getNamedItem("amplify_y").getNodeValue());
 
 
-
             for (int i = 0; i < graphElement.getChildNodes().getLength(); i++) {
                 if (graphElement.getChildNodes().item(i).getNodeName().equals("Nodes")) {
                     graphNodes = parseNodes(graphElement.getChildNodes().item(i));
@@ -625,20 +632,26 @@ public class GASingleton {
                     edgeList = parseEdges(graphElement.getChildNodes().item(i));
                 }
             }
-        } catch (ParserConfigurationException | SAXException | IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            this.mainFrame.logMessage("Error reading graph file", 1);
+            this.mainFrame.logMessage(e.getMessage(), 1);
         }
     }
+
     private List<GraphNode> parseNodes(Node item) {
         List<GraphNode> nodes = new ArrayList<>();
         for (int i = 0; i < item.getChildNodes().getLength(); i++) {
             if (item.getChildNodes().item(i).getNodeName().equals("Node")) {
-                String[] loc = item.getChildNodes().item(i).getAttributes().item(1).getNodeValue().split(",");
+                String[] loc = item.getChildNodes().item(i).getAttributes().getNamedItem("loc").getNodeValue().split(",");
 
-                GraphNode node = new GraphNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().item(0).getNodeValue()),
+                GraphNode node = new GraphNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().getNamedItem("id").getNodeValue()),
                         Float.parseFloat(loc[0]), Float.parseFloat(loc[1]),
                         Float.parseFloat(loc[2]),
-                        GraphNodeType.valueOf(item.getChildNodes().item(i).getAttributes().item(2).getNodeValue()));
+                        GraphNodeType.valueOf(item.getChildNodes().item(i).getAttributes().getNamedItem("type").getNodeValue()));
+                if (Boolean.parseBoolean(item.getChildNodes().item(i).getAttributes().getNamedItem("contains_product").getNodeValue())) {
+                    node.setContains_product(true);
+                }
                 nodes.add(node);
             }
         }
@@ -659,6 +672,14 @@ public class GASingleton {
 
     public Graph getGraph() {
         return graph;
+    }
+
+    public CommunicationVariables getCommunication_variables() {
+        return communication_variables;
+    }
+
+    public void setCommunication_variables(CommunicationVariables communication_variables) {
+        this.communication_variables = communication_variables;
     }
 
     //Document doc = builder.newDocument();

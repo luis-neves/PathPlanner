@@ -1,13 +1,11 @@
 package gui;
 
+import ga.GASingleton;
 import net.sf.jni4net.Bridge;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import javax.swing.*;
 
 public class Main {
@@ -35,6 +33,7 @@ public class Main {
                 e2.printStackTrace();
             }
         }
+
 
 
         //END SERVICE BUS

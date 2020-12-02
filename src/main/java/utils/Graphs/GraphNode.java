@@ -28,7 +28,9 @@ public class GraphNode {
     }
 
     public void setContains_product(boolean contains_product) {
-        this.contains_product = contains_product;
+        if (this.type.equals(GraphNodeType.SIMPLE)) {
+            this.contains_product = contains_product;
+        }
     }
 
     private MyCluster cluster;

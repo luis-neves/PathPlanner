@@ -109,4 +109,13 @@ public class Operator {
     public void setEstadoTarefa(String estadoTarefa) {
         this.estadoTarefa = estadoTarefa;
     }
+
+    @Override
+    public String toString() {
+        return "Operator{" +
+                "available=" + available +
+                ", id='" + id + '\'' +
+                ", estadoTarefa='" + estadoTarefa + '\'' +
+                '}';
+    }
 }
