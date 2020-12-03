@@ -36,7 +36,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.*;
 
-public class SimulationPanel extends JPanel implements EnvironmentListener {
+public class SimulationPanel extends JPanel{
 
     private static final int MAX_WEIGHT = 500;
     private static final int MAX_KMEANS_ITERATIONS = 20;
@@ -123,15 +123,10 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
     public void jButtonRun_actionPerformed(ActionEvent e) {
         GASingleton.getInstance().setNodeProblem(false);
-
-        environment = new Environment(N, N, 0, 0, 0);
-        environment.addEnvironmentListener(this);
-
         buildImage(environment);
 
         SwingWorker worker = new SwingWorker<Void, Void>() {
             public Void doInBackground() {
-                environmentUpdated();
                 //environment.run();
                 return null;
             }
@@ -1764,7 +1759,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
                     CELL_SIZE = FIXED_CELL_SIZE / (grid[0].length / 10);
                 }
                 environment = new Environment(grid, false, 0, 0, 0);
-                environment.addEnvironmentListener(this);
+                //environment.addEnvironmentListener(this);
 
             }
         } catch (IOException e1) {
@@ -1781,7 +1776,7 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
 
         SwingWorker worker = new SwingWorker<Void, Void>() {
             public Void doInBackground() {
-                environmentUpdated();
+                //environmentUpdated();
                 //environment.run();
                 return null;
             }
@@ -1794,23 +1789,6 @@ public class SimulationPanel extends JPanel implements EnvironmentListener {
     }
 
 
-    public void environmentUpdated() {
-        int n = environment.getNumLines();
-        int c = environment.getNumColumns();
-        Graphics g = image.getGraphics();
-        for (int y = 0; y < n; y++) {
-            for (int x = 0; x < c; x++) {
-                g.setColor(environment.getCellColor(y, x));
-                g.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-
-            }
-        }
-        environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
-        try {
-            Thread.sleep(SLEEP_MILLIS);
-        } catch (InterruptedException ignore) {
-        }
-    }
 }
 
 //--------------------
