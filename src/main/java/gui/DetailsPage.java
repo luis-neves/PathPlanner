@@ -42,9 +42,6 @@ import java.util.List;
 
 public class DetailsPage extends JFrame {
 
-    private static final int GRID_TO_PANEL_GAP = 20;
-    private static final int MAX_WIDTH = 1600;
-    private static final int MAX_HEIGHT = 800;
     private static final int LINE_PIXEL_SENSIBILITY = 20;
     private static final int NODE_SIZE = 5;
     public Line_Type line_type = Line_Type.SIMPLE;
@@ -55,16 +52,13 @@ public class DetailsPage extends JFrame {
 
     //Where the GUI is created:
     JMenuBar menuBar;
-    JMenu menu, submenu;
+    JMenu menu;
     JMenuItem menuItem;
-    JRadioButtonMenuItem rbMenuItem;
-    JCheckBoxMenuItem cbMenuItem;
 
     public DetailsPage(PrefabManager prefabManager) throws HeadlessException {
         this.prefabManager = prefabManager;
         this.setTitle("Details");
         prefabManager.fixSizesToInteger();
-
         this.setSize(new Dimension(Math.round(prefabManager.config.getWidth()) + (int) prefabManager.config.getWidth() / 2, Math.round(prefabManager.config.getDepth()) + (int) prefabManager.config.getDepth() / 2));
         //prefabManager.changeAxis();
         //prefabManager.fixRotation(360);

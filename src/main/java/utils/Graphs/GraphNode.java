@@ -1,6 +1,7 @@
 package utils.Graphs;
 
 import armazem.Cell;
+import communication.Operator;
 import ga.KMeans.MyCluster;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -417,4 +418,5 @@ public class GraphNode {
     public String printName() {
         return this.getType().toLetter() + "" + this.getGraphNodeId();
     }
+
 }

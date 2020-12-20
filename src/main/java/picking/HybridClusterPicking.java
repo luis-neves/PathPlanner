@@ -14,18 +14,12 @@ import java.util.List;
 
 public class HybridClusterPicking implements Problem<HybridPickingIndividual> {
 
-    public static final int SIMPLE_FITNESS = 0;
-    public static final int PENALTY_FITNESS = 1;
     private HashMap<GraphNode, List<GraphNode>> items;
-    private int fitnessType = SIMPLE_FITNESS;
-    private double maxVP;
-
     public HybridClusterPicking(HashMap<GraphNode, List<GraphNode>> items) {
         if (items == null) {
             throw new IllegalArgumentException();
         }
         this.items = items;
-        maxVP = computeMaxVP();
     }
     /*
     public static HybridClusterPicking buildKnapsackFromMemory() {
@@ -45,19 +39,6 @@ public class HybridClusterPicking implements Problem<HybridPickingIndividual> {
         return null;
     }
 
-
-    public int getFitnessType() {
-        return fitnessType;
-    }
-
-    public void setFitnessType(int fitnessType) {
-        this.fitnessType = fitnessType;
-    }
-
-    public double getMaxVP() {
-        return maxVP;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -74,21 +55,6 @@ public class HybridClusterPicking implements Problem<HybridPickingIndividual> {
         return sb.toString();
     }
 
-    private double computeMaxVP() {
-        /*double max = items[0].value / items[0].weight;
-        for (int i = 1; i < items.length; i++) {
-            double divVP = items[i].value / items[i].weight;
-            if (divVP > max) {
-                max = divVP;
-            }
-        }*/
-        return 0;
-    }
-
-
-    public static HybridClusterPicking buildKnapsackExperiment() {
-        return new HybridClusterPicking(GASingleton.getInstance().getItemMap());
-    }
 
 
 }

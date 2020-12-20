@@ -1,5 +1,7 @@
 package communication;
 
+import utils.Graphs.GraphNode;
+
 public class Operator {
     private boolean available = false;
     private float x;
@@ -12,6 +14,15 @@ public class Operator {
     private float dQ;
     private String id;
     private String estadoTarefa;
+    private GraphNode agent;
+
+    public GraphNode getAgent() {
+        return agent;
+    }
+
+    public void setAgent(GraphNode agent) {
+        this.agent = agent;
+    }
 
     public Operator(boolean available) {
         this.available = available;

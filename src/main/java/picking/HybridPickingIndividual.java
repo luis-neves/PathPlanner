@@ -218,12 +218,4 @@ public class HybridPickingIndividual extends MultipleVectorIndividual<HybridClus
         return null;
     }
 
-    public void replaceFromChild(HashMap<GraphNode, List<GraphNode>> genome) {
-        this.genome = new HashMap<>();
-        for (Map.Entry<GraphNode, List<GraphNode>> entry : genome.entrySet()) {
-            GraphNode agent = entry.getKey();
-            List<GraphNode> agentPath = entry.getValue();
-            this.genome.put(agent, agentPath);
-        }
-    }
 }

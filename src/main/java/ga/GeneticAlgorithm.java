@@ -168,6 +168,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         return bestInRun;
     }
 
+    /*
     private Population<I, P> placeAgents(Population<I, P> populationAux) {
         List<Integer> agents = new ArrayList<>();
         int in = 0;
@@ -198,7 +199,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         }
         return populationAux;
     }
-
+*/
     private void mutation(Population<I, P> population) {
         for (int i = 0; i < populationSize; i++) {
             if (GeneticAlgorithm.random.nextDouble() < mutation.getProbability()) {
@@ -257,6 +258,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
 
     //Listeners
     private final transient List<GAListener> listeners = new ArrayList<>(3);
+
 
     public synchronized void removeAGListener(GAListener listener) {
         if (listeners != null && listeners.contains(listener)) {

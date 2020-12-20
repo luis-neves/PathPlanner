@@ -5,7 +5,6 @@ import experiments.*;
 import ga.GAListener;
 import ga.GASingleton;
 import ga.GeneticAlgorithm;
-import ga.MultipleVectorIndividual;
 import ga.geneticOperators.*;
 import ga.selectionMethods.*;
 
@@ -18,7 +17,6 @@ import java.util.Random;
 import statistics.MultipleGaListener;
 import statistics.StatisticBestAverage;
 import statistics.StatisticBestInRun;
-import weka.core.pmml.jaxbbindings.Cluster;
 
 public class PickingExperimentsFactory extends ExperimentsFactory {
 
@@ -103,7 +101,7 @@ public class PickingExperimentsFactory extends ExperimentsFactory {
 
 
         //PROBLEM 
-        picking = Picking.buildKnapsackExperiment(num_columns, numAgents, numPicks, this.numRuns);
+        picking = Picking.buildExperiment(num_columns, numAgents, numPicks, this.numRuns);
         //picking.setFitnessType(fitnessType);
 
         String experimentTextualRepresentation = buildExperimentTextualRepresentation();

@@ -77,7 +77,6 @@ public class Experiment<E extends ExperimentsFactory, P extends Problem> {
                     items.add(new Item(node));
                 }
                 ga.run(new Picking(items));
-
             } else if (factory.heuristic.equals("GA")) {
                 //System.out.print("\nGA original" + ((PickingExperimentsFactory) this.factory).maxGenerations + " ag"+((PickingExperimentsFactory) this.factory).numAgents + " ");
                 int backup = ((PickingExperimentsFactory) this.factory).maxGenerations;

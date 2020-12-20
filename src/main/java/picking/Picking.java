@@ -12,11 +12,7 @@ import java.util.List;
 
 public class Picking implements Problem<PickingIndividual> {
 
-    public static final int SIMPLE_FITNESS = 0;
-    public static final int PENALTY_FITNESS = 1;
     private List<Item> items;
-    private int fitnessType = SIMPLE_FITNESS;
-    private double maxVP;
 
     public Picking(List<Item> items) {
         if (items == null) {
@@ -24,7 +20,6 @@ public class Picking implements Problem<PickingIndividual> {
         }
 
         this.items = items;
-        maxVP = computeMaxVP();
     }
 
     public static Picking buildKnapsackFromMemory() {
@@ -44,19 +39,6 @@ public class Picking implements Problem<PickingIndividual> {
         return (index >= 0 && index < items.size()) ? items.get(index) : null;
     }
 
-
-    public int getFitnessType() {
-        return fitnessType;
-    }
-
-    public void setFitnessType(int fitnessType) {
-        this.fitnessType = fitnessType;
-    }
-
-    public double getMaxVP() {
-        return maxVP;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -72,18 +54,7 @@ public class Picking implements Problem<PickingIndividual> {
         return sb.toString();
     }
 
-    private double computeMaxVP() {
-        /*double max = items[0].value / items[0].weight;
-        for (int i = 1; i < items.length; i++) {
-            double divVP = items[i].value / items[i].weight;
-            if (divVP > max) {
-                max = divVP;
-            }
-        }*/
-        return 0;
-    }
-
-    public static Picking buildKnapsack(File file) throws IOException {
+    public static Picking buildFromFile(File file) throws IOException {
         java.util.Scanner f = new java.util.Scanner(file);
         String filecontent = "";
         List<Item> items = new ArrayList<>();
@@ -99,7 +70,7 @@ public class Picking implements Problem<PickingIndividual> {
         return new Picking(GASingleton.getInstance().getItems());
     }
 
-    public static Picking buildKnapsackExperiment(int num_columns, int agents, int picks, int seed) {
+    public static Picking buildExperiment(int num_columns, int agents, int picks, int seed) {
         GASingleton.getInstance().getSimulationPanel().generateExperimentGraph(num_columns, agents, picks, seed);
         return new Picking(GASingleton.getInstance().getItems());
     }

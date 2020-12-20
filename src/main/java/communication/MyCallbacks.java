@@ -87,19 +87,14 @@ public class MyCallbacks implements ICommunicationManagerCallbacks {
                 break;
             case "response":
                 System.out.println("RESPONSE message ready to be processed.");
-                if (busMessage.getInfoIdentifier().equals("getAllOrders") && busMessage.getDataFormat().equals("application/json")) {
+                if (busMessage.getInfoIdentifier().equals("getTarefa") && busMessage.getDataFormat().equals("application/xml")) {
                     //GET ALL ORDERS FROM ERP
-                    ObjectMapper mapper = new ObjectMapper();
+                    GASingleton.getInstance().parseTarefaXML(busMessage.getContent());
+                    //List<Tarefa> products = mapper.readValue(busMessage.getContent(), List.class);
+                } else if (busMessage.getInfoIdentifier().equals("updateXML") && busMessage.getDataFormat().equals("application/xml")) {
+                    String xml_str = busMessage.getContent();
                     try {
-                        List<Product> products = mapper.readValue(busMessage.getContent(), List.class);
-                        System.out.println("Received " + products.size() + " products from ERP");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }else if(busMessage.getInfoIdentifier().equals("updateXML") && busMessage.getDataFormat().equals("application/xml")){
-                   String xml_str =  busMessage.getContent();
-                    try {
-                        GASingleton.getInstance().write_modelador_xml_to_file("warehouse_model.xml", xml_str);
+                        GASingleton.getInstance().write_modelador_xml_to_file(GASingleton.WAREHOUSE_FILE, xml_str);
                         GASingleton.getInstance().getMainFrame().logMessage("Succesfully saved warehouse_model.xml", 0);
                     } catch (IOException e) {
                         GASingleton.getInstance().getMainFrame().logMessage("Error while saving warehouse_model.xml", 0);

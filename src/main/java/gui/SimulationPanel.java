@@ -36,15 +36,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.*;
 
-public class SimulationPanel extends JPanel{
+public class SimulationPanel extends JPanel {
 
     private static final int MAX_WEIGHT = 500;
     private static final int MAX_KMEANS_ITERATIONS = 20;
-    private static final float MAX_DRAW_X = 400;
-    private static final float MAX_DRAW_Y = 200;
     private static int SLEEP_MILLIS = 10; // modify to speed up the simulation
-    private static final int NUM_ITERATIONS = 2000; // modify to change the number of iterations
-
     private static final int FIXED_CELL_SIZE = 10;
     private static int CELL_SIZE = 10;
     private int NODE_SIZE = 5;
@@ -52,7 +48,6 @@ public class SimulationPanel extends JPanel{
     private int MARGIN = 15;
 
     private static final int GRID_TO_PANEL_GAP = 20;
-    private static final int N = 20;
 
     public static Environment environment;
     public static EnvironmentNodeGraph environmentNodeGraph;
@@ -81,7 +76,6 @@ public class SimulationPanel extends JPanel{
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
     private float AMPLIFY = 0.2f;
-    private float AMPLIFY_MULTIPLIER = 20.0f;
 
     public SimulationPanel() {
         //environmentPanel.setPreferredSize(new Dimension(N * CELL_SIZE + GRID_TO_PANEL_GAP * 2, N * CELL_SIZE + GRID_TO_PANEL_GAP * 2));
@@ -178,19 +172,20 @@ public class SimulationPanel extends JPanel{
         try {
             //Test Version
             //0 - Init Comms
-            GASingleton.getInstance().getMainFrame().logMessage("Step 0\tInit Comms", 0);
+            GASingleton.getInstance().getMainFrame().logMessage("Step 1\tCheck Comms", 0);
+            /*
             CommunicationManager cm = new CommunicationManager(GASingleton.CLIENT_ID, new TopicsConfiguration(), new MyCallbacks());
             GASingleton.getInstance().setCm(cm);
+            */
             GASingleton.getInstance().getMainFrame().logMessage("CLIENT_ID: " + GASingleton.CLIENT_ID, 2);
             GASingleton.getInstance().getMainFrame().logMessage("ERP_ID: " + GASingleton.erpID, 2);
             GASingleton.getInstance().getMainFrame().logMessage("RA_ID: " + GASingleton.RA_ID + "[MAC]", 2);
-            GASingleton.getInstance().getMainFrame().logMessage("LOC_FINA_ID: " + GASingleton.LOC_FINA_ID, 2);
             GASingleton.getInstance().getMainFrame().logMessage("LOC_APROX_ID: " + GASingleton.LOC_APROX_ID, 2);
             GASingleton.getInstance().getMainFrame().logMessage("MODELADOR_ID: " + GASingleton.MODELADOR_ID, 2);
 
             //1 - load graph.xml or get from modelador
-            GASingleton.getInstance().getMainFrame().logMessage("Step 1\tLoad Graph file (graph.xml)", 0);
-            GASingleton.getInstance().readGraphFile(new File("graph.xml"));
+            GASingleton.getInstance().getMainFrame().logMessage("Step 1.1\tLoad Graph file " + GASingleton.GRAPH_FILE, 0);
+            GASingleton.getInstance().readGraphFile(new File(GASingleton.GRAPH_FILE));
             if (GASingleton.getInstance().getGraph() != null) {
                 //Load graph image
                 image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
@@ -201,23 +196,43 @@ public class SimulationPanel extends JPanel{
                 draw(graph, false, this.gfx, this.image);
                 GASingleton.getInstance().getMainFrame().logMessage("Complete", 1);
                 //
+                GASingleton.getInstance().getMainFrame().logMessage("Step 1.2\tLoad Warehouse file " + GASingleton.WAREHOUSE_FILE, 0);
+                try {
+                    PrefabManager prefabManager = readPrefabXML();
+                    if (prefabManager != null) {
+                        GASingleton.getInstance().setPrefabManager(prefabManager);
+                    } else {
+                        GASingleton.getInstance().getMainFrame().logMessage("prefabManager is NULL (Check prefab xml)", 1);
+                    }
+                } catch (Exception ex) {
+                    GASingleton.getInstance().getMainFrame().logMessage("Error reading prefab " + ex.getMessage(), 1);
+                }
             } else {
-                //GET FROM MODELADOR
+                GASingleton.getInstance().getMainFrame().logMessage("Step 1\tGraph file not found, use details to generate graph file from prefab file.", 0);
+                try {
+                    PrefabManager prefabManager = readPrefabXML();
+                    if (prefabManager != null) {
+                        GASingleton.getInstance().setPrefabManager(prefabManager);
+                        GASingleton.getInstance().getMainFrame().logMessage("Complete", 1);
+                    }
+                    GASingleton.getInstance().getMainFrame().logMessage("prefabManager is NULL (Check prefab xml)", 1);
+                } catch (Exception ex) {
+                    GASingleton.getInstance().getMainFrame().logMessage("Error reading prefab " + ex.getMessage(), 1);
+                }
                 GASingleton.getInstance().getMainFrame().logMessage("Step 1\tGet Graph from Modelador", 0);
-                cm.SendMessageAsync(Util.GenerateId(), "request", "updateXML", GASingleton.MODELADOR_ID, "application/xml", "", "1");
 
+                //GET FROM MODELADOR
+                GASingleton.getInstance().getCm().SendMessageAsync(Util.GenerateId(), "request", "updateXML", GASingleton.MODELADOR_ID, "application/xml", "", "1");
             }
             //get products from ERP if operators are available
             GASingleton.getInstance().getMainFrame().logMessage("Step 2\tChecking availability", 0);
-
+            GASingleton.getInstance().getCm().SendMessageAsync(Util.GenerateId(), "request", "getTarefa", "ERP", "PlainText", "Dá-me uma tarefa!", "1");
             //SEND availability
             if (GASingleton.getInstance().getCommunication_variables().getOperators().size() > 0) {
 
             } else {
                 GASingleton.getInstance().getMainFrame().logMessage("No operators available", 1);
                 GASingleton.getInstance().getMainFrame().logMessage("Waiting for operators...", 1);
-
-                GASingleton.getInstance().getCommunication_variables().addOperator("Placeholder", true);
             }
             //send task to an operator
             //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", GASingleton.getInstance().getCommunication_variables().getOperators().get(0).getId(), "application/xml", xmlString, "1");
@@ -228,6 +243,15 @@ public class SimulationPanel extends JPanel{
 
     }
 
+    public void draw_problem_graph() {
+        image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
+        gfx = (Graphics2D) image.getGraphics();
+        this.graph = GASingleton.getInstance().getProblemGraph().clone();
+        this.problemGraph = graph;
+        graph = fixNeighbours_New(graph);
+        problemGraph.amplify(AMPLIFY);
+        draw(graph, false, this.gfx, this.image);
+    }
 
     public void jButtonRandNodeGraphProblem_actionPerformed(ActionEvent e) {
         //environmentPanel.updateUI();
@@ -428,95 +452,6 @@ public class SimulationPanel extends JPanel{
                 }
             }
         }
-        return graph;
-    }
-
-
-    private Graph fixNeighboursFixed(Graph graph) {
-        for (int i = 0; i < graph.getGraphNodes().size(); i++) {
-            GraphNode selectedNode = graph.getGraphNodes().get(i);
-            if (selectedNode.getType() == GraphNodeType.PRODUCT || selectedNode.getType() == GraphNodeType.AGENT) {
-                Float selected_y = selectedNode.getLocation().getY();
-                Float lowest = Float.MAX_VALUE;
-                Float highest = -1f;
-                Float lowestS = Float.MAX_VALUE;
-                Float highestS = -1f;
-                GraphNode neighborN = null;
-                GraphNode neighborS = null;
-                GraphNode neighborNS = null;
-                GraphNode neighborSS = null;
-
-                GraphNode sameSpot = null;
-                for (int j = 0; j < graph.getGraphNodes().size(); j++) {
-                    GraphNode neighbour = graph.getGraphNodes().get(j);
-                    if (!selectedNode.equals(neighbour) && neighbour.getLocation().getX() == selectedNode.getLocation().getX()) {
-                        //NOT SIMPLE
-                        if (neighbour.getLocation().getY() > selected_y && neighbour.getLocation().getY() < lowest) {
-                            neighborS = neighbour;
-                            lowest = neighbour.getLocation().getY();
-                        }
-                        if (neighbour.getLocation().getY() < selected_y && neighbour.getLocation().getY() >= highest) {
-                            neighborN = neighbour;
-                            highest = neighbour.getLocation().getY();
-                        }
-                        //SIMPLE
-                        if (neighbour.getLocation().getY() > selected_y && neighbour.getLocation().getY() < lowestS && (neighbour.getType() == GraphNodeType.SIMPLE || neighbour.getType() == GraphNodeType.EXIT)) {
-                            neighborSS = neighbour;
-                            lowestS = neighbour.getLocation().getY();
-                        }
-                        if (neighbour.getLocation().getY() < selected_y && neighbour.getLocation().getY() >= highestS && (neighbour.getType() == GraphNodeType.SIMPLE || neighbour.getType() == GraphNodeType.EXIT)) {
-                            neighborNS = neighbour;
-                            highestS = neighbour.getLocation().getY();
-                        }
-                        if (neighbour.getLocation().getY() == selected_y) {
-                            Edge edge = new Edge(selectedNode, neighbour, 0, graph.getEdges().size());
-                            selectedNode.addNeighbour(edge);
-                            neighbour.addNeighbour(edge);
-                            graph.getEdges().add(edge);
-                        }
-                    }
-                }
-                if (neighborN == null || neighborS == null) {
-                    //System.out.println();
-                }
-
-                if (neighborS != null) {
-                    Edge edgeS = new Edge(selectedNode, neighborS, selectedNode.getDistance(neighborS), graph.getEdges().size());
-                    graph.getEdges().add(edgeS);
-                    selectedNode.addNeighbour(edgeS);
-                    neighborS.addNeighbour(edgeS);
-                }
-                if (neighborN != null) {
-                    Edge edgeN = new Edge(selectedNode, neighborN, selectedNode.getDistance(neighborN), graph.getEdges().size());
-                    graph.getEdges().add(edgeN);
-                    selectedNode.addNeighbour(edgeN);
-                    neighborN.addNeighbour(edgeN);
-                }
-                //SIMPLE
-                if (neighborSS != null) {
-                    Edge edgeS = new Edge(selectedNode, neighborSS, selectedNode.getDistance(neighborSS), graph.getEdges().size());
-                    graph.getEdges().add(edgeS);
-                    selectedNode.addNeighbour(edgeS);
-                    neighborSS.addNeighbour(edgeS);
-                }
-                if (neighborNS != null) {
-                    Edge edgeN = new Edge(selectedNode, neighborNS, selectedNode.getDistance(neighborNS), graph.getEdges().size());
-                    graph.getEdges().add(edgeN);
-                    selectedNode.addNeighbour(edgeN);
-                    neighborNS.addNeighbour(edgeN);
-                }
-
-                //neighborN.removeNeighbour(neighborS);
-                //neighborS.removeNeighbour(neighborN);
-                /*if (neighborN.getType() == GraphNodeType.SIMPLE) {
-                    neighborN.removeSouthSimple();
-                }*/
-            }
-        }
-        /*
-        for (int i = 0; i < graph.getGraphNodes().size(); i++) {
-            System.out.println(graph.getGraphNodes().get(i).toString());
-        }*/
         return graph;
     }
 
@@ -849,153 +784,13 @@ public class SimulationPanel extends JPanel{
         draw(problemGraph, true, gfx2, backup);
     }
 
-
-    private FitnessResults fixRepetedProduct(FitnessResults results) {
-        for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
-            GraphNode agent = entry.getKey();
-            List<FitnessNode> pathNodes = entry.getValue();
-            List<FitnessNode> toRemove = new ArrayList<>();
-            for (int i = 0; i < pathNodes.size() - 1; i++) {
-                if (pathNodes.get(i).getNode().getGraphNodeId() == pathNodes.get(i + 1).getNode().getGraphNodeId() && pathNodes.get(i + 1).getCost() == 0) {
-                    toRemove.add(pathNodes.get(i + 1));
-                }
-            }
-            pathNodes.removeAll(toRemove);
-            toRemove.clear();
-        }
-        return results;
-    }
-
     private FitnessResults calculatePath(HashMap<GraphNode, List<GraphNode>> pathMap) {
         Clustering clustering = new Clustering(problemGraph, MAX_KMEANS_ITERATIONS);
         return clustering.calculatePath(pathMap);
     }
 
-
-    private ArrayList<GraphNode> moveAgentToFront(ArrayList<GraphNode> clusterList) {
-        GraphNode agent = null;
-        for (GraphNode node : clusterList) {
-            if (node.getType() == GraphNodeType.AGENT) {
-                agent = node;
-            }
-        }
-        clusterList.remove(agent);
-        clusterList.add(0, agent);
-        return clusterList;
-    }
-
     public Graph getProblemGraph() {
         return problemGraph;
-    }
-
-
-
-    /*
-    private HashMap<Integer, ArrayList<GraphNode>> fixAgentClusters(HashMap<Integer, ArrayList<GraphNode>> clusterMap) {
-        //CLUSERINGGGG
-        List<GraphNode> allExtraAgents = new ArrayList<>();
-        List<Integer> allExtraClusters = new ArrayList<>();
-
-        for (Map.Entry<Integer, ArrayList<GraphNode>> entry : clusterMap.entrySet()) {
-            Integer cluster = entry.getKey();
-            ArrayList<GraphNode> clusterList = entry.getValue();
-            List<GraphNode> extraAgents = new ArrayList<>();
-            int num_agents = 0;
-
-            for (GraphNode graphNode : clusterList) {
-                if (graphNode.getType() == GraphNodeType.AGENT) {
-                    extraAgents.add(graphNode);
-                    num_agents++;
-                }
-            }
-            if (num_agents > 1) {
-                allExtraAgents.addAll(extraAgents);
-            } else if (num_agents == 0) {
-                allExtraClusters.add(cluster);
-            }
-        }
-        if (allExtraClusters.isEmpty()) {
-            return null;
-        } else {
-            for (Integer extraCluster : allExtraClusters) {
-                HashMap<GraphNode, ArrayList<ProductsWithDistance>> agents_products_distances = new HashMap<>();
-                for (GraphNode agent : allExtraAgents) {
-                    ArrayList<ProductsWithDistance> distances = new ArrayList<>();
-                    for (GraphNode product : clusterMap.get(extraCluster)) {
-                        distances.add(new ProductsWithDistance(product, agent.getDistance(product)));
-                    }
-                    agents_products_distances.put(agent, distances);
-                }
-                ArrayList<AgentsWithClosestProduct> agentsWithClosestProducts = new ArrayList<>();
-                for (Map.Entry<GraphNode, ArrayList<ProductsWithDistance>> entry : agents_products_distances.entrySet()) {
-                    GraphNode agent = entry.getKey();
-                    ArrayList<ProductsWithDistance> products = entry.getValue();
-                    ProductsWithDistance lowest = null;
-                    for (ProductsWithDistance product : products) {
-                        if (lowest == null) {
-                            lowest = product;
-                        } else if (lowest.getDistance() >= product.getDistance()) {
-                            lowest = product;
-                        }
-                    }
-                    agentsWithClosestProducts.add(new AgentsWithClosestProduct(agent, lowest));
-                }
-                AgentsWithClosestProduct lowestDistAgent = null;
-                for (AgentsWithClosestProduct agent_set : agentsWithClosestProducts) {
-                    if (lowestDistAgent == null) {
-                        lowestDistAgent = agent_set;
-                    }
-                    if (agent_set.getClosestProduct().getDistance() <= lowestDistAgent.getClosestProduct().getDistance()) {
-                        lowestDistAgent = agent_set;
-                    }
-                }
-                clusterMap.get(lowestDistAgent.getAgent().getCluster().getId()).remove(lowestDistAgent.getAgent());
-                lowestDistAgent.getAgent().setCluster(lowestDistAgent.getClosestProduct().getProduct().getCluster());
-                clusterMap.get(lowestDistAgent.getAgent().getCluster().getId()).add(lowestDistAgent.getAgent());
-            }
-            return clusterMap;
-        }
-    }*/
-
-    private class ProductsWithDistance {
-        private GraphNode product;
-        private Float distance;
-
-        public ProductsWithDistance(GraphNode product, Float distance) {
-            this.product = product;
-            this.distance = distance;
-        }
-
-        public GraphNode getProduct() {
-            return product;
-        }
-
-        public void setProduct(GraphNode product) {
-            this.product = product;
-        }
-
-        public Float getDistance() {
-            return distance;
-        }
-
-        public void setDistance(Float distance) {
-            this.distance = distance;
-        }
-
-        @Override
-        public String toString() {
-            return this.getProduct().getGraphNodeId() + " " + this.getDistance();
-        }
-    }
-
-
-    private MyCluster findMyCluster(int assignment, List<MyCluster> clusters) {
-        for (int i = 0; i < clusters.size(); i++) {
-            if (clusters.get(i).getId() == assignment) {
-                return clusters.get(i);
-            }
-        }
-        return null;
     }
 
 
@@ -1043,8 +838,14 @@ public class SimulationPanel extends JPanel{
 
     public void jButtonRunFromXML_actionPerformed(ActionEvent e) {
         //XML FILE BUTTON ACTION
+        PrefabManager prefabManager = readPrefabXML();
+        draw_prefabs(prefabManager);
+
+    }
+
+    private PrefabManager readPrefabXML() {
         try {
-            File inputFile = new File("input.xml");
+            File inputFile = new File(GASingleton.WAREHOUSE_FILE);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
@@ -1090,22 +891,21 @@ public class SimulationPanel extends JPanel{
             //Collections.sort(prefabList, new CustomComparator());
 
             prefabManager.fillAllPrefabs();
-
+            /*
             for (Prefab prefab : prefabManager.getAllPrefabs()) {
                 System.out.println(prefab.toString());
-            }
+            }*/
 
-            draw_prefabs(prefabManager);
-
+            return prefabManager;
             /*
             for (int i = 0; i < prefabList.size(); i++) {
                 System.out.println(prefabList.get(i));
             }*/
 
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        return null;
     }
 
     private void draw_prefabs(PrefabManager prefabManager) {
@@ -1130,31 +930,6 @@ public class SimulationPanel extends JPanel{
 
     }
 
-
-    public class CustomComparator implements Comparator<Prefab> {
-        @Override
-        public int compare(Prefab o1, Prefab o2) {
-            try {
-                return Float.compare(o1.getPosition().getX(), o2.getPosition().getX());
-            } catch (NullPointerException e) {
-                if (o1.getPosition() == null) {
-                    return 1;
-                } else {
-                    return -1;
-                }
-            }
-        }
-
-    }
-
-    public static <E> E findFirst(LinkedList<E> list, Class<E> itemType) {
-        for (E element : list) {
-            if (itemType.isInstance(element)) {
-                return element;
-            }
-        }
-        return null;
-    }
 
     private PrefabManager parseStructuresExtra(Node item, PrefabManager prefabManager) {
         for (int i = 0; i < item.getChildNodes().getLength(); i++) {

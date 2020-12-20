@@ -50,7 +50,7 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
     public abstract double pickDistributionStdDev();
 
 
-        public double getFitness() {
+    public double getFitness() {
         return fitness;
     }
 
@@ -79,7 +79,7 @@ public abstract class Individual<P extends Problem, I extends Individual> implem
 
     public abstract void replaceFromChild(GraphNode agent, List<Item> genome);
 
-    public abstract void setGene(GraphNode agent,Integer index, Item value);
+    public abstract void setGene(GraphNode agent, Integer index, Item value);
 
     public abstract int getNumGenes(int agent);
 

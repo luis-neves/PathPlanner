@@ -5,20 +5,22 @@ import classlib.CommunicationManager;
 import classlib.Util;
 import communication.CommunicationVariables;
 import communication.Operator;
+import communication.Tarefa;
 import ga.multiple.GAwithEnvironment;
 import gui.Main;
 import gui.MainFrame;
 import gui.PanelTextArea;
 import gui.SimulationPanel;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
+import org.w3c.dom.*;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import picking.Item;
 import picking.Picking;
 import picking.PickingIndividual;
 import utils.Graphs.*;
+import utils.warehouse.Prefab;
+import utils.warehouse.PrefabManager;
+import utils.warehouse.Rack;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -26,20 +28,19 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.StringWriter;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
 
 public class GASingleton implements Observer {
+    public static final String WAREHOUSE_FILE = "warehouse_model.xml";
+    public static final String GRAPH_FILE = "graph.xml";
     private static GASingleton instance;
 
+    PrefabManager prefabManager;
     private List<Item> items;
     private int distanceMatrix[][];
-    private List<Item> finalSet;
     private int fitnessType;
     private int[][] grid;
     private boolean nodeProblem;
@@ -67,11 +68,17 @@ public class GASingleton implements Observer {
     public static final String CLIENT_ID = "planeador";
     public static final String erpID = "erp";
     public static final String RA_ID = "ra";
-    public static final String LOC_FINA_ID = "locfina";
     public static final String LOC_APROX_ID = "locaproximada";
     public static final String MODELADOR_ID = "modelador";
     public static final int NUM_OPERATORS = 1;
 
+    public PrefabManager getPrefabManager() {
+        return prefabManager;
+    }
+
+    public void setPrefabManager(PrefabManager prefabManager) {
+        this.prefabManager = prefabManager;
+    }
 
     public GeneticAlgorithm getDefaultGA() {
         return defaultGA;
@@ -97,17 +104,63 @@ public class GASingleton implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         CommunicationVariables comms = (CommunicationVariables) o;
-        if (comms.isOperators_ready()) {
-            GASingleton.getInstance().getMainFrame().logMessage("Operators Ready ", 1);
-            for (Operator operator : comms.getOperators()) {
-                GASingleton.getInstance().getMainFrame().logMessage(operator.toString(), 1);
-
-            }
+        if (comms.isTasks_ready()) {
+            prepareTasks();
+            comms.setTasks_ready(false);
+            comms.getGa_ready()[0] = true;
         }
-        //Make sure all operators, erp, locs are ready to begin
-        if (comms.isOperators_ready() && comms.isErp_ready() && comms.isLoc_aprox_ready() && comms.isLoc_fina_ready()) {
+        if (comms.isOperators_ready()) {
+            prepareOperators();
+            comms.setOperators_ready(false);
+            comms.getGa_ready()[1] = true;
+        }
+        if (comms.ga_fully_ready()) {
+            //GA
+            System.out.println("Ready for GA");
+            simulationPanel.draw_problem_graph();
+            mainFrame.runMultipleGA();
+        }
+    }
 
-            //BEGIN PROCESS
+    private void simulateOperator() {
+        Operator operator = new Operator(true);
+        operator.setId("RA1");
+        operator.setX(problemGraph.findNode(15).getLocation().getX());
+        operator.setY(problemGraph.findNode(15).getLocation().getY() - 5);
+
+        communication_variables.getOperators().add(operator);
+        communication_variables.setOperators_ready(true);
+    }
+
+    private void prepareOperators() {
+        if (communication_variables.getOperators().size() > 0) {
+            for (Operator operator : communication_variables.getOperators()) {
+                if (operator.isAvailable()) {
+                    GraphNode agent = new GraphNode(problemGraph.getNumNodes(), operator.getX(), operator.getY(), GraphNodeType.AGENT);
+                    operator.setAgent(agent);
+                    problemGraph.createGraphNodeOnClosestEdge(agent);
+                }
+            }
+        } else {
+            System.out.println("No operators to prepare");
+        }
+    }
+
+    private void prepareTasks() {
+        if (prefabManager != null) {
+            prefabManager.fixSizesToInteger();
+            prefabManager.generateShapes();
+            problemGraph = graph.clone();
+            for (Tarefa tarefa : communication_variables.getTarefas()) {
+                Rack rack = prefabManager.findRackByID(Integer.parseInt(tarefa.getOrigem()));
+                if (rack != null) {
+                    int new_x = Math.round((int) rack.getShape().getBounds().getCenterX());
+                    int new_y = Math.round((int) rack.getShape().getBounds().getCenterY());
+                    problemGraph.createGraphNodeOnClosestEdge(new GraphNode(problemGraph.getNumNodes(), new_x, new_y, GraphNodeType.PRODUCT));
+                }
+            }
+        } else {
+            mainFrame.logMessage("prefabManager is NULL, can't generate tasks", 0);
         }
     }
 
@@ -188,7 +241,6 @@ public class GASingleton implements Observer {
 
     private GASingleton() {
         this.items = new ArrayList<>();
-        this.finalSet = new ArrayList<>();
         this.weightsPenaltyWeight = 0.0f;
         this.timeWeight = 0.5f;
         this.colisionWeight = 0.5f;
@@ -232,7 +284,6 @@ public class GASingleton implements Observer {
 
     public List<Double> setFinalItemSet(List<Item> items, boolean show) {
         if (show) {
-            this.finalSet = items;
         }
         //String missing = getMissingAgent(finalSet);
         if (SimulationPanel.environment != null) {
@@ -241,13 +292,6 @@ public class GASingleton implements Observer {
         return null;
     }
 
-    public FitnessResults checkResultsForColision(FitnessResults results) {
-        if (SimulationPanel.environmentNodeGraph != null) {
-            //results.clearNodeListFromPackages();
-            return SimulationPanel.environmentNodeGraph.checkColisions2(results);
-        }
-        return null;
-    }
 
     public String getMissingAgent(List<Item> items) {
         List<Integer> agentsUsed = new ArrayList<>();
@@ -263,7 +307,6 @@ public class GASingleton implements Observer {
                     }
                 }
             }
-
         }
         Integer lastAgent = -1;
         for (Integer a : allAgents) {
@@ -327,14 +370,14 @@ public class GASingleton implements Observer {
                 root.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xsd", "http://www.w3.org/2001/XMLSchema");
                 root.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
                 Attr attrAgent = document.createAttribute("agent-id");
-                attrAgent.setValue(entry.getKey().getGraphNodeId() + "");
+                GraphNode agent = entry.getKey();
+                attrAgent.setValue(communication_variables.getOperatorByGraphNode(agent).getId());
                 root.setAttributeNode(attrAgent);
                 Attr attRoot = document.createAttribute("id");
-                attRoot.setValue(entry.getKey().getGraphNodeId() + "" + 1);
+                attRoot.setValue(entry.getKey().getGraphNodeId() + "");
                 root.setAttributeNode(attRoot);
                 document.appendChild(root);
 
-                GraphNode agent = entry.getKey();
                 List<FitnessNode> agentPath = entry.getValue();
                 //
 
@@ -382,8 +425,9 @@ public class GASingleton implements Observer {
 
                 String xmlString = writer.getBuffer().toString();
                 System.out.println(xmlString);
-                //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", GASingleton.getInstance().communication_variables.getOperators().get(0).getId(), "application/xml", xmlString, "1");
-                //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", "ra1", "application/xml", xmlString, "1");
+                if (communication_variables.getOperatorByGraphNode(agent).isAvailable()) {
+                    cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", communication_variables.getOperatorByGraphNode(agent).getId(), "application/xml", xmlString, "1");
+                }//cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", "ra1", "application/xml", xmlString, "1");
             }
             System.out.println("\nDone creating/sending XML File");
         } catch (ParserConfigurationException pce) {
@@ -680,6 +724,56 @@ public class GASingleton implements Observer {
 
     public void setCommunication_variables(CommunicationVariables communication_variables) {
         this.communication_variables = communication_variables;
+    }
+
+    public void parseTarefaXML(String content) {
+        try {
+            DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            InputSource is = new InputSource();
+            is.setCharacterStream(new StringReader(content));
+
+            Document doc = db.parse(is);
+            NodeList tarefas_nodes = doc.getElementsByTagName("Tarefa");
+
+            List<Tarefa> tarefas = new ArrayList<>();
+
+            for (int j = 0; j < tarefas_nodes.getLength(); j++) {
+                Element element = (Element) tarefas_nodes.item(j);
+                Tarefa tarefa = new Tarefa();
+                for (int i = 0; i < element.getChildNodes().getLength(); i++) {
+                    switch (element.getChildNodes().item(i).getNodeName()) {
+                        case "Ordem":
+                            tarefa.setOrdem(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                            break;
+                        case "LinhaOrdem":
+                            tarefa.setLinhaOrdem(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                            break;
+                        case "Produto":
+                            tarefa.setProduto(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                            break;
+                        case "Quantidade":
+                            tarefa.setQuantidade(Integer.parseInt(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
+                            break;
+                        case "Origem":
+                            tarefa.setOrigem(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                            break;
+                        case "Destino":
+                            tarefa.setDestino(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                            break;
+                    }
+                }
+                tarefas.add(tarefa);
+            }
+            communication_variables.setTarefas(tarefas);
+            communication_variables.setTasks_ready(true);
+            simulateOperator();
+
+            System.out.println("Received " + communication_variables.getTarefas().size() + " products from ERP");
+        } catch (Exception e) {
+            mainFrame.logMessage("Error " + e.getMessage(), 1);
+            e.printStackTrace();
+        }
+
     }
 
     //Document doc = builder.newDocument();

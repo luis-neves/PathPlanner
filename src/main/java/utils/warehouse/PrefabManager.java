@@ -163,13 +163,22 @@ public class PrefabManager {
         for (int i = 0; i < getRacks().size(); i++) {
             Rack rack = getRacks().get(i);
             if (rack.getShape() != null) {
-                int new_x = Math.round((int)rack.getShape().getBounds().getCenterX());
-                int new_y = Math.round((int)rack.getShape().getBounds().getCenterY());
+                int new_x = Math.round((int) rack.getShape().getBounds().getCenterX());
+                int new_y = Math.round((int) rack.getShape().getBounds().getCenterY());
                 if (x - sensibility < new_x && new_x < x + sensibility) {
                     if (y - sensibility < new_y && new_y < y + sensibility) {
                         return rack;
                     }
                 }
+            }
+        }
+        return null;
+    }
+
+    public Rack findRackByID(int id) {
+        for (Rack rack : racks) {
+            if (id == Integer.parseInt(rack.getCode().split("RC")[1])){
+                return rack;
             }
         }
         return null;
