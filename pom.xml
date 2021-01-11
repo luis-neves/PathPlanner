@@ -3,7 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+ <!--
+mvn install:install-file -Dfile=jni4net.j-0.8.8.0.jar -DgroupId=jni4net -DartifactId=jni4net.my -Dversion=0.8.8.0 -Dpackaging=jar
+mvn install:install-file -Dfile=./lib/jackson-core-asl-1.9.0.jar -DgroupId=jackson -DartifactId=jackson-core-asl -Dversion=1.9.0 -Dpackaging=jar
+mvn install:install-file -Dfile=ClassLib.j4n.jar -DgroupId=ClassLib -DartifactId=ClassLib.j4n -Dversion=1.0 -Dpackaging=jar
+ -->
     <groupId>arware</groupId>
     <artifactId>AlgoritmoGenetico</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -20,6 +24,12 @@
         </repository>
     </repositories>
     <dependencies>
+        <!--
+        <dependency>
+            <groupId>valor dado no -DgroupId </groupId>
+            <artifactId>valor dado no -DartifactId </artifactId>
+            <version>valor dado no -Dversion</version>
+        </dependency>-->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
