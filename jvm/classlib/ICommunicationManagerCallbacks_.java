@@ -33,6 +33,12 @@ class __ICommunicationManagerCallbacks extends system.Object implements classlib
             super(__env, __handle);
     }
     
+    @net.sf.jni4net.attributes.ClrMethod("()LClassLib/CommunicationManager;")
+    public native classlib.CommunicationManager getCommunicator();
+    
+    @net.sf.jni4net.attributes.ClrMethod("(LClassLib/CommunicationManager;)V")
+    public native void SetCommunicationManager(classlib.CommunicationManager communicationManager);
+    
     @net.sf.jni4net.attributes.ClrMethod("(Z)V")
     public native void InitializationDoneEvent(boolean isSuccess);
     

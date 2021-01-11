@@ -337,13 +337,8 @@ public class Graph {
     public void clear() {
         graphNodes.clear();
         edges.clear();
-    }
-
-    public void deAmplify(float amplify_x) {
-        for (GraphNode node : graphNodes) {
-            node.getLocation().setX(node.getLocation().getX() / amplify_x);
-            node.getLocation().setY(node.getLocation().getY() / amplify_x);
-        }
+        numberOfgraphNodes = 0;
+        numberOfEdges = 0;
     }
 
     public Edge findClosestEdge(GraphNode graphNode) {

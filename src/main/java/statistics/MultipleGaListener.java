@@ -1,12 +1,10 @@
 package statistics;
 
 import experiments.ExperimentEvent;
-import experiments.ExperimentListener;
 import ga.*;
 import ga.geneticOperators.Mutation;
 import ga.geneticOperators.Recombination;
 import ga.selectionMethods.SelectionMethod;
-import gui.MainFrame;
 import picking.Item;
 import picking.Picking;
 import picking.PickingIndividual;
@@ -20,7 +18,7 @@ import java.util.*;
 public class MultipleGaListener implements GAListener {
 
     int ga_iteration;
-    int max_agents;
+    int max_ga;
     List<GAListener> statistics;
 
 
@@ -34,9 +32,9 @@ public class MultipleGaListener implements GAListener {
     HashMap<GraphNode, List<FitnessNode>> fullPath;
     HashMap<GraphNode, List<GraphNode>> agentsOnly;
 
-    public MultipleGaListener(int ga_iteration, int max_agents, List<GAListener> statistics, int populationSize, int maxGenerations, SelectionMethod<PickingIndividual, Picking> selection, Recombination<PickingIndividual> recombination, Mutation<PickingIndividual> mutation) {
+    public MultipleGaListener(int ga_iteration, int max_ga, List<GAListener> statistics, int populationSize, int maxGenerations, SelectionMethod<PickingIndividual, Picking> selection, Recombination<PickingIndividual> recombination, Mutation<PickingIndividual> mutation) {
         this.ga_iteration = ga_iteration;
-        this.max_agents = max_agents;
+        this.max_ga = max_ga;
         this.statistics = statistics;
         this.populationSize = populationSize;
         this.maxGenerations = maxGenerations;
@@ -61,7 +59,7 @@ public class MultipleGaListener implements GAListener {
         bestIndividuals.add((PickingIndividual) e.getSource().getBestInRun());
         fullPath.putAll(e.getSource().getBestInRun().getResults().getTaskedAgentsFullNodes());
         agentsOnly.putAll(e.getSource().getBestInRun().getResults().getTaskedAgentsOnly());
-        if (ga_iteration - 1 == max_agents) {
+        if (ga_iteration - 1 == max_ga) {
             Individual biggest_task_ind = null;
             float fitness = 0;
             float time = 0;

@@ -19,14 +19,14 @@ public class ServiceBusManager extends system.Object {
             super(__env, __handle);
     }
     
-    @net.sf.jni4net.attributes.ClrConstructor("(LClassLib/TopicsConfiguration;)V")
-    public ServiceBusManager(classlib.TopicsConfiguration topicsConfiguration) {
+    @net.sf.jni4net.attributes.ClrConstructor("(LClassLib/TopicsConfiguration;LSystem/String;)V")
+    public ServiceBusManager(classlib.TopicsConfiguration topicsConfiguration, java.lang.String connectionString) {
             super(((net.sf.jni4net.inj.INJEnv)(null)), 0);
-        classlib.ServiceBusManager.__ctorServiceBusManager0(this, topicsConfiguration);
+        classlib.ServiceBusManager.__ctorServiceBusManager0(this, topicsConfiguration, connectionString);
     }
     
-    @net.sf.jni4net.attributes.ClrMethod("(Lclasslib/TopicsConfiguration;)V")
-    private native static void __ctorServiceBusManager0(net.sf.jni4net.inj.IClrProxy thiz, classlib.TopicsConfiguration topicsConfiguration);
+    @net.sf.jni4net.attributes.ClrMethod("(Lclasslib/TopicsConfiguration;Ljava/lang/String;)V")
+    private native static void __ctorServiceBusManager0(net.sf.jni4net.inj.IClrProxy thiz, classlib.TopicsConfiguration topicsConfiguration, java.lang.String connectionString);
     
     @net.sf.jni4net.attributes.ClrMethod("(LSystem/String;LSystem/String;)LSystem/Threading/Tasks/Task;")
     public native system.Object CreateDefaultSubscriptionAsync(java.lang.String topicName, java.lang.String subscriptionName);
@@ -45,6 +45,9 @@ public class ServiceBusManager extends system.Object {
     
     @net.sf.jni4net.attributes.ClrMethod("(LSystem/String;)LSystem/Threading/Tasks/Task;")
     public native system.Object CreateTopicAsync(java.lang.String topicName);
+    
+    @net.sf.jni4net.attributes.ClrMethod("(LClassLib/ClientTopicsInfo;)LSystem/Threading/Tasks/Task;")
+    public native system.Object DeleteDefaultSubscriptionAsync(classlib.ClientTopicsInfo clientInfo);
     
     @net.sf.jni4net.attributes.ClrMethod("(LSystem/String;)LSystem/Threading/Tasks/Task;")
     public native system.Object DeleteTopicAsync(java.lang.String topicName);

@@ -172,8 +172,8 @@ public class HybridPickingIndividual extends MultipleVectorIndividual<HybridClus
             if (index == indexToGet) {
                 GraphNode agent = entry.getKey();
                 List<GraphNode> nodes = entry.getValue();
-                for (GraphNode node : nodes){
-                    if (nodes.indexOf(node) != nodes.lastIndexOf(node)){
+                for (GraphNode node : nodes) {
+                    if (nodes.indexOf(node) != nodes.lastIndexOf(node)) {
                         System.out.println("Same nodes");
                     }
                 }

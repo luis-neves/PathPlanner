@@ -1,6 +1,7 @@
 package communication;
 
 import classlib.BusMessage;
+import classlib.CommunicationManager;
 import classlib.ICommunicationManagerCallbacks;
 import classlib.Util;
 import ga.GASingleton;
@@ -12,6 +13,16 @@ import java.io.IOException;
 import java.util.List;
 
 public class MyCallbacks implements ICommunicationManagerCallbacks {
+
+    @Override
+    public CommunicationManager getCommunicator() {
+        return GASingleton.getInstance().getCm();
+    }
+
+    @Override
+    public void SetCommunicationManager(CommunicationManager communicationManager) {
+        GASingleton.getInstance().setCm(communicationManager);
+    }
 
     @Override
     public void InitializationDoneEvent(boolean b) {
@@ -77,7 +88,6 @@ public class MyCallbacks implements ICommunicationManagerCallbacks {
                         GASingleton.getInstance().getCommunication_variables().addOperator(split[0], Boolean.parseBoolean(busMessage.getContent()));
                         System.out.println("New Operator " + split[0] + " " + busMessage.getContent());
                         GASingleton.getInstance().getMainFrame().logMessage("New Operator " + split[0] + " " + busMessage.getContent(), 0);
-
                     } else {
                         operator.setAvailable(Boolean.parseBoolean(busMessage.getContent()));
                         System.out.println("Operator " + operator.getId() + " " + operator.isAvailable());

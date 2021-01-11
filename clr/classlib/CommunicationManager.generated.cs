@@ -40,26 +40,38 @@ namespace ClassLib {
         private static global::System.Collections.Generic.List<global::net.sf.jni4net.jni.JNINativeMethod> @__Init(global::net.sf.jni4net.jni.JNIEnv @__env, global::java.lang.Class @__class) {
             global::System.Type @__type = typeof(__CommunicationManager);
             global::System.Collections.Generic.List<global::net.sf.jni4net.jni.JNINativeMethod> methods = new global::System.Collections.Generic.List<global::net.sf.jni4net.jni.JNINativeMethod>();
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "getClientInfo", "ClientInfo0", "()Lclasslib/ClientTopicsInfo;"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "getConfigurations", "Configurations1", "()Lclasslib/TopicsConfiguration;"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "InitializeAsync", "InitializeAsync2", "()Lsystem/Object;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "getServiceBusConnectionString", "ServiceBusConnectionString0", "()Ljava/lang/String;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "getClientInfo", "ClientInfo1", "()Lclasslib/ClientTopicsInfo;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "getConfigurations", "Configurations2", "()Lclasslib/TopicsConfiguration;"));
             methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "SendMessageAsync", "SendMessageAsync3", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/la" +
                         "ng/String;Ljava/lang/String;Ljava/lang/String;)Lsystem/Object;"));
             methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "SendStreamMessageAsync", "SendStreamMessageAsync4", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsystem" +
                         "/Object;"));
             methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "SubscribeContentAsync", "SubscribeContentAsync5", "(Ljava/lang/String;Ljava/lang/String;)Lsystem/Object;"));
             methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "UnsubscribeContentAsync", "UnsubscribeContentAsync6", "(Ljava/lang/String;Ljava/lang/String;)Lsystem/Object;"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "AddNewSubscriptionClient", "AddNewSubscriptionClient7", "(Ljava/lang/String;Ljava/lang/String;)V"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "RemoveStreamingSubscriptionClientAsync", "RemoveStreamingSubscriptionClientAsync8", "(Ljava/lang/String;Ljava/lang/String;)Lsystem/Object;"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "InitLogSystem", "InitLogSystem9", "()V"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "InitLogSystem", "InitLogSystem10", "(Ljava/lang/String;)V"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "BaseTopicToId", "BaseTopicToId11", "(Ljava/lang/String;)Ljava/lang/String;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "InitLogSystem", "InitLogSystem7", "()V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "InitLogSystem", "InitLogSystem8", "(Ljava/lang/String;)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "BaseTopicToId", "BaseTopicToId9", "(Ljava/lang/String;)Ljava/lang/String;"));
             methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "__ctorCommunicationManager0", "__ctorCommunicationManager0", "(Lnet/sf/jni4net/inj/IClrProxy;Ljava/lang/String;Lclasslib/TopicsConfiguration;Lc" +
                         "lasslib/ICommunicationManagerCallbacks;)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "__ctorCommunicationManager1", "__ctorCommunicationManager1", "(Lnet/sf/jni4net/inj/IClrProxy;Ljava/lang/String;Lclasslib/TopicsConfiguration;Lc" +
+                        "lasslib/ICommunicationManagerCallbacks;Ljava/lang/String;)V"));
             return methods;
         }
         
-        private static global::net.sf.jni4net.utils.JniHandle ClientInfo0(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj) {
+        private static global::net.sf.jni4net.utils.JniHandle ServiceBusConnectionString0(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj) {
+            // ()Ljava/lang/String;
+            // ()LSystem/String;
+            global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
+            global::net.sf.jni4net.utils.JniHandle @__return = default(global::net.sf.jni4net.utils.JniHandle);
+            try {
+            global::ClassLib.CommunicationManager @__real = global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.CommunicationManager>(@__env, @__obj);
+            @__return = global::net.sf.jni4net.utils.Convertor.StrongC2JString(@__env, @__real.ServiceBusConnectionString);
+            }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
+            return @__return;
+        }
+        
+        private static global::net.sf.jni4net.utils.JniHandle ClientInfo1(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj) {
             // ()Lclasslib/ClientTopicsInfo;
             // ()LClassLib/ClientTopicsInfo;
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -71,7 +83,7 @@ namespace ClassLib {
             return @__return;
         }
         
-        private static global::net.sf.jni4net.utils.JniHandle Configurations1(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj) {
+        private static global::net.sf.jni4net.utils.JniHandle Configurations2(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj) {
             // ()Lclasslib/TopicsConfiguration;
             // ()LClassLib/TopicsConfiguration;
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -79,18 +91,6 @@ namespace ClassLib {
             try {
             global::ClassLib.CommunicationManager @__real = global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.CommunicationManager>(@__env, @__obj);
             @__return = global::net.sf.jni4net.utils.Convertor.StrongC2Jp<global::ClassLib.TopicsConfiguration>(@__env, @__real.Configurations);
-            }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
-            return @__return;
-        }
-        
-        private static global::net.sf.jni4net.utils.JniHandle InitializeAsync2(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj) {
-            // ()Lsystem/Object;
-            // ()LSystem/Threading/Tasks/Task;
-            global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
-            global::net.sf.jni4net.utils.JniHandle @__return = default(global::net.sf.jni4net.utils.JniHandle);
-            try {
-            global::ClassLib.CommunicationManager @__real = global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.CommunicationManager>(@__env, @__obj);
-            @__return = global::net.sf.jni4net.utils.Convertor.StrongC2Jp<global::System.Threading.Tasks.Task>(@__env, @__real.InitializeAsync());
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
             return @__return;
         }
@@ -143,29 +143,7 @@ namespace ClassLib {
             return @__return;
         }
         
-        private static void AddNewSubscriptionClient7(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle priorityId, global::net.sf.jni4net.utils.JniLocalHandle subscriptionName) {
-            // (Ljava/lang/String;Ljava/lang/String;)V
-            // (LSystem/String;LSystem/String;)V
-            global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
-            try {
-            global::ClassLib.CommunicationManager @__real = global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.CommunicationManager>(@__env, @__obj);
-            @__real.AddNewSubscriptionClient(global::net.sf.jni4net.utils.Convertor.StrongJ2CString(@__env, priorityId), global::net.sf.jni4net.utils.Convertor.StrongJ2CString(@__env, subscriptionName));
-            }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
-        }
-        
-        private static global::net.sf.jni4net.utils.JniHandle RemoveStreamingSubscriptionClientAsync8(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle contentIdentification, global::net.sf.jni4net.utils.JniLocalHandle streamerTopicName) {
-            // (Ljava/lang/String;Ljava/lang/String;)Lsystem/Object;
-            // (LSystem/String;LSystem/String;)LSystem/Threading/Tasks/Task;
-            global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
-            global::net.sf.jni4net.utils.JniHandle @__return = default(global::net.sf.jni4net.utils.JniHandle);
-            try {
-            global::ClassLib.CommunicationManager @__real = global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.CommunicationManager>(@__env, @__obj);
-            @__return = global::net.sf.jni4net.utils.Convertor.StrongC2Jp<global::System.Threading.Tasks.Task>(@__env, @__real.RemoveStreamingSubscriptionClientAsync(global::net.sf.jni4net.utils.Convertor.StrongJ2CString(@__env, contentIdentification), global::net.sf.jni4net.utils.Convertor.StrongJ2CString(@__env, streamerTopicName)));
-            }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
-            return @__return;
-        }
-        
-        private static void InitLogSystem9(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj) {
+        private static void InitLogSystem7(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj) {
             // ()V
             // ()V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -175,7 +153,7 @@ namespace ClassLib {
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
         }
         
-        private static void InitLogSystem10(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle path) {
+        private static void InitLogSystem8(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle path) {
             // (Ljava/lang/String;)V
             // (LSystem/String;)V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -185,7 +163,7 @@ namespace ClassLib {
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
         }
         
-        private static global::net.sf.jni4net.utils.JniHandle BaseTopicToId11(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__class, global::net.sf.jni4net.utils.JniLocalHandle topicName) {
+        private static global::net.sf.jni4net.utils.JniHandle BaseTopicToId9(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__class, global::net.sf.jni4net.utils.JniLocalHandle topicName) {
             // (Ljava/lang/String;)Ljava/lang/String;
             // (LSystem/String;)LSystem/String;
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -196,12 +174,22 @@ namespace ClassLib {
             return @__return;
         }
         
-        private static void @__ctorCommunicationManager0(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__class, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle serviceBusClientId, global::net.sf.jni4net.utils.JniLocalHandle topicsConfiguration, global::net.sf.jni4net.utils.JniLocalHandle callbacksInterface) {
+        private static void @__ctorCommunicationManager0(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__class, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle serviceBusClientId, global::net.sf.jni4net.utils.JniLocalHandle topicsConfiguration, global::net.sf.jni4net.utils.JniLocalHandle customCallbacks) {
             // (Ljava/lang/String;Lclasslib/TopicsConfiguration;Lclasslib/ICommunicationManagerCallbacks;)V
             // (LSystem/String;LClassLib/TopicsConfiguration;LClassLib/ICommunicationManagerCallbacks;)V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
             try {
-            global::ClassLib.CommunicationManager @__real = new global::ClassLib.CommunicationManager(global::net.sf.jni4net.utils.Convertor.StrongJ2CString(@__env, serviceBusClientId), global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.TopicsConfiguration>(@__env, topicsConfiguration), global::net.sf.jni4net.utils.Convertor.FullJ2C<global::ClassLib.ICommunicationManagerCallbacks>(@__env, callbacksInterface));
+            global::ClassLib.CommunicationManager @__real = new global::ClassLib.CommunicationManager(global::net.sf.jni4net.utils.Convertor.StrongJ2CString(@__env, serviceBusClientId), global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.TopicsConfiguration>(@__env, topicsConfiguration), global::net.sf.jni4net.utils.Convertor.FullJ2C<global::ClassLib.ICommunicationManagerCallbacks>(@__env, customCallbacks));
+            global::net.sf.jni4net.utils.Convertor.InitProxy(@__env, @__obj, @__real);
+            }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
+        }
+        
+        private static void @__ctorCommunicationManager1(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__class, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle serviceBusClientId, global::net.sf.jni4net.utils.JniLocalHandle topicsConfiguration, global::net.sf.jni4net.utils.JniLocalHandle customCallbacks, global::net.sf.jni4net.utils.JniLocalHandle customESBConnectionString) {
+            // (Ljava/lang/String;Lclasslib/TopicsConfiguration;Lclasslib/ICommunicationManagerCallbacks;Ljava/lang/String;)V
+            // (LSystem/String;LClassLib/TopicsConfiguration;LClassLib/ICommunicationManagerCallbacks;LSystem/String;)V
+            global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
+            try {
+            global::ClassLib.CommunicationManager @__real = new global::ClassLib.CommunicationManager(global::net.sf.jni4net.utils.Convertor.StrongJ2CString(@__env, serviceBusClientId), global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.TopicsConfiguration>(@__env, topicsConfiguration), global::net.sf.jni4net.utils.Convertor.FullJ2C<global::ClassLib.ICommunicationManagerCallbacks>(@__env, customCallbacks), global::net.sf.jni4net.utils.Convertor.StrongJ2CString(@__env, customESBConnectionString));
             global::net.sf.jni4net.utils.Convertor.InitProxy(@__env, @__obj, @__real);
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
         }

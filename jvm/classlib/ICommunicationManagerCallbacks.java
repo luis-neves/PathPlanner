@@ -13,6 +13,12 @@ package classlib;
 public interface ICommunicationManagerCallbacks {
     
     //<generated-interface>
+    @net.sf.jni4net.attributes.ClrMethod("()LClassLib/CommunicationManager;")
+    classlib.CommunicationManager getCommunicator();
+    
+    @net.sf.jni4net.attributes.ClrMethod("(LClassLib/CommunicationManager;)V")
+    void SetCommunicationManager(classlib.CommunicationManager communicationManager);
+    
     @net.sf.jni4net.attributes.ClrMethod("(Z)V")
     void InitializationDoneEvent(boolean isSuccess);
     

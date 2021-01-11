@@ -29,87 +29,133 @@ namespace ClassLib {
         
         internal new static global::java.lang.Class staticClass;
         
-        internal static global::net.sf.jni4net.jni.MethodId j4n_InitializationDoneEvent0;
+        internal static global::net.sf.jni4net.jni.MethodId j4n_Communicator0;
         
-        internal static global::net.sf.jni4net.jni.MethodId j4n_MessageSentEvent1;
+        internal static global::net.sf.jni4net.jni.MethodId j4n_SetCommunicationManager1;
         
-        internal static global::net.sf.jni4net.jni.MethodId j4n_StreamMessageSentEvent2;
+        internal static global::net.sf.jni4net.jni.MethodId j4n_InitializationDoneEvent2;
         
-        internal static global::net.sf.jni4net.jni.MethodId j4n_ContentSubscribedEvent3;
+        internal static global::net.sf.jni4net.jni.MethodId j4n_MessageSentEvent3;
         
-        internal static global::net.sf.jni4net.jni.MethodId j4n_ContentUnsubscribedEvent4;
+        internal static global::net.sf.jni4net.jni.MethodId j4n_StreamMessageSentEvent4;
         
-        internal static global::net.sf.jni4net.jni.MethodId j4n_MessageToProcessEvent5;
+        internal static global::net.sf.jni4net.jni.MethodId j4n_ContentSubscribedEvent5;
+        
+        internal static global::net.sf.jni4net.jni.MethodId j4n_ContentUnsubscribedEvent6;
+        
+        internal static global::net.sf.jni4net.jni.MethodId j4n_MessageToProcessEvent7;
         
         private @__ICommunicationManagerCallbacks(global::net.sf.jni4net.jni.JNIEnv @__env) : 
                 base(@__env) {
         }
         
+        public global::ClassLib.CommunicationManager Communicator {
+            get {
+                global::net.sf.jni4net.jni.JNIEnv @__env = this.Env;
+            using(new global::net.sf.jni4net.jni.LocalFrame(@__env, 10)){
+                return global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.CommunicationManager>(@__env, @__env.CallObjectMethodPtr(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_Communicator0));
+            }
+            }
+        }
+        
         private static void InitJNI(global::net.sf.jni4net.jni.JNIEnv @__env, java.lang.Class @__class) {
             global::ClassLib.@__ICommunicationManagerCallbacks.staticClass = @__class;
-            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_InitializationDoneEvent0 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "InitializationDoneEvent", "(Z)V");
-            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_MessageSentEvent1 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "MessageSentEvent", "(ZLjava/lang/String;)V");
-            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_StreamMessageSentEvent2 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "StreamMessageSentEvent", "(ZLjava/lang/String;Ljava/lang/String;)V");
-            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_ContentSubscribedEvent3 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "ContentSubscribedEvent", "(ZLjava/lang/String;Ljava/lang/String;)V");
-            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_ContentUnsubscribedEvent4 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "ContentUnsubscribedEvent", "(ZLjava/lang/String;Ljava/lang/String;)V");
-            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_MessageToProcessEvent5 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "MessageToProcessEvent", "(Lclasslib/BusMessage;)V");
+            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_Communicator0 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "getCommunicator", "()Lclasslib/CommunicationManager;");
+            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_SetCommunicationManager1 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "SetCommunicationManager", "(Lclasslib/CommunicationManager;)V");
+            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_InitializationDoneEvent2 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "InitializationDoneEvent", "(Z)V");
+            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_MessageSentEvent3 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "MessageSentEvent", "(ZLjava/lang/String;)V");
+            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_StreamMessageSentEvent4 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "StreamMessageSentEvent", "(ZLjava/lang/String;Ljava/lang/String;)V");
+            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_ContentSubscribedEvent5 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "ContentSubscribedEvent", "(ZLjava/lang/String;Ljava/lang/String;)V");
+            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_ContentUnsubscribedEvent6 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "ContentUnsubscribedEvent", "(ZLjava/lang/String;Ljava/lang/String;)V");
+            global::ClassLib.@__ICommunicationManagerCallbacks.j4n_MessageToProcessEvent7 = @__env.GetMethodID(global::ClassLib.@__ICommunicationManagerCallbacks.staticClass, "MessageToProcessEvent", "(Lclasslib/BusMessage;)V");
+        }
+        
+        public void SetCommunicationManager(global::ClassLib.CommunicationManager communicationManager) {
+            global::net.sf.jni4net.jni.JNIEnv @__env = this.Env;
+            using(new global::net.sf.jni4net.jni.LocalFrame(@__env, 12)){
+            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_SetCommunicationManager1, global::net.sf.jni4net.utils.Convertor.ParStrongC2Jp<global::ClassLib.CommunicationManager>(@__env, communicationManager));
+            }
         }
         
         public void InitializationDoneEvent(bool isSuccess) {
             global::net.sf.jni4net.jni.JNIEnv @__env = this.Env;
             using(new global::net.sf.jni4net.jni.LocalFrame(@__env, 12)){
-            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_InitializationDoneEvent0, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(isSuccess));
+            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_InitializationDoneEvent2, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(isSuccess));
             }
         }
         
         public void MessageSentEvent(bool wasSent, string messageId) {
             global::net.sf.jni4net.jni.JNIEnv @__env = this.Env;
             using(new global::net.sf.jni4net.jni.LocalFrame(@__env, 14)){
-            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_MessageSentEvent1, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(wasSent), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, messageId));
+            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_MessageSentEvent3, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(wasSent), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, messageId));
             }
         }
         
         public void StreamMessageSentEvent(bool wasSent, string messageId, string contentIndentification) {
             global::net.sf.jni4net.jni.JNIEnv @__env = this.Env;
             using(new global::net.sf.jni4net.jni.LocalFrame(@__env, 16)){
-            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_StreamMessageSentEvent2, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(wasSent), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, messageId), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, contentIndentification));
+            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_StreamMessageSentEvent4, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(wasSent), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, messageId), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, contentIndentification));
             }
         }
         
         public void ContentSubscribedEvent(bool isSuccess, string contentIndentification, string streamerID) {
             global::net.sf.jni4net.jni.JNIEnv @__env = this.Env;
             using(new global::net.sf.jni4net.jni.LocalFrame(@__env, 16)){
-            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_ContentSubscribedEvent3, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(isSuccess), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, contentIndentification), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, streamerID));
+            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_ContentSubscribedEvent5, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(isSuccess), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, contentIndentification), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, streamerID));
             }
         }
         
         public void ContentUnsubscribedEvent(bool isSuccess, string contentIndentification, string streamerID) {
             global::net.sf.jni4net.jni.JNIEnv @__env = this.Env;
             using(new global::net.sf.jni4net.jni.LocalFrame(@__env, 16)){
-            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_ContentUnsubscribedEvent4, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(isSuccess), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, contentIndentification), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, streamerID));
+            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_ContentUnsubscribedEvent6, global::net.sf.jni4net.utils.Convertor.ParPrimC2J(isSuccess), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, contentIndentification), global::net.sf.jni4net.utils.Convertor.ParStrongC2JString(@__env, streamerID));
             }
         }
         
         public void MessageToProcessEvent(global::ClassLib.BusMessage message) {
             global::net.sf.jni4net.jni.JNIEnv @__env = this.Env;
             using(new global::net.sf.jni4net.jni.LocalFrame(@__env, 12)){
-            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_MessageToProcessEvent5, global::net.sf.jni4net.utils.Convertor.ParStrongC2Jp<global::ClassLib.BusMessage>(@__env, message));
+            @__env.CallVoidMethod(this, global::ClassLib.@__ICommunicationManagerCallbacks.j4n_MessageToProcessEvent7, global::net.sf.jni4net.utils.Convertor.ParStrongC2Jp<global::ClassLib.BusMessage>(@__env, message));
             }
         }
         
         private static global::System.Collections.Generic.List<global::net.sf.jni4net.jni.JNINativeMethod> @__Init(global::net.sf.jni4net.jni.JNIEnv @__env, global::java.lang.Class @__class) {
             global::System.Type @__type = typeof(__ICommunicationManagerCallbacks);
             global::System.Collections.Generic.List<global::net.sf.jni4net.jni.JNINativeMethod> methods = new global::System.Collections.Generic.List<global::net.sf.jni4net.jni.JNINativeMethod>();
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "InitializationDoneEvent", "InitializationDoneEvent0", "(Z)V"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "MessageSentEvent", "MessageSentEvent1", "(ZLjava/lang/String;)V"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "StreamMessageSentEvent", "StreamMessageSentEvent2", "(ZLjava/lang/String;Ljava/lang/String;)V"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "ContentSubscribedEvent", "ContentSubscribedEvent3", "(ZLjava/lang/String;Ljava/lang/String;)V"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "ContentUnsubscribedEvent", "ContentUnsubscribedEvent4", "(ZLjava/lang/String;Ljava/lang/String;)V"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "MessageToProcessEvent", "MessageToProcessEvent5", "(Lclasslib/BusMessage;)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "getCommunicator", "Communicator0", "()Lclasslib/CommunicationManager;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "SetCommunicationManager", "SetCommunicationManager1", "(Lclasslib/CommunicationManager;)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "InitializationDoneEvent", "InitializationDoneEvent2", "(Z)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "MessageSentEvent", "MessageSentEvent3", "(ZLjava/lang/String;)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "StreamMessageSentEvent", "StreamMessageSentEvent4", "(ZLjava/lang/String;Ljava/lang/String;)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "ContentSubscribedEvent", "ContentSubscribedEvent5", "(ZLjava/lang/String;Ljava/lang/String;)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "ContentUnsubscribedEvent", "ContentUnsubscribedEvent6", "(ZLjava/lang/String;Ljava/lang/String;)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "MessageToProcessEvent", "MessageToProcessEvent7", "(Lclasslib/BusMessage;)V"));
             return methods;
         }
         
-        private static void InitializationDoneEvent0(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool isSuccess) {
+        private static global::net.sf.jni4net.utils.JniHandle Communicator0(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj) {
+            // ()Lclasslib/CommunicationManager;
+            // ()LClassLib/CommunicationManager;
+            global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
+            global::net.sf.jni4net.utils.JniHandle @__return = default(global::net.sf.jni4net.utils.JniHandle);
+            try {
+            global::ClassLib.ICommunicationManagerCallbacks @__real = global::net.sf.jni4net.utils.Convertor.FullJ2C<global::ClassLib.ICommunicationManagerCallbacks>(@__env, @__obj);
+            @__return = global::net.sf.jni4net.utils.Convertor.StrongC2Jp<global::ClassLib.CommunicationManager>(@__env, @__real.Communicator);
+            }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
+            return @__return;
+        }
+        
+        private static void SetCommunicationManager1(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle communicationManager) {
+            // (Lclasslib/CommunicationManager;)V
+            // (LClassLib/CommunicationManager;)V
+            global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
+            try {
+            global::ClassLib.ICommunicationManagerCallbacks @__real = global::net.sf.jni4net.utils.Convertor.FullJ2C<global::ClassLib.ICommunicationManagerCallbacks>(@__env, @__obj);
+            @__real.SetCommunicationManager(global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.CommunicationManager>(@__env, communicationManager));
+            }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
+        }
+        
+        private static void InitializationDoneEvent2(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool isSuccess) {
             // (Z)V
             // (Z)V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -119,7 +165,7 @@ namespace ClassLib {
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
         }
         
-        private static void MessageSentEvent1(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool wasSent, global::net.sf.jni4net.utils.JniLocalHandle messageId) {
+        private static void MessageSentEvent3(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool wasSent, global::net.sf.jni4net.utils.JniLocalHandle messageId) {
             // (ZLjava/lang/String;)V
             // (ZLSystem/String;)V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -129,7 +175,7 @@ namespace ClassLib {
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
         }
         
-        private static void StreamMessageSentEvent2(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool wasSent, global::net.sf.jni4net.utils.JniLocalHandle messageId, global::net.sf.jni4net.utils.JniLocalHandle contentIndentification) {
+        private static void StreamMessageSentEvent4(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool wasSent, global::net.sf.jni4net.utils.JniLocalHandle messageId, global::net.sf.jni4net.utils.JniLocalHandle contentIndentification) {
             // (ZLjava/lang/String;Ljava/lang/String;)V
             // (ZLSystem/String;LSystem/String;)V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -139,7 +185,7 @@ namespace ClassLib {
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
         }
         
-        private static void ContentSubscribedEvent3(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool isSuccess, global::net.sf.jni4net.utils.JniLocalHandle contentIndentification, global::net.sf.jni4net.utils.JniLocalHandle streamerID) {
+        private static void ContentSubscribedEvent5(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool isSuccess, global::net.sf.jni4net.utils.JniLocalHandle contentIndentification, global::net.sf.jni4net.utils.JniLocalHandle streamerID) {
             // (ZLjava/lang/String;Ljava/lang/String;)V
             // (ZLSystem/String;LSystem/String;)V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -149,7 +195,7 @@ namespace ClassLib {
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
         }
         
-        private static void ContentUnsubscribedEvent4(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool isSuccess, global::net.sf.jni4net.utils.JniLocalHandle contentIndentification, global::net.sf.jni4net.utils.JniLocalHandle streamerID) {
+        private static void ContentUnsubscribedEvent6(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, bool isSuccess, global::net.sf.jni4net.utils.JniLocalHandle contentIndentification, global::net.sf.jni4net.utils.JniLocalHandle streamerID) {
             // (ZLjava/lang/String;Ljava/lang/String;)V
             // (ZLSystem/String;LSystem/String;)V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -159,7 +205,7 @@ namespace ClassLib {
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
         }
         
-        private static void MessageToProcessEvent5(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle message) {
+        private static void MessageToProcessEvent7(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle message) {
             // (Lclasslib/BusMessage;)V
             // (LClassLib/BusMessage;)V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);

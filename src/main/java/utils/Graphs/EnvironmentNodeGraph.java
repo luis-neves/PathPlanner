@@ -22,9 +22,6 @@ public class EnvironmentNodeGraph {
         //runEnvironment();
     }
 
-    public void setupEnvironment() {
-
-    }
 
     private boolean isSameSet(Item[] items1, Item[] items2) {
         for (int i = 0; i < items1.length; i++) {
@@ -359,7 +356,6 @@ public class EnvironmentNodeGraph {
 
     public static boolean inSameIle(GraphNode first, GraphNode second, GraphNode second2, GraphNode first2) {
         if (first.getGraphNodeId() == second.getGraphNodeId() && second.getGraphNodeId() == second2.getGraphNodeId()) {
-
             if (first.getVerticalSimpleNode().contains(first2) && first.getVerticalSimpleNode().size() < 2) {
                 return true;
             }
@@ -439,37 +435,6 @@ public class EnvironmentNodeGraph {
         return null;
     }
 
-    public void runEnvironment() {
-        AStar aStar = new AStar(graph);
-        aStar.setInitialGraphNode(findProducts(graph).get(0));
-        aStar.setFinalGraphNode(findProducts(graph).get(1));
-        /*List<GraphNode> path = aStar.findGraphPath();
-        System.out.println(path.size());
-        for (int i = 0; i < path.size(); i++) {
-            System.out.println(path.get(i).toString());
-        }*/
-    }
-
-    public List<GraphNode> findAgents(Graph graph) {
-        List<GraphNode> agents = new ArrayList<>();
-        for (int i = 0; i < graph.getGraphNodes().size(); i++) {
-            if (graph.getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
-                agents.add(graph.getGraphNodes().get(i));
-            }
-            ;
-        }
-        return agents;
-    }
-
-    public GraphNode findAgent(GraphNode agent) {
-        for (int i = 0; i < graph.getGraphNodes().size(); i++) {
-            if (graph.getGraphNodes().get(i).getType() == GraphNodeType.AGENT && graph.getGraphNodes().get(i).getGraphNodeId() == agent.getGraphNodeId()) {
-                return graph.getGraphNodes().get(i);
-            }
-            ;
-        }
-        return null;
-    }
 
     public List<GraphNode> findExits(Graph graph) {
         List<GraphNode> exits = new ArrayList<>();
@@ -482,14 +447,4 @@ public class EnvironmentNodeGraph {
         return exits;
     }
 
-    public List<GraphNode> findProducts(Graph graph) {
-        List<GraphNode> products = new ArrayList<>();
-        for (int i = 0; i < graph.getGraphNodes().size(); i++) {
-            if (graph.getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT) {
-                products.add(graph.getGraphNodes().get(i));
-            }
-            ;
-        }
-        return products;
-    }
 }

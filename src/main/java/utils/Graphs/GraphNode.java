@@ -308,17 +308,6 @@ public class GraphNode {
         this.parent = currentNode;
     }
 
-    public boolean checkBetterPath(GraphNode currentNode) {
-        double cost = 0;
-        setG((int) getNodeWeight(currentNode));
-        int gCost = (int) (currentNode.getG() + cost);
-        if (gCost < getG()) {
-            setNodeData(currentNode, cost);
-            return true;
-        }
-        return false;
-    }
-
     public String getNeighboursStr() {
         String neighbours = "";
         for (int i = 0; i < this.neighbours.size(); i++) {
@@ -378,32 +367,6 @@ public class GraphNode {
         }
         //System.out.println("Removed " + toRemove.size());
         neighbours.removeAll(toRemove);
-    }
-
-    public void removeSouthSimple() {
-        GraphNode toRemove = null;
-        Edge toRemoveE = null;
-        for (int i = 0; i < neighbours.size(); i++) {
-            GraphNode neighbor = null;
-            if (neighbours.get(i).getStart().getGraphNodeId() != this.getGraphNodeId()) {
-                neighbor = neighbours.get(i).getStart();
-            } else {
-                neighbor = neighbours.get(i).getEnd();
-            }
-            if (neighbor.getLocation().getX() == this.getLocation().getX() && neighbor.getType() != GraphNodeType.PRODUCT) {
-                toRemove = neighbor;
-                toRemoveE = neighbours.get(i);
-            }
-        }
-        if (toRemove != null) {
-            neighbours.remove(toRemoveE);
-            toRemove.removeNeighbour(this);
-            neighbours.remove(toRemove);
-        }
-    }
-
-    public String getGraphNodeIdStr() {
-        return this.type.toLetter() + "" + this.getGraphNodeId();
     }
 
     public void setCluster(MyCluster cluster) {

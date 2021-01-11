@@ -47,11 +47,13 @@ namespace ClassLib {
                         "b/ClientTopicsInfo;)Lsystem/Object;"));
             methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "RemoveSubscriptionRuleAsync", "RemoveSubscriptionRuleAsync4", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsystem/Object;"));
             methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "CreateTopicAsync", "CreateTopicAsync5", "(Ljava/lang/String;)Lsystem/Object;"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "DeleteTopicAsync", "DeleteTopicAsync6", "(Ljava/lang/String;)Lsystem/Object;"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "CreatePrioritySubscriptionsAsync", "CreatePrioritySubscriptionsAsync7", "(ILclasslib/ClientTopicsInfo;)Lsystem/Object;"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "DeleteExtraPrioritySubscriptions", "DeleteExtraPrioritySubscriptions8", "(Lclasslib/ClientTopicsInfo;I)Lsystem/Object;"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "GetPriorityExclusionSqlExpression", "GetPriorityExclusionSqlExpression9", "(I)Ljava/lang/String;"));
-            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "__ctorServiceBusManager0", "__ctorServiceBusManager0", "(Lnet/sf/jni4net/inj/IClrProxy;Lclasslib/TopicsConfiguration;)V"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "DeleteDefaultSubscriptionAsync", "DeleteDefaultSubscriptionAsync6", "(Lclasslib/ClientTopicsInfo;)Lsystem/Object;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "DeleteTopicAsync", "DeleteTopicAsync7", "(Ljava/lang/String;)Lsystem/Object;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "CreatePrioritySubscriptionsAsync", "CreatePrioritySubscriptionsAsync8", "(ILclasslib/ClientTopicsInfo;)Lsystem/Object;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "DeleteExtraPrioritySubscriptions", "DeleteExtraPrioritySubscriptions9", "(Lclasslib/ClientTopicsInfo;I)Lsystem/Object;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "GetPriorityExclusionSqlExpression", "GetPriorityExclusionSqlExpression10", "(I)Ljava/lang/String;"));
+            methods.Add(global::net.sf.jni4net.jni.JNINativeMethod.Create(@__type, "__ctorServiceBusManager0", "__ctorServiceBusManager0", "(Lnet/sf/jni4net/inj/IClrProxy;Lclasslib/TopicsConfiguration;Ljava/lang/String;)V" +
+                        ""));
             return methods;
         }
         
@@ -127,7 +129,19 @@ namespace ClassLib {
             return @__return;
         }
         
-        private static global::net.sf.jni4net.utils.JniHandle DeleteTopicAsync6(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle topicName) {
+        private static global::net.sf.jni4net.utils.JniHandle DeleteDefaultSubscriptionAsync6(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle clientInfo) {
+            // (Lclasslib/ClientTopicsInfo;)Lsystem/Object;
+            // (LClassLib/ClientTopicsInfo;)LSystem/Threading/Tasks/Task;
+            global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
+            global::net.sf.jni4net.utils.JniHandle @__return = default(global::net.sf.jni4net.utils.JniHandle);
+            try {
+            global::ClassLib.ServiceBusManager @__real = global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.ServiceBusManager>(@__env, @__obj);
+            @__return = global::net.sf.jni4net.utils.Convertor.StrongC2Jp<global::System.Threading.Tasks.Task>(@__env, @__real.DeleteDefaultSubscriptionAsync(global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.ClientTopicsInfo>(@__env, clientInfo)));
+            }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
+            return @__return;
+        }
+        
+        private static global::net.sf.jni4net.utils.JniHandle DeleteTopicAsync7(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle topicName) {
             // (Ljava/lang/String;)Lsystem/Object;
             // (LSystem/String;)LSystem/Threading/Tasks/Task;
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -139,7 +153,7 @@ namespace ClassLib {
             return @__return;
         }
         
-        private static global::net.sf.jni4net.utils.JniHandle CreatePrioritySubscriptionsAsync7(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, int totalNumberOfPriorityLevels, global::net.sf.jni4net.utils.JniLocalHandle clientInfo) {
+        private static global::net.sf.jni4net.utils.JniHandle CreatePrioritySubscriptionsAsync8(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, int totalNumberOfPriorityLevels, global::net.sf.jni4net.utils.JniLocalHandle clientInfo) {
             // (ILclasslib/ClientTopicsInfo;)Lsystem/Object;
             // (ILClassLib/ClientTopicsInfo;)LSystem/Threading/Tasks/Task;
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -151,7 +165,7 @@ namespace ClassLib {
             return @__return;
         }
         
-        private static global::net.sf.jni4net.utils.JniHandle DeleteExtraPrioritySubscriptions8(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle clientInfo, int numberOfPriorityLevels) {
+        private static global::net.sf.jni4net.utils.JniHandle DeleteExtraPrioritySubscriptions9(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle clientInfo, int numberOfPriorityLevels) {
             // (Lclasslib/ClientTopicsInfo;I)Lsystem/Object;
             // (LClassLib/ClientTopicsInfo;I)LSystem/Threading/Tasks/Task;
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -163,7 +177,7 @@ namespace ClassLib {
             return @__return;
         }
         
-        private static global::net.sf.jni4net.utils.JniHandle GetPriorityExclusionSqlExpression9(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, int numberOfPriorityLevels) {
+        private static global::net.sf.jni4net.utils.JniHandle GetPriorityExclusionSqlExpression10(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__obj, int numberOfPriorityLevels) {
             // (I)Ljava/lang/String;
             // (I)LSystem/String;
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
@@ -175,12 +189,12 @@ namespace ClassLib {
             return @__return;
         }
         
-        private static void @__ctorServiceBusManager0(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__class, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle topicsConfiguration) {
-            // (Lclasslib/TopicsConfiguration;)V
-            // (LClassLib/TopicsConfiguration;)V
+        private static void @__ctorServiceBusManager0(global::System.IntPtr @__envp, global::net.sf.jni4net.utils.JniLocalHandle @__class, global::net.sf.jni4net.utils.JniLocalHandle @__obj, global::net.sf.jni4net.utils.JniLocalHandle topicsConfiguration, global::net.sf.jni4net.utils.JniLocalHandle connectionString) {
+            // (Lclasslib/TopicsConfiguration;Ljava/lang/String;)V
+            // (LClassLib/TopicsConfiguration;LSystem/String;)V
             global::net.sf.jni4net.jni.JNIEnv @__env = global::net.sf.jni4net.jni.JNIEnv.Wrap(@__envp);
             try {
-            global::ClassLib.ServiceBusManager @__real = new global::ClassLib.ServiceBusManager(global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.TopicsConfiguration>(@__env, topicsConfiguration));
+            global::ClassLib.ServiceBusManager @__real = new global::ClassLib.ServiceBusManager(global::net.sf.jni4net.utils.Convertor.StrongJp2C<global::ClassLib.TopicsConfiguration>(@__env, topicsConfiguration), global::net.sf.jni4net.utils.Convertor.StrongJ2CString(@__env, connectionString));
             global::net.sf.jni4net.utils.Convertor.InitProxy(@__env, @__obj, @__real);
             }catch (global::System.Exception __ex){@__env.ThrowExisting(__ex);}
         }

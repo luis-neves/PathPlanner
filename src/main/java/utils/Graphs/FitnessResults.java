@@ -220,20 +220,6 @@ public class FitnessResults {
         this.taskedAgentsOnly.put(agent, clone);
     }
 
-    public void clearNodeListFromPackages() {
-        for (Map.Entry<GraphNode, List<FitnessNode>> entry : getTaskedAgentsFullNodesNoPackages().entrySet()) {
-            GraphNode agent = entry.getKey();
-            List<FitnessNode> agentPath = entry.getValue();
-            List<FitnessNode> toRemove = new ArrayList<>();
-            for (FitnessNode node : agentPath) {
-                if (node.getNode().getType() == GraphNodeType.PRODUCT) {
-                    toRemove.add(node);
-                }
-            }
-            agentPath.removeAll(toRemove);
-        }
-    }
-
     public void setWeightsPenalty(float weightsPenalty) {
         this.weightsPenalty = weightsPenalty;
     }

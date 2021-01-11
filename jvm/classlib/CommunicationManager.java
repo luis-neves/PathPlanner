@@ -20,22 +20,31 @@ public class CommunicationManager extends system.Object {
     }
     
     @net.sf.jni4net.attributes.ClrConstructor("(LSystem/String;LClassLib/TopicsConfiguration;LClassLib/ICommunicationManagerCallbacks;)V")
-    public CommunicationManager(java.lang.String serviceBusClientId, classlib.TopicsConfiguration topicsConfiguration, classlib.ICommunicationManagerCallbacks callbacksInterface) {
+    public CommunicationManager(java.lang.String serviceBusClientId, classlib.TopicsConfiguration topicsConfiguration, classlib.ICommunicationManagerCallbacks customCallbacks) {
             super(((net.sf.jni4net.inj.INJEnv)(null)), 0);
-        classlib.CommunicationManager.__ctorCommunicationManager0(this, serviceBusClientId, topicsConfiguration, callbacksInterface);
+        classlib.CommunicationManager.__ctorCommunicationManager0(this, serviceBusClientId, topicsConfiguration, customCallbacks);
+    }
+    
+    @net.sf.jni4net.attributes.ClrConstructor("(LSystem/String;LClassLib/TopicsConfiguration;LClassLib/ICommunicationManagerCallbacks;LSystem/String;)V")
+    public CommunicationManager(java.lang.String serviceBusClientId, classlib.TopicsConfiguration topicsConfiguration, classlib.ICommunicationManagerCallbacks customCallbacks, java.lang.String customESBConnectionString) {
+            super(((net.sf.jni4net.inj.INJEnv)(null)), 0);
+        classlib.CommunicationManager.__ctorCommunicationManager1(this, serviceBusClientId, topicsConfiguration, customCallbacks, customESBConnectionString);
     }
     
     @net.sf.jni4net.attributes.ClrMethod("(Ljava/lang/String;Lclasslib/TopicsConfiguration;Lclasslib/ICommunicationManagerCallbacks;)V")
-    private native static void __ctorCommunicationManager0(net.sf.jni4net.inj.IClrProxy thiz, java.lang.String serviceBusClientId, classlib.TopicsConfiguration topicsConfiguration, classlib.ICommunicationManagerCallbacks callbacksInterface);
+    private native static void __ctorCommunicationManager0(net.sf.jni4net.inj.IClrProxy thiz, java.lang.String serviceBusClientId, classlib.TopicsConfiguration topicsConfiguration, classlib.ICommunicationManagerCallbacks customCallbacks);
+    
+    @net.sf.jni4net.attributes.ClrMethod("(Ljava/lang/String;Lclasslib/TopicsConfiguration;Lclasslib/ICommunicationManagerCallbacks;Ljava/lang/String;)V")
+    private native static void __ctorCommunicationManager1(net.sf.jni4net.inj.IClrProxy thiz, java.lang.String serviceBusClientId, classlib.TopicsConfiguration topicsConfiguration, classlib.ICommunicationManagerCallbacks customCallbacks, java.lang.String customESBConnectionString);
+    
+    @net.sf.jni4net.attributes.ClrMethod("()LSystem/String;")
+    public native java.lang.String getServiceBusConnectionString();
     
     @net.sf.jni4net.attributes.ClrMethod("()LClassLib/ClientTopicsInfo;")
     public native classlib.ClientTopicsInfo getClientInfo();
     
     @net.sf.jni4net.attributes.ClrMethod("()LClassLib/TopicsConfiguration;")
     public native classlib.TopicsConfiguration getConfigurations();
-    
-    @net.sf.jni4net.attributes.ClrMethod("()LSystem/Threading/Tasks/Task;")
-    public native system.Object InitializeAsync();
     
     @net.sf.jni4net.attributes.ClrMethod("(LSystem/String;LSystem/String;LSystem/String;LSystem/String;LSystem/String;LSystem/String;LSystem/String;)LSystem/Threading/Tasks/Task;")
     public native system.Object SendMessageAsync(java.lang.String messageId, java.lang.String messageType, java.lang.String infoIdentifier, java.lang.String toID, java.lang.String dataFormat, java.lang.String content, java.lang.String priority);
@@ -48,12 +57,6 @@ public class CommunicationManager extends system.Object {
     
     @net.sf.jni4net.attributes.ClrMethod("(LSystem/String;LSystem/String;)LSystem/Threading/Tasks/Task;")
     public native system.Object UnsubscribeContentAsync(java.lang.String contentIndentification, java.lang.String streamerID);
-    
-    @net.sf.jni4net.attributes.ClrMethod("(LSystem/String;LSystem/String;)V")
-    public native void AddNewSubscriptionClient(java.lang.String priorityId, java.lang.String subscriptionName);
-    
-    @net.sf.jni4net.attributes.ClrMethod("(LSystem/String;LSystem/String;)LSystem/Threading/Tasks/Task;")
-    public native system.Object RemoveStreamingSubscriptionClientAsync(java.lang.String contentIdentification, java.lang.String streamerTopicName);
     
     @net.sf.jni4net.attributes.ClrMethod("()V")
     public native void InitLogSystem();

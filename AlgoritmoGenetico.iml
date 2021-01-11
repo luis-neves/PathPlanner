@@ -38,7 +38,7 @@
     </orderEntry>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/jni4net.j-0.8.8.0.jar!/" />

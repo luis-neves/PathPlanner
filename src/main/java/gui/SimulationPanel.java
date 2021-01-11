@@ -70,8 +70,8 @@ public class SimulationPanel extends JPanel {
     private Graph problemGraph;
     private int seed = 0;
     private int num_rows = 8;
-    private int num_agents = 2;
-    private int num_products = 8;
+    private int num_agents = 3;
+    private int num_products = 21;
     private boolean stop = false;
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
@@ -578,7 +578,7 @@ public class SimulationPanel extends JPanel {
             } else {
                 gfx.drawOval(p.x - (SIMPLE_NODE_SIZE / 2), p.y + (SIMPLE_NODE_SIZE / 2), SIMPLE_NODE_SIZE, SIMPLE_NODE_SIZE);
             }
-            if (node.getType() != GraphNodeType.DELIVERING/* && node.getType() != GraphNodeType.SIMPLE*/) {
+            if (node.getType() != GraphNodeType.DELIVERING && node.getType() != GraphNodeType.SIMPLE) {
                 gfx.drawString("" + node.getType().toLetter() + node.getGraphNodeId(), p.x + (NODE_SIZE / 2), p.y + (NODE_SIZE / 2) + MARGIN);
             }
             gfx.setColor(Color.BLACK);
@@ -715,7 +715,7 @@ public class SimulationPanel extends JPanel {
         this.stop = b;
     }
 
-    public void incrementTime(int i) {
+    public void     incrementTime(int i) {
         this.SLEEP_MILLIS += i;
     }
 

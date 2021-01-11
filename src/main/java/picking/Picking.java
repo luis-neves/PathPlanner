@@ -22,7 +22,7 @@ public class Picking implements Problem<PickingIndividual> {
         this.items = items;
     }
 
-    public static Picking buildKnapsackFromMemory() {
+    public static Picking buildPickingFromMemory() {
         return new Picking(GASingleton.getInstance().getItems());
     }
 

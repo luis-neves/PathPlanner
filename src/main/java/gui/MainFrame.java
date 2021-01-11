@@ -191,7 +191,7 @@ public class MainFrame extends JFrame implements GAListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    picking = Picking.buildKnapsackFromMemory();
+                    picking = Picking.buildPickingFromMemory();
                     //System.out.println(picking.toString());
                     generateGA();
                     ga.addGAListener(MainFrame.this);

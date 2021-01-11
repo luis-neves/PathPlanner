@@ -105,12 +105,6 @@ public class PrefabManager {
         allPrefabs.addAll(markers);
     }
 
-    public void fixRotation() {
-        fillAllPrefabs();
-
-
-    }
-
     public HashMap<Integer, LinkedList<Shape>> generateShapes() {
         HashMap<Integer, LinkedList<Shape>> shapes = new HashMap<>();
         LinkedList<Shape> racks = new LinkedList<>();
