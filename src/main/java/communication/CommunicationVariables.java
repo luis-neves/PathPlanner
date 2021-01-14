@@ -11,7 +11,7 @@ public class CommunicationVariables extends Observable {
 
     private List<Operator> operators;
     private List<Tarefa> tarefas;
-    private int num_operators = GASingleton.NUM_OPERATORS;
+    private int max_operators;
 
     public List<Tarefa> getTarefas() {
         return tarefas;
@@ -26,12 +26,12 @@ public class CommunicationVariables extends Observable {
         this.tarefas = tarefas;
     }
 
-    public int getNum_operators() {
-        return num_operators;
+    public int getMax_operators() {
+        return max_operators;
     }
 
-    public void setNum_operators(int num_operators) {
-        this.num_operators = num_operators;
+    public void setMax_operators(int max_operators) {
+        this.max_operators = max_operators;
     }
 
     private boolean operators_ready = false;
@@ -132,9 +132,6 @@ public class CommunicationVariables extends Observable {
 
     public void addOperator(String id, boolean available) {
         this.operators.add(new Operator(id, available));
-        if (operators.size() == num_operators) {
-            operators_ready = true;
-        }
         setChanged();
         notifyObservers();
     }
@@ -149,11 +146,20 @@ public class CommunicationVariables extends Observable {
     }
 
     public Operator getOperatorByGraphNode(GraphNode agent) {
-        for(Operator operator : operators){
-            if(operator.getAgent().equals(agent)){
+        for (Operator operator : operators) {
+            if (operator.getAgent().equals(agent)) {
                 return operator;
             }
         }
         return null;
+    }
+
+    public void add_Operator(Operator operator) {
+        this.operators.add(operator);
+        if (getMax_operators() == getOperators().size()) {
+            setOperators_ready(true);
+        }
+        setChanged();
+        notifyObservers();
     }
 }

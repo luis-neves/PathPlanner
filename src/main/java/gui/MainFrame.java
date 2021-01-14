@@ -80,9 +80,12 @@ public class MainFrame extends JFrame implements GAListener {
         GASingleton.getInstance().setMainFrame(this);
         //North Left Panel
         JPanel panelNorthLeft = new JPanel(new BorderLayout());
+        panelParameters.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createTitledBorder(""),
+                BorderFactory.createEmptyBorder(0, 1, 1, 2)));
         panelNorthLeft.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createTitledBorder(""),
-                BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+                BorderFactory.createEmptyBorder(2, 1, 1, 2)));
 
         panelNorthLeft.add(panelParameters, java.awt.BorderLayout.WEST);
         JPanel panelButtons = new JPanel(new GridLayout());
@@ -318,6 +321,10 @@ public class MainFrame extends JFrame implements GAListener {
 
     public void setStop(boolean stop) {
         this.stop = stop;
+    }
+
+    public int getNumOperators() {
+        return Integer.parseInt(this.panelParameters.jTextFieldOperators.getText());
     }
 
 
@@ -757,10 +764,12 @@ class PanelParameters extends PanelAtributesValue {
     public static final String PROB_RECOMBINATION = "0.8";
     public static final String PROB_MUTATION = "0.01";
     public static final String WEIGHT_WEIGHT = "0.5";
+    private static final String OPERATORS_SIZE = "2";
     private final JPanel weightsPanel;
     private final JLabel weightsLabel;
     JTextField jTextFieldSeed = new JTextField(SEED, TEXT_FIELD_LENGHT);
     JTextField jTextFieldN = new JTextField(POPULATION_SIZE, TEXT_FIELD_LENGHT);
+    JTextField jTextFieldOperators = new JTextField(OPERATORS_SIZE, TEXT_FIELD_LENGHT);
     JTextField jTextFieldGenerations = new JTextField(GENERATIONS, TEXT_FIELD_LENGHT);
     String[] selectionMethods = {"Tournament", "Roulette wheel", "Rank"};
     JComboBox jComboBoxSelectionMethods = new JComboBox(selectionMethods);
@@ -846,9 +855,12 @@ class PanelParameters extends PanelAtributesValue {
 //        labels.add(new JLabel("Initial proportion of 1s: "));
 //        valueComponents.add(jTextFieldProb1s);
 
-        labels.add(new JLabel("Priority: "));
-        valueComponents.add(jComboBoxFitnessTypes);
-        jComboBoxFitnessTypes.addActionListener(new JComboBoxFitnessFunction_ActionAdapter(this));
+        //labels.add(new JLabel("Priority: "));
+        labels.add(new JLabel("Nº Operators: "));
+        valueComponents.add(jTextFieldOperators);
+
+        //valueComponents.add(jComboBoxFitnessTypes);
+        //jComboBoxFitnessTypes.addActionListener(new JComboBoxFitnessFunction_ActionAdapter(this));
         labels.add(new JLabel("Communication: "));
         valueComponents.add(checkBoxCommunication);
         labels.add(new JLabel("Simulate Weights: "));

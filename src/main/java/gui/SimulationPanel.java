@@ -233,6 +233,8 @@ public class SimulationPanel extends JPanel {
             } else {
                 GASingleton.getInstance().getMainFrame().logMessage("No operators available", 1);
                 GASingleton.getInstance().getMainFrame().logMessage("Waiting for operators...", 1);
+                GASingleton.getInstance().getCommunication_variables().setMax_operators(GASingleton.getInstance().getMainFrame().getNumOperators());
+                GASingleton.getInstance().getMainFrame().logMessage("Need "+ GASingleton.getInstance().getCommunication_variables().getMax_operators() +" operators to begin.", 1);
             }
             //send task to an operator
             //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", GASingleton.getInstance().getCommunication_variables().getOperators().get(0).getId(), "application/xml", xmlString, "1");

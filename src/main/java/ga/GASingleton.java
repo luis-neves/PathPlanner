@@ -119,6 +119,8 @@ public class GASingleton implements Observer {
             System.out.println("Ready for GA");
             simulationPanel.draw_problem_graph();
             mainFrame.runMultipleGA();
+            comms.getGa_ready()[0] = false;
+            comms.getGa_ready()[1] = false;
         }
     }
 
@@ -128,8 +130,8 @@ public class GASingleton implements Observer {
         operator.setX(problemGraph.findNode(15).getLocation().getX());
         operator.setY(problemGraph.findNode(15).getLocation().getY() - 5);
 
-        communication_variables.getOperators().add(operator);
-        communication_variables.setOperators_ready(true);
+        communication_variables.add_Operator(operator);
+        //communication_variables.setOperators_ready(true);
     }
 
     private void prepareOperators() {

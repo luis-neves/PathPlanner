@@ -25,14 +25,12 @@ C:\Aulas\I&D\ArwarePathFinder\src\main\java\gui\SimulationPanel.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\FileOperations.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\RecombinationOX.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\picking\Picking.java
-C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\WarehouseParser.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\VectorIndividual.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\Graphs\GraphNodeType.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\armazem\Encomenda.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\communication\Product.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\GeneticOperator.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\selectionMethods\RouletteWheel.java
-C:\Aulas\I&D\ArwarePathFinder\src\main\java\armazem\Perception.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\Size.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\Graphs\Edge.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\Problem.java
@@ -61,6 +59,7 @@ C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\AlgoritmoOrdenacao.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\experiments\Experiment.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\RecombinationPMX.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\armazem\Saida.java
+C:\Aulas\I&D\ArwarePathFinder\src\main\java\communication\Tarefa.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\Config.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\clustering\Clustering.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\multiple\GAwithEnvironment.java
@@ -79,6 +78,7 @@ C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\geneticOperators\RecombinationCX.
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\picking\PickingExperimentsFactory.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\Coordenates.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\armazem\Action.java
+C:\Aulas\I&D\ArwarePathFinder\src\main\java\communication\CommunicationVariables.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\Maths.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\GASingleton.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\experiments\ExperimentEvent.java
@@ -88,4 +88,3 @@ C:\Aulas\I&D\ArwarePathFinder\src\main\java\ga\Population.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\warehouse\Structure.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\Graphs\FitnessNode.java
 C:\Aulas\I&D\ArwarePathFinder\src\main\java\picking\HybridPickingIndividual.java
-C:\Aulas\I&D\ArwarePathFinder\src\main\java\utils\Graphs\AgentGraphNode.java
