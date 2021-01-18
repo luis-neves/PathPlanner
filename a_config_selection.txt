@@ -1,10 +1,10 @@
-Runs: 100
+Runs: 1
 
 Population size: 100
 
 Max generations: 100
 
-Num Picks: 5,10,15,20,25,30,35,40,45,50,55,60,65,70
+Num Picks: 5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100
 
 Num Agents: 1,2,3,4,5
 
@@ -12,7 +12,7 @@ Num Columns:12
 
 Time Weight: 1
 
-Heuristic: GA, Hybrid
+Heuristic: GA, FreeHybrid, GAxN, K-Means, Hybrid
 
 // , , GA, GAxN, K-Means, Hybrid
 //--------------------------------

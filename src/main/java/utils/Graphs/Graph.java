@@ -464,7 +464,7 @@ public class Graph {
 
         if (x1 < new_x && new_x < x2) {
             return new GraphNode(this.getNumNodes(), (float) new_x, (float) new_y, GraphNodeType.PRODUCT);
-        }else{
+        } else {
             return null;
         }
     }

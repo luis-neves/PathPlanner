@@ -8,6 +8,8 @@ import ga.GASingleton;
 import gui.DetailsPage;
 import gui.SimulationPanel;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
@@ -87,10 +89,19 @@ public class MyCallbacks implements ICommunicationManagerCallbacks {
                     if (operator == null) {
                         GASingleton.getInstance().getCommunication_variables().addOperator(split[0], Boolean.parseBoolean(busMessage.getContent()));
                         System.out.println("New Operator " + split[0] + " " + busMessage.getContent());
-                        GASingleton.getInstance().getMainFrame().logMessage("New Operator " + split[0] + " " + busMessage.getContent(), 0);
+                        JSONObject obj = new JSONObject(busMessage.getContent());
+                        String positionstr = (String) obj.get("position");
+                        String disponivel = (String) obj.get("disponivel");
+                        String[] position = positionstr.split(",");
+                        Operator operator_new = new Operator(split[0], Boolean.parseBoolean(disponivel));
+                        operator_new.setX(Integer.parseInt(position[0]));
+                        operator_new.setY(Integer.parseInt(position[1]));
+                        operator_new.setZ(Integer.parseInt(position[2]));
+                        GASingleton.getInstance().getCommunication_variables().add_Operator(operator_new);
+                        GASingleton.getInstance().getMainFrame().logMessage("New Operator " + split[0] + " " + busMessage.getContent() + operator_new.getCoords_str(), 0);
                     } else {
                         operator.setAvailable(Boolean.parseBoolean(busMessage.getContent()));
-                        System.out.println("Operator " + operator.getId() + " " + operator.isAvailable());
+                        System.out.println("Existing operator " + operator.getId() + " " + operator.isAvailable());
                     }
                     GASingleton.getInstance().getCm().SendMessageAsync((Integer.parseInt(busMessage.getId()) + 1) + "", "response", busMessage.getInfoIdentifier(), split[0], "plaintext", "OK", "1");
                 }

@@ -11,10 +11,10 @@ public abstract class MultipleVectorIndividual<P extends Problem, I extends Mult
 
     protected HashMap<GraphNode, List<GraphNode>> genome;
 
-    public MultipleVectorIndividual(P problem, HashMap<GraphNode, List<GraphNode>> items) {
+    public MultipleVectorIndividual(P problem, HashMap<GraphNode, List<GraphNode>> map) {
         super(problem);
         genome = new HashMap<>();
-        for (Map.Entry<GraphNode, List<GraphNode>> entry : items.entrySet()) {
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : map.entrySet()) {
             GraphNode agent = entry.getKey();
             List<GraphNode> agentPath = entry.getValue();
             List<GraphNode> path = new ArrayList<>();
@@ -23,6 +23,7 @@ public abstract class MultipleVectorIndividual<P extends Problem, I extends Mult
             genome.put(agent, path);
         }
     }
+
 
     public MultipleVectorIndividual(MultipleVectorIndividual<P, I> original) {
         super(original);

@@ -6,13 +6,31 @@ import utils.Graphs.FitnessResults;
 import utils.Graphs.Graph;
 import utils.Graphs.GraphNode;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public abstract class VectorIndividual<P extends Problem, I extends VectorIndividual> extends Individual<P, I> {
 
     protected Item[] genome;
+
+    public VectorIndividual(P problem, HashMap<GraphNode, List<GraphNode>> items) {
+        super(problem);
+        List<Item> genomeList = new ArrayList<>();
+        for (Map.Entry<GraphNode, List<GraphNode>> entry : items.entrySet()) {
+            GraphNode agent = entry.getKey();
+            List<GraphNode> agentPath = entry.getValue();
+            List<GraphNode> path = new ArrayList<>();
+            path.addAll(agentPath);
+            Collections.shuffle(path, GeneticAlgorithm.random);
+            for (GraphNode node : path){
+                genomeList.add(new Item(node));
+            }
+            genomeList.add(new Item(agent));
+        }
+        GraphNode lastAgent = genomeList.get(genomeList.size()-1).node;
+        GASingleton.getInstance().setLastAgent(lastAgent);
+        genomeList.remove(genomeList.size()-1);
+        genome = genomeList.toArray(new Item[genomeList.size()]);
+    }
 
     public VectorIndividual(P problem, List<Item> items) {
         super(problem);

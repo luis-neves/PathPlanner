@@ -13,6 +13,9 @@ public class PickingIndividual extends VectorIndividual<Picking, PickingIndividu
     public PickingIndividual(Picking problem, List<Item> items) {
         super(problem, items);
     }
+    public PickingIndividual(Picking problem, HashMap<GraphNode, List<GraphNode>> map) {
+        super(problem, map);
+    }
 
     public PickingIndividual(PickingIndividual original) {
         super(original);

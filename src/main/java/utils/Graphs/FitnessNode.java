@@ -12,6 +12,11 @@ public class FitnessNode {
         this.time = time;
     }
 
+    @Override
+    public Object clone() {
+        return new FitnessNode(this.id, (GraphNode) this.node.clone(), this.cost, this.time);
+    }
+
     public int getId() {
         return id;
     }

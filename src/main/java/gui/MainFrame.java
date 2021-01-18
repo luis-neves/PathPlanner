@@ -49,7 +49,8 @@ public class MainFrame extends JFrame implements GAListener {
     private PanelParameters panelParameters = new PanelParameters();
     private JButton buttonStop = new JButton("Stop");
     private JButton buttonRunHeuristic = new JButton("K-Means");
-    private JButton buttonRunHybrid = new JButton("Hybrid");
+    private JButton buttonRunHybrid = new JButton("Constrained Hybrid");
+    private JButton buttonRunHybridFree = new JButton("Free Hybrid");
     private JButton buttonRunFromMemory = new JButton("GA");
     private JButton buttonRunMultipleGA = new JButton("AxGA");
     public JButton buttonVisualize = new JButton("Play");
@@ -92,12 +93,40 @@ public class MainFrame extends JFrame implements GAListener {
         panelButtons.add(buttonStop);
         panelButtons.add(buttonRunHeuristic);
         panelButtons.add(buttonRunHybrid);
+        panelButtons.add(buttonRunHybridFree);
         panelButtons.add(buttonRunMultipleGA);
         panelButtons.add(buttonRunFromMemory);
         panelButtons.add(buttonSlowVisualize);
         panelButtons.add(buttonVisualize);
         panelButtons.add(buttonFastVisualize);
         buttonStop.setEnabled(false);
+        buttonRunHybridFree.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Free Hybrid");
+                try {
+                    HashMap<GraphNode, List<GraphNode>> map = simulationPanel.generateClusters(Integer.parseInt(panelParameters.jTextFieldSeed.getText()), false);
+                    bestIndividualPanel.textArea.setText("");
+                    seriesBestIndividual.clear();
+                    seriesAverage.clear();
+
+                    //picking.setProb1s(Double.parseDouble(panelParameters.jTextFieldProb1s.getText()));
+
+                    ga = new GeneticAlgorithm<PickingIndividual, Picking>(
+                            Integer.parseInt(panelParameters.jTextFieldN.getText()),
+                            Integer.parseInt(panelParameters.jTextFieldGenerations.getText()),
+                            panelParameters.getSelectionMethod(),
+                            panelParameters.getMutationMethod(),
+                            panelParameters.getRecombinationMethod(),
+                            new Random(Integer.parseInt(panelParameters.jTextFieldSeed.getText())));
+                    System.out.println(ga);
+                    ga.addGAListener(MainFrame.this);
+                    runFreeHybridGA(map);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
         buttonRunHybrid.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -406,6 +435,28 @@ public class MainFrame extends JFrame implements GAListener {
         eventsPanel.textArea.append(message);
     }
 
+    private void runFreeHybridGA(HashMap<GraphNode, List<GraphNode>> map) {
+        manageButtons(false, false, true, false, false);
+
+        worker = new SwingWorker<Void, Void>() {
+            @Override
+            public Void doInBackground() {
+                try {
+                    ga.run(new FreeHybridClusteringPicking(map));
+                } catch (Exception e) {
+                    e.printStackTrace(System.err);
+                }
+                return null;
+            }
+
+            @Override
+            public void done() {
+                manageButtons(true, true, false, true, experimentsFactory != null);
+            }
+        };
+
+        worker.execute();
+    }
     private void runHybridGA(HashMap<GraphNode, List<GraphNode>> map) {
         manageButtons(false, false, true, false, false);
 

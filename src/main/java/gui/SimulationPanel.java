@@ -27,6 +27,7 @@ import weka.core.*;
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Result;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -76,6 +77,7 @@ public class SimulationPanel extends JPanel {
     private int interruptionIndex = -1;
     private List<IterativeAgent> iterativeAgents = null;
     private float AMPLIFY = 0.2f;
+    private Graph problemGraph_backup;
 
     public SimulationPanel() {
         //environmentPanel.setPreferredSize(new Dimension(N * CELL_SIZE + GRID_TO_PANEL_GAP * 2, N * CELL_SIZE + GRID_TO_PANEL_GAP * 2));
@@ -397,7 +399,7 @@ public class SimulationPanel extends JPanel {
             Graph graph2 = graph.clone();
             graph2 = randomProblem(graph2, num_agents, num_products, seed);
             graph2 = fixNeighbours_New(graph2);
-            problemGraph = graph2;
+            //problemGraph = graph2;
             draw(graph2, false, this.gfx, this.image);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -422,9 +424,10 @@ public class SimulationPanel extends JPanel {
                 graph2.getGraphNodes().add(nodes.get(i));
             }
             //Communicate
+            /*
             if (GASingleton.getInstance().getCm() != null) {
                 GASingleton.getInstance().getCm().SendMessageAsync(Util.GenerateId(), "request", "getAllOrders", GASingleton.erpID, "text/plain", "", "1");
-            }
+            }*/
             graph2 = fixNeighbours_New(graph2);
             image = environmentPanel.createImage(environmentPanel.getWidth(), environmentPanel.getHeight());
             gfx = (Graphics2D) image.getGraphics();
@@ -629,27 +632,27 @@ public class SimulationPanel extends JPanel {
     }
 
     //
-    public void runPath(FitnessResults results) {
+    public void runPath(FitnessResults old_results) {
         //g.setColor(environment.getCellColor(y, x));
         //g.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         //environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
-
+        FitnessResults results = old_results.clone();
+        Graph graph2 = graph.clone();
+        graph2 = randomProblem(graph2, num_agents, num_products, seed);
+        graph2 = fixNeighbours_New(graph2);
         results = fixProductsInPath(results);
-
         try {
             List<IterativeAgent> iterativeAgents;
             Image backup = image;
             Graphics2D gfx2 = (Graphics2D) backup.getGraphics();
-
-
             if (this.iterativeAgents == null) {
                 iterativeAgents = new ArrayList<>();
-                problemGraph.unfixAgentNeighbours();
+                graph2.unfixAgentNeighbours();
                 for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
                     GraphNode agent = entry.getKey();
                     List<FitnessNode> finalpath = entry.getValue();
                     if (!finalpath.isEmpty()) {
-                        iterativeAgents.add(new IterativeAgent(agent, finalpath, results.getTaskedAgentsOnly().get(agent)));
+                        iterativeAgents.add(new IterativeAgent(graph2.findNode(agent.getGraphNodeId()), finalpath, results.getTaskedAgentsOnly().get(agent)));
                     }
                 }
             } else {
@@ -662,9 +665,9 @@ public class SimulationPanel extends JPanel {
                     throw new InterruptedException("Interrupted by user");
                 } else {
                     for (IterativeAgent iterativeAgent : iterativeAgents) {
-                        Coordenates location = iterativeAgent.followObjective();
+                        Coordenates location = iterativeAgent.followObjective(graph2);
                         Point p = new Point((int) location.amplified().getX(), (int) location.amplified().getY());
-                        draw(problemGraph, true, gfx2, backup);
+                        draw(graph2, true, gfx2, backup);
                         gfx2.setColor(Color.RED);
                         gfx2.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
                         environmentPanel.getGraphics().drawImage(backup, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
@@ -684,6 +687,7 @@ public class SimulationPanel extends JPanel {
             this.iterativeAgents = null;
             GASingleton.getInstance().getMainFrame().buttonVisualize.setText("Play");
             GASingleton.getInstance().getMainFrame().setStop(false);
+            //problemGraph = problemGraph_backup.clone();
         } catch (Exception e) {
             if (e.getClass().equals(InterruptedException.class)) {
                 this.stop = false;
@@ -806,21 +810,33 @@ public class SimulationPanel extends JPanel {
 
         public IterativeAgent(GraphNode agent, List<FitnessNode> path, List<GraphNode> taskOnly) {
             this.agent = agent;
-            this.path = path;
+            this.path = new ArrayList<>();
+            for(FitnessNode node : path){
+                if (node.getNode().getType() == GraphNodeType.DELIVERING){
+                    node.getNode().setType(GraphNodeType.PRODUCT);
+                }
+                this.path.add((FitnessNode) node.clone());
+            }
             this.currentObjective = path == null ? null : path.get(0);
             this.objectiveIdx = 0;
             this.location = agent.getLocation();
-            this.taskOnly = taskOnly;
+            this.taskOnly = new ArrayList<>();
+            for (GraphNode node : taskOnly){
+                if (node.getType() == GraphNodeType.DELIVERING){
+                    node.setType(GraphNodeType.PRODUCT);
+                }
+                this.taskOnly.add(node.clone());
+            }
         }
 
-        public Coordenates followObjective() {
+        public Coordenates followObjective(Graph problemGraph) {
             if (this.location.getX() == currentObjective.getNode().getLocation().getX() && this.location.getY() == this.currentObjective.getNode().getLocation().getY()) {
                 //at objective
                 if (objectiveIdx < path.size() - 1) {
                     currentObjective = path.get(objectiveIdx + 1);
                     objectiveIdx++;
-                    if (path.get(objectiveIdx - 1).getNode().getType() == GraphNodeType.PRODUCT && taskOnly.contains(path.get(objectiveIdx - 1).getNode()) && path.lastIndexOf(path.get(objectiveIdx - 1)) == (objectiveIdx - 1)) {
-                        problemGraph.makeDelivering(path.get(objectiveIdx - 1).getNode());
+                    if (path.get(objectiveIdx - 1).getNode().getType() == GraphNodeType.PRODUCT && taskOnly.contains(problemGraph.findNode(path.get(objectiveIdx - 1).getNode().getGraphNodeId())) && path.lastIndexOf(path.get(objectiveIdx - 1)) == (objectiveIdx - 1)) {
+                        problemGraph.makeDelivering(problemGraph.findNode(path.get(objectiveIdx - 1).getNode().getGraphNodeId()));
                     }
                 }
             }

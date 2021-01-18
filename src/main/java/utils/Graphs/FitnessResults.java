@@ -29,6 +29,19 @@ public class FitnessResults {
         }
     }
 
+    @Override
+    public FitnessResults clone() {
+        FitnessResults results = new FitnessResults();
+        results.fitness = this.fitness;
+        results.time = this.time;
+        results.colisions.addAll(this.colisions);
+        results.collisionPenalty = this.collisionPenalty;
+        results.path.addAll(this.path);
+        results.taskedAgentsFullNodes.putAll(this.taskedAgentsFullNodes);
+        results.taskedAgentsFullNodesNoPackages.putAll(this.taskedAgentsFullNodesNoPackages);
+        results.taskedAgentsOnly.putAll(this.taskedAgentsOnly);
+        return results;
+    }
 
     public int compareTo(FitnessResults i) {
         return Float.compare(i.getFitness(), this.fitness);

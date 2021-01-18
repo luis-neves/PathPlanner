@@ -129,4 +129,8 @@ public class Operator {
                 ", estadoTarefa='" + estadoTarefa + '\'' +
                 '}';
     }
+
+    public String getCoords_str() {
+        return x + "," + y + "," + z;
+    }
 }

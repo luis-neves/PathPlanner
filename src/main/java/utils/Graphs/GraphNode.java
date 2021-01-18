@@ -48,19 +48,19 @@ public class GraphNode {
     }
 
     @Override
-    protected Object clone() {
+    public GraphNode clone() {
         return new GraphNode(this.amplify,
                 this.id,
                 this.location,
-                this.heuristic,
-                this.parent,
+                0,
+                null,
                 this.type,
                 this.weightPhysical,
                 this.weightSupported,
-                this.cluster,
-                this.f,
-                this.g,
-                this.neighbours);
+                this.cluster == null ? null : cluster.clone(),
+                0,
+                0,
+                null);
     }
 
     public void setAmplify(float amplify) {

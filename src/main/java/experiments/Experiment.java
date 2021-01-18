@@ -59,6 +59,14 @@ public class Experiment<E extends ExperimentsFactory, P extends Problem> {
                 cl = factory.generateCLInstance(run + 1);
                 hybridGA = factory.generateHybridGAInstance(run + 1);
                 hybridGA.run(new HybridClusterPicking(cl.generateClusters(run + 1, false)));
+            } else if (factory.heuristic.equals("FreeHybrid")) {
+                int backup = ((PickingExperimentsFactory) this.factory).maxGenerations;
+                ((PickingExperimentsFactory) this.factory).maxGenerations =
+                        ((PickingExperimentsFactory) this.factory).maxGenerations * ((PickingExperimentsFactory) this.factory).numAgents;
+                ga = factory.generateGAInstance(run + 1);
+                ((PickingExperimentsFactory) this.factory).maxGenerations = backup;
+                cl = factory.generateCLInstance(run + 1);
+                ga.run(new HybridClusterPicking(cl.generateClusters(run + 1, false)));
             } else if (factory.heuristic.equals("GAxN")) {
                 //System.out.print("\nGAxN ");
                 GASingleton.getInstance().setDefaultGA(ga);

@@ -4,15 +4,21 @@ import armazem.Environment;
 import ga.GASingleton;
 import ga.Problem;
 import gui.SimulationPanel;
+import utils.Graphs.GraphNode;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Picking implements Problem<PickingIndividual> {
 
     private List<Item> items;
+
+    public Picking() {
+
+    }
 
     public Picking(List<Item> items) {
         if (items == null) {
@@ -21,6 +27,7 @@ public class Picking implements Problem<PickingIndividual> {
 
         this.items = items;
     }
+
 
     public static Picking buildPickingFromMemory() {
         return new Picking(GASingleton.getInstance().getItems());

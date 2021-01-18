@@ -6,6 +6,11 @@ public class MyCluster {
     private int id = -1;
     private Color color;
 
+    public MyCluster(int id, Color color) {
+        this.id = id;
+        this.color = color;
+    }
+
     public MyCluster(int id) {
         this.id = id;
         switch (id) {
@@ -25,6 +30,11 @@ public class MyCluster {
                 this.color = Color.WHITE;
                 break;
         }
+    }
+
+    @Override
+    public MyCluster clone() {
+        return new MyCluster(this.id, this.color);
     }
 
     public int getId() {
