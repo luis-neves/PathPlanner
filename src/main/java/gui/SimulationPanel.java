@@ -70,7 +70,7 @@ public class SimulationPanel extends JPanel {
     private Graph graph;
     private Graph problemGraph;
     private int seed = 0;
-    private int num_rows = 8;
+    private int num_rows = 12;
     private int num_agents = 3;
     private int num_products = 21;
     private boolean stop = false;
@@ -236,7 +236,7 @@ public class SimulationPanel extends JPanel {
                 GASingleton.getInstance().getMainFrame().logMessage("No operators available", 1);
                 GASingleton.getInstance().getMainFrame().logMessage("Waiting for operators...", 1);
                 GASingleton.getInstance().getCommunication_variables().setMax_operators(GASingleton.getInstance().getMainFrame().getNumOperators());
-                GASingleton.getInstance().getMainFrame().logMessage("Need "+ GASingleton.getInstance().getCommunication_variables().getMax_operators() +" operators to begin.", 1);
+                GASingleton.getInstance().getMainFrame().logMessage("Need " + GASingleton.getInstance().getCommunication_variables().getMax_operators() + " operators to begin.", 1);
             }
             //send task to an operator
             //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", GASingleton.getInstance().getCommunication_variables().getOperators().get(0).getId(), "application/xml", xmlString, "1");
@@ -558,7 +558,12 @@ public class SimulationPanel extends JPanel {
                 graph.createEdge(bici);
             }
         }
-        graph.getGraphNodes().get(graph.getGraphNodes().size() - 1).setType(GraphNodeType.EXIT);
+        if (num_rows == 12) {
+            graph.findNode(24).setType(GraphNodeType.EXIT);
+
+        } else {
+            graph.getGraphNodes().get(graph.getGraphNodes().size() - 1).setType(GraphNodeType.EXIT);
+        }
 
         return graph;
     }
@@ -721,7 +726,7 @@ public class SimulationPanel extends JPanel {
         this.stop = b;
     }
 
-    public void     incrementTime(int i) {
+    public void incrementTime(int i) {
         this.SLEEP_MILLIS += i;
     }
 
@@ -811,8 +816,8 @@ public class SimulationPanel extends JPanel {
         public IterativeAgent(GraphNode agent, List<FitnessNode> path, List<GraphNode> taskOnly) {
             this.agent = agent;
             this.path = new ArrayList<>();
-            for(FitnessNode node : path){
-                if (node.getNode().getType() == GraphNodeType.DELIVERING){
+            for (FitnessNode node : path) {
+                if (node.getNode().getType() == GraphNodeType.DELIVERING) {
                     node.getNode().setType(GraphNodeType.PRODUCT);
                 }
                 this.path.add((FitnessNode) node.clone());
@@ -821,8 +826,8 @@ public class SimulationPanel extends JPanel {
             this.objectiveIdx = 0;
             this.location = agent.getLocation();
             this.taskOnly = new ArrayList<>();
-            for (GraphNode node : taskOnly){
-                if (node.getType() == GraphNodeType.DELIVERING){
+            for (GraphNode node : taskOnly) {
+                if (node.getType() == GraphNodeType.DELIVERING) {
                     node.setType(GraphNodeType.PRODUCT);
                 }
                 this.taskOnly.add(node.clone());

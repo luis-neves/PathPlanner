@@ -199,7 +199,7 @@ public class Graph {
             }
         }
         if (products.isEmpty()) {
-            System.out.println("Empty products");
+            //System.out.println("Empty products");
         }
         return products;
     }
