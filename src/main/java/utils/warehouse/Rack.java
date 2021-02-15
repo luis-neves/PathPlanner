@@ -1,5 +1,6 @@
 package utils.warehouse;
 
+import java.util.Hashtable;
 import java.util.LinkedList;
 
 public class Rack extends Prefab {
@@ -48,4 +49,13 @@ public class Rack extends Prefab {
         }
         return shelvesSTR;
     }
+
+    public Hashtable<String,Integer> getwmsCodesShelves(Hashtable<String, Integer> listaids) {
+
+        for (int i = 0; i < shelves.size(); i++) {
+            listaids.put(shelves.get(i).getwmsCode(),getId());
+        }
+        return listaids;
+    }
+
 }

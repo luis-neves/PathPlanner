@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.LinkedList;
 
 public class PrefabManager {
@@ -17,6 +18,7 @@ public class PrefabManager {
 
     LinkedList prefabList;
     LinkedList<Rack> racks;
+    Hashtable<String,Integer> matchmaker;
     LinkedList<Structure> structures;
     LinkedList<Device> devices;
     LinkedList<Marker> markers;
@@ -29,6 +31,7 @@ public class PrefabManager {
         this.structures = new LinkedList<>();
         this.devices = new LinkedList<>();
         this.markers = new LinkedList<>();
+        this.matchmaker = new Hashtable<String, Integer>();
         this.config = config;
     }
 
@@ -64,6 +67,7 @@ public class PrefabManager {
 
     public void addRack(Rack rack) {
         this.racks.add(rack);
+        matchmaker=rack.getwmsCodesShelves(matchmaker);
     }
 
     public void addDevice(Device device) {
@@ -176,5 +180,10 @@ public class PrefabManager {
             }
         }
         return null;
+    }
+
+    public Rack findRackBywmsCode(String wms){
+        Integer id=matchmaker.get(wms);
+        return findRackByID(id);
     }
 }

@@ -7,6 +7,7 @@ public class Shelf {
     private String code;
     private String codeD;
     private Area area;
+    private String wmsCode;
 
     public String getCode() {
         return code;
@@ -23,6 +24,15 @@ public class Shelf {
     public void setCodeD(String codeD) {
         this.codeD = codeD;
     }
+
+    public String getwmsCode() {
+        return wmsCode;
+    }
+
+    public void setwmsCode(String wmsCode) {
+        this.wmsCode = wmsCode;
+    }
+
 
     public Shelf(int sID, double sThick, double sHeight, Area area) {
         this.sID = sID;

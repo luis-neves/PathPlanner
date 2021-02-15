@@ -6,6 +6,7 @@ public class Area {
     private int gridType;
     private int gridNumber;
     private LinkedList<SmallArea> areas;
+    private String wmsCode;
 
     public Area(int gridType, int gridNumber, LinkedList<SmallArea> areas) {
         this.gridType = gridType;

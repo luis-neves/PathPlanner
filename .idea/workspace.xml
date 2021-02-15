@@ -5,14 +5,41 @@
       <artifact name="AlgoritmoGenetico_Mav:jar" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="18/01/2021&#10;LNG fix">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/warehouse_model_old.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/warehouse_model_old_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GASingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GASingleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AlgoritmoGenetico-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/AlgoritmoGenetico-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Area.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Rack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Rack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/warehouse/Shelf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/AlgoritmoGenetico.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/AlgoritmoGenetico.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ga/GASingleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ga/GASingleton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$IterativeAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$IterativeAgent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraph_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraph_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonImportGraph_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonImportGraph_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunFromFile_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunFromFile_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunFromXML_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunFromXML_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonZoomIn_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonZoomIn_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonZoomOut_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonZoomOut_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jbuttonVersionTest_actionAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jbuttonVersionTest_actionAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Graphs/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/PrefabManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/PrefabManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Rack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/Rack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Shelf.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/warehouse/Shelf.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/warehouse_model.xml" beforeDir="false" afterPath="$PROJECT_DIR$/warehouse_model.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,14 +80,20 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1RHlkpSz65rQVVu202nTazq4Jy6" />
   <component name="ProjectLevelVcsManager">
@@ -68,7 +101,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -81,6 +113,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -103,6 +136,16 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="gui" />
+      <recent name="utils.warehouse" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Aulas\I&amp;D\ArwarePathFinder\src\main\resources\META-INF" />
+      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\" />
+      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo" />
+      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\gui" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\ga\geneticOperators\Crossover" />
       <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\ga\geneticOperators" />
@@ -112,21 +155,11 @@
       <recent name="utils.warehouse" />
       <recent name="ga.geneticOperators" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Aulas\I&amp;D\ArwarePathFinder\src\main\resources\META-INF" />
-      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\" />
-      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo" />
-      <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\gui" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="picking" />
       <recent name="ga" />
       <recent name="utils.warehouse" />
       <recent name="ga.geneticOperators" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="gui" />
-      <recent name="utils.warehouse" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -150,13 +183,14 @@
       <command value="mvn install:install-file -Dfile=jni4net.j-0.8.8.0.jar -DgroupId=jni4net -DartifactId=myjni4net -Dversion=1.0 -Dpackaging=jar " />
       <command value="mvn install:install-file -Dfile=./lib/jackson-core-asl-1.9.0.jar -DgroupId=jni4net -DartifactId=jackson-core-asl-1.9.0 -Dversion=1.9.0 -Dpackaging=jar " />
       <command value="mvn install:install-file -Dfile=./lib/jackson-core-asl-1.9.0.jar -DgroupId=jackson-core -DartifactId=jackson-core-asl-1.9.0 -Dversion=1.9.0 -Dpackaging=jar  " />
-      <command value="mvn install:install-file -Dfile=./lib/jackson-core-asl-1.9.0.jar -DgroupId=jackson -DartifactId=jackson-core-asl -Dversion=1.9.0 -Dpackaging=jar " />
       <command value="mvn package" />
       <command value="mvn install:install-file -Dfile=jni4net.j-0.8.8.0.jar -DgroupId=jni4net -DartifactId=jni4net.my -Dversion=0.8.8.0 -Dpackaging=jar  " />
       <command value="mvn compile" />
-      <command value="mvn install:install-file -Dfile=ClassLib.j4n.jar -DgroupId=ClassLib -DartifactId=ClassLib.j4n -Dversion=1.0 -Dpackaging=jar " />
       <command value="mvn clean" />
       <command value="mvn install" />
+      <command value="mvn install:install-file -Dfile=./lib/jackson-core-asl-1.9.0.jar -DgroupId=jackson -DartifactId=jackson-core-asl -Dversion=1.9.0 -Dpackaging=jar " />
+      <command value="mvn install:install-file -Dfile=ClassLib.j4n.jar -DgroupId=ClassLib -DartifactId=ClassLib.j4n -Dversion=1.0 -Dpackaging=jar " />
+      <command value="mvn install:install-file -Dfile=jni4net.j-0.8.8.0.jar -DgroupId=jni4net -DartifactId=jni4net.my -Dversion=0.8.8.0 -Dpackaging=jar " />
     </option>
   </component>
   <component name="RunManager">
@@ -216,6 +250,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -809,13 +844,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -846,117 +880,16 @@
     <MESSAGE value="18/01/2021&#10;LNG fix" />
     <option name="LAST_COMMIT_MESSAGE" value="18/01/2021&#10;LNG fix" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="1065" y="102" key="#com.intellij.ide.util.MemberChooser" timestamp="1610813341873">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="1065" y="102" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1610813341873" />
-    <state x="473" y="96" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1605967617028">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="473" y="96" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1536.824@0.0.1536.824" timestamp="1605967617028" />
-    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607097228696">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1607097228696" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1608482794456">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1608482794456" />
-    <state x="514" y="167" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1604413928343">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="514" y="167" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1604413928343" />
-    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2" timestamp="1610971723472">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="326" y="0" width="952" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1610971723472" />
-    <state width="494" height="466" key="DebuggerActiveHint" timestamp="1610971437413">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="494" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1610971437413" />
-    <state x="515" y="0" key="Diagram.Print.Preview.Dialog" timestamp="1608744528341">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="515" y="0" key="Diagram.Print.Preview.Dialog/0.0.1536.824@0.0.1536.824" timestamp="1608744528341" />
-    <state x="549" y="139" key="FileChooserDialogImpl" timestamp="1608744514933">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="139" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608744514933" />
-    <state width="1493" height="120" key="GridCell.Tab.0.bottom" timestamp="1611845120928">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="120" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611845120928" />
-    <state width="1493" height="120" key="GridCell.Tab.0.center" timestamp="1611845120928">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="120" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611845120928" />
-    <state width="1493" height="120" key="GridCell.Tab.0.left" timestamp="1611845120928">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="120" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611845120928" />
-    <state width="1493" height="120" key="GridCell.Tab.0.right" timestamp="1611845120928">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="120" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611845120928" />
-    <state width="1493" height="229" key="GridCell.Tab.1.bottom" timestamp="1610972914612">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="229" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610972914612" />
-    <state width="1493" height="229" key="GridCell.Tab.1.center" timestamp="1610972914612">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="229" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1610972914612" />
-    <state width="1493" height="229" key="GridCell.Tab.1.left" timestamp="1610972914611">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="229" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1610972914611" />
-    <state width="1493" height="229" key="GridCell.Tab.1.right" timestamp="1610972914612">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="229" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1610972914612" />
-    <state x="149" y="0" width="1268" height="824" key="SettingsEditor" timestamp="1610383143910">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="149" y="0" width="1268" height="824" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1610383143910" />
-    <state x="490" y="154" width="540" height="524" key="StructurePopup" timestamp="1608744290686">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="490" y="154" width="540" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1608744290686" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1610971732687">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1610971732687" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1604111369785">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1604111369785" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604445184377">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1604445184377" />
-    <state x="513" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1610382996295">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="513" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1610382996295" />
-    <state x="463" y="10" width="611" height="804" key="find.popup" timestamp="1611841489850">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="463" y="10" width="611" height="804" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1611841489850" />
-    <state x="475" y="31" key="refactoring.ChangeSignatureDialog" timestamp="1606001876979">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="475" y="31" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1606001876979" />
-    <state x="794" y="206" width="681" height="267" key="run.anything.popup" timestamp="1611843865525">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="794" y="206" width="681" height="267" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1611843865525" />
-    <state x="426" y="66" width="672" height="676" key="search.everywhere.popup" timestamp="1610637842541">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="426" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610637842541" />
-  </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java</url>
+          <line>643</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="ga.bestInRun" />

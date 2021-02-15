@@ -70,7 +70,7 @@ public class SimulationPanel extends JPanel {
     private Graph graph;
     private Graph problemGraph;
     private int seed = 0;
-    private int num_rows = 12;
+    private int num_rows = 8;
     private int num_agents = 3;
     private int num_products = 21;
     private boolean stop = false;
@@ -236,7 +236,7 @@ public class SimulationPanel extends JPanel {
                 GASingleton.getInstance().getMainFrame().logMessage("No operators available", 1);
                 GASingleton.getInstance().getMainFrame().logMessage("Waiting for operators...", 1);
                 GASingleton.getInstance().getCommunication_variables().setMax_operators(GASingleton.getInstance().getMainFrame().getNumOperators());
-                GASingleton.getInstance().getMainFrame().logMessage("Need " + GASingleton.getInstance().getCommunication_variables().getMax_operators() + " operators to begin.", 1);
+                GASingleton.getInstance().getMainFrame().logMessage("Need "+ GASingleton.getInstance().getCommunication_variables().getMax_operators() +" operators to begin.", 1);
             }
             //send task to an operator
             //cm.SendMessageAsync(Util.GenerateId(), "request", "setRoute", GASingleton.getInstance().getCommunication_variables().getOperators().get(0).getId(), "application/xml", xmlString, "1");
@@ -399,8 +399,8 @@ public class SimulationPanel extends JPanel {
             Graph graph2 = graph.clone();
             graph2 = randomProblem(graph2, num_agents, num_products, seed);
             graph2 = fixNeighbours_New(graph2);
-            //problemGraph = graph2;
-            draw(graph2, false, this.gfx, this.image);
+            problemGraph = problemGraph_backup;
+            draw(problemGraph, false, this.gfx, this.image);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -558,12 +558,7 @@ public class SimulationPanel extends JPanel {
                 graph.createEdge(bici);
             }
         }
-        if (num_rows == 12) {
-            graph.findNode(24).setType(GraphNodeType.EXIT);
-
-        } else {
-            graph.getGraphNodes().get(graph.getGraphNodes().size() - 1).setType(GraphNodeType.EXIT);
-        }
+        graph.getGraphNodes().get(graph.getGraphNodes().size() - 1).setType(GraphNodeType.EXIT);
 
         return graph;
     }
@@ -641,10 +636,8 @@ public class SimulationPanel extends JPanel {
         //g.setColor(environment.getCellColor(y, x));
         //g.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         //environmentPanel.getGraphics().drawImage(image, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
+        problemGraph_backup = problemGraph.clone();
         FitnessResults results = old_results.clone();
-        Graph graph2 = graph.clone();
-        graph2 = randomProblem(graph2, num_agents, num_products, seed);
-        graph2 = fixNeighbours_New(graph2);
         results = fixProductsInPath(results);
         try {
             List<IterativeAgent> iterativeAgents;
@@ -652,12 +645,12 @@ public class SimulationPanel extends JPanel {
             Graphics2D gfx2 = (Graphics2D) backup.getGraphics();
             if (this.iterativeAgents == null) {
                 iterativeAgents = new ArrayList<>();
-                graph2.unfixAgentNeighbours();
+                problemGraph.unfixAgentNeighbours();
                 for (Map.Entry<GraphNode, List<FitnessNode>> entry : results.getTaskedAgentsFullNodes().entrySet()) {
                     GraphNode agent = entry.getKey();
                     List<FitnessNode> finalpath = entry.getValue();
                     if (!finalpath.isEmpty()) {
-                        iterativeAgents.add(new IterativeAgent(graph2.findNode(agent.getGraphNodeId()), finalpath, results.getTaskedAgentsOnly().get(agent)));
+                        iterativeAgents.add(new IterativeAgent(problemGraph.findNode(agent.getGraphNodeId()), finalpath, results.getTaskedAgentsOnly().get(agent)));
                     }
                 }
             } else {
@@ -670,9 +663,9 @@ public class SimulationPanel extends JPanel {
                     throw new InterruptedException("Interrupted by user");
                 } else {
                     for (IterativeAgent iterativeAgent : iterativeAgents) {
-                        Coordenates location = iterativeAgent.followObjective(graph2);
+                        Coordenates location = iterativeAgent.followObjective();
                         Point p = new Point((int) location.amplified().getX(), (int) location.amplified().getY());
-                        draw(graph2, true, gfx2, backup);
+                        draw(problemGraph, true, gfx2, backup);
                         gfx2.setColor(Color.RED);
                         gfx2.fillOval(p.x - (NODE_SIZE / 2), p.y, NODE_SIZE, NODE_SIZE);
                         environmentPanel.getGraphics().drawImage(backup, GRID_TO_PANEL_GAP, GRID_TO_PANEL_GAP, null);
@@ -692,7 +685,7 @@ public class SimulationPanel extends JPanel {
             this.iterativeAgents = null;
             GASingleton.getInstance().getMainFrame().buttonVisualize.setText("Play");
             GASingleton.getInstance().getMainFrame().setStop(false);
-            //problemGraph = problemGraph_backup.clone();
+            problemGraph = problemGraph_backup.clone();
         } catch (Exception e) {
             if (e.getClass().equals(InterruptedException.class)) {
                 this.stop = false;
@@ -726,7 +719,7 @@ public class SimulationPanel extends JPanel {
         this.stop = b;
     }
 
-    public void incrementTime(int i) {
+    public void     incrementTime(int i) {
         this.SLEEP_MILLIS += i;
     }
 
@@ -816,8 +809,8 @@ public class SimulationPanel extends JPanel {
         public IterativeAgent(GraphNode agent, List<FitnessNode> path, List<GraphNode> taskOnly) {
             this.agent = agent;
             this.path = new ArrayList<>();
-            for (FitnessNode node : path) {
-                if (node.getNode().getType() == GraphNodeType.DELIVERING) {
+            for(FitnessNode node : path){
+                if (node.getNode().getType() == GraphNodeType.DELIVERING){
                     node.getNode().setType(GraphNodeType.PRODUCT);
                 }
                 this.path.add((FitnessNode) node.clone());
@@ -826,15 +819,15 @@ public class SimulationPanel extends JPanel {
             this.objectiveIdx = 0;
             this.location = agent.getLocation();
             this.taskOnly = new ArrayList<>();
-            for (GraphNode node : taskOnly) {
-                if (node.getType() == GraphNodeType.DELIVERING) {
+            for (GraphNode node : taskOnly){
+                if (node.getType() == GraphNodeType.DELIVERING){
                     node.setType(GraphNodeType.PRODUCT);
                 }
                 this.taskOnly.add(node.clone());
             }
         }
 
-        public Coordenates followObjective(Graph problemGraph) {
+        public Coordenates followObjective() {
             if (this.location.getX() == currentObjective.getNode().getLocation().getX() && this.location.getY() == this.currentObjective.getNode().getLocation().getY()) {
                 //at objective
                 if (objectiveIdx < path.size() - 1) {
@@ -1303,6 +1296,9 @@ public class SimulationPanel extends JPanel {
                     break;
                 case "aCodeD":
                     area.setCodeD(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                    break;
+                case "wmsCode":
+                    shelf.setwmsCode(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
                     break;
                 case "aProduct":
                     area.setProduct(Boolean.parseBoolean(item.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));

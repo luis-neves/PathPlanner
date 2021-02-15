@@ -757,7 +757,9 @@ public class GASingleton implements Observer {
                             tarefa.setQuantidade(Integer.parseInt(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue()));
                             break;
                         case "Origem":
-                            tarefa.setOrigem(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                            Rack raux=prefabManager.findRackBywmsCode(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
+                            Integer id=raux.getId();
+                            tarefa.setOrigem(id.toString());
                             break;
                         case "Destino":
                             tarefa.setDestino(element.getChildNodes().item(i).getChildNodes().item(0).getNodeValue());
