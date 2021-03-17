@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AlgoritmoGenetico" />
+        <module name="NPathPlanner" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AlgoritmoGenetico" target="1.8" />
+      <module name="CommTestBed" target="8" />
+      <module name="NPathPlanner" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

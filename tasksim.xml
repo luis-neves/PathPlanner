@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Task xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" agent-id="25" id="251">
+    <Path><Node id="1"><Position><x>1.8</x><y>4.95</y><z>0.0</z></Position></Node>
+        <Node id="2"><Position><x>5.3</x><y>4.95</y><z>0.0</z></Position></Node>
+        <Node id="3"><Position><x>5.3</x><y>3.95</y><z>0.0</z></Position></Node>
+        <Node id="4" ><Position><x>16.4</x><y>3.95</y><z>0.0</z></Position></Node>
+        <Node id="5"><Position><x>16.4</x><y>1.0</y><z>0.0</z></Position>
+            <Tarefa>
+                <Ordem>Encomenda 199749</Ordem>
+                <LinhaOrdem>2</LinhaOrdem>
+                <Produto>760010100062</Produto>
+                <Quantidade>5</Quantidade>
+                <Origem>13.A.0.06</Origem>
+                <Destino>Saída</Destino>
+            </Tarefa>
+            <Tarefa>
+                <Ordem>Encomenda 199749</Ordem>
+                <LinhaOrdem>3</LinhaOrdem>
+                <Produto>500020101000403</Produto>
+                <Quantidade>6</Quantidade>
+                <Origem>13.A.0.06</Origem>
+                <Destino>Saída</Destino>
+            </Tarefa>
+            <Tarefa>
+                <Ordem>Encomenda 199749</Ordem>
+                <LinhaOrdem>6</LinhaOrdem>
+                <Produto>500020102000050</Produto>
+                <Quantidade>15</Quantidade>
+                <Origem>13.A.0.06</Origem>
+                <Destino>Saída</Destino>
+            </Tarefa></Node>
+        <Node id="6"><Position><x>17.65</x><y>1.0</y><z>0.0</z></Position>
+            <Tarefa>
+                <Ordem>Encomenda 199749</Ordem>
+                <LinhaOrdem>7</LinhaOrdem>
+                <Produto>500020101000601</Produto>
+                <Quantidade>19</Quantidade>
+                <Origem>13.A.0.07</Origem>
+                <Destino>Saída</Destino>
+            </Tarefa>
+            <Tarefa>
+                <Ordem>Encomenda 199749</Ordem>
+                <LinhaOrdem>8</LinhaOrdem>
+                <Produto>501020101001303</Produto>
+                <Quantidade>25</Quantidade>
+                <Origem>13.A.2.07</Origem>
+                <Destino>Saída</Destino>
+            </Tarefa>
+            <Tarefa>
+                <Ordem>Encomenda 199749</Ordem>
+                <LinhaOrdem>9</LinhaOrdem>
+                <Produto>501020101001242</Produto>
+                <Quantidade>32</Quantidade>
+                <Origem>13.A.3.07</Origem>
+                <Destino>Saída</Destino>
+            </Tarefa></Node>
+        <Node id="7"><Position><x>20.5</x><y>1.0</y><z>0.0</z></Position>
+            <Tarefa>
+                <Ordem>Encomenda 199749</Ordem>
+                <LinhaOrdem>1</LinhaOrdem>
+                <Produto>50002020200050A</Produto>
+                <Quantidade>4</Quantidade>
+                <Origem>13.A.0.08</Origem>
+                <Destino>Saída</Destino>
+            </Tarefa>
+            <Tarefa>
+                <Ordem>Encomenda 199749</Ordem>
+                <LinhaOrdem>10</LinhaOrdem>
+                <Produto>501020101001237</Produto>
+                <Quantidade>39</Quantidade>
+                <Origem>13.A.2.08</Origem>
+                <Destino>Saída</Destino>
+            </Tarefa></Node>
+        <Node id="8"><Position><x>19.65</x><y>3.95</y><z>0.0</z></Position></Node>
+        <Node id="9"><Position><x>18.25</x><y>4.5</y><z>0.0</z></Position></Node>
+        <Node id="10"><Position><x>18.25</x><y>6.1</y><z>0.0</z></Position></Node>
+    </Path></Task>
