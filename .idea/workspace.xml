@@ -12,487 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="Inclusão das tags wmsCode&#10;Fix do play">
-      <change afterPath="$PROJECT_DIR$/CommTestBed/CommTestBed.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/CommTestBed-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/ClassLib.j4n-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/FastInfoset-1.2.16.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/all-1.1.2.pom" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/arpack_combined_all-0.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/bcmail-jdk14-138.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/bcprov-jdk14-138.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/bounce-0.18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/core-1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/istack-commons-runtime-3.0.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/itext-2.1.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jackson-core-asl-1.9.13.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jackson-mapper-asl-1.9.13.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jakarta.activation-api-1.2.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jakarta.xml.bind-api-2.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/java-cup-11b-20160615.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/java-cup-runtime-11b-20160615.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jaxb-runtime-2.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jclipboardhelper-0.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jcommon-1.0.16.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jcommon-1.0.17.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jfilechooser-bookmarks-0.1.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jfreechart-1.0.14.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jni4net.j-0.8.8.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/jniloader-1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/json-20190722.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/mtj-1.0.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/native_ref-java-1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/native_system-java-1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-java-1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_ref-linux-armhf-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_ref-linux-i686-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_ref-linux-x86_64-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_ref-osx-x86_64-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_ref-win-i686-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_ref-win-x86_64-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_system-linux-armhf-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_system-linux-i686-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_system-linux-x86_64-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_system-osx-x86_64-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_system-win-i686-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/netlib-native_system-win-x86_64-1.1-natives.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/stax-ex-1.8.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/txw2-2.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/weka-stable-3.8.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/lib/xml-apis-1.3.04.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommTestBed/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NPathPlanner.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph_matceramica.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logPathPlanner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pathfinder/Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pathfinder/GraphNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pathfinder/Route.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pathfinder/RouteFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pathfinder/RouteNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pathfinder/Scorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tsp/TspDynamicProgrammingIterative.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tarefa_concluida.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasksim.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warehouse_model_lab.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/AlgoritmoGenetico_Mav_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/AlgoritmoGenetico_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/SettingsDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taskreceived.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlgoritmoGenetico.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/AlgoritmoGenetico_jar/AlgoritmoGenetico.jar" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/AlgoritmoGenetico_jar/AlgoritmoGenetico.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/graph.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/AStar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/Action.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/Agent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/Cell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/Encomenda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/Environment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/EnvironmentListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/Prateleira.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/Robo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armazem/Saida.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clustering/Clustering.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/communication/CommunicationVariables.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/communication/MyCallbacks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/communication/Operator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/communication/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/communication/Tarefa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/experiments/Experiment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/experiments/ExperimentEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/experiments/ExperimentListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/experiments/ExperimentsFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/experiments/Parameter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GAEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GAListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GASingleton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GeneticAlgorithm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/Individual.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/KMeans/AstarDistance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/KMeans/MyCluster.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/MultipleVectorIndividual.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/Population.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/Problem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/VectorIndividual.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/GeneticOperator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/Mutation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationFirstLast.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationInversion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/MutationSwap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/Recombination.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationCX.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationOX.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationOneCut.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/geneticOperators/RecombinationPMX.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/multiple/GAwithEnvironment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/Ranking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/RouletteWheel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/SelectionMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/selectionMethods/Tournament.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/DetailsPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Line_Type.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logPathPlanner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logPathPlanner.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/PanelTextArea.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/SimulationPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/FreeHybridClusteringPicking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/HybridClusterPicking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/HybridPickingIndividual.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/Picking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/PickingExperimentsFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picking/PickingIndividual.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/statistics/MultipleGaListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/statistics/StatisticBestAverage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/statistics/StatisticBestInRun.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/AlgoritmoOrdenacao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Comparacao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ComparacaoDoubleDesc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/FileOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/Edge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/EnvironmentNodeGraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/FitnessNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/FitnessResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/Graph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Graphs/GraphNodeType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Maths.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/QuickSort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Area.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Colision.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Config.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Coordenates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Device.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Marker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Prefab.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/PrefabType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Rack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Shelf.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Size.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/SmallArea.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/Structure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/warehouse/XMLInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AlgoritmoGenetico-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AlgoritmoGenetico.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/AStar$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/AStar$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/AStar$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/AStar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/Action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/Agent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/Cell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/Encomenda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/Environment$Collision.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/Environment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/EnvironmentListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/Prateleira.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/Robo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/armazem/Saida.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/clustering/Clustering.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/CommunicationVariables.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/MyCallbacks.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Operator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Tarefa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/experiments/Experiment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/experiments/ExperimentEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/experiments/ExperimentListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/experiments/ExperimentsFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/experiments/Parameter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/GAEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/GAListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/GASingleton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/GeneticAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/Individual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/KMeans/AstarDistance.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/KMeans/MyCluster.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/MultipleVectorIndividual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/Population.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/Problem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/VectorIndividual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/GeneticOperator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/Mutation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationFirstLast.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationInversion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/MutationSwap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/Recombination.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationCX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationOX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationOneCut.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/geneticOperators/RecombinationPMX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/multiple/GAwithEnvironment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/selectionMethods/Ranking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/selectionMethods/RouletteWheel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/selectionMethods/SelectionMethod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ga/selectionMethods/Tournament.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/ButtonDataSet_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/ButtonExperiments_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/ButtonRunExperiments_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/ButtonRun_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/ButtonStop_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$Node_Action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$PaintSurface$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$PaintSurface$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage$PaintSurface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DetailsPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/Line_Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$12.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame$ShowPathRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelAtributesValue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$IntegerTextField_KeyAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$JComboBoxFitnessFunction_ActionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters$JComboBoxSelectionMethods_ActionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelParameters.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PanelTextArea.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel$IterativeAgent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraphSeed_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonGenRandNodeGraph_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonImportGraph_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunFromFile_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunFromXML_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRunNodeGraph_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonRun_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonZoomIn_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jButtonZoomOut_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/SimulationPanel_jbuttonVersionTest_actionAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/HybridClusterPicking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/HybridPickingIndividual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/Picking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/PickingExperimentsFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/picking/PickingIndividual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/statistics/MultipleGaListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/statistics/StatisticBestAverage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/statistics/StatisticBestInRun.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/AlgoritmoOrdenacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Comparacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/ComparacaoDoubleDesc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/FileOperations.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/Edge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph$FitnessCosts.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/EnvironmentNodeGraph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/FitnessNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/FitnessResults.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/Graph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/GraphNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Graphs/GraphNodeType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Maths.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/QuickSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Area.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Colision.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Coordenates.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Device.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Marker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Prefab.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/PrefabManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/PrefabType$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/PrefabType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Rack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Shelf.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Size.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/SmallArea.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/Structure.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/warehouse/XMLInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/ClassLib.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/ClassLib.j4n.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/ClassLib.j4n.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/ClassLib.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/ClassLib.proxygen.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Azure.Amqp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Azure.NotificationHubs.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Azure.NotificationHubs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Azure.ServiceBus.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Azure.Services.AppAuthentication.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Azure.Services.AppAuthentication.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.Caching.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.Caching.Abstractions.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.Caching.Memory.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.Caching.Memory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.DependencyInjection.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.DependencyInjection.Abstractions.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.Options.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.Options.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Extensions.Primitives.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Clients.ActiveDirectory.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Clients.ActiveDirectory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.JsonWebTokens.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.JsonWebTokens.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.JsonWebTokens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Logging.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Logging.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Logging.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Tokens.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Tokens.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.IdentityModel.Tokens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Microsoft.Win32.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/Newtonsoft.Json.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.AppContext.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Buffers.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Buffers.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Collections.Concurrent.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Collections.NonGeneric.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Collections.Specialized.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Collections.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.ComponentModel.EventBasedAsync.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.ComponentModel.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.ComponentModel.TypeConverter.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.ComponentModel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Console.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Data.Common.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.Contracts.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.Debug.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.DiagnosticSource.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.DiagnosticSource.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.FileVersionInfo.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.Process.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.StackTrace.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.TextWriterTraceListener.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.Tools.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.TraceSource.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Diagnostics.Tracing.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Drawing.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Dynamic.Runtime.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Globalization.Calendars.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Globalization.Extensions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Globalization.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.Compression.ZipFile.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.Compression.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.FileSystem.DriveInfo.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.FileSystem.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.FileSystem.Watcher.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.FileSystem.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.IsolatedStorage.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.MemoryMappedFiles.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.Pipes.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.UnmanagedMemoryStream.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IO.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IdentityModel.Tokens.Jwt.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IdentityModel.Tokens.Jwt.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.IdentityModel.Tokens.Jwt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Linq.Expressions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Linq.Parallel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Linq.Queryable.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Linq.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Memory.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Memory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.Http.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.NameResolution.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.NetworkInformation.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.Ping.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.Requests.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.Security.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.Sockets.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.WebHeaderCollection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.WebSockets.Client.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Net.WebSockets.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Numerics.Vectors.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Numerics.Vectors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.ObjectModel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Reflection.Extensions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Reflection.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Reflection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Resources.Reader.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Resources.ResourceManager.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Resources.Writer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.CompilerServices.Unsafe.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.CompilerServices.Unsafe.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.CompilerServices.VisualC.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.Extensions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.Handles.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.InteropServices.RuntimeInformation.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.InteropServices.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.Numerics.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.Serialization.Formatters.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.Serialization.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.Serialization.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.Serialization.Xml.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Runtime.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Security.Claims.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Security.Cryptography.Algorithms.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Security.Cryptography.Csp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Security.Cryptography.Encoding.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Security.Cryptography.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Security.Cryptography.X509Certificates.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Security.Principal.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Security.SecureString.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Text.Encoding.Extensions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Text.Encoding.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Text.RegularExpressions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Threading.Overlapped.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Threading.Tasks.Parallel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Threading.Tasks.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Threading.Thread.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Threading.ThreadPool.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Threading.Timer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Threading.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.ValueTuple.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Xml.ReaderWriter.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Xml.XDocument.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Xml.XPath.XDocument.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Xml.XPath.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Xml.XmlDocument.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/System.Xml.XmlSerializer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/build.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/jni4net.n-0.8.8.0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/jni4net.n.w32.v20-0.8.8.0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/jni4net.n.w32.v40-0.8.8.0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/jni4net.n.w64.v20-0.8.8.0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/jni4net.n.w64.v40-0.8.8.0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/lib/netstandard.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tarefa_concluida.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tarefa_concluida.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -648,9 +174,23 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.GuiARWCommTB">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GuiARWCommTB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.GuiARWCommTB" />
+      <module name="NPathPlanner" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -709,9 +249,11 @@
     <list>
       <item itemvalue="Application.PathPlanner" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.GuiARWCommTB" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GuiARWCommTB" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -1306,7 +848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613403848685</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Nova versão do PathPlanner">
+      <created>1615980141041</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1615980141041</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1326,7 +875,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="16/06/2020&#10;[PRE HEURISTIC]" />
     <MESSAGE value="25/06/2020&#10;[HEURISTIC] pre visualize" />
     <MESSAGE value="14/07/2020&#10;[Hybrid] almost" />
     <MESSAGE value="24/07/2020&#10;[Hybrid] almost&#10;[INTEGRATION PROBLEMS]" />
@@ -1351,7 +899,8 @@
     <MESSAGE value="14/01/2021&#10;Max Operators + bug fixes" />
     <MESSAGE value="18/01/2021&#10;LNG fix" />
     <MESSAGE value="Inclusão das tags wmsCode&#10;Fix do play" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inclusão das tags wmsCode&#10;Fix do play" />
+    <MESSAGE value="Nova versão do PathPlanner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nova versão do PathPlanner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1380,6 +929,36 @@
           <url>file://$PROJECT_DIR$/src/main/java/ga/GASingleton.java</url>
           <line>349</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WHDataStruct/WHDataFuncs.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WHDataStruct/WHDataFuncs.java</url>
+          <line>483</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WHDataStruct/WHDataFuncs.java</url>
+          <line>535</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WHDataStruct/WHDataFuncs.java</url>
+          <line>588</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WHDataStruct/WHDataFuncs.java</url>
+          <line>477</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WHDataStruct/PrefabManager.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
