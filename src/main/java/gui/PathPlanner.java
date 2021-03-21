@@ -4,8 +4,12 @@ package gui;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.LayerUI;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Point2D;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
@@ -21,10 +25,7 @@ import ARWDataStruct.DataStruct;
 import ARWDataStruct.Order;
 import WHDataStruct.*;
 import WHGraph.Graphs.ARWGraph;
-import gui.utils.BackgroundSurface;
-import gui.utils.GraphEditor;
-import gui.utils.GraphSurface;
-import gui.utils.SettingsDialog;
+import gui.utils.*;
 import net.sf.jni4net.Bridge;
 
 
@@ -36,18 +37,27 @@ import classlib.CommunicationManager;
 import classlib.TopicsConfiguration;
 import classlib.Util;
 import communication.ARW_CheckBus;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 
 public class PathPlanner extends JFrame  {
     private JMenuBar menubar;
     private final BackgroundSurface background;
     private LayerUI<JPanel> graphsurface;
-    //private GraphSurface graphsurface;
+
     private final JTextArea Consola;
     private final JTextField numtasks;
     private final JTextField numops;
+    private JLabel alertanovoxml;
     private PrefabManager warehouse;
     private static ARWGraph arwgraph;
+    Timer time;
+    PacManSurface pacmansurface;
     CommunicationManager cm;
     ARW_CheckBus Checkbus;
     String Last_tarefa;
@@ -65,7 +75,7 @@ public class PathPlanner extends JFrame  {
     public static final String OP_ID = "1";
     public static final String WAREHOUSE_FILE = "warehouse_model_lab.xml";
     public static final String GRAPH_FILE = "graph2.xml";
-    public static final String TOPIC_UPDATEXML="mod_updateXML";
+    public static final String TOPIC_UPDATEXML="mod_updateXML2";
     public static final String TOPIC_ACKXML="mod_updateXMLstatus";
     public static final String TOPIC_OPAVAIL="available";
     public static final String TOPIC_NEWOP="newOperator";
@@ -81,14 +91,9 @@ public class PathPlanner extends JFrame  {
         super("ARWARE Path Planner v0.1");
 
         setLayout(new BorderLayout());
-/*
-        GroupLayout layout = new GroupLayout(getContentPane());
 
-        getContentPane().setLayout(layout);
-        layout.setAutoCreateGaps(true);
-        layout.setAutoCreateContainerGaps(true);*/
         setupMenuBar();
-        //add(Consola);
+
         warehouse = WHDataFuncs.readPrefabXML(WAREHOUSE_FILE);
         dados= new DataStruct();
 
@@ -109,8 +114,17 @@ public class PathPlanner extends JFrame  {
             background = new BackgroundSurface();
 
         graphsurface = new GraphSurface(arwgraph, warehouse, 0.5, 5, background.AMPLIFY);
-
+        pacmansurface= new PacManSurface(background, 15);
         JLayer<JPanel> jlayer = new JLayer<JPanel>(background,graphsurface);
+
+        JPanel pane = new JPanel();
+        pane.setLayout(new BorderLayout());
+        pane.add(pacmansurface, BorderLayout.CENTER);
+
+        jlayer.setGlassPane(pane);
+        pane.setOpaque(false);
+        pane.setVisible(true);
+
         Consola = new JTextArea(2,40);
 
         JLabel et_tasks = new JLabel("Tarefas pendentes");
@@ -119,6 +133,7 @@ public class PathPlanner extends JFrame  {
         numops = new JTextField("0");
         numtasks.setEditable(false);
         numops.setEditable(false);
+        alertanovoxml=new JLabel("");
 
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
@@ -127,9 +142,10 @@ public class PathPlanner extends JFrame  {
         panel.add(new JLabel("      "));
         panel.add(et_ops);
         panel.add(numops);
+        panel.add(alertanovoxml);
 
         add(panel, BorderLayout.NORTH);
-        //add(background,BorderLayout.CENTER);
+        //add(pacmansurface,BorderLayout.CENTER);
         add(jlayer, BorderLayout.CENTER);
 
 
@@ -146,9 +162,18 @@ public class PathPlanner extends JFrame  {
         pack();
         setSize(950, 500);
         initComponents();
+        setVisible(true);
     }
 
+    private void avisaNovoXML(){
+        alertanovoxml.setText("Novo Modelo de armazem disponível");
+        alertanovoxml.setForeground(Color.red);
+    }
 
+    private void retiravisoXML(){
+        alertanovoxml.setText("");
+        alertanovoxml.setForeground(Color.gray);
+    }
     private void setupMenuBar() {
         JMenu menu;
         JMenuItem menuItem;
@@ -251,16 +276,12 @@ public class PathPlanner extends JFrame  {
 
                 System.out.println("Temporário aviso de settings");
                 SettingsDialog settingsDialog=new SettingsDialog(CHECK_ERP_PERIOD,SENSIBILITY,CLIENT_ID);
-                settingsDialog.addWindowListener(new WindowAdapter() {
-                    @Override
-                    public void windowClosing(WindowEvent e) {
-                        CHECK_ERP_PERIOD=settingsDialog.CHECK_ERP_PERIOD;
-                        SENSIBILITY= settingsDialog.SENSIBILITY;
-                        CLIENT_ID=settingsDialog.CLIENT_ID;
 
-                        repaint();
-                    }
-                });
+                CHECK_ERP_PERIOD=settingsDialog.CHECK_ERP_PERIOD;
+                SENSIBILITY= settingsDialog.SENSIBILITY;
+                CLIENT_ID=settingsDialog.CLIENT_ID;
+                //time.cancel();
+                time.schedule(new CheckERP(), 0, TimeUnit.MINUTES.toMillis(CHECK_ERP_PERIOD));
                 repaint();
 
             }
@@ -288,8 +309,15 @@ public class PathPlanner extends JFrame  {
                     dados.setPrefab(warehouse);
                 if (arwgraph!=null)
                     arwgraph.clear();
-                background.repaint();
-
+                File source = new File(fc.getSelectedFile().getName());
+                File dest = new File(WAREHOUSE_FILE);
+            try {
+                Files.copy(source.toPath(),dest.toPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            background.repaint();
+            retiravisoXML();
                 repaint();
         }
 
@@ -346,7 +374,7 @@ public class PathPlanner extends JFrame  {
 
 
 
-        Timer time = new Timer(); // Instantiate Timer Object
+        time = new Timer(); // Instantiate Timer Object
 
         //Faz um pedido ao ERP a cada 5 minutos - VER SE SERÁ O TEMPO ADEQUADO
         time.schedule(new CheckERP(), 0, TimeUnit.MINUTES.toMillis(CHECK_ERP_PERIOD));
@@ -360,8 +388,14 @@ public class PathPlanner extends JFrame  {
 
 
     public void EnviaTarefa(String agentid, String xmlstring){
-
-            this.Consola.append("A enviar tarefa para "+agentid+"\n");
+        try {
+            playPacman(agentid,xmlstring);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+        this.Consola.append("A enviar tarefa para "+agentid+"\n");
             cm.SendMessageAsync(Util.GenerateId(), "request", TOPIC_NEWTASK, agentid, "application/xml", xmlstring, "1");
 
     }
@@ -404,7 +438,7 @@ public class PathPlanner extends JFrame  {
                             if ((warehouse==null)||(position[0]>warehouse.getWidth())||(position[1]>warehouse.getDepth())){
                                 cm.SendMessageAsync((Integer.parseInt(busMessage.getId()) + 1) + "", "response",
                                         busMessage.getInfoIdentifier(), split[0], "application/json", "{'response':'not ACK'}", "1");
-
+                                pacmansurface.addAgent(agentid,new Point2D.Float(position[0],position[1]));
                             }
                             //String disponivel = obj.get("available").toString();
 
@@ -571,7 +605,7 @@ public class PathPlanner extends JFrame  {
                 lastid="";
                 try {
                     write_modelador_xml_to_file("warehouse_recebido.xml", xmlmessage);
-
+                    avisaNovoXML();
                     System.out.println("Succesfully saved warehouse_recebido.xml");
 
                 } catch (IOException e) {
@@ -637,6 +671,74 @@ public class PathPlanner extends JFrame  {
         outputStream.write(strToBytes);
         outputStream.close();
     }
+
+    public void playPacman(String agentid, String content) throws IOException, SAXException {
+
+        String posx;
+        String posy;
+        System.out.println(content);
+        DocumentBuilder db = null;
+        try {
+            db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+        InputSource is = new InputSource(new StringReader(content));
+
+        Document doc = db.parse(is);
+        doc.getDocumentElement().normalize();
+        NodeList path_nodes = doc.getElementsByTagName("Node");
+        NodeList pick_nodes = doc.getElementsByTagName("Tarefa");
+
+
+        for (int j = 0; j < pick_nodes.getLength(); j++) {
+            Element element = (Element) pick_nodes.item(j);
+
+            if (element.getNodeType()== Node.ELEMENT_NODE) {
+                String wmscode=element.getElementsByTagName("Origem").item(0).getTextContent();
+                String productid=element.getElementsByTagName("LinhaOrdem").item(0).getTextContent();
+                Rack rack=warehouse.findRackBywmsCode(wmscode);
+
+                float xx= rack.getPosition().getX();
+                float yy=rack.getPosition().getY();
+
+                pacmansurface.addProduct(productid,new Point2D.Float(xx,yy));
+
+
+            }
+        }
+        repaint();
+        for (int j = 0; j < path_nodes.getLength(); j++) {
+            Element element = (Element) path_nodes.item(j);
+
+            if (element.getNodeType() == Node.ELEMENT_NODE) {
+                posx = element.getElementsByTagName("x").item(0).getTextContent();
+                posy = element.getElementsByTagName("y").item(0).getTextContent();
+                posx = posx.replace(',', '.');
+                posy = posy.replace(',', '.');
+                float xx = Float.parseFloat(posx);
+                float yy = Float.parseFloat(posy);
+
+                pacmansurface.updateAgent(agentid, new Point2D.Float(xx, yy));
+                repaint();
+                for (int i = 0; i < element.getElementsByTagName("Tarefa").getLength(); i++) {
+                    pacmansurface.removeProduct(element.getElementsByTagName("LinhaOrdem").item(i).getTextContent());
+                }
+
+
+                repaint();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        pacmansurface.removeAgent(agentid);
+        repaint();
+
+    }
+
 
     public static void main(String[] args) {
 

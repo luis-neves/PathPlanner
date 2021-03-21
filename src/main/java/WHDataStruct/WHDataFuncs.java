@@ -1,17 +1,42 @@
 package WHDataStruct;
 
 import WHGraph.Graphs.Coordinates;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 public interface WHDataFuncs {
 
+    static List<String> createBrokenXML(String XML, int size){
+        ArrayList<String> lista=new ArrayList<>();
+        int nparts=(int)Math.ceil((double)XML.length()/(double)size);
+        byte[] array = new byte[7]; // length is bounded by 7
+        new Random().nextBytes(array);
+        String generatedString = new String(array, Charset.forName("UTF-8"));
+
+        for (int i=0;i<nparts;i++){
+            JSONObject jsonobject= new JSONObject();
+            jsonobject.put("id",generatedString);
+            jsonobject.put("nPart",i);
+            jsonobject.put("totalParts",nparts);
+            int start=i*size;
+            int end=Math.min(start+size-1,XML.length());
+            jsonobject.put("xmlPart",XML.substring(start,end));
+            lista.add(jsonobject.toString());
+        }
+        return lista;
+    }
 
     static PrefabManager readPrefabXML(String filename) {
         try {

@@ -14,13 +14,13 @@ public class SettingsDialog extends JDialog {
 
     public JTextField nome_input;
     public JSlider sensibility;
-    public JSlider check_erp_period;
+    public JSpinner check_erp_period;
 
     public SettingsDialog(int CHECK_ERP_PERIOD, double SENSIBILITY, String CLIENT_ID) {
         this.CHECK_ERP_PERIOD = CHECK_ERP_PERIOD;
         this.SENSIBILITY = SENSIBILITY;
         this.CLIENT_ID=CLIENT_ID;
-
+        this.setModal(true);
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -47,7 +47,8 @@ public class SettingsDialog extends JDialog {
 
         gbc.gridx = 1;
         gbc.gridy = 1;
-        check_erp_period = new JSlider(0,60,new Double(CHECK_ERP_PERIOD).intValue());
+        SpinnerModel model= new SpinnerNumberModel(CHECK_ERP_PERIOD,1,30,1);
+        check_erp_period = new JSpinner(model);
         add(check_erp_period, gbc);
 
 
@@ -87,7 +88,7 @@ public class SettingsDialog extends JDialog {
     public void updateValues(){
         CLIENT_ID=nome_input.getText();
         SENSIBILITY=(float)sensibility.getValue()/100.0;
-        CHECK_ERP_PERIOD=check_erp_period.getValue();
+        CHECK_ERP_PERIOD=((Number)check_erp_period.getValue()).intValue();
     }
 
 }

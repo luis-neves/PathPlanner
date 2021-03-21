@@ -70,7 +70,9 @@ public class BackgroundSurface extends JPanel {
 
     }
 
-    public void paint(Graphics g) {
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         if (prefabManager!=null) {
             this.AMPLIFY = Math.min(((float) getSize().width) / prefabManager.getWidth(), ((float) getSize().height) / prefabManager.getDepth());
             shapes = generateShapes();
@@ -185,6 +187,18 @@ public class BackgroundSurface extends JPanel {
     public double posx(Prefab prefab){
         //Inverte a origem das coordenadas se no modelo for o canto superior direito
         return prefabManager.getWidth()-prefab.getPosition().getX();
+        //return prefab.getPosition().getX()
+    }
+
+    public double posx(Point ponto){
+        //Inverte a origem das coordenadas se no modelo for o canto superior direito
+        return prefabManager.getWidth()-ponto.getX();
+        //return prefab.getPosition().getX()
+    }
+
+    public double posx(double pontox){
+        //Inverte a origem das coordenadas se no modelo for o canto superior direito
+        return (prefabManager.getWidth()-pontox);
         //return prefab.getPosition().getX()
     }
 }
