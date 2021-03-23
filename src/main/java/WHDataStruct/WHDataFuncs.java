@@ -18,12 +18,20 @@ import org.w3c.dom.Node;
 
 public interface WHDataFuncs {
 
-    static List<String> createBrokenXML(String XML, int size){
+    static ArrayList<String> createBrokenXML(String XML, int size){
         ArrayList<String> lista=new ArrayList<>();
         int nparts=(int)Math.ceil((double)XML.length()/(double)size);
-        byte[] array = new byte[7]; // length is bounded by 7
-        new Random().nextBytes(array);
-        String generatedString = new String(array, Charset.forName("UTF-8"));
+        int leftLimit = '0';
+        int rightLimit = 'z';
+        int targetStringLength = 8;
+        Random random = new Random();
+        StringBuilder buffer = new StringBuilder(targetStringLength);
+        for (int i = 0; i < targetStringLength; i++) {
+            int randomLimitedInt = leftLimit + (int)
+                    (random.nextFloat() * (rightLimit - leftLimit + 1));
+            buffer.append((char) randomLimitedInt);
+        }
+        String generatedString = buffer.toString();
 
         for (int i=0;i<nparts;i++){
             JSONObject jsonobject= new JSONObject();
@@ -31,7 +39,7 @@ public interface WHDataFuncs {
             jsonobject.put("nPart",i);
             jsonobject.put("totalParts",nparts);
             int start=i*size;
-            int end=Math.min(start+size-1,XML.length());
+            int end=Math.min(start+size,XML.length());
             jsonobject.put("xmlPart",XML.substring(start,end));
             lista.add(jsonobject.toString());
         }

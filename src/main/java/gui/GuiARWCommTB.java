@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import WHDataStruct.WHDataFuncs;
 import classlib.BusMessage;
 import classlib.CommunicationManager;
 import classlib.TopicsConfiguration;
@@ -32,7 +33,7 @@ public class GuiARWCommTB extends JFrame {
     private JMenuBar menuBar;
 
 
-    public static final String CLIENT_ID = "testaplaneador";
+    public static final String CLIENT_ID = "ra2";
     public static final String ERP_ID = "ERP";
     public static final String RA_ID = "ra";
     public static final String LOC_APROX_ID = "locaproximada";
@@ -101,7 +102,7 @@ public class GuiARWCommTB extends JFrame {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 // delegate to event handler method
-                Executa_EnviaTarefa();
+                Executa_EnviaXML();
             }
         });
 
@@ -154,7 +155,7 @@ public class GuiARWCommTB extends JFrame {
                                            }
         );
 
-        cm.SubscribeContentAsync("mod_updateXML",MODELADOR_ID);
+        //cm.SubscribeContentAsync("mod_updateXML",MODELADOR_ID);
 
 
         System.out.println("CLIENT_ID: " + CLIENT_ID);
@@ -167,9 +168,18 @@ public class GuiARWCommTB extends JFrame {
 
 
 
-    public void Executa_RecebeXML(){
-        this.Consola.append("Texto XML"+'\n');
-        cm.SendMessageAsync(Util.GenerateId(), "request", "mod_updateXML", MODELADOR_ID, "application/xml", "", "1");
+    public void Executa_EnviaXML(){
+        String xmlstring="";
+        try {
+            xmlstring=read_xml_from_file("warehouse_model_lab.xml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ArrayList<String> lista= WHDataFuncs.createBrokenXML(xmlstring,30000);
+        for (int i=0; i<lista.size();i++) {
+            String jsonstr=lista.get(i);
+            cm.SendStreamMessageAsync("mod_updateXML2", "application/json", jsonstr, "1");
+        }
     }
 
     public void Executa_RecebeTarefa(){
@@ -429,12 +439,6 @@ public class GuiARWCommTB extends JFrame {
         final String dir = System.getProperty("user.dir");
         //SERVICE BUS
         OutputStream output = null;
-        try {
-            output = new FileOutputStream(dir + "\\logPathPlanner.txt");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        //printOut = new PrintStream(output);
 
         //System.setOut(printOut);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

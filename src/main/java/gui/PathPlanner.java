@@ -48,14 +48,14 @@ import org.xml.sax.SAXException;
 public class PathPlanner extends JFrame  {
     private JMenuBar menubar;
     private final BackgroundSurface background;
-    private LayerUI<JPanel> graphsurface;
+    private final GraphSurface graphsurface;
 
     private final JTextArea Consola;
     private final JTextField numtasks;
     private final JTextField numops;
     private JLabel alertanovoxml;
     private PrefabManager warehouse;
-    private static ARWGraph arwgraph;
+    private ARWGraph arwgraph;
     Timer time;
     PacManSurface pacmansurface;
     CommunicationManager cm;
@@ -73,9 +73,9 @@ public class PathPlanner extends JFrame  {
     public static final String MODELADOR_ID = "modelador";
     public static final int NUM_OPERATORS = 1;
     public static final String OP_ID = "1";
-    public static final String WAREHOUSE_FILE = "warehouse_model_lab.xml";
+    public static final String WAREHOUSE_FILE = "warehouse_model.xml";
     public static final String GRAPH_FILE = "graph2.xml";
-    public static final String TOPIC_UPDATEXML="mod_updateXML2";
+    public static final String TOPIC_UPDATEXML="mod_updateXML";
     public static final String TOPIC_ACKXML="mod_updateXMLstatus";
     public static final String TOPIC_OPAVAIL="available";
     public static final String TOPIC_NEWOP="newOperator";
@@ -88,7 +88,7 @@ public class PathPlanner extends JFrame  {
 
 
     public PathPlanner() {
-        super("ARWARE Path Planner v0.1");
+        super("ARWARE Path Planner v1");
 
         setLayout(new BorderLayout());
 
@@ -96,6 +96,7 @@ public class PathPlanner extends JFrame  {
 
         warehouse = WHDataFuncs.readPrefabXML(WAREHOUSE_FILE);
         dados= new DataStruct();
+        arwgraph=new ARWGraph();
 
         if (warehouse != null){
 
@@ -103,16 +104,17 @@ public class PathPlanner extends JFrame  {
             dados.setPrefab(warehouse);
 
             File file = new File(GRAPH_FILE);
-            arwgraph=new ARWGraph();
+
             if (file!=null) {
                 arwgraph.readGraphFile(file);
-                if (arwgraph != null)
-                    dados.setGraph(arwgraph);
+
             }
         }
         else
             background = new BackgroundSurface();
 
+        if (arwgraph != null)
+            dados.setGraph(arwgraph);
         graphsurface = new GraphSurface(arwgraph, warehouse, 0.5, 5, background.AMPLIFY);
         pacmansurface= new PacManSurface(background, 15);
         JLayer<JPanel> jlayer = new JLayer<JPanel>(background,graphsurface);
@@ -126,6 +128,7 @@ public class PathPlanner extends JFrame  {
         pane.setVisible(true);
 
         Consola = new JTextArea(2,40);
+        JScrollPane scrollpane=new JScrollPane(Consola);
 
         JLabel et_tasks = new JLabel("Tarefas pendentes");
         JLabel et_ops = new JLabel("Operadores disponíveis");
@@ -149,7 +152,7 @@ public class PathPlanner extends JFrame  {
         add(jlayer, BorderLayout.CENTER);
 
 
-        add(Consola, BorderLayout.PAGE_END);
+        add(scrollpane, BorderLayout.PAGE_END);
 
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -198,6 +201,7 @@ public class PathPlanner extends JFrame  {
                 LoadWarehouse();
                 background.setPrefabs(warehouse);
                 dados.setPrefab(warehouse);
+
                 //arwgraph=null;
             }
         });
@@ -234,7 +238,7 @@ public class PathPlanner extends JFrame  {
                         @Override
                         public void windowClosing(WindowEvent e) {
                             dados.setGraph(arwgraph);
-
+                            graphsurface.setArwgraph(arwgraph);
                             repaint();
                         }
                     });
@@ -316,6 +320,7 @@ public class PathPlanner extends JFrame  {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            graphsurface.setPrefabManager(warehouse);
             background.repaint();
             retiravisoXML();
                 repaint();
@@ -335,8 +340,10 @@ public class PathPlanner extends JFrame  {
                 File file = fc.getSelectedFile();
 
                 arwgraph.readGraphFile(file);
-                if (arwgraph!=null)
+                if (arwgraph!=null) {
                     dados.setGraph(arwgraph);
+                    graphsurface.setArwgraph(arwgraph);
+                }
                 repaint();
             }
         } catch (NoSuchElementException e2) {
@@ -382,8 +389,10 @@ public class PathPlanner extends JFrame  {
     }
 
     public void PedeTarefa(){
-        this.Consola.append("Pedida tarefa"+'\n');
-        this.cm.SendMessageAsync(Util.GenerateId(), "request", TOPIC_GETTASK, ERP_ID, "PlainText", "Dá-me uma tarefa!", "1");
+        if (arwgraph.getNumberOfgraphNodes()>0) {
+            this.Consola.append("Pedida tarefa" + '\n');
+            this.cm.SendMessageAsync(Util.GenerateId(), "request", TOPIC_GETTASK, ERP_ID, "PlainText", "Dá-me uma tarefa!", "1");
+        }
     }
 
 
@@ -549,7 +558,7 @@ public class PathPlanner extends JFrame  {
                 System.out.println("STREAM message ready to be processed.");
                 switch (busMessage.getInfoIdentifier())
                 {
-                    case "updateXML":
+                    case TOPIC_UPDATEXML:
 
                         xml_str = busMessage.getContent();
                         JSONObject coderollsJSONObject = new JSONObject(xml_str);
