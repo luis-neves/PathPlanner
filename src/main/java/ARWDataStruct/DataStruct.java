@@ -15,6 +15,7 @@ import pathfinder.RouteFinder;
 import java.awt.geom.Point2D;
 import java.util.*;
 
+import static WHGraph.Graphs.GraphNodeType.AGENT;
 import static WHGraph.Graphs.GraphNodeType.PRODUCT;
 
 public class DataStruct {
@@ -153,6 +154,8 @@ public class DataStruct {
                 }
             }
 
+            problemgraph.insertNode(new ARWGraphNode(problemgraph.getNumNodes(), agent.initialx, agent.initialy,
+                    AGENT)).getGraphNodeId();
             //Os passos abaixo para a criação do vetor produtos são para simplificar. Serviram para aprendizagem.
             ArrayList<String> prods = new ArrayList<String>();
             for (int id : afetacao.keySet())
@@ -167,7 +170,7 @@ public class DataStruct {
             int endnode = arwgrafo.findClosestNode(warehouse.findRackBywmsCode(destiny).getPosition().getX(),
                     warehouse.findRackBywmsCode(destiny).getPosition().getY()).getGraphNodeId();
 
-            ARWGraphNode startnode= arwgrafo.findClosestNode(agent.initialx, agent.initialy);
+            ARWGraphNode startnode= problemgraph.findClosestNode(agent.initialx, agent.initialy);
 
             SingleOrderDyn orderDyn = new SingleOrderDyn(grafo, produtos, Integer.toString(startnode.getGraphNodeId()),
                     new Integer(endnode).toString());
@@ -184,8 +187,6 @@ public class DataStruct {
             return xmlstring;
 
         }
-
-
 
     }
 

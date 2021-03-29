@@ -3,7 +3,7 @@ package gui;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.plaf.LayerUI;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -46,7 +46,6 @@ import org.xml.sax.SAXException;
 
 
 public class PathPlanner extends JFrame  {
-    private JMenuBar menubar;
     private final BackgroundSurface background;
     private final GraphSurface graphsurface;
 
@@ -56,7 +55,9 @@ public class PathPlanner extends JFrame  {
     private JLabel alertanovoxml;
     private PrefabManager warehouse;
     private ARWGraph arwgraph;
-    Timer time;
+    Timer time, timexml;
+    String idxml="";
+    Boolean xmlreceived;
     PacManSurface pacmansurface;
     CommunicationManager cm;
     ARW_CheckBus Checkbus;
@@ -72,9 +73,9 @@ public class PathPlanner extends JFrame  {
     public static final String LOC_APROX_ID = "locaproximada";
     public static final String MODELADOR_ID = "modelador";
     public static final int NUM_OPERATORS = 1;
-    public static final String OP_ID = "1";
+
     public static final String WAREHOUSE_FILE = "warehouse_model.xml";
-    public static final String GRAPH_FILE = "graph2.xml";
+    public static final String GRAPH_FILE = "graph.xml";
     public static final String TOPIC_UPDATEXML="mod_updateXML";
     public static final String TOPIC_ACKXML="mod_updateXMLstatus";
     public static final String TOPIC_OPAVAIL="available";
@@ -165,6 +166,7 @@ public class PathPlanner extends JFrame  {
         pack();
         setSize(950, 500);
         initComponents();
+        xmlreceived=false;
         setVisible(true);
     }
 
@@ -180,7 +182,7 @@ public class PathPlanner extends JFrame  {
     private void setupMenuBar() {
         JMenu menu;
         JMenuItem menuItem;
-        menubar = new JMenuBar();
+        JMenuBar menubar = new JMenuBar();
 
 //Build the first menu.
         menu = new JMenu("Data");
@@ -399,9 +401,7 @@ public class PathPlanner extends JFrame  {
     public void EnviaTarefa(String agentid, String xmlstring){
         try {
             playPacman(agentid,xmlstring);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
         this.Consola.append("A enviar tarefa para "+agentid+"\n");
@@ -435,10 +435,8 @@ public class PathPlanner extends JFrame  {
                         String agentid = split[0];
 
                         JSONObject obj = new JSONObject(xml_str);
-//                        Float posx,posy;
+
                         if (obj != null) {
-//                            posx=(Float) obj.get("posicaox");
-  //                          posy=(Float) obj.get("posicaoy");
 
                             if (obj.has("posicaox"))
                                 position[0] = Float.parseFloat(obj.get("posicaox").toString());
@@ -469,7 +467,7 @@ public class PathPlanner extends JFrame  {
                                 busMessage.getInfoIdentifier(), split[0], "application/json", "{'response':'ACK'}", "1");
 
                         xml_str = dados.HandleTasks(agentid);
-                        if (xml_str.equals("") == false) {
+                        if (!xml_str.equals("")) {
                             EnviaTarefa(agentid, xml_str);
                         } else
                             PedeTarefa();
@@ -482,7 +480,6 @@ public class PathPlanner extends JFrame  {
                         System.out.println(xml_str);//Provisoriamente para teste
                         Consola.setText(xml_str+"\n");
                         split = busMessage.getFromTopic().split("Topic");
-                        agentid = split[0];
 
 
                         try {//Falta o processo de envio em bocados
@@ -520,7 +517,30 @@ public class PathPlanner extends JFrame  {
                         cm.SendMessageAsync((Integer.parseInt(busMessage.getId()) + 1) + "", "response",
                                 busMessage.getInfoIdentifier(), split[0], "application/json", "{'response':'ACK'}", "1");
                         System.out.println("Enviou Ack!");
+                        break;
+                    case TOPIC_ACKXML:
+                        //split = busMessage.getFromTopic().split("Topic");
+                        if (xmlreceived){
+                            String xmlanswer = new JSONObject()
+                                    .put("id",idxml)
+                                    .put("ack","OK").toString();
 
+                            cm.SendMessageAsync(Util.GenerateId(), "response", TOPIC_ACKXML, MODELADOR_ID, "application/json",
+                                    xmlanswer, "1");
+                            xmlreceived=false;
+
+                        }
+                        else
+                        {
+                            String xmlanswer = new JSONObject()
+                                    .put("id",idxml)
+                                    .put("ack","ERROR").toString();
+                            cm.SendMessageAsync(Util.GenerateId(), "response", TOPIC_ACKXML, MODELADOR_ID, "application/json",
+                                    xmlanswer, "1");
+                            Consola.append("Erro com a receção de XML");
+                            System.out.println("Houve Erro com a receção de XML!");
+                        }
+                        timexml.cancel();
                 }
                 break;
 
@@ -563,7 +583,7 @@ public class PathPlanner extends JFrame  {
                         xml_str = busMessage.getContent();
                         JSONObject coderollsJSONObject = new JSONObject(xml_str);
                         System.out.println(xml_str);//Provisoriamente para teste
-                        String id="";
+                        String id;
                         if (coderollsJSONObject.get("id")!=null)
                             id = coderollsJSONObject.get("id").toString();
                         else
@@ -594,22 +614,23 @@ public class PathPlanner extends JFrame  {
             xmlparts=new Hashtable<Integer,String>();
             lastid=id;
         }
+        idxml=id;
         if ((!xmlparts.containsKey(npart))&&id.equals(lastid) ){
             xmlparts.put(npart, part);
             if (xmlparts.size() == totalparts) {
                 String xmlmessage = "";
-                for (Integer i = 0; i < totalparts; i++) {
+                Set<Integer> keys=new TreeSet<Integer>(xmlparts.keySet());
+
+                for (Integer i: keys) {
                     xmlmessage = xmlmessage + xmlparts.get(i);
                     System.out.println("Adicionou");
-
                 }
                 Consola.setText("Recebeu XML\n");
-                String xmlanswer = new JSONObject()
-                        .put("id",id)
-                        .put("ack","OK").toString();
 
-                cm.SendMessageAsync(Util.GenerateId(), "response", "mod_updateXMLstatus", MODELADOR_ID, "application/json",
-                        xmlanswer, "1");
+                xmlreceived=true;
+
+                timexml=new Timer();
+                timexml.schedule(new CheckXML(), 0, TimeUnit.MINUTES.toMillis(1));
                 xmlparts = null;
                 lastid="";
                 try {
@@ -623,7 +644,7 @@ public class PathPlanner extends JFrame  {
 
                 }
             } else {
-                System.out.println("Waiting for the remaining " + new Integer(totalparts - xmlparts.size()).toString() + " parts of the warehouse model.");
+                System.out.println("Waiting for the remaining " + Integer.toString(totalparts - xmlparts.size()) + " parts of the warehouse model.");
             }
         }
         else{
@@ -639,12 +660,29 @@ public class PathPlanner extends JFrame  {
         }
     }
 
+
+
+
+    public class CheckXML extends TimerTask {
+
+
+        public void run() {
+            try {
+
+                xmlreceived=false;
+
+            } catch (Exception ex) {
+                System.out.println("error running thread " + ex.getMessage());
+            }
+        }
+    }
+
     public void handleTask(String xmlstring) throws IOException {
             String agentid="ra1";//Serve para ter um nome mas será substituido em HandleTasks.
             dados.addTask(xmlstring);
             write_modelador_xml_to_file("tarefa.xml", xmlstring);
             String xml_str= dados.HandleTasks(agentid);
-            if (xml_str.equals("")==false){
+            if (!xml_str.equals("")){
                 EnviaTarefa(agentid,xml_str);
         }
             updateDados();
@@ -652,7 +690,7 @@ public class PathPlanner extends JFrame  {
 
     public String read_xml_from_file(String fileName)
             throws IOException {
-        String contents="";
+        String contents;
         contents = new String(Files.readAllBytes(Paths.get(fileName)));
 
 
@@ -759,11 +797,10 @@ public class PathPlanner extends JFrame  {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        printOut = new PrintStream(output);
-
-        System.setOut(printOut);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String userInput;
+        if (output!=null) {
+            printOut = new PrintStream(output);
+            System.setOut(printOut);
+        }
         Bridge.setVerbose(true);
         Bridge.setDebug(true);
         try {

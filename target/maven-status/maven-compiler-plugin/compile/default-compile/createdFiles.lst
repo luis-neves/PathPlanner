@@ -59,6 +59,7 @@ WHDataStruct\SmallArea.class
 gui\ARWDataStrTestBed$4.class
 gui\utils\GraphEditor.class
 WHDataStruct\Area.class
+gui\PathPlanner$CheckXML.class
 gui\GuiARWCommTB$6.class
 gui\PathPlanner$7.class
 orderpicking\GNode.class

@@ -112,8 +112,8 @@ public class GuiARWCommTB extends JFrame {
                 // delegate to event handler method
                 String message = new JSONObject()
                         .put("available","yes")
-                        .put("posicaox",1.000)
-                        .put("posicaoy",0.000).toString();
+                        .put("posicaox",0.800)
+                        .put("posicaoy",2.000).toString();
                 cm.SendMessageAsync(Util.GenerateId(), "request", "available", "planeador", "application/json", message, "1");
 
             }
