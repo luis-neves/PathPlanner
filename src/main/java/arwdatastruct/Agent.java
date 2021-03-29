@@ -1,4 +1,4 @@
-package ARWDataStruct;
+package arwdatastruct;
 
 public class Agent {
     public String id;

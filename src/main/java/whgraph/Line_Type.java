@@ -1,4 +1,4 @@
-package WHGraph;
+package whgraph;
 
 public enum Line_Type {
     SIMPLE, PRODUCT,EXIT

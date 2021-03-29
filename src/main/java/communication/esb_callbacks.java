@@ -8,16 +8,16 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 
-public class ARW_CheckBus implements ICommunicationManagerCallbacks {
+public class esb_callbacks implements ICommunicationManagerCallbacks {
     CommunicationManager cm;
     BusMessage busMessage;
     private final PropertyChangeSupport support;
 
-    public ARW_CheckBus(){
+    public esb_callbacks(){
         support=new PropertyChangeSupport(this);
     }
 
-    public ARW_CheckBus(CommunicationManager cm, PropertyChangeListener pcl){
+    public esb_callbacks(CommunicationManager cm, PropertyChangeListener pcl){
         support=new PropertyChangeSupport(this);
         this.SetCommunicationManager(cm);
         this.addPropertyChangeListener(pcl);

@@ -9,12 +9,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-import ARWDataStruct.Agent;
-import ARWDataStruct.DataStruct;
+import arwdatastruct.Agent;
+import arwdatastruct.DataStruct;
 
-import WHDataStruct.*;
-import WHGraph.Graphs.GraphGenerator;
-import WHGraph.Graphs.ARWGraph;
+import whdatastruct.*;
+import whgraph.Graphs.GraphGenerator;
+import whgraph.Graphs.ARWGraph;
 
 import gui.utils.GraphEditor;
 import orderpicking.GNode;

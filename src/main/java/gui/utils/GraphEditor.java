@@ -1,11 +1,11 @@
 package gui.utils;
 
-import WHDataStruct.PrefabManager;
-import WHGraph.Graphs.ARWGraph;
-import WHGraph.Graphs.ARWGraphNode;
-import WHGraph.Graphs.Edge;
-import WHGraph.Graphs.GraphNodeType;
-import WHGraph.Line_Type;
+import whdatastruct.PrefabManager;
+import whgraph.Graphs.ARWGraph;
+import whgraph.Graphs.ARWGraphNode;
+import whgraph.Graphs.Edge;
+import whgraph.Graphs.GraphNodeType;
+import whgraph.Line_Type;
 
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;

@@ -1,6 +1,6 @@
-package WHDataStruct;
+package whdatastruct;
 
-import WHGraph.Graphs.Coordinates;
+import whgraph.Graphs.Coordinates;
 
 public class Config {
     private float width;
@@ -19,7 +19,7 @@ public class Config {
         startConfig=new Coordinates();
     }
 
-    public Config(WHDataStruct.Config clone) {
+    public Config(whdatastruct.Config clone) {
         this.width=clone.width;
         this.height=clone.height;
         this.depth=clone.depth;

@@ -1,9 +1,6 @@
 package gui.utils;
 
-import WHGraph.Graphs.ARWGraphNode;
-
 import javax.swing.*;
-import javax.swing.plaf.LayerUI;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Hashtable;

@@ -1,7 +1,7 @@
-package WHGraph.Graphs;
+package whgraph.Graphs;
 
-import WHDataStruct.Prefab;
-import WHDataStruct.PrefabManager;
+import whdatastruct.Prefab;
+import whdatastruct.PrefabManager;
 import orderpicking.GNode;
 
 import java.awt.*;

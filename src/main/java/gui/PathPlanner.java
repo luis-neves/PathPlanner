@@ -19,12 +19,12 @@ import java.util.*;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
-import ARWDataStruct.Agent;
-import ARWDataStruct.DataStruct;
+import arwdatastruct.Agent;
+import arwdatastruct.DataStruct;
 
-import ARWDataStruct.Order;
-import WHDataStruct.*;
-import WHGraph.Graphs.ARWGraph;
+import arwdatastruct.Order;
+import whdatastruct.*;
+import whgraph.Graphs.ARWGraph;
 import gui.utils.*;
 import net.sf.jni4net.Bridge;
 
@@ -36,7 +36,7 @@ import classlib.BusMessage;
 import classlib.CommunicationManager;
 import classlib.TopicsConfiguration;
 import classlib.Util;
-import communication.ARW_CheckBus;
+import communication.esb_callbacks;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -60,7 +60,7 @@ public class PathPlanner extends JFrame  {
     Boolean xmlreceived;
     PacManSurface pacmansurface;
     CommunicationManager cm;
-    ARW_CheckBus Checkbus;
+    esb_callbacks Checkbus;
     String Last_tarefa;
     DataStruct dados ;
     static PrintStream printOut;
@@ -358,7 +358,7 @@ public class PathPlanner extends JFrame  {
 
     private void initComponents(){
 
-        Checkbus = new ARW_CheckBus();
+        Checkbus = new esb_callbacks();
         //dados = new DataStruct();
 
         cm = new CommunicationManager(CLIENT_ID, new TopicsConfiguration(), Checkbus);

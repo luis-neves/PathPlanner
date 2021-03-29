@@ -1,16 +1,14 @@
-package WHDataStruct;
+package whdatastruct;
 
-import WHGraph.Graphs.Coordinates;
+import whgraph.Graphs.Coordinates;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 
 import org.w3c.dom.Element;

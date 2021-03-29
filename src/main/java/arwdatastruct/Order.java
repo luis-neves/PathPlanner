@@ -1,4 +1,4 @@
-package ARWDataStruct;
+package arwdatastruct;
 
 import orderpicking.Pick;
 

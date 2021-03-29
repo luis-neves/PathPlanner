@@ -1,11 +1,11 @@
-package WHGraph;
+package whgraph;
 
-import WHDataStruct.Prefab;
-import WHDataStruct.PrefabManager;
+import whdatastruct.Prefab;
+import whdatastruct.PrefabManager;
 
-import WHDataStruct.Rack;
-import WHDataStruct.Structure;
-import WHGraph.Graphs.*;
+import whdatastruct.Rack;
+import whdatastruct.Structure;
+import whgraph.Graphs.*;
 
 
 import javax.swing.*;
@@ -40,7 +40,7 @@ public class DetailsPage extends JFrame {
     public Node_Action node_action = Node_Action.DRAW;
     public PaintSurface surface;
     PrefabManager prefabManager;
-    WHGraph.Graphs.ARWGraph ARWGraph = new ARWGraph();
+    whgraph.Graphs.ARWGraph ARWGraph = new ARWGraph();
     public static final float AMPLIFY = 50;
     private static final Integer PREFAB_RACK = 0;
     private static final Integer PREFAB_STRUCTURE = 1;
@@ -173,7 +173,7 @@ public class DetailsPage extends JFrame {
 
     }
 
-    private void setupMenuBar(WHGraph.Graphs.ARWGraph ARWGraph) {
+    private void setupMenuBar(whgraph.Graphs.ARWGraph ARWGraph) {
         menuBar = new JMenuBar();
 
 //Build the first menu.
@@ -235,7 +235,7 @@ public class DetailsPage extends JFrame {
 
     }
 
-    private void exportGraph(WHGraph.Graphs.ARWGraph ARWGraph) {
+    private void exportGraph(whgraph.Graphs.ARWGraph ARWGraph) {
         JFileChooser fc = new JFileChooser(new File("."));
         fc.setSelectedFile(new File("graph.xml"));
         int returnVal = fc.showSaveDialog(this);
@@ -254,13 +254,13 @@ public class DetailsPage extends JFrame {
     private class PaintSurface extends JComponent {
         private final HashMap<Integer, LinkedList<Shape>> shapes;
         private final LinkedList<Shape> drawables;
-        private final WHGraph.Graphs.ARWGraph ARWGraph;
+        private final whgraph.Graphs.ARWGraph ARWGraph;
 
         Point startDrag, endDrag;
         ARWGraphNode start_node;
         ARWGraphNode end_node;
 
-        public PaintSurface(HashMap<Integer, LinkedList<Shape>> shapes, PrefabManager prefabManager, WHGraph.Graphs.ARWGraph ARWGraph) {
+        public PaintSurface(HashMap<Integer, LinkedList<Shape>> shapes, PrefabManager prefabManager, whgraph.Graphs.ARWGraph ARWGraph) {
             this.shapes = shapes;
             drawables = new LinkedList<>();
             this.ARWGraph = ARWGraph;

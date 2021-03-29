@@ -1,15 +1,13 @@
 package gui.utils;
 
-import WHDataStruct.PrefabManager;
-import WHGraph.Graphs.ARWGraph;
-import WHGraph.Graphs.ARWGraphNode;
-import WHGraph.Graphs.Edge;
-import WHGraph.Graphs.GraphNodeType;
+import whdatastruct.PrefabManager;
+import whgraph.Graphs.ARWGraph;
+import whgraph.Graphs.ARWGraphNode;
+import whgraph.Graphs.Edge;
 
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;
 import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 
 public class GraphSurface extends LayerUI<JPanel> {

@@ -1,10 +1,10 @@
-package ARWDataStruct;
+package arwdatastruct;
 
-import WHDataStruct.PrefabManager;
-import WHDataStruct.Rack;
-import WHDataStruct.WHDataFuncs;
-import WHGraph.Graphs.ARWGraph;
-import WHGraph.Graphs.ARWGraphNode;
+import whdatastruct.PrefabManager;
+import whdatastruct.Rack;
+import whdatastruct.WHDataFuncs;
+import whgraph.Graphs.ARWGraph;
+import whgraph.Graphs.ARWGraphNode;
 import orderpicking.GNode;
 import orderpicking.Pick;
 import orderpicking.PickingOrders;
@@ -12,11 +12,10 @@ import orderpicking.SingleOrderDyn;
 import pathfinder.Graph;
 import pathfinder.RouteFinder;
 
-import java.awt.geom.Point2D;
 import java.util.*;
 
-import static WHGraph.Graphs.GraphNodeType.AGENT;
-import static WHGraph.Graphs.GraphNodeType.PRODUCT;
+import static whgraph.Graphs.GraphNodeType.AGENT;
+import static whgraph.Graphs.GraphNodeType.PRODUCT;
 
 public class DataStruct {
 

@@ -1,4 +1,4 @@
-package WHDataStruct;
+package whdatastruct;
 
 public class Structure extends Prefab {
     private int stype;

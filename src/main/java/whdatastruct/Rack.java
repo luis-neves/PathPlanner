@@ -1,4 +1,4 @@
-package WHDataStruct;
+package whdatastruct;
 
 import java.util.Hashtable;
 import java.util.LinkedList;

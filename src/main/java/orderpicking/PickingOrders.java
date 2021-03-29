@@ -1,11 +1,10 @@
 package orderpicking;
 
 
-import ARWDataStruct.Order;
+import arwdatastruct.Order;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import pathfinder.GraphNode;
 
 
 import javax.xml.parsers.DocumentBuilder;

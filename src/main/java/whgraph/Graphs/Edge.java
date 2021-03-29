@@ -1,4 +1,4 @@
-package WHGraph.Graphs;
+package whgraph.Graphs;
 
 import java.util.ArrayList;
 import java.util.List;

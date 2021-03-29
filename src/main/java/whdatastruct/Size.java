@@ -1,4 +1,4 @@
-package WHDataStruct;
+package whdatastruct;
 
 public class Size {
     private float x;

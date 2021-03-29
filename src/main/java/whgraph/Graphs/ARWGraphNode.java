@@ -1,4 +1,4 @@
-package WHGraph.Graphs;
+package whgraph.Graphs;
 
 
 import org.w3c.dom.Document;
@@ -46,7 +46,7 @@ public class ARWGraphNode {
         this.heuristic = 0;
     }
 
-    public ARWGraphNode(int id, WHGraph.Graphs.ARWGraphNode node, GraphNodeType type) {
+    public ARWGraphNode(int id, whgraph.Graphs.ARWGraphNode node, GraphNodeType type) {
         this.id = id;
         this.type = type;
         this.location = node.getLocation();
@@ -73,8 +73,8 @@ public class ARWGraphNode {
     }
 
     @Override
-    public WHGraph.Graphs.ARWGraphNode clone() {
-        return new WHGraph.Graphs.ARWGraphNode(
+    public whgraph.Graphs.ARWGraphNode clone() {
+        return new whgraph.Graphs.ARWGraphNode(
                 this.id,
                 this.location,
                 this.type,
@@ -121,8 +121,8 @@ public class ARWGraphNode {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof WHGraph.Graphs.ARWGraphNode) {
-            return this.getGraphNodeId() == ((WHGraph.Graphs.ARWGraphNode) obj).getGraphNodeId();
+        if (obj instanceof whgraph.Graphs.ARWGraphNode) {
+            return this.getGraphNodeId() == ((whgraph.Graphs.ARWGraphNode) obj).getGraphNodeId();
         } else {
             return false;
         }
@@ -130,7 +130,7 @@ public class ARWGraphNode {
     }
 
 
-    public float getDistance(WHGraph.Graphs.ARWGraphNode node) {
+    public float getDistance(whgraph.Graphs.ARWGraphNode node) {
         float distance = Math.abs((int) (node.getLocation().getX() - this.getLocation().getX())) + Math.abs((int) (node.getLocation().getY() - this.getLocation().getY()));
         return distance;
     }
@@ -141,8 +141,8 @@ public class ARWGraphNode {
     }
 
 
-    public List<WHGraph.Graphs.ARWGraphNode> getNeighbourNodes() {
-        List<WHGraph.Graphs.ARWGraphNode> nodes = new ArrayList<>();
+    public List<whgraph.Graphs.ARWGraphNode> getNeighbourNodes() {
+        List<whgraph.Graphs.ARWGraphNode> nodes = new ArrayList<>();
         for (int i = 0; i < neighbours.size(); i++) {
             if (!neighbours.get(i).getEnd().equals(this)) {
                 nodes.add(neighbours.get(i).getEnd());
@@ -153,8 +153,8 @@ public class ARWGraphNode {
         return nodes;
     }
 
-    public List<WHGraph.Graphs.ARWGraphNode> getVerticalSimpleNode() {
-        List<WHGraph.Graphs.ARWGraphNode> list = new ArrayList<>();
+    public List<whgraph.Graphs.ARWGraphNode> getVerticalSimpleNode() {
+        List<whgraph.Graphs.ARWGraphNode> list = new ArrayList<>();
         for (int i = 0; i < neighbours.size(); i++) {
             if (neighbours.get(i).getOtherEnd(this).getType() == GraphNodeType.SIMPLE && neighbours.get(i).getOtherEnd(this).getLocation().getX() == this.getLocation().getX()) {
                 list.add(neighbours.get(i).getOtherEnd(this));
@@ -198,7 +198,7 @@ public class ARWGraphNode {
         neighbours.clear();
     }
 
-    public void removeNeighbour(WHGraph.Graphs.ARWGraphNode ARWGraphNode) {
+    public void removeNeighbour(whgraph.Graphs.ARWGraphNode ARWGraphNode) {
         List<Edge> toRemove = new ArrayList<>();
         for (Edge neighbour : neighbours) {
             if (neighbour.getEnd().getGraphNodeId() == ARWGraphNode.getGraphNodeId() || neighbour.getStart().getGraphNodeId() == ARWGraphNode.getGraphNodeId()) {

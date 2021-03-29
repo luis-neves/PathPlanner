@@ -1,11 +1,11 @@
-package WHDataStruct;
+package whdatastruct;
 
 
 public enum PrefabType {
     RACK, STRUCTURE, DEVICE, MARKER, UNKNOWN;
 
 
-    public static WHDataStruct.PrefabType parse(int value) {
+    public static whdatastruct.PrefabType parse(int value) {
         switch (value) {
             case 0:
                 return RACK;
@@ -19,7 +19,7 @@ public enum PrefabType {
         return UNKNOWN;
     }
 
-    public static int getInt(WHDataStruct.PrefabType type) {
+    public static int getInt(whdatastruct.PrefabType type) {
         switch (type) {
             case RACK:
                 return 0;

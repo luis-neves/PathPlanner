@@ -1,6 +1,6 @@
-package WHDataStruct;
+package whdatastruct;
 
-import WHGraph.Graphs.Coordinates;
+import whgraph.Graphs.Coordinates;
 
 import java.awt.*;
 
@@ -16,8 +16,8 @@ public class Prefab implements Cloneable {
     private Shape shape;
 
     @Override
-    public WHDataStruct.Prefab clone() throws CloneNotSupportedException {
-        return (WHDataStruct.Prefab) super.clone();
+    public whdatastruct.Prefab clone() throws CloneNotSupportedException {
+        return (whdatastruct.Prefab) super.clone();
     }
 
     public String getCode() {

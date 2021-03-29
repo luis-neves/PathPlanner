@@ -1,10 +1,10 @@
 package gui.utils;
 
 
-import WHDataStruct.Prefab;
-import WHDataStruct.PrefabManager;
-import WHDataStruct.Rack;
-import WHDataStruct.Structure;
+import whdatastruct.Prefab;
+import whdatastruct.PrefabManager;
+import whdatastruct.Rack;
+import whdatastruct.Structure;
 
 import javax.swing.*;
 import java.awt.*;

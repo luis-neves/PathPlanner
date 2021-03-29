@@ -11,12 +11,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import WHDataStruct.WHDataFuncs;
+import whdatastruct.WHDataFuncs;
 import classlib.BusMessage;
 import classlib.CommunicationManager;
 import classlib.TopicsConfiguration;
 import classlib.Util;
-import communication.ARW_CheckBus;
+import communication.esb_callbacks;
 import net.sf.jni4net.Bridge;
 import org.json.JSONObject;
 
@@ -52,7 +52,7 @@ public class GuiARWCommTB extends JFrame {
 
 
     CommunicationManager cm;
-    ARW_CheckBus Checkbus;
+    esb_callbacks Checkbus;
     String Last_tarefa;
 
     public GuiARWCommTB() {
@@ -144,7 +144,7 @@ public class GuiARWCommTB extends JFrame {
             }
         });
 
-        Checkbus = new ARW_CheckBus();
+        Checkbus = new esb_callbacks();
         cm = new CommunicationManager(CLIENT_ID, new TopicsConfiguration(), Checkbus);
         Checkbus.SetCommunicationManager(cm); // Está imbricado. Tentar ver se é possível alterar!
         Checkbus.addPropertyChangeListener(new PropertyChangeListener() {

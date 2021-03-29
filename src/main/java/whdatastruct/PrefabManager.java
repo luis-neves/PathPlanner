@@ -1,6 +1,6 @@
-package WHDataStruct;
+package whdatastruct;
 
-import WHGraph.Graphs.Coordinates;
+import whgraph.Graphs.Coordinates;
 
 import java.util.Hashtable;
 import java.util.LinkedList;
@@ -16,7 +16,7 @@ public class PrefabManager {
 
     public Config config;
 
-    public PrefabManager(WHDataStruct.PrefabManager clone){
+    public PrefabManager(whdatastruct.PrefabManager clone){
         this.prefabList=new LinkedList(clone.prefabList);
         this.racks=new LinkedList<Rack> (clone.racks);
         this.structures=new LinkedList<Structure>(clone.structures);
