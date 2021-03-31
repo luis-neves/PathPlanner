@@ -1,5 +1,6 @@
 package whgraph.Graphs;
 
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class Edge {
     private ARWGraphNode end;
     private final double weight;
     private boolean product_line;
-    private final Coordinates location;
+    private final Point2D.Float location;
     private final int num_directions = 1;
     private final List<ARWGraphNode> products;
 
@@ -19,7 +20,7 @@ public class Edge {
         this.id = id;
     }
 
-    public Coordinates getLocation() {
+    public Point2D.Float getLocation() {
         return location;
     }
 
@@ -63,10 +64,10 @@ public class Edge {
         this.start = s;
         this.end = e;
         this.weight = w;
-        float x1 = s.getLocation().getX();
-        float x2 = e.getLocation().getX();
-        float y1 = s.getLocation().getY();
-        float y2 = e.getLocation().getY();
+        float x1 = s.getLocation().x;
+        float x2 = e.getLocation().x;
+        float y1 = s.getLocation().y;
+        float y2 = e.getLocation().y;
         if (x1 == x2) {
             this.setVertical_edge(true);
         } else if (y1 == y2) {
@@ -74,7 +75,7 @@ public class Edge {
         }else{
             this.setOblique_edge(true);
         }
-        this.location = new Coordinates(x1 == x2 ? x2 : (x1 + x2) / 2, y1 == y2 ? y2 : (y1 + y2) / 2, 0);
+        this.location = new Point2D.Float(x1 == x2 ? x2 : (x1 + x2) / 2, y1 == y2 ? y2 : (y1 + y2) / 2);
         this.id = id;
         this.product_line = false;
     }
@@ -92,10 +93,10 @@ public class Edge {
         this.start = s;
         this.end = e;
         this.weight = w;
-        float x1 = s.getLocation().getX();
-        float x2 = e.getLocation().getX();
-        float y1 = s.getLocation().getY();
-        float y2 = e.getLocation().getY();
+        float x1 = s.getLocation().x;
+        float x2 = e.getLocation().x;
+        float y1 = s.getLocation().y;
+        float y2 = e.getLocation().y;
         if (x1 == x2) {
             this.setVertical_edge(true);
         } else if (y1 == y2) {
@@ -103,7 +104,7 @@ public class Edge {
         }else{
             this.setOblique_edge(true);
         }
-        this.location = new Coordinates(x1 == x2 ? x2 : (x1 + x2) / 2, y1 == y2 ? y2 : (y1 + y2) / 2, 0);
+        this.location = new Point2D.Float(x1 == x2 ? x2 : (x1 + x2) / 2, y1 == y2 ? y2 : (y1 + y2) / 2);
         this.id = id;
         this.product_line = product_line;
     }

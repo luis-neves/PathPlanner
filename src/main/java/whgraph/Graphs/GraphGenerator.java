@@ -1,37 +1,36 @@
 package whgraph.Graphs;
 
-import whdatastruct.Prefab;
-import whdatastruct.PrefabManager;
+import newwarehouse.Warehouse;
+
 import orderpicking.GNode;
 
-import java.awt.*;
 import java.awt.geom.*;
 import java.util.*;
 
 public class GraphGenerator {
-    private final PrefabManager prefabmanager;
+    private final Warehouse warehouse;
     private final ArrayList<GNode> startnodes;
     private final ArrayList<Area> areas;
     private final Rectangle2D.Float paredes;
     private final float corridorwidth;
 
-    public GraphGenerator(PrefabManager prefabmanager, ArrayList<GNode> startnodes, float corridorwidth) {
-        this.prefabmanager = prefabmanager;
+    public GraphGenerator(Warehouse warehouse, ArrayList<GNode> startnodes, float corridorwidth) {
+        this.warehouse = warehouse;
         this.startnodes=startnodes;
         this.corridorwidth = corridorwidth;
         areas=new ArrayList();
         fillAreas();
-        paredes=new Rectangle2D.Float(0,0,prefabmanager.getWidth(),prefabmanager.getDepth());
+        paredes=new Rectangle2D.Float(0,0,warehouse.getWidth(),warehouse.getDepth());
     }
 
     public void fillAreas(){
-        LinkedList<Prefab> allprefabs = prefabmanager.getAllPrefabs();
+      /*  LinkedList<Prefab> allprefabs = warehouse.getAllPrefabs();
         Area area;
-        for (Prefab prefab: allprefabs){
-            Rectangle2D.Float rec = new Rectangle.Float(prefab.getPosition().getX(),prefab.getPosition().getY(),
+        for (NPrefab prefab: allprefabs){
+            Rectangle2D.Float rec = new Rectangle.Float(prefab.getPosition().x,prefab.getPosition().y,
                     prefab.getSize().getX(),prefab.getSize().getX() );
             area=new Area(rec);
-            if (prefab.getRotation().hasZvalue()) {
+            if (prefab.rotation!=0) {
                 AffineTransform tx = new AffineTransform();
 
                 tx.rotate(-Math.toRadians(prefab.getRotation().getZ()), prefab.getPosition().getX(),
@@ -41,7 +40,7 @@ public class GraphGenerator {
 
             }
             areas.add(area);
-        }
+        }*/
     }
 
 

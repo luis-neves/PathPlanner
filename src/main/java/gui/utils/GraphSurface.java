@@ -1,6 +1,6 @@
 package gui.utils;
 
-import whdatastruct.PrefabManager;
+import newwarehouse.Warehouse;
 import whgraph.Graphs.ARWGraph;
 import whgraph.Graphs.ARWGraphNode;
 import whgraph.Graphs.Edge;
@@ -16,14 +16,14 @@ public class GraphSurface extends LayerUI<JPanel> {
     private final int NODE_SIZE;
     Point startDrag, endDrag;
     public float AMPLIFY;
-    public PrefabManager prefabManager;
+    public Warehouse warehouse;
 
 
-    public GraphSurface(ARWGraph ARWGraph, PrefabManager prefabmanager, double sensibility, int node_size, float amplify) {
+    public GraphSurface(ARWGraph ARWGraph, Warehouse warehouse, double sensibility, int node_size, float amplify) {
         this.arwgraph = ARWGraph;
         this.SENSIBILITY = sensibility;
         this.NODE_SIZE=node_size;
-        this.prefabManager=prefabmanager;
+        this.warehouse =warehouse;
         this.AMPLIFY=amplify;
     }
 
@@ -35,8 +35,9 @@ public class GraphSurface extends LayerUI<JPanel> {
         this.arwgraph = arwgraph;
     }
 
-    public void setPrefabManager(PrefabManager prefabManager) {
-        this.prefabManager = prefabManager;
+    public void setPrefabManager(Warehouse warehouse) {
+        this.warehouse = warehouse;
+        this.arwgraph.clear();
     }
 
     @Override
@@ -57,22 +58,22 @@ public class GraphSurface extends LayerUI<JPanel> {
             Graphics2D g2 = (Graphics2D) g.create();
 
             super.paint(g2, c);
-            if ((prefabManager!=null)&&(arwgraph!=null) ) {
-                this.AMPLIFY = Math.min(((float) c.getSize().width) / prefabManager.getWidth(), ((float) c.getSize().height) / prefabManager.getDepth());
+            if ((warehouse !=null)&&(arwgraph!=null) ) {
+                this.AMPLIFY = Math.min(((float) c.getSize().width) / warehouse.getWidth(), ((float) c.getSize().height) / warehouse.getDepth());
 
                 if (arwgraph != null) {
                     for (ARWGraphNode node : arwgraph.getGraphNodes()) {
                         g2.setPaint(Color.BLACK);
                         if (node.contains_product())
                             g2.setPaint(Color.BLUE);
-                        g2.drawOval(scale(prefabManager.getWidth() - node.getLocation().getX()) - (NODE_SIZE / 2),
+                        g2.drawOval(scale(warehouse.getWidth() - node.getLocation().getX()) - (NODE_SIZE / 2),
                                 scale(node.getLocation().getY()) - (NODE_SIZE / 2), NODE_SIZE, NODE_SIZE);
-                        g2.drawString(node.printName(), scale(prefabManager.getWidth() - node.getLocation().getX()) + (NODE_SIZE),
+                        g2.drawString(node.printName(), scale(warehouse.getWidth() - node.getLocation().getX()) + (NODE_SIZE),
                                 scale(node.getLocation().getY()) - (NODE_SIZE));
                     }
                     for (Edge e : arwgraph.getEdges()) {
-                        Shape r = makeLine(scale(prefabManager.getWidth() - e.getStart().getLocation().getX()), scale(e.getStart().getLocation().getY()),
-                                scale(prefabManager.getWidth() - e.getEnd().getLocation().getX()), scale(e.getEnd().getLocation().getY()));
+                        Shape r = makeLine(scale(warehouse.getWidth() - e.getStart().getLocation().getX()), scale(e.getStart().getLocation().getY()),
+                                scale(warehouse.getWidth() - e.getEnd().getLocation().getX()), scale(e.getEnd().getLocation().getY()));
                         g2.setPaint(Color.DARK_GRAY);
                         g2.draw(r);
                     }

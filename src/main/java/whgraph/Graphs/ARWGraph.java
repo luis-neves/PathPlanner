@@ -1,13 +1,13 @@
 package whgraph.Graphs;
 
 
+import orderpicking.GNode;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
 import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 import pathfinder.Graph;
-import orderpicking.GNode;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -16,6 +16,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -32,6 +33,7 @@ public class ARWGraph {
         ARWGraphNodes = new ArrayList<ARWGraphNode>();
         edges = new ArrayList<Edge>();
     }
+
 
     public List<Edge> getEdges() {
         return edges;
@@ -73,8 +75,8 @@ public class ARWGraph {
 
 
     @Override
-    public whgraph.Graphs.ARWGraph clone() {
-        whgraph.Graphs.ARWGraph ARWGraph = new whgraph.Graphs.ARWGraph();
+    public ARWGraph clone() {
+        ARWGraph ARWGraph = new ARWGraph();
         for (ARWGraphNode node : getGraphNodes()) {
             ARWGraph.createGraphNode(node.clone());
         }
@@ -184,7 +186,7 @@ public class ARWGraph {
                 mostRight = getGraphNodes().get(i);
             }
         }
-        return Math.round(mostRight.getLocation().getX());
+        return Math.round(mostRight.getLocation().x);
     }
 
     public int getDimensionY() {
@@ -194,7 +196,7 @@ public class ARWGraph {
                 mostBottom = getGraphNodes().get(i);
             }
         }
-        return Math.round(mostBottom.getLocation().getY());
+        return Math.round(mostBottom.getLocation().y);
     }
 
     public void createGraphNode(float x, float y, GraphNodeType type) {
@@ -311,7 +313,7 @@ public class ARWGraph {
             }
         }
         if (closesedge!=null) {
-            node.setLocation(new Coordinates((float) bestx, (float) besty, 0));
+            node.setLocation(new Point2D.Float((float) bestx, (float) besty));
 
             ARWGraphNode existente = findClosestNode(node.getX(), node.getY());
 
@@ -334,21 +336,21 @@ public class ARWGraph {
     public Edge findClosestEdge(ARWGraphNode ARWGraphNode) {
         Edge closest = null;
         float distance = Float.MAX_VALUE;
-        Coordinates oblique_location = null;
+        Point2D.Float oblique_location = null;
         for (Edge edge : edges) {
             if (edge.isProduct_line()) {
                 if (edge.isVertical_edge() &&
                         ((ARWGraphNode.getLocation().getY() < edge.getEnd().getLocation().getY() && ARWGraphNode.getLocation().getY() > edge.getStart().getLocation().getY()) ||
                                 (ARWGraphNode.getLocation().getY() > edge.getEnd().getLocation().getY() && ARWGraphNode.getLocation().getY() < edge.getStart().getLocation().getY()))) {
-                    if (ARWGraphNode.getDistance(edge.getLocation().getX(), ARWGraphNode.getLocation().getY()) < distance) {
+                    if (ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y) < distance) {
                         closest = edge;
-                        distance = ARWGraphNode.getDistance(edge.getLocation().getX(), ARWGraphNode.getLocation().getY());
+                        distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
                     }
                 } else if (edge.isHorizontal_edge() && ((ARWGraphNode.getLocation().getX() < edge.getEnd().getLocation().getX() && ARWGraphNode.getLocation().getX() > edge.getStart().getLocation().getX()) ||
                         (ARWGraphNode.getLocation().getX() > edge.getEnd().getLocation().getX() && ARWGraphNode.getLocation().getX() < edge.getStart().getLocation().getX()))) {
-                    if (ARWGraphNode.getDistance(ARWGraphNode.getLocation().getX(), edge.getLocation().getX()) < distance) {
+                    if (ARWGraphNode.getDistance(ARWGraphNode.getLocation().x, edge.getLocation().x) < distance) {
                         closest = edge;
-                        distance = ARWGraphNode.getDistance(edge.getLocation().getX(), ARWGraphNode.getLocation().getY());
+                        distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
                     }
                 } else if (edge.isOblique_edge()) {
                     whgraph.Graphs.ARWGraphNode node_on_line = put_node_in_obliqueLine(edge, ARWGraphNode);
@@ -367,21 +369,21 @@ public class ARWGraph {
         Edge closest = null;
         whgraph.Graphs.ARWGraphNode closest_product_node = null;
         float distance = Float.MAX_VALUE;
-        Coordinates oblique_location = null;
+        Point2D.Float oblique_location = null;
         for (Edge edge : edges) {
             if (edge.isProduct_line()) {
                 if (edge.isVertical_edge() &&
                         ((ARWGraphNode.getLocation().getY() < edge.getEnd().getLocation().getY() && ARWGraphNode.getLocation().getY() > edge.getStart().getLocation().getY()) ||
                                 (ARWGraphNode.getLocation().getY() > edge.getEnd().getLocation().getY() && ARWGraphNode.getLocation().getY() < edge.getStart().getLocation().getY()))) {
-                    if (ARWGraphNode.getDistance(edge.getLocation().getX(), ARWGraphNode.getLocation().getY()) < distance) {
+                    if (ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y) < distance) {
                         closest = edge;
-                        distance = ARWGraphNode.getDistance(edge.getLocation().getX(), ARWGraphNode.getLocation().getY());
+                        distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
                     }
                 } else if (edge.isHorizontal_edge() && ((ARWGraphNode.getLocation().getX() < edge.getEnd().getLocation().getX() && ARWGraphNode.getLocation().getX() > edge.getStart().getLocation().getX()) ||
                         (ARWGraphNode.getLocation().getX() > edge.getEnd().getLocation().getX() && ARWGraphNode.getLocation().getX() < edge.getStart().getLocation().getX()))) {
-                    if (ARWGraphNode.getDistance(ARWGraphNode.getLocation().getX(), edge.getLocation().getX()) < distance) {
+                    if (ARWGraphNode.getDistance(ARWGraphNode.getLocation().x, edge.getLocation().x) < distance) {
                         closest = edge;
-                        distance = ARWGraphNode.getDistance(edge.getLocation().getX(), ARWGraphNode.getLocation().getY());
+                        distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
                     }
                 } else if (edge.isOblique_edge()) {
                     whgraph.Graphs.ARWGraphNode node_on_line = put_node_in_obliqueLine(edge, ARWGraphNode);
@@ -403,9 +405,9 @@ public class ARWGraph {
         }
         if (closest != null) {
             if (closest.isVertical_edge())
-                ARWGraphNode.getLocation().setX(closest.getLocation().getX());
+                ARWGraphNode.getLocation().x=closest.getLocation().x;
             if (closest.isHorizontal_edge()) {
-                ARWGraphNode.getLocation().setY(closest.getLocation().getY());
+                ARWGraphNode.getLocation().y=closest.getLocation().y;
             }
             if (closest.isOblique_edge()) {
                 ARWGraphNode.setLocation(oblique_location);
@@ -420,10 +422,10 @@ public class ARWGraph {
     }
 
     private ARWGraphNode put_node_in_obliqueLine(Edge edge, ARWGraphNode ARWGraphNode) {
-        float x1 = edge.getStart().getLocation().getX();
-        float x2 = edge.getEnd().getLocation().getX();
-        float y1 = edge.getStart().getLocation().getY();
-        float y2 = edge.getEnd().getLocation().getY();
+        float x1 = edge.getStart().getLocation().x;
+        float x2 = edge.getEnd().getLocation().x;
+        float y1 = edge.getStart().getLocation().y;
+        float y2 = edge.getEnd().getLocation().y;
 
         if (x2 < x1) {
             float backup_x = x1;
@@ -439,8 +441,8 @@ public class ARWGraph {
         double b = y1 - m * (x1);
 
 
-        float x = ARWGraphNode.getLocation().getX();
-        float y = ARWGraphNode.getLocation().getY();
+        float x = ARWGraphNode.getLocation().x;
+        float y = ARWGraphNode.getLocation().y;
 
         double mi = (-1 / m);
         double bi = y - mi * (x);
@@ -518,7 +520,7 @@ public class ARWGraph {
         for (int i = 0; i < item.getChildNodes().getLength(); i++) {
             if (item.getChildNodes().item(i).getNodeName().equals("Node")) {
                 String[] loc = item.getChildNodes().item(i).getAttributes().getNamedItem("loc").getNodeValue().split(",");
-
+                //Para compatibilidade com versoes anteriores, mantem-se a coordenada z.
                 ARWGraphNode node = new ARWGraphNode(Integer.parseInt(item.getChildNodes().item(i).getAttributes().getNamedItem("id").getNodeValue()),
                         Float.parseFloat(loc[0]), Float.parseFloat(loc[1]),
                         Float.parseFloat(loc[2]),
@@ -572,7 +574,9 @@ public class ARWGraph {
                 contains_product.setValue(node.contains_product() + "");
                 nodeElement.setAttributeNode(contains_product);
                 Attr attr_loc = doc.createAttribute("loc");
-                attr_loc.setValue(node.getLocation().printOnlyValues());
+                String loc=node.getLocation().x+","+node.getLocation().y+",0";
+                //Por uma questão de compatibilidade com a versao anterior, mantem-se a posicao Z
+                attr_loc.setValue(loc);
                 nodeElement.setAttributeNode(attr_loc);
                 nodes.appendChild(nodeElement);
             }

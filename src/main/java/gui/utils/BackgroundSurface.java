@@ -1,10 +1,9 @@
 package gui.utils;
 
 
-import whdatastruct.Prefab;
-import whdatastruct.PrefabManager;
-import whdatastruct.Rack;
-import whdatastruct.Structure;
+import newwarehouse.Prefab;
+import newwarehouse.Prefabtype;
+import newwarehouse.Warehouse;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,17 +23,16 @@ public class BackgroundSurface extends JPanel {
     private int width;
     private int height;
     public float AMPLIFY;
-    PrefabManager prefabManager;
+    Warehouse warehouse;
 
-    public BackgroundSurface(PrefabManager prefabmanager, int width, int height) {
+    public BackgroundSurface(Warehouse warehouse, int width, int height) {
         this.shapes = shapes;
 
-        this.prefabManager=prefabmanager;
+        this.warehouse =warehouse;
         this.width=width;
         this.height=height;
-        this.AMPLIFY=Math.min(((float)width)/prefabManager.getWidth(),((float)height)/prefabManager.getDepth());
-
-
+        this.AMPLIFY=Math.min(((float)width)/ this.warehouse.getArea().x,((float)height)/ this.warehouse.getArea().y);
+        setSize(width,height);
         shapes = generateShapes();
 
     }
@@ -42,13 +40,13 @@ public class BackgroundSurface extends JPanel {
     public BackgroundSurface() {
         this.shapes = new HashMap<Integer, LinkedList<Shape>>();
         this.AMPLIFY=new Float(1);
-        this.prefabManager=null;
+        this.warehouse =null;
 
     }
 
-    public void setPrefabs(PrefabManager prefabmanager){
-        this.prefabManager = prefabmanager;
-        this.AMPLIFY=Math.min((float)width/prefabmanager.getWidth(),(float)height/prefabmanager.getDepth());
+    public void setPrefabs(Warehouse warehouse){
+        this.warehouse = warehouse;
+        this.AMPLIFY=Math.min((float)width/warehouse.getArea().x,(float)height/warehouse.getArea().y);
         shapes=generateShapes();
 
         repaint();
@@ -73,15 +71,15 @@ public class BackgroundSurface extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (prefabManager!=null) {
-            this.AMPLIFY = Math.min(((float) getSize().width) / prefabManager.getWidth(), ((float) getSize().height) / prefabManager.getDepth());
+        if (warehouse !=null) {
+            this.AMPLIFY = Math.min(((float) getSize().width) / warehouse.getArea().x, ((float) getSize().height) / warehouse.getArea().y);
             shapes = generateShapes();
             drawables = new LinkedList<>();
-            Shape r = makeLine(0, scale(prefabManager.getDepth()), scale(prefabManager.getWidth()),
-                    scale(prefabManager.getDepth()));
+            Shape r = makeLine(0, scale(warehouse.getArea().y), scale(warehouse.getArea().x),
+                    scale(warehouse.getArea().y));
             drawables.add(r);
-            r = makeLine(scale(prefabManager.getWidth()), 0, scale(prefabManager.getWidth()),
-                    scale(prefabManager.getDepth()));
+            r = makeLine(scale(warehouse.getArea().x), 0, scale(warehouse.getArea().x),
+                    scale(warehouse.getArea().y));
             drawables.add(r);
 
             Graphics2D g2 = (Graphics2D) g;
@@ -146,38 +144,37 @@ public class BackgroundSurface extends JPanel {
         HashMap<Integer, LinkedList<Shape>> shapes = new HashMap<>();
         LinkedList<Shape> racks = new LinkedList<>();
         LinkedList<Shape> structures = new LinkedList<>();
-        LinkedList<Prefab> allprefabs = prefabManager.getAllPrefabs();
-        for (Prefab prefab : allprefabs) {
+        //LinkedList<Prefab> allprefabs = prefabManager.getAllPrefabs();
+        for (Prefab prefab : warehouse.getPrefabList()) {
             //Está a desenhar da esquerda  para a direita, pelo que é necessário corrigir a posição
             //inicial : ver se dá para desenhar o retangulo ao contrário, o que tornaria o
             //código mais imune.
-            Rectangle2D rec = new Rectangle(scale(posx(prefab)-prefab.getSize().getX()),
-                    scale(prefab.getPosition().getY()),
-                    scale(prefab.getSize().getX()), scale(prefab.getSize().getY()));
-            if (prefab.getRotation().hasZvalue()) {
+            Rectangle2D rec = new Rectangle(scale(posx(prefab)-prefab.area.width),
+                    scale(prefab.area.y),
+                    scale(prefab.area.width), scale(prefab.area.height));
+            if (prefab.rotation!=0) {
                 AffineTransform tx = new AffineTransform();
                 //Nas áreas rodadas a posicao indica o canto inferior esquerdo, nao sendo necessario
                 //corrigir.
 
-                tx.rotate(Math.toRadians(prefab.getRotation().getZ()), scale(posx(prefab)),
+                tx.rotate(Math.toRadians(prefab.rotation), scale(posx(prefab)),
                         //tx.rotate(Math.toRadians(prefab.getRotation().getZ()), scale(prefab.getPosition().getX()),
-                        scale(prefab.getPosition().getY()));
+                        scale(prefab.area.y));
                 Shape newShape = tx.createTransformedShape(rec);
-                if (prefab instanceof Rack) {
+                if (prefab.type== Prefabtype.RACK) {
                     racks.add(newShape);
                 }
-                if (prefab instanceof Structure) {
+                if (prefab.type==Prefabtype.STRUCTURE) {
                     structures.add(newShape);
                 }
-                prefab.setShape(newShape);
             } else {
-                if (prefab instanceof Rack) {
+                if (prefab.type== Prefabtype.RACK) {
                     racks.add(rec);
                 }
-                if (prefab instanceof Structure) {
+                if (prefab.type==Prefabtype.STRUCTURE) {
                     structures.add(rec);
                 }
-                prefab.setShape(rec);
+
             }
         }
         shapes.put(PREFAB_RACK, racks);
@@ -186,19 +183,19 @@ public class BackgroundSurface extends JPanel {
     }
     public double posx(Prefab prefab){
         //Inverte a origem das coordenadas se no modelo for o canto superior direito
-        return prefabManager.getWidth()-prefab.getPosition().getX();
+        return warehouse.getArea().x-prefab.area.x;
         //return prefab.getPosition().getX()
     }
 
     public double posx(Point ponto){
         //Inverte a origem das coordenadas se no modelo for o canto superior direito
-        return prefabManager.getWidth()-ponto.getX();
+        return warehouse.getArea().x-ponto.getX();
         //return prefab.getPosition().getX()
     }
 
     public double posx(double pontox){
         //Inverte a origem das coordenadas se no modelo for o canto superior direito
-        return (prefabManager.getWidth()-pontox);
+        return (warehouse.getArea().x-pontox);
         //return prefab.getPosition().getX()
     }
 }

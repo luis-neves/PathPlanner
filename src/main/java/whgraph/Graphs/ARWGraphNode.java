@@ -5,12 +5,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import java.util.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ARWGraphNode {
 
     private final int id;
-    private Coordinates location;
+    private Point2D.Float location;
     private double heuristic;
 
     private GraphNodeType type;
@@ -18,11 +20,11 @@ public class ARWGraphNode {
 
 
 
-    public ARWGraphNode(int id, Coordinates location, GraphNodeType type,
+    public ARWGraphNode(int id, Point2D.Float location, GraphNodeType type,
                         List<Edge> neighbours) {
 
         this.id = id;
-        this.location = (Coordinates) location.clone();
+        this.location = location;
         this.type = type;
     }
 
@@ -35,18 +37,18 @@ public class ARWGraphNode {
     public ARWGraphNode(int id, float x, float y, GraphNodeType type) {
         this.id = id;
         this.type = type;
-        this.location = new Coordinates(x, y, 0);
+        this.location = new Point2D.Float(x, y);
         this.heuristic = 0;
     }
 
     public ARWGraphNode(int id, float x, float y, float z, GraphNodeType type) {
         this.id = id;
         this.type = type;
-        this.location = new Coordinates(x, y, z);
+        this.location = new Point2D.Float(x, y);
         this.heuristic = 0;
     }
 
-    public ARWGraphNode(int id, whgraph.Graphs.ARWGraphNode node, GraphNodeType type) {
+    public ARWGraphNode(int id, ARWGraphNode node, GraphNodeType type) {
         this.id = id;
         this.type = type;
         this.location = node.getLocation();
@@ -54,11 +56,11 @@ public class ARWGraphNode {
     }
 
     public float getX(){
-        return location.getX();
+        return location.x;
     }
 
     public float getY(){
-        return location.getY();
+        return location.y;
     }
 
 
@@ -73,8 +75,8 @@ public class ARWGraphNode {
     }
 
     @Override
-    public whgraph.Graphs.ARWGraphNode clone() {
-        return new whgraph.Graphs.ARWGraphNode(
+    public ARWGraphNode clone() {
+        return new ARWGraphNode(
                 this.id,
                 this.location,
                 this.type,
@@ -89,12 +91,12 @@ public class ARWGraphNode {
         this.type = type;
     }
 
-    public Coordinates getLocation() {
+    public Point2D.Float getLocation() {
         return location;
     }
 
 
-    public void setLocation(Coordinates location) {
+    public void setLocation(Point2D.Float location) {
         this.location = location;
     }
 
@@ -121,8 +123,8 @@ public class ARWGraphNode {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof whgraph.Graphs.ARWGraphNode) {
-            return this.getGraphNodeId() == ((whgraph.Graphs.ARWGraphNode) obj).getGraphNodeId();
+        if (obj instanceof ARWGraphNode) {
+            return this.getGraphNodeId() == ((ARWGraphNode) obj).getGraphNodeId();
         } else {
             return false;
         }
@@ -130,7 +132,7 @@ public class ARWGraphNode {
     }
 
 
-    public float getDistance(whgraph.Graphs.ARWGraphNode node) {
+    public float getDistance(ARWGraphNode node) {
         float distance = Math.abs((int) (node.getLocation().getX() - this.getLocation().getX())) + Math.abs((int) (node.getLocation().getY() - this.getLocation().getY()));
         return distance;
     }
@@ -141,8 +143,8 @@ public class ARWGraphNode {
     }
 
 
-    public List<whgraph.Graphs.ARWGraphNode> getNeighbourNodes() {
-        List<whgraph.Graphs.ARWGraphNode> nodes = new ArrayList<>();
+    public List<ARWGraphNode> getNeighbourNodes() {
+        List<ARWGraphNode> nodes = new ArrayList<>();
         for (int i = 0; i < neighbours.size(); i++) {
             if (!neighbours.get(i).getEnd().equals(this)) {
                 nodes.add(neighbours.get(i).getEnd());
@@ -153,8 +155,8 @@ public class ARWGraphNode {
         return nodes;
     }
 
-    public List<whgraph.Graphs.ARWGraphNode> getVerticalSimpleNode() {
-        List<whgraph.Graphs.ARWGraphNode> list = new ArrayList<>();
+    public List<ARWGraphNode> getVerticalSimpleNode() {
+        List<ARWGraphNode> list = new ArrayList<>();
         for (int i = 0; i < neighbours.size(); i++) {
             if (neighbours.get(i).getOtherEnd(this).getType() == GraphNodeType.SIMPLE && neighbours.get(i).getOtherEnd(this).getLocation().getX() == this.getLocation().getX()) {
                 list.add(neighbours.get(i).getOtherEnd(this));
@@ -174,15 +176,11 @@ public class ARWGraphNode {
 
         Element position = document.createElement("Position");
         Element x = document.createElement("x");
-        x.appendChild(document.createTextNode(this.location.getX() + ""));
+        x.appendChild(document.createTextNode(this.location.x + ""));
         position.appendChild(x);
         Element y = document.createElement("y");
-        y.appendChild(document.createTextNode(this.location.getY() + ""));
+        y.appendChild(document.createTextNode(this.location.y + ""));
         position.appendChild(y);
-        Element z = document.createElement("z");
-        z.appendChild(document.createTextNode(this.location.getZ() + ""));
-        position.appendChild(z);
-
 
         return position;
     }
@@ -198,7 +196,7 @@ public class ARWGraphNode {
         neighbours.clear();
     }
 
-    public void removeNeighbour(whgraph.Graphs.ARWGraphNode ARWGraphNode) {
+    public void removeNeighbour(ARWGraphNode ARWGraphNode) {
         List<Edge> toRemove = new ArrayList<>();
         for (Edge neighbour : neighbours) {
             if (neighbour.getEnd().getGraphNodeId() == ARWGraphNode.getGraphNodeId() || neighbour.getStart().getGraphNodeId() == ARWGraphNode.getGraphNodeId()) {

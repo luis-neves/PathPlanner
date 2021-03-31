@@ -1,25 +1,28 @@
 package arwdatastruct;
 
-import whdatastruct.PrefabManager;
-import whdatastruct.Rack;
-import whdatastruct.WHDataFuncs;
-import whgraph.Graphs.ARWGraph;
-import whgraph.Graphs.ARWGraphNode;
+import newwarehouse.Warehouse;
 import orderpicking.GNode;
 import orderpicking.Pick;
 import orderpicking.PickingOrders;
 import orderpicking.SingleOrderDyn;
 import pathfinder.Graph;
 import pathfinder.RouteFinder;
+import whgraph.Graphs.ARWGraph;
+import whgraph.Graphs.ARWGraphNode;
 
-import java.util.*;
+import java.awt.geom.Point2D;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Set;
 
-import static whgraph.Graphs.GraphNodeType.AGENT;
 import static whgraph.Graphs.GraphNodeType.PRODUCT;
 
 public class DataStruct {
 
-    private PrefabManager warehouse;
+    private Warehouse warehouse;
     ARWGraph arwgrafo;
     ArrayList<Agent> availableagents;
     Hashtable<String, Agent> occupiedagents;
@@ -28,6 +31,7 @@ public class DataStruct {
     String defaultdestiny="13.S.0.0";
 
     public DataStruct() {
+        warehouse=new Warehouse();
         arwgrafo=new ARWGraph();
         availableagents=new ArrayList<>();
         occupiedagents=new Hashtable<>();
@@ -38,11 +42,19 @@ public class DataStruct {
     //O XML do armazem será sempre gravado após receção
     //O nome do ficheiro será guardado no interface
     public void setPrefabFromFile(String filename){
-        warehouse = WHDataFuncs.readPrefabXML(filename);
+        String contents="";
+        try {
+            contents = new String(Files.readAllBytes(Paths.get(filename)));
+            warehouse.createFromXML(contents);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public void setPrefab(PrefabManager prefabmanager){
-        warehouse=prefabmanager;
+    public void setPrefab(Warehouse warehouse){
+        this.warehouse=warehouse;
     }
 
     //Função para atribuição do grafo, lido de ficheiro ou criado/editado com editor
@@ -141,9 +153,9 @@ public class DataStruct {
 
             for (String pickkey : pickkeys) {
                 Pick pick = picks.get(pickkey);
-                Rack rack = warehouse.findRackBywmsCode(pick.getOrigin());
+                Point2D.Float rack = warehouse.getWms(pick.getOrigin());
                 int nnos = problemgraph.getNumNodes();
-                nnos = problemgraph.insertNode(new ARWGraphNode(nnos, rack.getPosition().getX(), rack.getPosition().getY(), PRODUCT)).getGraphNodeId();
+                nnos = problemgraph.insertNode(new ARWGraphNode(nnos, rack.x, rack.y, PRODUCT)).getGraphNodeId();
                 if (afetacao.containsKey(nnos))
                     afetacao.get(nnos).add(pick);
                 else {
@@ -153,8 +165,6 @@ public class DataStruct {
                 }
             }
 
-            problemgraph.insertNode(new ARWGraphNode(problemgraph.getNumNodes(), agent.initialx, agent.initialy,
-                    AGENT)).getGraphNodeId();
             //Os passos abaixo para a criação do vetor produtos são para simplificar. Serviram para aprendizagem.
             ArrayList<String> prods = new ArrayList<String>();
             for (int id : afetacao.keySet())
@@ -166,10 +176,10 @@ public class DataStruct {
 
             //Determinar ponto de entrega
             //Colocar depois dentro do ciclo de leitura
-            int endnode = arwgrafo.findClosestNode(warehouse.findRackBywmsCode(destiny).getPosition().getX(),
-                    warehouse.findRackBywmsCode(destiny).getPosition().getY()).getGraphNodeId();
+            int endnode = arwgrafo.findClosestNode(warehouse.getWms(destiny).x,
+                    warehouse.getWms(destiny).y).getGraphNodeId();
 
-            ARWGraphNode startnode= problemgraph.findClosestNode(agent.initialx, agent.initialy);
+            ARWGraphNode startnode= arwgrafo.findClosestNode(agent.initialx, agent.initialy);
 
             SingleOrderDyn orderDyn = new SingleOrderDyn(grafo, produtos, Integer.toString(startnode.getGraphNodeId()),
                     new Integer(endnode).toString());
@@ -186,6 +196,8 @@ public class DataStruct {
             return xmlstring;
 
         }
+
+
 
     }
 

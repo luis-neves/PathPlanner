@@ -1,6 +1,7 @@
 package gui.utils;
 
-import whdatastruct.PrefabManager;
+import newwarehouse.Warehouse;
+
 import whgraph.Graphs.ARWGraph;
 import whgraph.Graphs.ARWGraphNode;
 import whgraph.Graphs.Edge;
@@ -23,30 +24,30 @@ public class GraphEditor extends JDialog {
     private static int NODE_SIZE = 5;
     public Line_Type line_type = Line_Type.SIMPLE;
     public Node_Action node_action = Node_Action.DRAW;
-    //public PaintSurface surface;
+
     private final BackgroundSurface background;
-    //PrefabManager prefabManager;
+    private Warehouse warehouse;
+
     public ARWGraph arwgraph;
     public static float AMPLIFY = 50;
 
-
-    //Where the GUI is created:
     JMenuBar menuBar;
     JMenu menu;
     JMenuItem menuItem;
 
-    public GraphEditor(PrefabManager prefabManager, ARWGraph arwgraph, double sensibility) throws HeadlessException {
-        prefabManager = new PrefabManager(prefabManager);
-        arwgraph=arwgraph;
+    public GraphEditor(Warehouse warehouse, ARWGraph arwgraph, double sensibility) throws HeadlessException {
+
+       this.arwgraph=arwgraph;
+       this.warehouse=warehouse;
         this.setTitle("Graph Editor");
         this.SENSIBILITY=sensibility;
-        AMPLIFY=Math.min(((float)getSize().width)/prefabManager.getWidth(),((float)getSize().height)/prefabManager.getDepth());
+        AMPLIFY=Math.min(((float)getSize().width)/warehouse.getWidth(),((float)getSize().height)/warehouse.getDepth());
         setModal(true);
 //        AMPLIFY=Math.round(1000/prefabManager.getWidth());
-        background = new BackgroundSurface(prefabManager,1000,600);
+        background = new BackgroundSurface(warehouse,1000,600);
 
-        this.setSize(new Dimension(background.scale(prefabManager.getWidth()*11 / 10),
-                background.scale(prefabManager.getDepth()*12/8)));
+        this.setSize(new Dimension(background.scale(warehouse.getArea().x*11 / 10),
+                background.scale(warehouse.getArea().y*12/8)));
         setLayout(new BorderLayout());
 
         /*
@@ -58,7 +59,7 @@ public class GraphEditor extends JDialog {
 
         //surface = new PaintSurface(shapes, prefabManager, arwgraph);
 
-        LayerUI<JPanel> graphsurface = new GraphSurfaceEd(arwgraph, prefabManager, SENSIBILITY, NODE_SIZE);
+        LayerUI<JPanel> graphsurface = new GraphSurfaceEd2(arwgraph, warehouse, SENSIBILITY, NODE_SIZE);
         JLayer<JPanel> jlayer = new JLayer<JPanel>(background,graphsurface);
 
 
@@ -213,16 +214,16 @@ public class GraphEditor extends JDialog {
         }
     }
 
-    class GraphSurfaceEd extends GraphSurface{
+    class GraphSurfaceEd2 extends GraphSurface {
 
         ARWGraphNode start_node;
         ARWGraphNode end_node;
 
-        public GraphSurfaceEd(ARWGraph ARWGraph, PrefabManager prefabmanager,double sensibility, int node_size) {
+        public GraphSurfaceEd2(ARWGraph ARWGraph, Warehouse warehouse, double sensibility, int node_size) {
             arwgraph = ARWGraph;
             SENSIBILITY = sensibility;
             NODE_SIZE=node_size;
-            this.prefabManager=prefabmanager;
+            this.warehouse=warehouse;
 //            AMPLIFY=Math.min(((float)getSize().width)/prefabManager.getWidth(),((float)getSize().height)/prefabManager.getDepth());
 
         }
@@ -250,7 +251,7 @@ public class GraphEditor extends JDialog {
                 startDrag = new Point(e.getX(), e.getY());
                 endDrag = startDrag;
                 if (node_action == Node_Action.REMOVE) {
-                    ARWGraphNode node = arwgraph.findClosestNode(prefabManager.getWidth() - background.descale(e.getX()),
+                    ARWGraphNode node = arwgraph.findClosestNode(warehouse.getWidth() - background.descale(e.getX()),
                             background.descale(e.getY()), (float) SENSIBILITY);
                     if (node != null) {
                         arwgraph.removeNode(node);
@@ -263,19 +264,19 @@ public class GraphEditor extends JDialog {
             if (e.getID() == MouseEvent.MOUSE_RELEASED) {
                 if (!(startDrag.x == e.getX() && startDrag.y == e.getY() || node_action == Node_Action.REMOVE)) {
 
-                    if (arwgraph.distancetoNeighborEdge((prefabManager.getWidth() - background.descale(startDrag.x)),
+                    if (arwgraph.distancetoNeighborEdge((warehouse.getWidth() - background.descale(startDrag.x)),
                             background.descale(startDrag.y)) < SENSIBILITY) {
 
                         //Insere um nó, se for necessário, na aresta mais próxima, se dentro da sensibilidade
                         //Dado que não é garantido que o nó seja o último, o id serve paar identificar o nó
                         //de início.
                         start_node = arwgraph.insertNode(new ARWGraphNode(arwgraph.getMaxIdNodes() + 1,
-                                (prefabManager.getWidth() - background.descale(startDrag.x)),
+                                (warehouse.getWidth() - background.descale(startDrag.x)),
                                 background.descale(startDrag.y), GraphNodeType.SIMPLE));
-                        startDrag = new Point(background.scale(prefabManager.getWidth() - start_node.getLocation().getX()),
+                        startDrag = new Point(background.scale(warehouse.getWidth() - start_node.getLocation().getX()),
                                 background.scale(start_node.getLocation().getY()));
                     } else {
-                        arwgraph.createGraphNode((prefabManager.getWidth() - background.descale(startDrag.x)),
+                        arwgraph.createGraphNode((warehouse.getWidth() - background.descale(startDrag.x)),
                                 background.descale(startDrag.y), GraphNodeType.SIMPLE);
                         start_node = arwgraph.getLastNode();
                     }
@@ -293,20 +294,20 @@ public class GraphEditor extends JDialog {
                     }
                     endDrag.x = x2;
                     endDrag.y = y2;
-                    if (arwgraph.distancetoNeighborEdge((prefabManager.getWidth() - background.descale(endDrag.x)),
+                    if (arwgraph.distancetoNeighborEdge((warehouse.getWidth() - background.descale(endDrag.x)),
                             background.descale(endDrag.y)) < SENSIBILITY) {
 
                         //Insere um nó, se for necessário, na aresta mais próxima, se dentro da sensibilidade
                         //Dado que não é garantido que o nó seja o último, o id serve paar identificar o nó
                         //de início.
                         end_node = arwgraph.insertNode(new ARWGraphNode(arwgraph.getMaxIdNodes() + 1,
-                                (prefabManager.getWidth() - background.descale(endDrag.x)),
+                                (warehouse.getWidth() - background.descale(endDrag.x)),
                                 background.descale(endDrag.y), GraphNodeType.SIMPLE));
 
-                        endDrag = new Point(background.scale(prefabManager.getWidth() - end_node.getLocation().getX()),
+                        endDrag = new Point(background.scale(warehouse.getWidth() - end_node.getLocation().getX()),
                                 background.scale(end_node.getLocation().getY()));
                     } else {
-                        arwgraph.createGraphNode((prefabManager.getWidth() - background.descale(endDrag.x)),
+                        arwgraph.createGraphNode((warehouse.getWidth() - background.descale(endDrag.x)),
                                 background.descale(endDrag.y), GraphNodeType.SIMPLE);
                         end_node = arwgraph.getLastNode();
                     }
@@ -328,7 +329,7 @@ public class GraphEditor extends JDialog {
         @Override
         public void paint(Graphics g, JComponent c) {
 
-            AMPLIFY=Math.min(((float)c.getSize().width)/prefabManager.getWidth(),((float)c.getSize().height)/prefabManager.getDepth());
+            AMPLIFY=Math.min(((float)c.getSize().width)/warehouse.getWidth(),((float)c.getSize().height)/warehouse.getDepth());
             Graphics2D g2 = (Graphics2D) g.create();
 
             super.paint(g2, c);
@@ -337,14 +338,14 @@ public class GraphEditor extends JDialog {
                     g2.setPaint(Color.BLACK);
                     if (node.contains_product())
                         g2.setPaint(Color.BLUE);
-                    g2.drawOval(scale(prefabManager.getWidth() - node.getLocation().getX()) - (NODE_SIZE / 2),
+                    g2.drawOval(scale(warehouse.getWidth() - node.getLocation().getX()) - (NODE_SIZE / 2),
                             scale(node.getLocation().getY()) - (NODE_SIZE / 2), NODE_SIZE, NODE_SIZE);
-                    g2.drawString(node.printName(), scale(prefabManager.getWidth() - node.getLocation().getX()) + (NODE_SIZE),
+                    g2.drawString(node.printName(), scale(warehouse.getWidth() - node.getLocation().getX()) + (NODE_SIZE),
                             scale(node.getLocation().getY()) - (NODE_SIZE));
                 }
                 for (Edge e : arwgraph.getEdges()) {
-                    Shape r = makeLine(scale(prefabManager.getWidth() - e.getStart().getLocation().getX()), scale(e.getStart().getLocation().getY()),
-                            scale(prefabManager.getWidth() - e.getEnd().getLocation().getX()), scale(e.getEnd().getLocation().getY()));
+                    Shape r = makeLine(scale(warehouse.getWidth() - e.getStart().getLocation().getX()), scale(e.getStart().getLocation().getY()),
+                            scale(warehouse.getWidth() - e.getEnd().getLocation().getX()), scale(e.getEnd().getLocation().getY()));
                     g2.setPaint(Color.DARK_GRAY);
                     g2.draw(r);
                 }
