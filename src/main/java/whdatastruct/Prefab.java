@@ -1,6 +1,6 @@
 package whdatastruct;
 
-import whgraph.Graphs.Coordinates;
+import whgraph.Coordinates;
 
 import java.awt.*;
 

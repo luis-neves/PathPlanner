@@ -7,8 +7,8 @@ import orderpicking.PickingOrders;
 import orderpicking.SingleOrderDyn;
 import pathfinder.Graph;
 import pathfinder.RouteFinder;
-import whgraph.Graphs.ARWGraph;
-import whgraph.Graphs.ARWGraphNode;
+import whgraph.ARWGraph;
+import whgraph.ARWGraphNode;
 
 import java.awt.geom.Point2D;
 import java.io.IOException;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
 
-import static whgraph.Graphs.GraphNodeType.PRODUCT;
+import static whgraph.GraphNodeType.PRODUCT;
 
 public class DataStruct {
 

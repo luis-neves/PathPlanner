@@ -1,4 +1,4 @@
-package whgraph.Graphs;
+package whgraph;
 
 public enum GraphNodeType {
     SIMPLE, AGENT, PRODUCT, DELIVERING, EXIT;

@@ -1,4 +1,4 @@
-package whgraph.Graphs;
+package whgraph;
 
 import newwarehouse.Warehouse;
 

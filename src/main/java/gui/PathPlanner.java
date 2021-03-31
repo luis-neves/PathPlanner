@@ -43,7 +43,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import whgraph.Graphs.ARWGraph;
+import whgraph.ARWGraph;
 
 
 public class PathPlanner extends JFrame  {
@@ -55,7 +55,7 @@ public class PathPlanner extends JFrame  {
     private final JTextField numops;
     private final JLabel alertanovoxml;
     private final Warehouse warehouse;
-    private ARWGraph arwgraph;
+    private final ARWGraph arwgraph;
     Timer time, timexml;
     String idxml="";
     Boolean xmlreceived;
@@ -73,7 +73,7 @@ public class PathPlanner extends JFrame  {
     public static final String RA_ID = "ra";
     public static final String LOC_APROX_ID = "locaproximada";
     public static final String MODELADOR_ID = "modelador";
-    public static final int NUM_OPERATORS = 1;
+    //public static final int NUM_OPERATORS = 1;
     public static final String WAREHOUSE_FILE = "warehouse_model.xml";
     public static final String GRAPH_FILE = "graph2.xml";
     public static final String TOPIC_UPDATEXML="mod_updateXML";
@@ -112,8 +112,7 @@ public class PathPlanner extends JFrame  {
         //VERIFICAR COMO TESTAR PARA ERRO
         arwgraph.readGraphFile(file);
 
-        if (arwgraph != null)
-            dados.setGraph(arwgraph);
+        dados.setGraph(arwgraph);
         graphsurface = new GraphSurface(arwgraph, warehouse, 0.5, 5, background.AMPLIFY);
         pacmansurface= new PacManSurface(background, 15);
         JLayer<JPanel> jlayer = new JLayer<>(background, graphsurface);
@@ -310,10 +309,10 @@ public class PathPlanner extends JFrame  {
                 File file = fc.getSelectedFile();
 
                 arwgraph.readGraphFile(file);
-                if (arwgraph!=null) {
-                    dados.setGraph(arwgraph);
-                    graphsurface.setArwgraph(arwgraph);
-                }
+
+                dados.setGraph(arwgraph);
+                graphsurface.setArwgraph(arwgraph);
+
                 repaint();
             }
         } catch (NoSuchElementException e2) {

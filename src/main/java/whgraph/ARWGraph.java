@@ -1,4 +1,4 @@
-package whgraph.Graphs;
+package whgraph;
 
 
 import orderpicking.GNode;
@@ -353,7 +353,7 @@ public class ARWGraph {
                         distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
                     }
                 } else if (edge.isOblique_edge()) {
-                    whgraph.Graphs.ARWGraphNode node_on_line = put_node_in_obliqueLine(edge, ARWGraphNode);
+                    whgraph.ARWGraphNode node_on_line = put_node_in_obliqueLine(edge, ARWGraphNode);
                     if (node_on_line.getDistance(ARWGraphNode) < distance) {
                         closest = edge;
                         distance = node_on_line.getDistance(ARWGraphNode);
@@ -367,7 +367,7 @@ public class ARWGraph {
 
     public void createGraphNodeOnClosestEdge(ARWGraphNode ARWGraphNode) {
         Edge closest = null;
-        whgraph.Graphs.ARWGraphNode closest_product_node = null;
+        whgraph.ARWGraphNode closest_product_node = null;
         float distance = Float.MAX_VALUE;
         Point2D.Float oblique_location = null;
         for (Edge edge : edges) {
@@ -386,7 +386,7 @@ public class ARWGraph {
                         distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
                     }
                 } else if (edge.isOblique_edge()) {
-                    whgraph.Graphs.ARWGraphNode node_on_line = put_node_in_obliqueLine(edge, ARWGraphNode);
+                    whgraph.ARWGraphNode node_on_line = put_node_in_obliqueLine(edge, ARWGraphNode);
                     if (node_on_line.getDistance(ARWGraphNode) < distance) {
                         closest = edge;
                         distance = node_on_line.getDistance(ARWGraphNode);
@@ -395,7 +395,7 @@ public class ARWGraph {
                 }
             }
         }
-        for (whgraph.Graphs.ARWGraphNode node : getGraphNodes()) {
+        for (whgraph.ARWGraphNode node : getGraphNodes()) {
             if (node.contains_product()) {
                 if (node.getDistance(ARWGraphNode) < distance) {
                     closest = null;

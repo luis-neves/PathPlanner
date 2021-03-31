@@ -1,26 +1,26 @@
-package whgraph.Graphs;
+package whgraph;
 
 
 public class Coordinates {
     private float x;
     private float y;
     private float z;
-    whgraph.Graphs.Coordinates amplified;
+    Coordinates amplified;
     public Coordinates() {
 
     }
-    public Coordinates(whgraph.Graphs.Coordinates clone) {
+    public Coordinates(Coordinates clone) {
         if (clone!=null) {
             x = clone.getX();
             y = clone.getY();
             z = clone.getZ();
             if (clone.amplified!=null)
-                amplified = new whgraph.Graphs.Coordinates(clone.amplified);
+                amplified = new Coordinates(clone.amplified);
         }
     }
     @Override
     public Object clone() {
-        return new whgraph.Graphs.Coordinates(x,y,z);
+        return new Coordinates(x,y,z);
     }
 
     public float getX() {
@@ -51,7 +51,7 @@ public class Coordinates {
         this.x = x;
         this.y = y;
         this.z = z;
-        amplified = new whgraph.Graphs.Coordinates();
+        amplified = new Coordinates();
         amplified.x = x;
         amplified.y = y;
         amplified.z = z;
@@ -65,7 +65,7 @@ public class Coordinates {
         return Math.round(x) +"," + Math.round(y) + "," + Math.round(z);
     }
 
-    public boolean isSame(whgraph.Graphs.Coordinates location) {
+    public boolean isSame(Coordinates location) {
         return this.getX() == location.getX() && this.getY() == location.getY() && this.getZ() == location.getZ();
     }
 
@@ -82,13 +82,13 @@ public class Coordinates {
         return z != 0;
     }
 
-    public whgraph.Graphs.Coordinates amplified(float amplify) {
+    public Coordinates amplified(float amplify) {
         amplified.x = x*amplify;
         amplified.y = y*amplify;
         amplified.z = z*amplify;
         return amplified;
     }
-    public whgraph.Graphs.Coordinates amplified() {
+    public Coordinates amplified() {
         return amplified;
     }
 

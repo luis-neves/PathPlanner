@@ -1,4 +1,4 @@
-package whgraph.Graphs;
+package whgraph;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
 package gui.utils;
 
 import newwarehouse.Warehouse;
-import whgraph.Graphs.ARWGraph;
-import whgraph.Graphs.ARWGraphNode;
-import whgraph.Graphs.Edge;
+import whgraph.ARWGraph;
+import whgraph.ARWGraphNode;
+import whgraph.Edge;
 
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;
