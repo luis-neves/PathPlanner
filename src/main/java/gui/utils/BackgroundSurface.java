@@ -16,7 +16,6 @@ import java.util.Map;
 
 public class BackgroundSurface extends JPanel {
     private HashMap<Integer, LinkedList<Shape>> shapes;
-    private LinkedList<Shape> drawables;
     private static final Integer PREFAB_RACK = 0;
     private static final Integer PREFAB_STRUCTURE = 1;
     private final double SENSIBILITY = 0.5;//m
@@ -26,7 +25,6 @@ public class BackgroundSurface extends JPanel {
     Warehouse warehouse;
 
     public BackgroundSurface(Warehouse warehouse, int width, int height) {
-        this.shapes = shapes;
 
         this.warehouse =warehouse;
         this.width=width;
@@ -38,8 +36,8 @@ public class BackgroundSurface extends JPanel {
     }
 
     public BackgroundSurface() {
-        this.shapes = new HashMap<Integer, LinkedList<Shape>>();
-        this.AMPLIFY=new Float(1);
+        this.shapes = new HashMap<>();
+        this.AMPLIFY=1;
         this.warehouse =null;
 
     }
@@ -74,7 +72,7 @@ public class BackgroundSurface extends JPanel {
         if (warehouse !=null) {
             this.AMPLIFY = Math.min(((float) getSize().width) / warehouse.getArea().x, ((float) getSize().height) / warehouse.getArea().y);
             shapes = generateShapes();
-            drawables = new LinkedList<>();
+            LinkedList<Shape> drawables = new LinkedList<>();
             Shape r = makeLine(0, scale(warehouse.getArea().y), scale(warehouse.getArea().x),
                     scale(warehouse.getArea().y));
             drawables.add(r);

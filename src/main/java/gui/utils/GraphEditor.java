@@ -6,7 +6,6 @@ import whgraph.Graphs.ARWGraph;
 import whgraph.Graphs.ARWGraphNode;
 import whgraph.Graphs.Edge;
 import whgraph.Graphs.GraphNodeType;
-import whgraph.Line_Type;
 
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;
@@ -20,13 +19,11 @@ import java.util.NoSuchElementException;
 
 public class GraphEditor extends JDialog {
 
-    private double SENSIBILITY = 0.5;
+    private double SENSIBILITY;
     private static int NODE_SIZE = 5;
-    public Line_Type line_type = Line_Type.SIMPLE;
     public Node_Action node_action = Node_Action.DRAW;
 
     private final BackgroundSurface background;
-    private Warehouse warehouse;
 
     public ARWGraph arwgraph;
     public static float AMPLIFY = 50;
@@ -38,29 +35,22 @@ public class GraphEditor extends JDialog {
     public GraphEditor(Warehouse warehouse, ARWGraph arwgraph, double sensibility) throws HeadlessException {
 
        this.arwgraph=arwgraph;
-       this.warehouse=warehouse;
+
         this.setTitle("Graph Editor");
         this.SENSIBILITY=sensibility;
         AMPLIFY=Math.min(((float)getSize().width)/warehouse.getWidth(),((float)getSize().height)/warehouse.getDepth());
         setModal(true);
-//        AMPLIFY=Math.round(1000/prefabManager.getWidth());
+
         background = new BackgroundSurface(warehouse,1000,600);
 
         this.setSize(new Dimension(background.scale(warehouse.getArea().x*11 / 10),
                 background.scale(warehouse.getArea().y*12/8)));
         setLayout(new BorderLayout());
 
-        /*
-        fillAllPrefabs();
-
-        HashMap<Integer, LinkedList<Shape>> shapes = generateShapes(allPrefabs);
-*/
         setupMenuBar(arwgraph);
 
-        //surface = new PaintSurface(shapes, prefabManager, arwgraph);
-
-        LayerUI<JPanel> graphsurface = new GraphSurfaceEd2(arwgraph, warehouse, SENSIBILITY, NODE_SIZE);
-        JLayer<JPanel> jlayer = new JLayer<JPanel>(background,graphsurface);
+        LayerUI<JPanel> graphsurface = new GraphSurfaceEd(arwgraph, warehouse, SENSIBILITY, NODE_SIZE);
+        JLayer<JPanel> jlayer = new JLayer<>(background, graphsurface);
 
 
         JPanel panelButtonsNorth = new JPanel(new GridBagLayout());
@@ -86,18 +76,8 @@ public class GraphEditor extends JDialog {
         gbc.gridwidth = 2;
 
 
-        button_draw.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                node_action = Node_Action.DRAW;
-            }
-        });
-        button_remove.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                node_action = Node_Action.REMOVE;
-            }
-        });
+        button_draw.addActionListener(e -> node_action = Node_Action.DRAW);
+        button_remove.addActionListener(e -> node_action = Node_Action.REMOVE);
 
         add(panelButtonsNorth, BorderLayout.NORTH);
 
@@ -145,33 +125,19 @@ public class GraphEditor extends JDialog {
         menuItem = new JMenuItem("Export",
                 KeyEvent.VK_T);
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_1, ActionEvent.ALT_MASK));
+                KeyEvent.VK_1, InputEvent.ALT_MASK));
         menuItem.getAccessibleContext().setAccessibleDescription(
                 "Export graph");
         menu.add(menuItem);
-        menuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //SAVE GRAPH XML
-                exportGraph(arwgraph);
-            }
-        });
+        menuItem.addActionListener(e->exportGraph(arwgraph));
+
         menuItem = new JMenuItem("Import",
                 KeyEvent.VK_T);
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_2, ActionEvent.ALT_MASK));
+                KeyEvent.VK_2, InputEvent.ALT_MASK));
         menuItem.getAccessibleContext().setAccessibleDescription(
                 "Import graph");
-        menuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Load GRAPH XML
-                LoadGraph();
-
-                //surface.repaint();
-                repaint();
-            }
-        });
+        menuItem.addActionListener(e->LoadGraph());
         menu.add(menuItem);
         this.setJMenuBar(menuBar);
     }
@@ -195,7 +161,7 @@ public class GraphEditor extends JDialog {
             JOptionPane.showMessageDialog(this, "File format not valid", "Error!",
                     JOptionPane.ERROR_MESSAGE);
         }
-
+        repaint();
 
     }
 
@@ -214,17 +180,16 @@ public class GraphEditor extends JDialog {
         }
     }
 
-    class GraphSurfaceEd2 extends GraphSurface {
+    class GraphSurfaceEd extends GraphSurface {
 
         ARWGraphNode start_node;
         ARWGraphNode end_node;
 
-        public GraphSurfaceEd2(ARWGraph ARWGraph, Warehouse warehouse, double sensibility, int node_size) {
+        public GraphSurfaceEd(ARWGraph ARWGraph, Warehouse warehouse, double sensibility, int node_size) {
             arwgraph = ARWGraph;
             SENSIBILITY = sensibility;
             NODE_SIZE=node_size;
             this.warehouse=warehouse;
-//            AMPLIFY=Math.min(((float)getSize().width)/prefabManager.getWidth(),((float)getSize().height)/prefabManager.getDepth());
 
         }
 

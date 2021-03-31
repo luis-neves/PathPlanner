@@ -41,19 +41,6 @@ public class GraphSurface extends LayerUI<JPanel> {
     }
 
     @Override
-    public void installUI(JComponent c) {
-        super.installUI(c);
-        JLayer jlayer = (JLayer) c;
-    }
-
-    @Override
-    public void uninstallUI(JComponent c) {
-        JLayer jlayer = (JLayer) c;
-        jlayer.setLayerEventMask(0);
-        super.uninstallUI(c);
-    }
-
-    @Override
     public void paint(Graphics g, JComponent c) {
             Graphics2D g2 = (Graphics2D) g.create();
 

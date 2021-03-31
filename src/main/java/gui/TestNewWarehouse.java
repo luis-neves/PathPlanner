@@ -17,8 +17,6 @@ import java.nio.file.Paths;
 public class TestNewWarehouse extends JFrame {
     private Warehouse newwarehouse;
 
-
-
     public TestNewWarehouse() {
         super("ARWARE Data Structure TestBed");
 
