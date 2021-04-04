@@ -43,7 +43,7 @@ public class TestNewWarehouse extends JFrame {
 
         String xmlstring=grafo.generateXMLGraphString();
 
-        write_xml_to_file("graph_gen_lab.xml",xmlstring);
+        write_xml_to_file("graph_gen_aut.xml",xmlstring);
         repaint();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
