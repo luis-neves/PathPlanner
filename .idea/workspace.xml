@@ -11,30 +11,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="Inclusão das tags wmsCode&#10;Fix do play">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_gen_lab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/graph_gen_lab.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/GuiARWCommTB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/GuiARWCommTB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/PathPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/PathPlanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/TestNewWarehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/TestNewWarehouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/BackgroundSurface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/BackgroundSurface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/GraphEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/GraphEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/GraphSurface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/GraphSurface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/Area.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/Config.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/Device.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/Marker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/Prefab.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/PrefabManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/PrefabType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/Rack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/Shelf.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/Size.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/SmallArea.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/Structure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/WHDataFuncs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xmlutils/XMLfuncs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whdatastruct/XMLInfo.java" beforeDir="false" />
-    </list>
+    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="Inclusão das tags wmsCode&#10;Fix do play" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -974,7 +951,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617499208085</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Geração automática de Grafo">
+      <created>1617572942473</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1617572942473</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
