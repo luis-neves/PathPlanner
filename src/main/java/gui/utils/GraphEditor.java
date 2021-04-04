@@ -43,7 +43,7 @@ public class GraphEditor extends JDialog {
         this.corridorwidth=corridorwidth;
         this.warehouse=warehouse;
         this.setModal(true);
-        background = new BackgroundSurface(warehouse, true);
+        background = new BackgroundSurface(warehouse, true, 1100);
         LayerUI<JPanel> graphsurface = new GraphSurfaceEd(arwgraph, warehouse, SENSIBILITY, NODE_SIZE);
         JLayer<JPanel> jlayer = new JLayer<>(background, graphsurface);
 

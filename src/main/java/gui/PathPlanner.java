@@ -13,7 +13,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+
 import java.nio.file.StandardCopyOption;
 import java.util.*;
 import java.util.Timer;
@@ -45,6 +45,9 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import whgraph.ARWGraph;
 
+import static xmlutils.XMLfuncs.read_xml_from_file;
+import static xmlutils.XMLfuncs.write_xml_to_file;
+
 
 public class PathPlanner extends JFrame  {
     private final BackgroundSurface background;
@@ -67,7 +70,7 @@ public class PathPlanner extends JFrame  {
     static PrintStream printOut;
 
     public static String CLIENT_ID = "planeador";
-    public static double SENSIBILITY = 0.25;
+
     private static float corridorwidth =1f;
 
     public static final String ERP_ID = "ERP";
@@ -106,7 +109,7 @@ public class PathPlanner extends JFrame  {
         dados= new DataStruct();
         arwgraph=new ARWGraph();
 
-        background = new BackgroundSurface(warehouse, false);
+        background = new BackgroundSurface(warehouse, false,950);
         dados.setPrefab(warehouse);
 
         File file = new File(GRAPH_FILE);
@@ -469,7 +472,10 @@ public class PathPlanner extends JFrame  {
                             for (Order order: concludedpicks.getOrders())
                                 dados.concludeOrder(order.id);
                             xml_str=concludedpicks.toXML();
-                            write_modelador_xml_to_file("tarefa_concluida.xml", xml_str);
+
+                            write_xml_to_file("tarefa_concluida.xml", xml_str);
+                            //Esta escrita em ficheiro pode vir a ser eliminada
+
                             ConcluiTarefa(xml_str);
 
                             System.out.println("Succesfully saved concluded task>");
@@ -480,6 +486,7 @@ public class PathPlanner extends JFrame  {
                         cm.SendMessageAsync((Integer.parseInt(busMessage.getId()) + 1) + "", "response",
                                 busMessage.getInfoIdentifier(), split[0], "application/json", "{'response':'ACK'}", "1");
                         System.out.println("Enviou Ack!");
+
                         break;
                     case TOPIC_ACKXML:
                         split = busMessage.getFromTopic().split("Topic");
@@ -597,7 +604,7 @@ public class PathPlanner extends JFrame  {
                 xmlparts = null;
                 lastid="";
                 try {
-                    write_modelador_xml_to_file("warehouse_recebido.xml", xmlmessage);
+                    write_xml_to_file("warehouse_recebido.xml", xmlmessage);
                     avisaNovoXML();
                     System.out.println("Succesfully saved warehouse_recebido.xml");
 
@@ -624,16 +631,10 @@ public class PathPlanner extends JFrame  {
     }
 
 
-
-
     public class CheckXML extends TimerTask {
-
-
         public void run() {
             try {
-
                 xmlreceived=false;
-
             } catch (Exception ex) {
                 System.out.println("error running thread " + ex.getMessage());
             }
@@ -643,7 +644,7 @@ public class PathPlanner extends JFrame  {
     public void handleTask(String xmlstring) throws IOException {
             String agentid="ra1";//Serve para ter um nome mas será substituido em HandleTasks.
             dados.addTask(xmlstring);
-            write_modelador_xml_to_file("tarefa.xml", xmlstring);
+            write_xml_to_file("tarefa.xml", xmlstring);
             String xml_str= dados.HandleTasks(agentid);
             if (!xml_str.equals("")){
                 EnviaTarefa(agentid,xml_str);
@@ -651,35 +652,15 @@ public class PathPlanner extends JFrame  {
             updateDados();
     }
 
-    public String read_xml_from_file(String fileName)
-            throws IOException {
-        String contents;
-        contents = new String(Files.readAllBytes(Paths.get(fileName)));
-
-
-        return contents;
-    }
 
     public class CheckERP extends TimerTask {
-
-
         public void run() {
             try {
-
                 PedeTarefa();
-
             } catch (Exception ex) {
                 System.out.println("error running thread " + ex.getMessage());
             }
         }
-    }
-
-    public void write_modelador_xml_to_file(String fileName, String str)
-            throws IOException {
-        FileOutputStream outputStream = new FileOutputStream(fileName);
-        byte[] strToBytes = str.getBytes();
-        outputStream.write(strToBytes);
-        outputStream.close();
     }
 
     public void playPacman(String agentid, String content) throws IOException, SAXException {

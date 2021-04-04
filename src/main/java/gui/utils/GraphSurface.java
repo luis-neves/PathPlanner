@@ -67,14 +67,14 @@ public class GraphSurface extends LayerUI<JPanel> {
                     else
                         g2.setPaint(Color.LIGHT_GRAY);*/
 
-                    g2.drawOval(scale(warehouse.getWidth() - node.getLocation().getX()) - (NODE_SIZE / 2),
+                    g2.drawOval(c.getWidth()-scale( node.getLocation().getX()) - (NODE_SIZE / 2),
                             scale(node.getLocation().getY()) - (NODE_SIZE / 2), NODE_SIZE, NODE_SIZE);
-                    g2.drawString(node.printName(), scale(warehouse.getWidth() - node.getLocation().getX()) + (NODE_SIZE),
+                    g2.drawString(node.printName(), c.getWidth()-scale(node.getLocation().getX()) + (NODE_SIZE),
                             scale(node.getLocation().getY()) - (NODE_SIZE));
                 }
                 for (Edge e : arwgraph.getEdges()) {
-                    Shape r = makeLine(scale(warehouse.getWidth() - e.getStart().getLocation().getX()), scale(e.getStart().getLocation().getY()),
-                            scale(warehouse.getWidth() - e.getEnd().getLocation().getX()), scale(e.getEnd().getLocation().getY()));
+                    Shape r = makeLine(c.getWidth()-scale( e.getStart().getLocation().getX()), scale(e.getStart().getLocation().getY()),
+                            c.getWidth()-scale(e.getEnd().getLocation().getX()), scale(e.getEnd().getLocation().getY()));
                     if (!editavel)
                         g2.setStroke(dotted);
 

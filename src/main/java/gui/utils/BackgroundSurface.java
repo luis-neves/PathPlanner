@@ -23,12 +23,13 @@ public class BackgroundSurface extends JPanel {
     public float AMPLIFY;
     private Warehouse warehouse;
 
-    public BackgroundSurface(Warehouse warehouse, boolean grid) {
+    public BackgroundSurface(Warehouse warehouse, boolean grid, int largura) {
 
         this.warehouse =warehouse;
 
         shapes = generateShapes();
         this.grid=grid;
+        super.setSize(largura,Math.round(largura*warehouse.getDepth()/warehouse.getWidth()));
 
     }
 

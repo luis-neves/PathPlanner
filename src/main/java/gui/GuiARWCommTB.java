@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import whdatastruct.WHDataFuncs;
+import xmlutils.XMLfuncs;
 import classlib.BusMessage;
 import classlib.CommunicationManager;
 import classlib.TopicsConfiguration;
@@ -175,7 +175,7 @@ public class GuiARWCommTB extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ArrayList<String> lista= WHDataFuncs.createBrokenXML(xmlstring,30000);
+        ArrayList<String> lista= XMLfuncs.createBrokenXML(xmlstring,30000);
         for (int i=0; i<lista.size();i++) {
             String jsonstr=lista.get(i);
             cm.SendStreamMessageAsync("mod_updateXML2", "application/json", jsonstr, "1");
