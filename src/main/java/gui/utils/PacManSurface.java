@@ -6,7 +6,7 @@ import java.awt.geom.Point2D;
 import java.util.Hashtable;
 
 
-public class PacManSurface extends JComponent  /*LayerUI<JPanel> */{
+public class PacManSurface extends JComponent  {
 
     Point2D.Float start_node;
     Hashtable<String,Point2D.Float> operadores;
@@ -52,23 +52,16 @@ public class PacManSurface extends JComponent  /*LayerUI<JPanel> */{
         //super.paint(g2, c);
         g2.setPaint(Color.BLUE);
 
-        //Set<String> keys = operadores.keySet();
-
-        //Obtaining iterator over set entries
-        //Iterator<String> itr = keys.iterator();
-
         //Displaying Key and value pairs
         for(String agentid: operadores.keySet()){
-            // Getting Key
-            //String agentid = itr.next();
+
             Point2D.Float pos=operadores.get(agentid);
             g2.drawString(agentid.substring(0,3),background.scale(background.posx(pos.getX())),
                     background.scale(pos.getY()));
-            g2.fillOval(background.scale(background.posx(pos.getX())),
-                    background.scale(pos.getY()), node_size, node_size);
+            g2.fillOval(background.scale(background.posx(pos.getX()))-node_size/2,
+                    background.scale(pos.getY())-node_size/2, node_size, node_size);
         }
 
-        //Set<String>keys=produtos.keySet();
         for (String productid: produtos.keySet()){
             Point2D.Float pos=produtos.get(productid);
             g2.setPaint(Color.GREEN);

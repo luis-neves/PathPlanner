@@ -26,31 +26,32 @@ public class GraphEditor extends JDialog {
     private final BackgroundSurface background;
 
     public ARWGraph arwgraph;
-    public static float AMPLIFY = 50;
+
 
     JMenuBar menuBar;
     JMenu menu;
     JMenuItem menuItem;
+    Warehouse warehouse;
+    float corridorwidth;
 
-    public GraphEditor(Warehouse warehouse, ARWGraph arwgraph, double sensibility) throws HeadlessException {
+    public GraphEditor(Warehouse warehouse, ARWGraph arwgraph, float corridorwidth) throws HeadlessException {
 
        this.arwgraph=arwgraph;
 
         this.setTitle("Graph Editor");
-        this.SENSIBILITY=sensibility;
-        AMPLIFY=Math.min(((float)getSize().width)/warehouse.getWidth(),((float)getSize().height)/warehouse.getDepth());
-        setModal(true);
+        this.SENSIBILITY=0.25;
+        this.corridorwidth=corridorwidth;
+        this.warehouse=warehouse;
+        this.setModal(true);
+        background = new BackgroundSurface(warehouse, true);
+        LayerUI<JPanel> graphsurface = new GraphSurfaceEd(arwgraph, warehouse, SENSIBILITY, NODE_SIZE);
+        JLayer<JPanel> jlayer = new JLayer<>(background, graphsurface);
 
-        background = new BackgroundSurface(warehouse,1000,600);
-
-        this.setSize(new Dimension(background.scale(warehouse.getArea().x*11 / 10),
-                background.scale(warehouse.getArea().y*12/8)));
         setLayout(new BorderLayout());
 
         setupMenuBar(arwgraph);
 
-        LayerUI<JPanel> graphsurface = new GraphSurfaceEd(arwgraph, warehouse, SENSIBILITY, NODE_SIZE);
-        JLayer<JPanel> jlayer = new JLayer<>(background, graphsurface);
+        setSize(1000, (int) (1300*warehouse.getDepth()/warehouse.getWidth()));
 
 
         JPanel panelButtonsNorth = new JPanel(new GridBagLayout());
@@ -122,6 +123,18 @@ public class GraphEditor extends JDialog {
         menuBar.add(menu);
 
 //a group of JMenuItems
+        menuItem = new JMenuItem("New",
+                KeyEvent.VK_N);
+        menuItem.getAccessibleContext().setAccessibleDescription(
+                "New graph");
+        menuItem.addActionListener(e->newGraph());
+        menu.add(menuItem);
+        menuItem = new JMenuItem("Automatic",
+                KeyEvent.VK_A);
+        menuItem.getAccessibleContext().setAccessibleDescription(
+                "Generate graph automatically");
+        menuItem.addActionListener(e->autoGraph());
+        menu.add(menuItem);
         menuItem = new JMenuItem("Export",
                 KeyEvent.VK_T);
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
@@ -145,6 +158,17 @@ public class GraphEditor extends JDialog {
     public ARWGraph getArwgraph() {
         return arwgraph;
     }
+
+    private void newGraph(){
+        arwgraph.clear();
+        repaint();
+    }
+
+    private void autoGraph(){
+        arwgraph.createGraph(warehouse,corridorwidth);
+        repaint();
+    }
+
 
     private void LoadGraph() {
 
@@ -190,6 +214,7 @@ public class GraphEditor extends JDialog {
             SENSIBILITY = sensibility;
             NODE_SIZE=node_size;
             this.warehouse=warehouse;
+            this.editavel=true;
 
         }
 
@@ -216,8 +241,8 @@ public class GraphEditor extends JDialog {
                 startDrag = new Point(e.getX(), e.getY());
                 endDrag = startDrag;
                 if (node_action == Node_Action.REMOVE) {
-                    ARWGraphNode node = arwgraph.findClosestNode(warehouse.getWidth() - background.descale(e.getX()),
-                            background.descale(e.getY()), (float) SENSIBILITY);
+                    ARWGraphNode node = arwgraph.findClosestNode(warehouse.getWidth() - descale(e.getX()),
+                            descale(e.getY()), (float) SENSIBILITY);
                     if (node != null) {
                         arwgraph.removeNode(node);
                     }
@@ -229,20 +254,20 @@ public class GraphEditor extends JDialog {
             if (e.getID() == MouseEvent.MOUSE_RELEASED) {
                 if (!(startDrag.x == e.getX() && startDrag.y == e.getY() || node_action == Node_Action.REMOVE)) {
 
-                    if (arwgraph.distancetoNeighborEdge((warehouse.getWidth() - background.descale(startDrag.x)),
-                            background.descale(startDrag.y)) < SENSIBILITY) {
+                    if (arwgraph.distancetoNeighborEdge((warehouse.getWidth() - descale(startDrag.x)),
+                            descale(startDrag.y)) < SENSIBILITY) {
 
                         //Insere um nó, se for necessário, na aresta mais próxima, se dentro da sensibilidade
                         //Dado que não é garantido que o nó seja o último, o id serve paar identificar o nó
                         //de início.
                         start_node = arwgraph.insertNode(new ARWGraphNode(arwgraph.getMaxIdNodes() + 1,
-                                (warehouse.getWidth() - background.descale(startDrag.x)),
-                                background.descale(startDrag.y), GraphNodeType.SIMPLE));
-                        startDrag = new Point(background.scale(warehouse.getWidth() - start_node.getLocation().getX()),
-                                background.scale(start_node.getLocation().getY()));
+                                (warehouse.getWidth() - descale(startDrag.x)),
+                                descale(startDrag.y), GraphNodeType.SIMPLE));
+                        startDrag = new Point(scale(warehouse.getWidth() - start_node.getLocation().getX()),
+                                scale(start_node.getLocation().getY()));
                     } else {
-                        arwgraph.createGraphNode((warehouse.getWidth() - background.descale(startDrag.x)),
-                                background.descale(startDrag.y), GraphNodeType.SIMPLE);
+                        arwgraph.createGraphNode((warehouse.getWidth() - descale(startDrag.x)),
+                                descale(startDrag.y), GraphNodeType.SIMPLE);
                         start_node = arwgraph.getLastNode();
                     }
 
@@ -251,29 +276,29 @@ public class GraphEditor extends JDialog {
                     int y1 = startDrag.y;
                     int x2 = e.getX();
                     int y2 = e.getY();
-                    if (Math.abs(startDrag.x - e.getX()) < background.scale(SENSIBILITY)) {
+                    if (Math.abs(startDrag.x - e.getX()) < scale(SENSIBILITY)) {
                         x2 = x1;
                     }
-                    if (Math.abs(y1 - y2) < background.scale(SENSIBILITY)) {
+                    if (Math.abs(y1 - y2) < scale(SENSIBILITY)) {
                         y2 = y1;
                     }
                     endDrag.x = x2;
                     endDrag.y = y2;
-                    if (arwgraph.distancetoNeighborEdge((warehouse.getWidth() - background.descale(endDrag.x)),
-                            background.descale(endDrag.y)) < SENSIBILITY) {
+                    if (arwgraph.distancetoNeighborEdge((warehouse.getWidth() - descale(endDrag.x)),
+                            descale(endDrag.y)) < SENSIBILITY) {
 
                         //Insere um nó, se for necessário, na aresta mais próxima, se dentro da sensibilidade
                         //Dado que não é garantido que o nó seja o último, o id serve paar identificar o nó
                         //de início.
                         end_node = arwgraph.insertNode(new ARWGraphNode(arwgraph.getMaxIdNodes() + 1,
-                                (warehouse.getWidth() - background.descale(endDrag.x)),
-                                background.descale(endDrag.y), GraphNodeType.SIMPLE));
+                                (warehouse.getWidth() - descale(endDrag.x)),
+                                descale(endDrag.y), GraphNodeType.SIMPLE));
 
-                        endDrag = new Point(background.scale(warehouse.getWidth() - end_node.getLocation().getX()),
-                                background.scale(end_node.getLocation().getY()));
+                        endDrag = new Point(scale(warehouse.getWidth() - end_node.getLocation().getX()),
+                                scale(end_node.getLocation().getY()));
                     } else {
-                        arwgraph.createGraphNode((warehouse.getWidth() - background.descale(endDrag.x)),
-                                background.descale(endDrag.y), GraphNodeType.SIMPLE);
+                        arwgraph.createGraphNode((warehouse.getWidth() - descale(endDrag.x)),
+                                descale(endDrag.y), GraphNodeType.SIMPLE);
                         end_node = arwgraph.getLastNode();
                     }
 

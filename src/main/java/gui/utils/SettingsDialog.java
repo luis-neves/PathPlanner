@@ -9,16 +9,16 @@ import java.awt.event.ActionListener;
 public class SettingsDialog extends JDialog {
 
     public int CHECK_ERP_PERIOD; //MINUTOS
-    public double SENSIBILITY;
+    public float corridorwidth;
     public String CLIENT_ID;
 
     public JTextField nome_input;
-    public JSlider sensibility;
+    public JSpinner width;
     public JSpinner check_erp_period;
 
-    public SettingsDialog(int CHECK_ERP_PERIOD, double SENSIBILITY, String CLIENT_ID) {
+    public SettingsDialog(int CHECK_ERP_PERIOD, float corridorwidth, String CLIENT_ID) {
         this.CHECK_ERP_PERIOD = CHECK_ERP_PERIOD;
-        this.SENSIBILITY = SENSIBILITY;
+        this.corridorwidth = corridorwidth;
         this.CLIENT_ID=CLIENT_ID;
         this.setModal(true);
         setLayout(new GridBagLayout());
@@ -27,18 +27,18 @@ public class SettingsDialog extends JDialog {
 
         gbc.gridx = 0;
         gbc.gridy = 0;
-        JLabel name_label = new JLabel("Nome da aplicacao no ESB:");
+        JLabel name_label = new JLabel("ESB identifier for PathPlanner:");
         add(name_label, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 1;
-        JLabel period_label = new JLabel("Período de verificação de tarefas (min):");
+        JLabel period_label = new JLabel("Task polling period (min):");
         add(period_label, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 2;
-        JLabel sensibility_label = new JLabel("Sensibilidade do editor de grafos (cm):");
-        add(sensibility_label, gbc);
+        JLabel corridor_label = new JLabel("Minimum width for operator (m):");
+        add(corridor_label, gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 0;
@@ -54,8 +54,9 @@ public class SettingsDialog extends JDialog {
 
         gbc.gridx = 1;
         gbc.gridy = 2;
-        sensibility = new JSlider(0,100,new Double(SENSIBILITY*100).intValue());
-        add(sensibility, gbc);
+        SpinnerModel model2= new SpinnerNumberModel(corridorwidth,0.5,3,0.1);
+        width = new JSpinner(model2);
+        add(width, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -87,7 +88,7 @@ public class SettingsDialog extends JDialog {
 
     public void updateValues(){
         CLIENT_ID=nome_input.getText();
-        SENSIBILITY=(float)sensibility.getValue()/100.0;
+        corridorwidth=(float)width.getValue();
         CHECK_ERP_PERIOD=((Number)check_erp_period.getValue()).intValue();
     }
 

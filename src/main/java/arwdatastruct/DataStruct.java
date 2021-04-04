@@ -6,7 +6,6 @@ import orderpicking.Pick;
 import orderpicking.PickingOrders;
 import orderpicking.SingleOrderDyn;
 import pathfinder.Graph;
-import pathfinder.RouteFinder;
 import whgraph.ARWGraph;
 import whgraph.ARWGraphNode;
 
@@ -39,10 +38,8 @@ public class DataStruct {
         assignedorders = new Hashtable<>();
     }
 
-    //O XML do armazem será sempre gravado após receção
-    //O nome do ficheiro será guardado no interface
     public void setPrefabFromFile(String filename){
-        String contents="";
+        String contents;
         try {
             contents = new String(Files.readAllBytes(Paths.get(filename)));
             warehouse.createFromXML(contents);
@@ -82,11 +79,11 @@ public class DataStruct {
     }
 
     public Integer getAvailableAgents(){
-        return new Integer(availableagents.size());
+        return availableagents.size();
     }
 
     public Integer getPendingorders(){
-        return new Integer(pendingorders.size());
+        return pendingorders.size();
     }
 
 
@@ -111,6 +108,8 @@ public class DataStruct {
 
     //Trata tarefas pendentes
     public String HandleTasks(String assignedagent){
+        //O parametro assignedagent é um parâmetro de saída
+
         if ((availableagents.size()>0)&&(pendingorders.size()>0)){
             //Para ver se resulta na obtenção da primeira da lista
 
@@ -136,37 +135,36 @@ public class DataStruct {
 
     public String PlanPath(Hashtable<String, Pick> picks, Agent agent, String destiny)  {
 
-        if ((warehouse==null)||(arwgrafo ==null)||(arwgrafo.getNumberOfgraphNodes()==0)){
+        if ((warehouse==null)||(arwgrafo ==null)||(arwgrafo.getNumberOfNodes()==0)){
             System.out.println("Armazem ou grafo não definido!");
             return "";
         }
         else {
             //Constroi grafo com todos os nós, incluindo produtos
             Graph<GNode> grafo;
-            RouteFinder<GNode> routeFinder;
 
             ARWGraph problemgraph = arwgrafo.clone();
 
-            Hashtable<Integer, ArrayList<Pick>> afetacao = new Hashtable();
+            Hashtable<Integer, ArrayList<Pick>> afetacao = new Hashtable<>();
 
             Set<String> pickkeys = picks.keySet();
 
             for (String pickkey : pickkeys) {
                 Pick pick = picks.get(pickkey);
                 Point2D.Float rack = warehouse.getWms(pick.getOrigin());
-                int nnos = problemgraph.getNumNodes();
+                int nnos = problemgraph.getNumberOfNodes();
                 nnos = problemgraph.insertNode(new ARWGraphNode(nnos, rack.x, rack.y, PRODUCT)).getGraphNodeId();
                 if (afetacao.containsKey(nnos))
                     afetacao.get(nnos).add(pick);
                 else {
-                    ArrayList<Pick> listapicks = new ArrayList<Pick>();
+                    ArrayList<Pick> listapicks = new ArrayList<>();
                     listapicks.add(pick);
                     afetacao.put(nnos, listapicks);
                 }
             }
 
             //Os passos abaixo para a criação do vetor produtos são para simplificar. Serviram para aprendizagem.
-            ArrayList<String> prods = new ArrayList<String>();
+            ArrayList<String> prods = new ArrayList<>();
             for (int id : afetacao.keySet())
                 prods.add(new Integer(id).toString());
 

@@ -1,6 +1,7 @@
 package whgraph;
 
 
+import newwarehouse.Warehouse;
 import orderpicking.GNode;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -12,10 +13,12 @@ import pathfinder.Graph;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
@@ -25,30 +28,34 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ARWGraph {
-    private List<ARWGraphNode> ARWGraphNodes;
+    private List<ARWGraphNode> nodes;
     private List<Edge> edges;
 
-
     public ARWGraph() {
-        ARWGraphNodes = new ArrayList<ARWGraphNode>();
+        nodes = new ArrayList<>();
         edges = new ArrayList<Edge>();
     }
-
 
     public List<Edge> getEdges() {
         return edges;
     }
 
-    private int numberOfgraphNodes = 0;
-
     public int getNumberOfEdges() {
         return edges.size();//numberOfEdges;
     }
 
-    public void createGraphNode(ARWGraphNode ARWGraphNode) {
-        this.ARWGraphNodes.add(ARWGraphNode);
-        this.numberOfgraphNodes++; // a GraphNode has been added
+    public void createGraphNode(ARWGraphNode node) {
+        this.nodes.add(node);
     }
+
+    public void createGraphNode(float x, float y, GraphNodeType type) {
+        int index = -1;
+        do {
+            index++;
+        } while (findNode(index) != null);
+        this.nodes.add(new ARWGraphNode(index, x, y, type));
+    }
+
 
     public void createEdge(Edge edge) {
         edge.getStart().addNeighbour(edge);
@@ -56,14 +63,14 @@ public class ARWGraph {
         this.edges.add(edge);
     }
 
-    public int getNumberOfgraphNodes() {
-        return this.ARWGraphNodes.size();
+    public int getNumberOfNodes() {
+        return this.nodes.size();
     }
 
     public List<ARWGraphNode> getGraphNodes() {
-        return ARWGraphNodes;
+        return nodes;
     }
-
+/*
     public ARWGraphNode getTrueNode(ARWGraphNode ARWGraphNode) {
         for (int i = 0; i < getGraphNodes().size(); i++) {
             if (getGraphNodes().get(i).getGraphNodeId() == ARWGraphNode.getGraphNodeId()) {
@@ -72,28 +79,30 @@ public class ARWGraph {
         }
         return null;
     }
-
+*/
 
     @Override
     public ARWGraph clone() {
-        ARWGraph ARWGraph = new ARWGraph();
+
+        ARWGraph graph = new ARWGraph();
+
         for (ARWGraphNode node : getGraphNodes()) {
-            ARWGraph.createGraphNode(node.clone());
+            graph.createGraphNode(node.clone());
         }
         for (Edge edge : this.edges) {
-            ARWGraph.makeNeighbors(ARWGraph.findNode(edge.getStart().getGraphNodeId()),
-                    ARWGraph.findNode(edge.getEnd().getGraphNodeId()), edge.isProduct_line());
+            graph.makeNeighbors(graph.findNode(edge.getStart().getGraphNodeId()),
+                    graph.findNode(edge.getEnd().getGraphNodeId()), edge.isProduct_line());
         }
-        return ARWGraph;
+        return graph;
     }
 
-    public void setgraphNodes(List<ARWGraphNode> ARWGraphNodes) {
-        this.ARWGraphNodes = ARWGraphNodes;
+    public void setgraphNodes(List<ARWGraphNode> nodes) {
+        this.nodes = nodes;
     }
 
     public int getMaxIdNodes(){
         int maxid=0;
-        for (ARWGraphNode node: ARWGraphNodes) {
+        for (ARWGraphNode node: nodes) {
             int id=node.getGraphNodeId();
             if (id>maxid)
                 maxid=id;
@@ -104,7 +113,7 @@ public class ARWGraph {
 
     public void removeNode(ARWGraphNode node) {
         if (node != null) {
-            ARWGraphNodes.remove(node);
+            nodes.remove(node);
             List<Edge> toRemove = new ArrayList<>();
             for (Edge edge : edges) {
                 if (edge.getEnd().equals(node) || edge.getStart().equals(node)) {
@@ -112,7 +121,6 @@ public class ARWGraph {
                 }
             }
             edges.removeAll(toRemove);
-            numberOfgraphNodes--;
         }
     }
 
@@ -135,25 +143,6 @@ public class ARWGraph {
             }
         }
         return products;
-    }
-
-    public List<ARWGraphNode> getProducts_Agents() {
-        List<ARWGraphNode> products = new ArrayList<>();
-        for (int i = 0; i < getGraphNodes().size(); i++) {
-            if (getGraphNodes().get(i).getType() == GraphNodeType.PRODUCT || getGraphNodes().get(i).getType() == GraphNodeType.AGENT) {
-                products.add(getGraphNodes().get(i));
-            }
-        }
-        return products;
-    }
-
-
-    public int getNumNodes() {
-        if (ARWGraphNodes != null) {
-            return this.ARWGraphNodes.size();
-        } else {
-            return 0;
-        }
     }
 
     public ARWGraphNode findClosestNode(float x, float y) {
@@ -199,18 +188,9 @@ public class ARWGraph {
         return Math.round(mostBottom.getLocation().y);
     }
 
-    public void createGraphNode(float x, float y, GraphNodeType type) {
-        int index = -1;
-        do {
-            index++;
-        } while (findNode(index) != null);
-        this.ARWGraphNodes.add(new ARWGraphNode(index, x, y, type));
-        this.numberOfgraphNodes++;
-    }
-
     public ARWGraphNode getLastNode() {
-        if (ARWGraphNodes.size() > 0) {
-            return ARWGraphNodes.get(ARWGraphNodes.size() - 1);
+        if (nodes.size() > 0) {
+            return nodes.get(nodes.size() - 1);
         }
         return null;
 
@@ -246,16 +226,14 @@ public class ARWGraph {
     }
 
     public void clear() {
-        ARWGraphNodes.clear();
+        nodes.clear();
         edges.clear();
-        numberOfgraphNodes = 0;
     }
-
     public double distancetoNeighborEdge(float x, float y){
         double distance=1e6;
         double nx,ny,m;
         double size;
-        Edge closesedge=null;
+
         for (Edge edge : edges) {
             double x1=edge.getStart().getLocation().getX();
             double y1=edge.getStart().getLocation().getY();
@@ -275,17 +253,17 @@ public class ARWGraph {
             size=Math.sqrt(Math.pow(nx-x,2)+Math.pow(ny-y,2));
             if (size<distance){
                 distance=size;
-                closesedge=edge;
             }
         }
         return distance;
     }
 
     public ARWGraphNode insertNode(ARWGraphNode node){
+
         double distance=1e6;
         double nx=0,ny=0,bestx=0,besty=0,m;
         double size;
-        Edge closesedge=null;
+        Edge closestedge=null;
         for (Edge edge : edges) {
             double x1=edge.getStart().getLocation().getX();
             double y1=edge.getStart().getLocation().getY();
@@ -307,23 +285,23 @@ public class ARWGraph {
 
             if (size<distance){
                 distance=size;
-                closesedge=edge;
+                closestedge=edge;
                 bestx=nx;
                 besty=ny;
             }
         }
-        if (closesedge!=null) {
+        if (closestedge!=null) {
             node.setLocation(new Point2D.Float((float) bestx, (float) besty));
 
             ARWGraphNode existente = findClosestNode(node.getX(), node.getY());
 
             if ((Math.abs(existente.getX() -node.getX())>50e-2) || (Math.abs(existente.getY() - node.getY())>50e-2)) {
-                Edge novo1 = new Edge(closesedge.getStart(), node, 0, 1);
+                Edge novo1 = new Edge(closestedge.getStart(), node, 0, 1);
                 createGraphNode(node);
                 createEdge(novo1);
-                novo1 = new Edge(node,closesedge.getEnd(), 0, 1);
+                novo1 = new Edge(node,closestedge.getEnd(), 0, 1);
                 createEdge(novo1);
-                edges.remove(closesedge);
+                edges.remove(closestedge);
 
             }
             else
@@ -331,130 +309,6 @@ public class ARWGraph {
 
         }
         return node;
-    }
-
-    public Edge findClosestEdge(ARWGraphNode ARWGraphNode) {
-        Edge closest = null;
-        float distance = Float.MAX_VALUE;
-        Point2D.Float oblique_location = null;
-        for (Edge edge : edges) {
-            if (edge.isProduct_line()) {
-                if (edge.isVertical_edge() &&
-                        ((ARWGraphNode.getLocation().getY() < edge.getEnd().getLocation().getY() && ARWGraphNode.getLocation().getY() > edge.getStart().getLocation().getY()) ||
-                                (ARWGraphNode.getLocation().getY() > edge.getEnd().getLocation().getY() && ARWGraphNode.getLocation().getY() < edge.getStart().getLocation().getY()))) {
-                    if (ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y) < distance) {
-                        closest = edge;
-                        distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
-                    }
-                } else if (edge.isHorizontal_edge() && ((ARWGraphNode.getLocation().getX() < edge.getEnd().getLocation().getX() && ARWGraphNode.getLocation().getX() > edge.getStart().getLocation().getX()) ||
-                        (ARWGraphNode.getLocation().getX() > edge.getEnd().getLocation().getX() && ARWGraphNode.getLocation().getX() < edge.getStart().getLocation().getX()))) {
-                    if (ARWGraphNode.getDistance(ARWGraphNode.getLocation().x, edge.getLocation().x) < distance) {
-                        closest = edge;
-                        distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
-                    }
-                } else if (edge.isOblique_edge()) {
-                    whgraph.ARWGraphNode node_on_line = put_node_in_obliqueLine(edge, ARWGraphNode);
-                    if (node_on_line.getDistance(ARWGraphNode) < distance) {
-                        closest = edge;
-                        distance = node_on_line.getDistance(ARWGraphNode);
-                        oblique_location = node_on_line.getLocation();
-                    }
-                }
-            }
-        }
-        return closest;
-    }
-
-    public void createGraphNodeOnClosestEdge(ARWGraphNode ARWGraphNode) {
-        Edge closest = null;
-        whgraph.ARWGraphNode closest_product_node = null;
-        float distance = Float.MAX_VALUE;
-        Point2D.Float oblique_location = null;
-        for (Edge edge : edges) {
-            if (edge.isProduct_line()) {
-                if (edge.isVertical_edge() &&
-                        ((ARWGraphNode.getLocation().getY() < edge.getEnd().getLocation().getY() && ARWGraphNode.getLocation().getY() > edge.getStart().getLocation().getY()) ||
-                                (ARWGraphNode.getLocation().getY() > edge.getEnd().getLocation().getY() && ARWGraphNode.getLocation().getY() < edge.getStart().getLocation().getY()))) {
-                    if (ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y) < distance) {
-                        closest = edge;
-                        distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
-                    }
-                } else if (edge.isHorizontal_edge() && ((ARWGraphNode.getLocation().getX() < edge.getEnd().getLocation().getX() && ARWGraphNode.getLocation().getX() > edge.getStart().getLocation().getX()) ||
-                        (ARWGraphNode.getLocation().getX() > edge.getEnd().getLocation().getX() && ARWGraphNode.getLocation().getX() < edge.getStart().getLocation().getX()))) {
-                    if (ARWGraphNode.getDistance(ARWGraphNode.getLocation().x, edge.getLocation().x) < distance) {
-                        closest = edge;
-                        distance = ARWGraphNode.getDistance(edge.getLocation().x, ARWGraphNode.getLocation().y);
-                    }
-                } else if (edge.isOblique_edge()) {
-                    whgraph.ARWGraphNode node_on_line = put_node_in_obliqueLine(edge, ARWGraphNode);
-                    if (node_on_line.getDistance(ARWGraphNode) < distance) {
-                        closest = edge;
-                        distance = node_on_line.getDistance(ARWGraphNode);
-                        oblique_location = node_on_line.getLocation();
-                    }
-                }
-            }
-        }
-        for (whgraph.ARWGraphNode node : getGraphNodes()) {
-            if (node.contains_product()) {
-                if (node.getDistance(ARWGraphNode) < distance) {
-                    closest = null;
-                    closest_product_node = node;
-                }
-            }
-        }
-        if (closest != null) {
-            if (closest.isVertical_edge())
-                ARWGraphNode.getLocation().x=closest.getLocation().x;
-            if (closest.isHorizontal_edge()) {
-                ARWGraphNode.getLocation().y=closest.getLocation().y;
-            }
-            if (closest.isOblique_edge()) {
-                ARWGraphNode.setLocation(oblique_location);
-            }
-            this.ARWGraphNodes.add(ARWGraphNode);
-            this.numberOfgraphNodes++;
-        } else if (closest_product_node != null) {
-            ARWGraphNode.setLocation(closest_product_node.getLocation());
-            this.ARWGraphNodes.add(ARWGraphNode);
-            this.numberOfgraphNodes++;
-        }
-    }
-
-    private ARWGraphNode put_node_in_obliqueLine(Edge edge, ARWGraphNode ARWGraphNode) {
-        float x1 = edge.getStart().getLocation().x;
-        float x2 = edge.getEnd().getLocation().x;
-        float y1 = edge.getStart().getLocation().y;
-        float y2 = edge.getEnd().getLocation().y;
-
-        if (x2 < x1) {
-            float backup_x = x1;
-            float backup_y = y1;
-            x1 = x2;
-            x2 = backup_x;
-            y1 = y2;
-            y2 = backup_y;
-        }
-
-
-        double m = (y2 - y1) / (x2 - x1);
-        double b = y1 - m * (x1);
-
-
-        float x = ARWGraphNode.getLocation().x;
-        float y = ARWGraphNode.getLocation().y;
-
-        double mi = (-1 / m);
-        double bi = y - mi * (x);
-
-        double new_x = (bi - b) / (m - mi);
-        double new_y = mi * new_x + bi;
-
-        if (x1 < new_x && new_x < x2) {
-            return new ARWGraphNode(this.getNumNodes(), (float) new_x, (float) new_y, GraphNodeType.PRODUCT);
-        } else {
-            return null;
-        }
     }
 
     public Graph getPathGraph(){
@@ -499,10 +353,10 @@ public class ARWGraph {
             Element graphElement = doc.getDocumentElement();
             for (int i = 0; i < graphElement.getChildNodes().getLength(); i++) {
                 if (graphElement.getChildNodes().item(i).getNodeName().equals("Nodes")) {
-                    ARWGraphNodes = parseNodes(graphElement.getChildNodes().item(i));
+                    nodes = parseNodes(graphElement.getChildNodes().item(i));
                 }
             }
-            setgraphNodes(ARWGraphNodes);
+            setgraphNodes(nodes);
             for (int i = 0; i < graphElement.getChildNodes().getLength(); i++) {
                 if (graphElement.getChildNodes().item(i).getNodeName().equals("Edges")) {
                     edges = parseEdges(graphElement.getChildNodes().item(i));
@@ -604,8 +458,9 @@ public class ARWGraph {
 
             TransformerFactory tf = TransformerFactory.newInstance();
             Transformer transformer;
-            transformer = tf.newTransformer();
 
+            transformer = tf.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             StringWriter writer = new StringWriter();
 
             //transform document to string
@@ -620,6 +475,33 @@ public class ARWGraph {
 
     }
 
+    public void createGraph(Warehouse warehouse, float corridorwidth){
+        ArrayList<Line2D.Float> linhas = warehouse.createClearPaths(corridorwidth);
 
+        clear();
+        ARWGraphNode start = new ARWGraphNode(getNumberOfNodes(),linhas.get(0).x1, linhas.get(0).y1,  GraphNodeType.SIMPLE);
+        createGraphNode(start);
+        ARWGraphNode end = new ARWGraphNode(getNumberOfNodes(),linhas.get(0).x2, linhas.get(0).y2,  GraphNodeType.SIMPLE);
+        createGraphNode(end);
+        createEdge(new Edge(start,end,1,getNumberOfEdges() ));
+
+        for (int i=1; i< linhas.size();i++){
+            Line2D.Float linhatual=linhas.get(i);
+            start = findClosestNode(linhatual.x1, linhatual.y1, 0.05f);
+            if (start==null) {
+                start = new ARWGraphNode(getNumberOfNodes(), linhatual.x1, linhatual.y1, GraphNodeType.SIMPLE);
+                createGraphNode(start);
+            }
+            end = findClosestNode(linhatual.x2, linhatual.y2, 0.05f);
+            if (end==null) {
+                end = new ARWGraphNode(getNumberOfNodes(), linhatual.x2, linhatual.y2, GraphNodeType.SIMPLE);
+                createGraphNode(end);
+            }
+            createEdge(new Edge(start,end,1,getNumberOfEdges()));
+
+        }
+
+
+    }
 
 }

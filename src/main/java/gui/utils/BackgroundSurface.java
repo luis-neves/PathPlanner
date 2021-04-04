@@ -19,19 +19,16 @@ public class BackgroundSurface extends JPanel {
     private static final Integer PREFAB_RACK = 0;
     private static final Integer PREFAB_STRUCTURE = 1;
     private final double SENSIBILITY = 0.5;//m
-    private int width;
-    private int height;
+    private boolean grid;
     public float AMPLIFY;
-    Warehouse warehouse;
+    private Warehouse warehouse;
 
-    public BackgroundSurface(Warehouse warehouse, int width, int height) {
+    public BackgroundSurface(Warehouse warehouse, boolean grid) {
 
         this.warehouse =warehouse;
-        this.width=width;
-        this.height=height;
-        this.AMPLIFY=Math.min(((float)width)/ this.warehouse.getArea().x,((float)height)/ this.warehouse.getArea().y);
-        setSize(width,height);
+
         shapes = generateShapes();
+        this.grid=grid;
 
     }
 
@@ -44,7 +41,7 @@ public class BackgroundSurface extends JPanel {
 
     public void setPrefabs(Warehouse warehouse){
         this.warehouse = warehouse;
-        this.AMPLIFY=Math.min((float)width/warehouse.getArea().x,(float)height/warehouse.getArea().y);
+
         shapes=generateShapes();
 
         repaint();
@@ -53,16 +50,18 @@ public class BackgroundSurface extends JPanel {
     private void paintBackground(Graphics2D g2) {
 
         g2.setPaint(Color.LIGHT_GRAY);
-        for (int i = 0; i < getSize().width; i += 10) {
-            Shape line = new Line2D.Float(i, 0, i, getSize().height);
-            g2.draw(line);
-        }
+        if (grid) {
 
-        for (int i = 0; i < getSize().height; i += 10) {
-            Shape line = new Line2D.Float(0, i, getSize().width, i);
-            g2.draw(line);
-        }
+            for (int i = 0; i < getSize().width; i += 10) {
+                Shape line = new Line2D.Float(i, 0, i, getSize().height);
+                g2.draw(line);
+            }
 
+            for (int i = 0; i < getSize().height; i += 10) {
+                Shape line = new Line2D.Float(0, i, getSize().width, i);
+                g2.draw(line);
+            }
+        }
 
     }
 
@@ -70,18 +69,23 @@ public class BackgroundSurface extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (warehouse !=null) {
-            this.AMPLIFY = Math.min(((float) getSize().width) / warehouse.getArea().x, ((float) getSize().height) / warehouse.getArea().y);
+            AMPLIFY = Math.min(((float) getSize().width) / warehouse.getArea().x, ((float) getSize().height) / warehouse.getArea().y);
+
+            AffineTransform tx = new AffineTransform();
+            tx.scale(AMPLIFY,AMPLIFY);
+
             shapes = generateShapes();
             LinkedList<Shape> drawables = new LinkedList<>();
-            Shape r = makeLine(0, scale(warehouse.getArea().y), scale(warehouse.getArea().x),
-                    scale(warehouse.getArea().y));
-            drawables.add(r);
-            r = makeLine(scale(warehouse.getArea().x), 0, scale(warehouse.getArea().x),
-                    scale(warehouse.getArea().y));
+
+            Shape r = new Rectangle2D.Float(0f, 0f, warehouse.getArea().x,
+                    warehouse.getArea().y);
+
+            r= tx.createTransformedShape(r);
             drawables.add(r);
 
             Graphics2D g2 = (Graphics2D) g;
-
+            g2.translate(getWidth(),0);
+            g2.scale(-1.0,1.0);
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             paintBackground(g2);
             Color[] colors = {Color.CYAN, Color.LIGHT_GRAY};
@@ -92,18 +96,22 @@ public class BackgroundSurface extends JPanel {
                 Integer color_index = entry.getKey();
                 LinkedList<Shape> shapes = entry.getValue();
                 for (Shape s : shapes) {
+                    Shape sr = r.getBounds2D().createIntersection(s.getBounds2D());
+                    //sr=tx.createTransformedShape(sr);
                     g2.setPaint(Color.BLACK);
-                    g2.draw(s);
+                    g2.draw(sr);
                     g2.setPaint(colors[color_index]);
-                    g2.fill(s);
+                    g2.fill(sr);
                 }
             }
 
             for (Shape s : drawables) {
                 g2.setPaint(Color.BLACK);
+
                 g2.draw(s);
-                g2.fill(s);
+                //g2.fill(s);
             }
+
         }
 
     }
@@ -142,38 +150,25 @@ public class BackgroundSurface extends JPanel {
         HashMap<Integer, LinkedList<Shape>> shapes = new HashMap<>();
         LinkedList<Shape> racks = new LinkedList<>();
         LinkedList<Shape> structures = new LinkedList<>();
-        //LinkedList<Prefab> allprefabs = prefabManager.getAllPrefabs();
+        AMPLIFY = Math.min(((float) getSize().width) / warehouse.getArea().x, ((float) getSize().height) / warehouse.getArea().y);
+        AffineTransform tx = new AffineTransform();
+
         for (Prefab prefab : warehouse.getPrefabList()) {
-            //Está a desenhar da esquerda  para a direita, pelo que é necessário corrigir a posição
-            //inicial : ver se dá para desenhar o retangulo ao contrário, o que tornaria o
-            //código mais imune.
-            Rectangle2D rec = new Rectangle(scale(posx(prefab)-prefab.area.width),
-                    scale(prefab.area.y),
-                    scale(prefab.area.width), scale(prefab.area.height));
-            if (prefab.rotation!=0) {
-                AffineTransform tx = new AffineTransform();
-                //Nas áreas rodadas a posicao indica o canto inferior esquerdo, nao sendo necessario
-                //corrigir.
 
-                tx.rotate(Math.toRadians(prefab.rotation), scale(posx(prefab)),
-                        //tx.rotate(Math.toRadians(prefab.getRotation().getZ()), scale(prefab.getPosition().getX()),
-                        scale(prefab.area.y));
-                Shape newShape = tx.createTransformedShape(rec);
-                if (prefab.type== Prefabtype.RACK) {
-                    racks.add(newShape);
-                }
-                if (prefab.type==Prefabtype.STRUCTURE) {
-                    structures.add(newShape);
-                }
-            } else {
-                if (prefab.type== Prefabtype.RACK) {
-                    racks.add(rec);
-                }
-                if (prefab.type==Prefabtype.STRUCTURE) {
-                    structures.add(rec);
-                }
+            Rectangle2D rec =(Rectangle2D) prefab.area.clone();
 
+            tx.setToScale(AMPLIFY,AMPLIFY);
+            if (prefab.rotation!=0)
+                tx.rotate(Math.toRadians(-prefab.rotation),prefab.area.x,prefab.area.y);
+
+            Shape newShape = tx.createTransformedShape(rec);
+            if (prefab.type== Prefabtype.RACK) {
+                racks.add(newShape);
             }
+            if (prefab.type==Prefabtype.STRUCTURE) {
+                structures.add(newShape);
+            }
+
         }
         shapes.put(PREFAB_RACK, racks);
         shapes.put(PREFAB_STRUCTURE, structures);

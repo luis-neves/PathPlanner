@@ -67,7 +67,8 @@ public class PathPlanner extends JFrame  {
     static PrintStream printOut;
 
     public static String CLIENT_ID = "planeador";
-    public static double SENSIBILITY = 0.5;
+    public static double SENSIBILITY = 0.25;
+    private static float corridorwidth =1f;
 
     public static final String ERP_ID = "ERP";
     public static final String RA_ID = "ra";
@@ -105,7 +106,7 @@ public class PathPlanner extends JFrame  {
         dados= new DataStruct();
         arwgraph=new ARWGraph();
 
-        background = new BackgroundSurface(warehouse, 600,400);
+        background = new BackgroundSurface(warehouse, false);
         dados.setPrefab(warehouse);
 
         File file = new File(GRAPH_FILE);
@@ -113,7 +114,7 @@ public class PathPlanner extends JFrame  {
         arwgraph.readGraphFile(file);
 
         dados.setGraph(arwgraph);
-        graphsurface = new GraphSurface(arwgraph, warehouse, 0.5, 5, background.AMPLIFY);
+        graphsurface = new GraphSurface(arwgraph, warehouse, 5);
         pacmansurface= new PacManSurface(background, 15);
         JLayer<JPanel> jlayer = new JLayer<>(background, graphsurface);
 
@@ -196,16 +197,22 @@ public class PathPlanner extends JFrame  {
         menu.add(menuItem);
         menuItem.addActionListener(e->LoadWarehouse());
 
+        menuItem = new JMenuItem("Generate graph",
+                KeyEvent.VK_G);
+        menuItem.getAccessibleContext().setAccessibleDescription(
+                "Generate new graph of path nodes");
+        menuItem.addActionListener(e->autoGraph());
+        menu.add(menuItem);
 
         menuItem = new JMenuItem("Load graph",
-                KeyEvent.VK_G);
+                KeyEvent.VK_L);
         menuItem.getAccessibleContext().setAccessibleDescription(
                 "Load graph of path nodes");
         menuItem.addActionListener(e->LoadGraph());
         menu.add(menuItem);
 
         menuItem = new JMenuItem("Edit graph",
-                KeyEvent.VK_G);
+                KeyEvent.VK_E);
         menuItem.getAccessibleContext().setAccessibleDescription(
                 "Edit graph of path nodes");
         menuItem.addActionListener(e->editGraph());
@@ -228,6 +235,10 @@ public class PathPlanner extends JFrame  {
         menuItem.addActionListener(e->openSettings());
         this.setJMenuBar(menubar);
     }
+    private void autoGraph(){
+        arwgraph.createGraph(warehouse,corridorwidth);
+        repaint();
+    }
 
     private void updateDados(){
 
@@ -237,7 +248,7 @@ public class PathPlanner extends JFrame  {
     }
 
     private void editGraph(){
-        GraphEditor frame = new GraphEditor(warehouse, arwgraph, SENSIBILITY);
+        GraphEditor frame = new GraphEditor(warehouse, arwgraph, corridorwidth);
         repaint();
     }
 
@@ -245,10 +256,10 @@ public class PathPlanner extends JFrame  {
     public void openSettings() {
 
         System.out.println("Aviso de diálogo de settings");
-        SettingsDialog settingsDialog=new SettingsDialog(CHECK_ERP_PERIOD,SENSIBILITY,CLIENT_ID);
+        SettingsDialog settingsDialog=new SettingsDialog(CHECK_ERP_PERIOD,corridorwidth,CLIENT_ID);
 
         CHECK_ERP_PERIOD=settingsDialog.CHECK_ERP_PERIOD;
-        SENSIBILITY= settingsDialog.SENSIBILITY;
+        corridorwidth= settingsDialog.corridorwidth;
         CLIENT_ID=settingsDialog.CLIENT_ID;
         //time.cancel();
         time.schedule(new CheckERP(), 0, TimeUnit.MINUTES.toMillis(CHECK_ERP_PERIOD));
@@ -279,9 +290,7 @@ public class PathPlanner extends JFrame  {
             try {
                 String xmlcontent=read_xml_from_file(fc.getSelectedFile().getName());
                 warehouse.createFromXML(xmlcontent);
-                dados.setPrefab(warehouse);//VErificar se é mesmo necessário;
-                if (arwgraph!=null)
-                    arwgraph.clear();
+                arwgraph.createGraph(warehouse,corridorwidth);
                 File source = new File(fc.getSelectedFile().getName());
                 File dest = new File(WAREHOUSE_FILE);
 
@@ -309,9 +318,6 @@ public class PathPlanner extends JFrame  {
                 File file = fc.getSelectedFile();
 
                 arwgraph.readGraphFile(file);
-
-                dados.setGraph(arwgraph);
-                graphsurface.setArwgraph(arwgraph);
 
                 repaint();
             }
@@ -358,7 +364,7 @@ public class PathPlanner extends JFrame  {
     }
 
     public void PedeTarefa(){
-        if (arwgraph.getNumberOfgraphNodes()>0) {
+        if (arwgraph.getNumberOfNodes()>0) {
             this.Consola.append("Pedida tarefa" + '\n');
             this.cm.SendMessageAsync(Util.GenerateId(), "request", TOPIC_GETTASK, ERP_ID, "PlainText", "Dá-me uma tarefa!", "1");
         }

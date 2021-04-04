@@ -12,16 +12,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="Inclusão das tags wmsCode&#10;Fix do play">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph_gen.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph_gen_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph_gen_lab.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/TestaGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/graph.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logPathPlanner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logPathPlanner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/arwdatastruct/DataStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/arwdatastruct/DataStruct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/PathPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/PathPlanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/TestNewWarehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/TestNewWarehouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/BackgroundSurface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/BackgroundSurface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/GraphEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/GraphEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/GraphSurface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/GraphSurface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/PacManSurface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/PacManSurface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whgraph/DetailsPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/SettingsDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/SettingsDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/whgraph/ARWGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/whgraph/ARWGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/whgraph/GraphGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/whgraph/GraphGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tarefa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tarefa.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taskreceived.xml" beforeDir="false" afterPath="$PROJECT_DIR$/taskreceived.xml" afterDir="false" />
     </list>
@@ -121,6 +128,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.342723" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -148,6 +156,7 @@
       <recent name="ga.geneticOperators" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="gui.utils" />
       <recent name="picking" />
       <recent name="ga" />
       <recent name="utils.warehouse" />
@@ -192,6 +201,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GraphicsDemo3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.GraphicsDemo3" />
+      <module name="NPathPlanner" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GuiARWCommTB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.GuiARWCommTB" />
       <module name="NPathPlanner" />
@@ -209,6 +232,34 @@
     <configuration name="PathPlanner" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="gui.PathPlanner" />
       <module name="NPathPlanner" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestNewWarehouse" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.TestNewWarehouse" />
+      <module name="NPathPlanner" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestaGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.TestaGenerator" />
+      <module name="NPathPlanner" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -247,10 +298,16 @@
     <list>
       <item itemvalue="Application.PathPlanner" />
       <item itemvalue="Application.GuiARWCommTB" />
+      <item itemvalue="Application.TestaGenerator" />
+      <item itemvalue="Application.TestNewWarehouse" />
+      <item itemvalue="Application.GraphicsDemo3" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestNewWarehouse" />
+        <item itemvalue="Application.GraphicsDemo3" />
         <item itemvalue="Application.GuiARWCommTB" />
+        <item itemvalue="Application.TestaGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -893,7 +950,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617204709259</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Nova versão do warehouse (prefabManager)">
+      <created>1617217026019</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1617217026019</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Nova versão do warehouse (prefabManager)">
+      <created>1617223130911</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1617223130911</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1003,14 +1074,21 @@
           <line>177</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gui/PathPlanner.java</url>
+          <line>490</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gui/utils/BackgroundSurface.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="ga.bestInRun" />
-        <watch expression="finalPath.get(2)" />
-        <watch expression="lastGenGAs[1]" />
-        <watch expression="jsonstr" />
+        <watch expression="pontos.get(j)" />
       </configuration>
     </watches-manager>
   </component>

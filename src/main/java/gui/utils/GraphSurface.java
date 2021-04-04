@@ -17,14 +17,16 @@ public class GraphSurface extends LayerUI<JPanel> {
     Point startDrag, endDrag;
     public float AMPLIFY;
     public Warehouse warehouse;
+    boolean editavel;
 
 
-    public GraphSurface(ARWGraph ARWGraph, Warehouse warehouse, double sensibility, int node_size, float amplify) {
-        this.arwgraph = ARWGraph;
-        this.SENSIBILITY = sensibility;
+    public GraphSurface(ARWGraph graph, Warehouse warehouse, int node_size) {
+        this.arwgraph = graph;
+        this.SENSIBILITY = 0.01;
         this.NODE_SIZE=node_size;
         this.warehouse =warehouse;
-        this.AMPLIFY=amplify;
+        editavel=false;
+        AMPLIFY=1;
     }
 
     public GraphSurface(){
@@ -43,31 +45,44 @@ public class GraphSurface extends LayerUI<JPanel> {
     @Override
     public void paint(Graphics g, JComponent c) {
             Graphics2D g2 = (Graphics2D) g.create();
+            if (warehouse !=null)
+                AMPLIFY = Math.min(((float) c.getSize().width) / warehouse.getWidth(), ((float) c.getSize().height) / warehouse.getDepth());
+            else
+                AMPLIFY=1;
+
+            float dot[]={2f,4f};
+            BasicStroke solido = new BasicStroke(4f);
+            BasicStroke dotted = new BasicStroke(1.0f,
+                    BasicStroke.CAP_BUTT,
+                    BasicStroke.JOIN_MITER,
+                    10.0f, dot, 0.0f);
 
             super.paint(g2, c);
-            if ((warehouse !=null)&&(arwgraph!=null) ) {
-                this.AMPLIFY = Math.min(((float) c.getSize().width) / warehouse.getWidth(), ((float) c.getSize().height) / warehouse.getDepth());
-
-                if (arwgraph != null) {
-                    for (ARWGraphNode node : arwgraph.getGraphNodes()) {
-                        g2.setPaint(Color.BLACK);
-                        if (node.contains_product())
-                            g2.setPaint(Color.BLUE);
-                        g2.drawOval(scale(warehouse.getWidth() - node.getLocation().getX()) - (NODE_SIZE / 2),
-                                scale(node.getLocation().getY()) - (NODE_SIZE / 2), NODE_SIZE, NODE_SIZE);
-                        g2.drawString(node.printName(), scale(warehouse.getWidth() - node.getLocation().getX()) + (NODE_SIZE),
-                                scale(node.getLocation().getY()) - (NODE_SIZE));
-                    }
-                    for (Edge e : arwgraph.getEdges()) {
-                        Shape r = makeLine(scale(warehouse.getWidth() - e.getStart().getLocation().getX()), scale(e.getStart().getLocation().getY()),
-                                scale(warehouse.getWidth() - e.getEnd().getLocation().getX()), scale(e.getEnd().getLocation().getY()));
+            g2.setPaint(Color.DARK_GRAY);
+            g2.setStroke(solido);
+            if (arwgraph != null) {
+                for (ARWGraphNode node : arwgraph.getGraphNodes()) {
+                    /*if (editavel)
                         g2.setPaint(Color.DARK_GRAY);
-                        g2.draw(r);
-                    }
+                    else
+                        g2.setPaint(Color.LIGHT_GRAY);*/
 
+                    g2.drawOval(scale(warehouse.getWidth() - node.getLocation().getX()) - (NODE_SIZE / 2),
+                            scale(node.getLocation().getY()) - (NODE_SIZE / 2), NODE_SIZE, NODE_SIZE);
+                    g2.drawString(node.printName(), scale(warehouse.getWidth() - node.getLocation().getX()) + (NODE_SIZE),
+                            scale(node.getLocation().getY()) - (NODE_SIZE));
                 }
+                for (Edge e : arwgraph.getEdges()) {
+                    Shape r = makeLine(scale(warehouse.getWidth() - e.getStart().getLocation().getX()), scale(e.getStart().getLocation().getY()),
+                            scale(warehouse.getWidth() - e.getEnd().getLocation().getX()), scale(e.getEnd().getLocation().getY()));
+                    if (!editavel)
+                        g2.setStroke(dotted);
+
+                    g2.draw(r);
+                }
+
             }
-     //   }
+
     }
 
 
