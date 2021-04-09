@@ -2,8 +2,6 @@ package arwdatastruct;
 
 import newwarehouse.Warehouse;
 import orderpicking.GNode;
-import orderpicking.Pick;
-import orderpicking.PickingOrders;
 import orderpicking.SingleOrderDyn;
 import pathfinder.Graph;
 import whgraph.ARWGraph;

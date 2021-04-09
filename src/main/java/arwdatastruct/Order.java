@@ -1,7 +1,5 @@
 package arwdatastruct;
 
-import orderpicking.Pick;
-
 import java.util.Hashtable;
 
 public class Order {

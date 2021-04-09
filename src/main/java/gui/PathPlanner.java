@@ -29,7 +29,7 @@ import gui.utils.*;
 import net.sf.jni4net.Bridge;
 
 
-import orderpicking.PickingOrders;
+import arwdatastruct.PickingOrders;
 import org.json.JSONObject;
 
 import classlib.BusMessage;

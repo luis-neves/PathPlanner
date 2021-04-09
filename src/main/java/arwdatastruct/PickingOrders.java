@@ -1,7 +1,8 @@
-package orderpicking;
+package arwdatastruct;
 
 
 import arwdatastruct.Order;
+import arwdatastruct.Pick;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -175,7 +176,7 @@ public class PickingOrders {
                         linprod.appendChild(document.createTextNode(pick.getLineorder()));
                         product.appendChild(linprod);
                         linprod = document.createElement("Produto");
-                        linprod.appendChild(document.createTextNode(pick.getId()));
+                        linprod.appendChild(document.createTextNode(pick.getProductid()));
                         product.appendChild(linprod);
                         linprod = document.createElement("Quantidade");
                         linprod.appendChild(document.createTextNode(pick.getQuantity()));

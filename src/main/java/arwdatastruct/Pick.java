@@ -1,10 +1,10 @@
-package orderpicking;
+package arwdatastruct;
 
 
 public class Pick {
     String order;
     String lineorder;
-    String id;
+    String productid;
     String quantity;
     String origin;
     String destiny;
@@ -12,7 +12,7 @@ public class Pick {
     public Pick(String order, String lineorder,String id, String quantity, String origin, String destiny) {
         this.order = order;
         this.lineorder = lineorder;
-        this.id = id;
+        this.productid = id;
         this.quantity = quantity;
         this.origin = origin;
         this.destiny = destiny;
@@ -35,8 +35,8 @@ public class Pick {
     public String getLineorder() {
         return lineorder;
     }
-    public String getId() {
-        return id;
+    public String getProductid() {
+        return productid;
     }
 
     public String getQuantity() {
@@ -52,7 +52,7 @@ public class Pick {
     }
 
     public String toString(){
-        String xmlstring="\t<Produto>" + id + "</Produto>\n"
+        String xmlstring="\t<Produto>" + productid + "</Produto>\n"
                 +"\t<Quantidade>" + quantity + "</Quantidade>\n"
                 +"\t<Origem>"+origin+"</Origem>\n"
                 +"\t<Destino>" + destiny + "</Destino>\n";

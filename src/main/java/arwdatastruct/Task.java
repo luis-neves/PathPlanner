@@ -1,7 +1,6 @@
 package arwdatastruct;
 
 import orderpicking.GNode;
-import orderpicking.Pick;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -99,7 +98,7 @@ public class Task {
                              linprod.appendChild(document.createTextNode(pick.getLineorder()));
                              product.appendChild(linprod);
                              linprod = document.createElement("Produto");
-                             linprod.appendChild(document.createTextNode(pick.getId()));
+                             linprod.appendChild(document.createTextNode(pick.getProductid()));
                              product.appendChild(linprod);
                              linprod = document.createElement("Quantidade");
                              linprod.appendChild(document.createTextNode(pick.getQuantity()));
