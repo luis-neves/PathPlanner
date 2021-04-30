@@ -1,4 +1,4 @@
-package newwarehouse;
+package newWarehouse;
 
 public enum Prefabtype {
     RACK, STRUCTURE, FLOORAREA, EXIT;

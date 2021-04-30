@@ -2,7 +2,7 @@ package gui;
 
 import gui.utils.BackgroundSurface;
 import gui.utils.GraphSurface;
-import newwarehouse.Warehouse;
+import newWarehouse.Warehouse;
 
 import whgraph.ARWGraph;
 
@@ -14,7 +14,6 @@ import java.awt.*;
 import java.io.IOException;
 
 
-import static xmlutils.XMLfuncs.read_xml_from_file;
 import static xmlutils.XMLfuncs.write_xml_to_file;
 
 

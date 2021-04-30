@@ -1,4 +1,4 @@
-package newwarehouse;
+package newWarehouse;
 
 import java.awt.geom.Rectangle2D;
 

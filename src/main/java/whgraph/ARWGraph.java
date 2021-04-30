@@ -1,7 +1,7 @@
 package whgraph;
 
 
-import newwarehouse.Warehouse;
+import newWarehouse.Warehouse;
 import orderpicking.GNode;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;

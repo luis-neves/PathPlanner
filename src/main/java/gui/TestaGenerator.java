@@ -1,19 +1,15 @@
 package gui;
 
-import newwarehouse.Warehouse;
+import newWarehouse.Warehouse;
 import orderpicking.GNode;
-import pathfinder.Graph;
 import whgraph.ARWGraph;
 import whgraph.GraphGenerator;
 
-import java.awt.*;
-import java.awt.geom.Point2D;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 
 public class TestaGenerator {
 

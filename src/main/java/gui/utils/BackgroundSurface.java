@@ -1,9 +1,9 @@
 package gui.utils;
 
 
-import newwarehouse.Prefab;
-import newwarehouse.Prefabtype;
-import newwarehouse.Warehouse;
+import newWarehouse.Prefab;
+import newWarehouse.Prefabtype;
+import newWarehouse.Warehouse;
 
 import javax.swing.*;
 import java.awt.*;

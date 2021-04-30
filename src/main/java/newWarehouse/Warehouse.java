@@ -1,4 +1,4 @@
-package newwarehouse;
+package newWarehouse;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -27,10 +27,10 @@ public class Warehouse {
     Point2D.Float area;
 
     public Warehouse() {
-        prefabList= new ArrayList<>();
+        prefabList = new ArrayList<>();
         wmscodes = new Hashtable<>();
-        defaultstart=new Point2D.Float();
-        area=new Point2D.Float();
+        defaultstart = new Point2D.Float();
+        area = new Point2D.Float();
     }
 
     public void clear(){

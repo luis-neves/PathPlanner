@@ -1,6 +1,6 @@
 package arwdatastruct;
 
-import newwarehouse.Warehouse;
+import newWarehouse.Warehouse;
 import orderpicking.GNode;
 import orderpicking.Pick;
 import orderpicking.PickingOrders;
@@ -22,185 +22,184 @@ import static whgraph.GraphNodeType.PRODUCT;
 public class DataStruct {
 
     private Warehouse warehouse;
-    ARWGraph arwgrafo;
-    ArrayList<Agent> availableagents;
-    Hashtable<String, Agent> occupiedagents;
-    ArrayList<Order> pendingorders;
-    Hashtable<String, Order> assignedorders;
-    String defaultdestiny="13.S.0.0";
+    private ARWGraph arwGraph;
+    private ArrayList<Agent> availableAgents;
+    private Hashtable<String, Agent> occupiedAgents;
+    private ArrayList<Order> pendingOrders;
+    //assignedOrders: orders que estão a aguardar feedback da realidade aumentada de que foram concluídas
+    private Hashtable<String, Order> assignedOrders;
+    private String defaultDestiny = "13.S.0.0";
 
     public DataStruct() {
-        warehouse=new Warehouse();
-        arwgrafo=new ARWGraph();
-        availableagents=new ArrayList<>();
-        occupiedagents=new Hashtable<>();
-        pendingorders = new ArrayList<>();
-        assignedorders = new Hashtable<>();
+        this.warehouse = new Warehouse();
+        this.arwGraph = new ARWGraph();
+        this.availableAgents = new ArrayList<>();
+        this.occupiedAgents = new Hashtable<>();
+        this.pendingOrders = new ArrayList<>();
+        this.assignedOrders = new Hashtable<>();
     }
 
-    public void setPrefabFromFile(String filename){
-        String contents;
+    public void setWareHouseFromXMLFile(String filename) {
         try {
-            contents = new String(Files.readAllBytes(Paths.get(filename)));
+            String contents = new String(Files.readAllBytes(Paths.get(filename)));
             warehouse.createFromXML(contents);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void setPrefab(Warehouse warehouse){
-        this.warehouse=warehouse;
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
     }
 
     //Função para atribuição do grafo, lido de ficheiro ou criado/editado com editor
-    public void setGraph(ARWGraph arwgrafo){
-        this.arwgrafo=arwgrafo;
+    public void setGraph(ARWGraph arwGraph) {
+        this.arwGraph = arwGraph;
     }
 
-    public void setDefaultdestiny(String defaultdestiny) {
-        this.defaultdestiny = defaultdestiny;
+    public void setDefaultDestiny(String defaultDestiny) {
+        this.defaultDestiny = defaultDestiny;
     }
 
     //Adiciona um novo agente quando ficar disponível
-    public void newAgent(Agent agent){
-        availableagents.add(agent);
+    public void addAvailableAgent(Agent agent) {
+        availableAgents.add(agent);
     }
 
     //Retira um agente caso os óculos sejam desligados
-    public void removeAgent(String agentid){
-        for (Agent agent : availableagents)
-            if (agent.id.equals(agentid)){
-                availableagents.remove(agent);
+    public void removeAvailableAgent(String agentId) {
+        for (Agent agent : availableAgents)
+            if (agent.getId().equals(agentId)) {
+                availableAgents.remove(agent);
                 break;
             }
-
     }
 
-    public Integer getAvailableAgents(){
-        return availableagents.size();
+    public Integer getNumberOfAvailableAgents() {
+        return availableAgents.size();
     }
 
-    public Integer getPendingorders(){
-        return pendingorders.size();
+    public Integer getNumberOfPendingOrders() {
+        return pendingOrders.size();
     }
 
-
-    public boolean checkagent(String agentid){
-        return occupiedagents.containsKey(agentid);
+    public boolean checkOccupiedAgent(String agentId) {
+        return occupiedAgents.containsKey(agentId);
     }
 
-    public void releaseUpdate(String agentid, float newx, float newy){
-        Agent agent=occupiedagents.get(agentid);
-        agent.initialx=newx;
-        agent.initialy=newy;
-        availableagents.add(agent);
-        occupiedagents.remove(agentid);
+    public void releaseAgent(String agentId, float newX, float newY) {
+        Agent agent = occupiedAgents.get(agentId);
+        agent.setInitialX(newX);
+        agent.setInitialY(newY);
+        availableAgents.add(agent);
+        occupiedAgents.remove(agentId);
     }
-    //Carrega uma tarefa recebida como XML
-    public void addTask(String xmltask){
-        PickingOrders pickingorders = new PickingOrders();
 
-        pickingorders.parseTarefaXML(xmltask);
-        pendingorders.addAll(pickingorders.getOrders());
+    //Carrega o pedido do ERP recebido como XML
+    public void addOrdersToPendingOrders(String xmlERPRequest) {
+        PickingOrders pickingOrders = new PickingOrders();
+        pickingOrders.parseXMLERPRequest(xmlERPRequest);
+        pendingOrders.addAll(pickingOrders.getOrders());
     }
 
     //Trata tarefas pendentes
-    public String HandleTasks(String assignedagent){
+    public String handlePendingOrders(String assignedAgent) {
         //O parametro assignedagent é um parâmetro de saída
 
-        if ((availableagents.size()>0)&&(pendingorders.size()>0)){
-            //Para ver se resulta na obtenção da primeira da lista
+        //Para ver se resulta na obtenção da primeira da lista
+        String xmlString = "";
+        if ((availableAgents.size() > 0) && (pendingOrders.size() > 0)) {
 
-            Order order=pendingorders.get(0);
-            Hashtable<String, Pick> picks = order.lineorder;
-            String keypick = (String) picks.keySet().toArray()[0];
-            String destiny= picks.get(keypick).getDestiny();
+            Order order = pendingOrders.get(0);
+            Hashtable<String, Pick> picks = order.getPicks();
+            String pickKey = (String) picks.keySet().toArray()[0];
+            String destiny = picks.get(pickKey).getDestiny();
             if (!warehouse.checkWms(destiny))
-                destiny=defaultdestiny;
-            Agent agent=availableagents.get(0);
+                destiny = defaultDestiny;
 
-            String xmlstring=PlanPath(picks, agent, destiny);
-            assignedorders.put(agent.id,order);
-            occupiedagents.put(agent.id,agent);
-            pendingorders.remove(0);
-            availableagents.remove(0);
-            assignedagent= agent.id;
-            return xmlstring;
+            Agent agent = availableAgents.get(0);
+
+            xmlString = planPath(picks, agent, destiny);
+            assignedOrders.put(agent.getId(), order);
+            occupiedAgents.put(agent.getId(), agent);
+            pendingOrders.remove(0);
+            availableAgents.remove(0);
+            assignedAgent = agent.getId();
         }
-        else
-            return "";
+        return xmlString;
     }
 
-    public String PlanPath(Hashtable<String, Pick> picks, Agent agent, String destiny)  {
+    public String planPath(Hashtable<String, Pick> picks, Agent agent, String destiny) {
 
-        if ((warehouse==null)||(arwgrafo ==null)||(arwgrafo.getNumberOfNodes()==0)){
+        if ((warehouse == null) || (arwGraph == null) || (arwGraph.getNumberOfNodes() == 0)) {
             System.out.println("Armazem ou grafo não definido!");
             return "";
         }
-        else {
-            //Constroi grafo com todos os nós, incluindo produtos
-            Graph<GNode> grafo;
 
-            ARWGraph problemgraph = arwgrafo.clone();
+        //Constroi grafo com todos os nós, incluindo produtos
 
-            Hashtable<Integer, ArrayList<Pick>> afetacao = new Hashtable<>();
+        ARWGraph problemGraph = arwGraph.clone();
 
-            Set<String> pickkeys = picks.keySet();
+        //picksAtNode: estrutura que guarda os picks em cada nó
+        Hashtable<Integer, ArrayList<Pick>> picksAtNode = new Hashtable<>();
 
-            for (String pickkey : pickkeys) {
-                Pick pick = picks.get(pickkey);
-                Point2D.Float rack = warehouse.getWms(pick.getOrigin());
-                int nnos = problemgraph.getNumberOfNodes();
-                nnos = problemgraph.insertNode(new ARWGraphNode(nnos, rack.x, rack.y, PRODUCT)).getGraphNodeId();
-                if (afetacao.containsKey(nnos))
-                    afetacao.get(nnos).add(pick);
-                else {
-                    ArrayList<Pick> listapicks = new ArrayList<>();
-                    listapicks.add(pick);
-                    afetacao.put(nnos, listapicks);
-                }
+        Set<String> pickKeys = picks.keySet();
+
+        //Colocar os os nós dos produtos no grafo
+        for (String pickKey : pickKeys) {
+            Pick pick = picks.get(pickKey);
+            Point2D.Float rack = warehouse.getWms(pick.getOrigin());
+            int numberOfNodes = problemGraph.getNumberOfNodes();
+            int graphNodeID = problemGraph.insertNode(
+                    new ARWGraphNode(numberOfNodes, rack.x, rack.y, PRODUCT)).getGraphNodeId();
+            if (picksAtNode.containsKey(graphNodeID))
+                picksAtNode.get(graphNodeID).add(pick);
+            else {
+                ArrayList<Pick> picksList = new ArrayList<>();
+                picksList.add(pick);
+                picksAtNode.put(graphNodeID, picksList);
             }
-
-            //Os passos abaixo para a criação do vetor produtos são para simplificar. Serviram para aprendizagem.
-            ArrayList<String> prods = new ArrayList<>();
-            for (int id : afetacao.keySet())
-                prods.add(new Integer(id).toString());
-
-            String[] produtos = prods.toArray(new String[prods.size()]);
-
-            grafo = problemgraph.getPathGraph();
-
-            //Determinar ponto de entrega
-            //Colocar depois dentro do ciclo de leitura
-            int endnode = arwgrafo.findClosestNode(warehouse.getWms(destiny).x,
-                    warehouse.getWms(destiny).y).getGraphNodeId();
-
-            ARWGraphNode startnode= arwgrafo.findClosestNode(agent.initialx, agent.initialy);
-
-            SingleOrderDyn orderDyn = new SingleOrderDyn(grafo, produtos, Integer.toString(startnode.getGraphNodeId()),
-                    new Integer(endnode).toString());
-
-            double cost = orderDyn.solve();
-
-            Task tarefa = new Task(orderDyn.getRotafinal(), grafo, afetacao);
-
-            String xmlstring = tarefa.XMLPath(agent.id, afetacao.keys().toString());
-            System.out.println("Tour:\n " + xmlstring );
-
-            // Print: 42.0
-            System.out.println("Tour cost: " + cost);
-            return xmlstring;
-
         }
 
+        //Os passos abaixo para a criação do vetor produtos são para simplificar. Serviram para aprendizagem.
+        //Sugestão: products
+        //Os prods parece ser uma lista de ids de nós e não de produtos
+        ArrayList<String> productsIDsAuxList = new ArrayList<>();
+        for (int id : picksAtNode.keySet())
+            productsIDsAuxList.add(new Integer(id).toString());
 
+        String[] productsIDs = productsIDsAuxList.toArray(new String[productsIDsAuxList.size()]);
 
+        Graph<GNode> graph = problemGraph.getPathGraph();
+
+        //Determinar ponto de entrega
+        //Colocar depois dentro do ciclo de leitura
+        int endNode = arwGraph.findClosestNode(
+                warehouse.getWms(destiny).x,
+                warehouse.getWms(destiny).y).getGraphNodeId();
+
+        ARWGraphNode startNode = arwGraph.findClosestNode(agent.getInitialX(), agent.getInitialY());
+
+        SingleOrderDyn orderDyn = new SingleOrderDyn(
+                graph,
+                productsIDs,
+                Integer.toString(startNode.getGraphNodeId()),
+                new Integer(endNode).toString());
+
+        double cost = orderDyn.solve();
+
+        Task task = new Task(orderDyn.getRotafinal(), graph, picksAtNode);
+
+        String xmlString = task.XMLPath(agent.getId(), picksAtNode.keys().toString());
+        System.out.println("Tour:\n " + xmlString);
+
+        // Print: 42.0
+        System.out.println("Tour cost: " + cost);
+        return xmlString;
     }
 
-    public void concludeOrder(String orderid){
-        assignedorders.remove(orderid);
+    public void concludeOrder(String orderId) {
+        assignedOrders.remove(orderId);
     }
 
 }

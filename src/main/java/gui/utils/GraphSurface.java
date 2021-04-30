@@ -1,6 +1,6 @@
 package gui.utils;
 
-import newwarehouse.Warehouse;
+import newWarehouse.Warehouse;
 import whgraph.ARWGraph;
 import whgraph.ARWGraphNode;
 import whgraph.Edge;

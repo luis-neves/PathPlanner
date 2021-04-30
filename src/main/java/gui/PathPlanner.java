@@ -23,7 +23,7 @@ import arwdatastruct.Agent;
 
 import arwdatastruct.DataStruct;
 import arwdatastruct.Order;
-import newwarehouse.Warehouse;
+import newWarehouse.Warehouse;
 
 import gui.utils.*;
 import net.sf.jni4net.Bridge;
@@ -110,7 +110,7 @@ public class PathPlanner extends JFrame  {
         arwgraph=new ARWGraph();
 
         background = new BackgroundSurface(warehouse, false,950);
-        dados.setPrefab(warehouse);
+        dados.setWarehouse(warehouse);
 
         File file = new File(GRAPH_FILE);
         //VERIFICAR COMO TESTAR PARA ERRO
@@ -245,8 +245,8 @@ public class PathPlanner extends JFrame  {
 
     private void updateDados(){
 
-        numtasks.setText(dados.getPendingorders().toString());
-        numops.setText(dados.getAvailableAgents().toString());
+        numtasks.setText(dados.getNumberOfPendingOrders().toString());
+        numops.setText(dados.getNumberOfAvailableAgents().toString());
         repaint();
     }
 
@@ -420,11 +420,11 @@ public class PathPlanner extends JFrame  {
                             pacmansurface.addAgent(agentid,new Point2D.Float(position[0],position[1]));
                         }
 
-                        if (dados.checkagent(agentid)) {
-                            dados.releaseUpdate(agentid, position[0],
+                        if (dados.checkOccupiedAgent(agentid)) {
+                            dados.releaseAgent(agentid, position[0],
                                     position[1]);
                         } else {
-                            dados.newAgent(new Agent(agentid, position[0],
+                            dados.addAvailableAgent(new Agent(agentid, position[0],
                                     position[1]));
                         }
 
@@ -432,7 +432,7 @@ public class PathPlanner extends JFrame  {
                         cm.SendMessageAsync((Integer.parseInt(busMessage.getId()) + 1) + "", "response",
                                 busMessage.getInfoIdentifier(), split[0], "application/json", "{'response':'ACK'}", "1");
 
-                        xml_str = dados.HandleTasks(agentid);
+                        xml_str = dados.handlePendingOrders(agentid);
                         if (!xml_str.equals("")) {
                             EnviaTarefa(agentid, xml_str);
                         } else
@@ -468,10 +468,10 @@ public class PathPlanner extends JFrame  {
                         try {
 
                             PickingOrders concludedpicks = new PickingOrders();
-                            concludedpicks.parseTarefaXML(xml_str);
+                            concludedpicks.parseXMLERPRequest(xml_str);
                             for (Order order: concludedpicks.getOrders())
-                                dados.concludeOrder(order.id);
-                            xml_str=concludedpicks.toXML();
+                                dados.concludeOrder(order.getId());
+                            xml_str = concludedpicks.toXML();
 
                             write_xml_to_file("tarefa_concluida.xml", xml_str);
                             //Esta escrita em ficheiro pode vir a ser eliminada
@@ -643,9 +643,9 @@ public class PathPlanner extends JFrame  {
 
     public void handleTask(String xmlstring) throws IOException {
             String agentid="ra1";//Serve para ter um nome mas será substituido em HandleTasks.
-            dados.addTask(xmlstring);
+            dados.addOrdersToPendingOrders(xmlstring);
             write_xml_to_file("tarefa.xml", xmlstring);
-            String xml_str= dados.HandleTasks(agentid);
+            String xml_str= dados.handlePendingOrders(agentid);
             if (!xml_str.equals("")){
                 EnviaTarefa(agentid,xml_str);
         }

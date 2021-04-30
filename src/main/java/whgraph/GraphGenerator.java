@@ -1,6 +1,6 @@
 package whgraph;
 
-import newwarehouse.Warehouse;
+import newWarehouse.Warehouse;
 
 import orderpicking.GNode;
 

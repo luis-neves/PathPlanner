@@ -5,12 +5,12 @@ ERP_ID: ERP
 RA_ID: ra[MAC]
 LOC_APROX_ID: locaproximada
 MODELADOR_ID: modelador
-MESSAGE SENT WITH SUCCESS. ID: 972300.
-Fail to subscribe to 'mod_updateXML' with modelador
+Subscribed to 'mod_updateXML' with modelador
+MESSAGE SENT WITH SUCCESS. ID: 107744.
 
 MESSAGE TO BE PROCESSED
 ------------------------------------------
-	Id: 972300
+	Id: 107744
 	Message type: response
 	Info identifier: getTarefa
 	To topic: planeadorTopic
@@ -20,50 +20,66 @@ MESSAGE TO BE PROCESSED
 	Content: <?xml version="1.0" encoding="utf-16"?>
 <ArrayOfTarefa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
+    <Ordem>Encomenda 529621</Ordem>
     <LinhaOrdem>1</LinhaOrdem>
+    <Produto>501020101001330</Produto>
+    <Quantidade>8</Quantidade>
+    <Origem>13.A.3.06</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>2</LinhaOrdem>
+    <Produto>760010100061</Produto>
+    <Quantidade>10</Quantidade>
+    <Origem>13.A.1.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>3</LinhaOrdem>
     <Produto>760010100050</Produto>
-    <Quantidade>16</Quantidade>
+    <Quantidade>17</Quantidade>
     <Origem>13.A.2.08</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>2</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>4</LinhaOrdem>
     <Produto>500020101000398</Produto>
-    <Quantidade>17</Quantidade>
+    <Quantidade>25</Quantidade>
     <Origem>13.A.3.08</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>3</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>5</LinhaOrdem>
     <Produto>500020201000570</Produto>
-    <Quantidade>24</Quantidade>
+    <Quantidade>27</Quantidade>
     <Origem>13.A.2.07</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>4</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>6</LinhaOrdem>
     <Produto>500020201000363</Produto>
-    <Quantidade>33</Quantidade>
+    <Quantidade>32</Quantidade>
     <Origem>13.A.2.06</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>5</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>7</LinhaOrdem>
     <Produto>500020101001244</Produto>
     <Quantidade>40</Quantidade>
     <Origem>13.A.0.07</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>6</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>8</LinhaOrdem>
     <Produto>500020202001365</Produto>
-    <Quantidade>47</Quantidade>
+    <Quantidade>46</Quantidade>
     <Origem>13.A.1.06</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
@@ -73,50 +89,66 @@ RESPONSE message ready to be processed.
 <?xml version="1.0" encoding="utf-16"?>
 <ArrayOfTarefa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
+    <Ordem>Encomenda 529621</Ordem>
     <LinhaOrdem>1</LinhaOrdem>
+    <Produto>501020101001330</Produto>
+    <Quantidade>8</Quantidade>
+    <Origem>13.A.3.06</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>2</LinhaOrdem>
+    <Produto>760010100061</Produto>
+    <Quantidade>10</Quantidade>
+    <Origem>13.A.1.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>3</LinhaOrdem>
     <Produto>760010100050</Produto>
-    <Quantidade>16</Quantidade>
+    <Quantidade>17</Quantidade>
     <Origem>13.A.2.08</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>2</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>4</LinhaOrdem>
     <Produto>500020101000398</Produto>
-    <Quantidade>17</Quantidade>
+    <Quantidade>25</Quantidade>
     <Origem>13.A.3.08</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>3</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>5</LinhaOrdem>
     <Produto>500020201000570</Produto>
-    <Quantidade>24</Quantidade>
+    <Quantidade>27</Quantidade>
     <Origem>13.A.2.07</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>4</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>6</LinhaOrdem>
     <Produto>500020201000363</Produto>
-    <Quantidade>33</Quantidade>
+    <Quantidade>32</Quantidade>
     <Origem>13.A.2.06</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>5</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>7</LinhaOrdem>
     <Produto>500020101001244</Produto>
     <Quantidade>40</Quantidade>
     <Origem>13.A.0.07</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>6</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>8</LinhaOrdem>
     <Produto>500020202001365</Produto>
-    <Quantidade>47</Quantidade>
+    <Quantidade>46</Quantidade>
     <Origem>13.A.1.06</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
@@ -124,496 +156,334 @@ RESPONSE message ready to be processed.
 <?xml version="1.0" encoding="utf-16"?>
 <ArrayOfTarefa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
+    <Ordem>Encomenda 529621</Ordem>
     <LinhaOrdem>1</LinhaOrdem>
+    <Produto>501020101001330</Produto>
+    <Quantidade>8</Quantidade>
+    <Origem>13.A.3.06</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>2</LinhaOrdem>
+    <Produto>760010100061</Produto>
+    <Quantidade>10</Quantidade>
+    <Origem>13.A.1.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>3</LinhaOrdem>
     <Produto>760010100050</Produto>
-    <Quantidade>16</Quantidade>
+    <Quantidade>17</Quantidade>
     <Origem>13.A.2.08</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>2</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>4</LinhaOrdem>
     <Produto>500020101000398</Produto>
-    <Quantidade>17</Quantidade>
+    <Quantidade>25</Quantidade>
     <Origem>13.A.3.08</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>3</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>5</LinhaOrdem>
     <Produto>500020201000570</Produto>
-    <Quantidade>24</Quantidade>
+    <Quantidade>27</Quantidade>
     <Origem>13.A.2.07</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>4</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>6</LinhaOrdem>
     <Produto>500020201000363</Produto>
-    <Quantidade>33</Quantidade>
+    <Quantidade>32</Quantidade>
     <Origem>13.A.2.06</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>5</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>7</LinhaOrdem>
     <Produto>500020101001244</Produto>
     <Quantidade>40</Quantidade>
     <Origem>13.A.0.07</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
   <Tarefa>
-    <Ordem>Encomenda 419236</Ordem>
-    <LinhaOrdem>6</LinhaOrdem>
+    <Ordem>Encomenda 529621</Ordem>
+    <LinhaOrdem>8</LinhaOrdem>
     <Produto>500020202001365</Produto>
-    <Quantidade>47</Quantidade>
+    <Quantidade>46</Quantidade>
     <Origem>13.A.1.06</Origem>
     <Destino>13.S.0.0</Destino>
   </Tarefa>
 </ArrayOfTarefa>
-Received 6 products from ERP
+Received 8 products from ERP
 Succesfully saved tarefa.xml
-Comp linha=0.5223987437430154
-Comp linha=0.5464438620367714
-Comp linha=0.5999999046325684
-Comp linha=0.6184657744526609
-Comp linha=0.619999885559082
-Comp linha=0.619999885559082
-Comp linha=0.6199998855592654
-Comp linha=0.6325355563535237
-Comp linha=0.6414048327338888
-Comp linha=0.6469350406223606
-Comp linha=0.6616069715698819
-Comp linha=0.6800732449747606
-Comp linha=0.6937500077324948
-Comp linha=0.7240168718196124
-Comp linha=0.7358834793774462
-Comp linha=0.7479303258077253
-Comp linha=0.7529271752227481
-Comp linha=0.7720102934472384
-Comp linha=0.7900000810623169
-Comp linha=0.7950000762939453
-Comp linha=0.796241835428353
-Comp linha=0.8134498741219277
-Comp linha=0.8265669705105237
-Comp linha=0.8299980163574561
-Comp linha=0.8300009817094667
-Comp linha=0.8402382249448284
-Comp linha=0.850001335144043
-Comp linha=0.8537544603380007
-Comp linha=0.8599987030029297
-Comp linha=0.8714354664934565
-Comp linha=0.8999996185302734
-Comp linha=0.9235807624621337
-Comp linha=0.9499998092651367
-Comp linha=0.9610415848103019
-Comp linha=0.9654015874584075
-Comp linha=0.9706171219926942
-Comp linha=0.9885611063124363
-Comp linha=0.9910413022564107
-Comp linha=1.0031948949878644
-Comp linha=1.0050010681152344
-Comp linha=1.008229771826917
-Comp linha=1.0199999809265137
-Comp linha=1.0210781022779793
-Comp linha=1.0434679606499615
-Comp linha=1.070000171661377
-Comp linha=1.0846321171394142
-Comp linha=1.086001521620627
-Comp linha=1.0870215669319447
-Comp linha=1.100000023841858
-Comp linha=1.100000023841858
-Comp linha=1.1052255376592837
-Comp linha=1.1070798703045521
-Comp linha=1.1650004386901855
-Comp linha=1.1700000762939453
-Comp linha=1.2075285110108929
-Comp linha=1.2248266388586815
-Comp linha=1.2267437600878464
-Comp linha=1.229187195575404
-Comp linha=1.2300000190734863
-Comp linha=1.2626954939910742
-Comp linha=1.2626954939910742
-Comp linha=1.3122875361003759
-Comp linha=1.3341655557901386
-Comp linha=1.3341675375980808
-Comp linha=1.3612507651642967
-Comp linha=1.3700090100347224
-Comp linha=1.3815930285615572
-Comp linha=1.38452143722587
-Comp linha=1.444022335376602
-Comp linha=1.4467635702970474
-Comp linha=1.4607879122113852
-Comp linha=1.4699997901916504
-Comp linha=1.472174574767677
-Comp linha=1.5053640715757628
-Comp linha=1.5558034700832235
-Comp linha=1.5618577676702503
-Comp linha=1.609635595226966
-Comp linha=1.6174131712095876
-Comp linha=1.6500000953674316
-Comp linha=1.6633101729017528
-Comp linha=1.6681798904895782
-Comp linha=1.6764188384896073
-Comp linha=1.7030845992874861
-Comp linha=1.7300002574920654
-Comp linha=1.7447063150814457
-Comp linha=1.745537936603642
-Comp linha=1.761705612641729
-Comp linha=1.7827926586495473
-Comp linha=1.7899999618530273
-Comp linha=1.7967819208866116
-Comp linha=1.8133947102009582
-Comp linha=1.8276519314198556
-Comp linha=1.8359264457858493
-Comp linha=1.8398368793205402
-Comp linha=1.8439088785285553
-Comp linha=1.8454339978228445
-Comp linha=1.8867964854525892
-Comp linha=1.9100257143816943
-Comp linha=1.9104973923306832
-Comp linha=1.9126940863368433
-Comp linha=1.9188008685508557
-Comp linha=1.9200000762939453
-Comp linha=1.9470250999677943
-Comp linha=1.9500001668930054
-Comp linha=1.9650001525878906
-Comp linha=1.9764870938483035
-Comp linha=2.0
-Comp linha=2.0
-Comp linha=2.049999841829632
-Comp linha=2.08062535234112
-Comp linha=2.0997386891504886
-Comp linha=2.105350705944366
-Comp linha=2.1256528191791837
-Comp linha=2.1262697655120104
-Comp linha=2.130874573594852
-Comp linha=2.134391322708978
-Comp linha=2.135636202576671
-Comp linha=2.1476731511655553
-Comp linha=2.165386261347298
-Comp linha=2.1802062500496664
-Comp linha=2.1920992315553023
-Comp linha=2.1999998092651367
-Comp linha=2.1999998092651367
-Comp linha=2.1999998092651367
-Comp linha=2.200000047683716
-Comp linha=2.200000047683716
-Comp linha=2.2000001668930054
-Comp linha=2.200000762939453
-Comp linha=2.2035490501776622
-Comp linha=2.2114760265340534
-Comp linha=2.2146099836182827
-Comp linha=2.2742254092172667
-Comp linha=2.2856941986666355
-Comp linha=2.322956021875026
-Comp linha=2.343501239647235
-Comp linha=2.3513605407178066
-Comp linha=2.352743097974734
-Comp linha=2.3999996185302734
-Comp linha=2.4000015258789062
-Comp linha=2.407405228061621
-Comp linha=2.4186788474571044
-Comp linha=2.424999713897705
-Comp linha=2.4261986726562514
-Comp linha=2.428667399621074
-Comp linha=2.4334177094446043
-Comp linha=2.4495116520578315
-Comp linha=2.469999313354492
-Comp linha=2.476292972490332
-Comp linha=2.4909826244499733
-Comp linha=2.5109757615730968
-Comp linha=2.5985580709979987
-Comp linha=2.6000047125406884
-Comp linha=2.60340234619418
-Comp linha=2.6184343392034735
-Comp linha=2.622637337106059
-Comp linha=2.6599996089935303
-Comp linha=2.665521363438521
-Comp linha=2.6680708365219585
-Comp linha=2.6723630741074884
-Comp linha=2.6940164957125248
-Comp linha=2.7127294462875757
-Comp linha=2.720459781732978
-Comp linha=2.72323859001742
-Comp linha=2.7313001143617566
-Comp linha=2.733866596430619
-Comp linha=2.7496599056448616
-Comp linha=2.757270601973004
-Comp linha=2.760000228881836
-Comp linha=2.7790373506291153
-Comp linha=2.787679558124274
-Comp linha=2.816186048659577
-Comp linha=2.819999694824259
-Comp linha=2.8349649208411516
-Comp linha=2.8370563519212513
-Comp linha=2.8572711306251466
-Comp linha=2.8627262233979116
-Comp linha=2.8730341233625234
-Comp linha=2.8840250817477067
-Comp linha=2.884804756311415
-Comp linha=2.8940657431129906
-Comp linha=2.9047426216432886
-Comp linha=2.9083329710718924
-Comp linha=2.92542681010777
-Comp linha=2.927456276010878
-Comp linha=2.9340290974122327
-Comp linha=2.9446260407843785
-Comp linha=2.9585314287909283
-Comp linha=2.974172399602248
-Comp linha=2.9841676159291612
-Comp linha=2.9860004689969584
-Comp linha=3.0299987792968843
-Comp linha=3.0325760670658455
-Comp linha=3.0600371834422146
-Comp linha=3.070406829332336
-Comp linha=3.075922557977062
-Comp linha=3.0856124102525815
-Comp linha=3.0856133591017514
-Comp linha=3.085613371078262
-Comp linha=3.087835695326281
-Comp linha=3.124436563494679
-Comp linha=3.1825146964693642
-Comp linha=3.19141327864256
-Comp linha=3.200000047683716
-Comp linha=3.200140437620842
-Comp linha=3.2065707751425268
-Comp linha=3.2429919965770866
-Comp linha=3.2645521491792433
-Comp linha=3.2649993896484375
-Comp linha=3.2684701379769234
-Comp linha=3.2909100389919446
-Comp linha=3.294373926876511
-Comp linha=3.305888002708828
-Comp linha=3.3094573078242364
-Comp linha=3.31354765686907
-Comp linha=3.313609451341127
-Comp linha=3.3154834056538447
-Comp linha=3.315931254575068
-Comp linha=3.351477624859779
-Comp linha=3.3772177628422932
-Comp linha=3.3961928213765784
-Comp linha=3.400368488202645
-Comp linha=3.4300001859664917
-Comp linha=3.460361291993889
-Comp linha=3.4750003814697266
-Comp linha=3.489096253836345
-Comp linha=3.518635643843879
-Comp linha=3.5436148875482054
-Comp linha=3.55398668961513
-Comp linha=3.569104248743383
-Comp linha=3.5706859033025653
-Comp linha=3.5850000381469727
-Comp linha=3.5900001525878906
-Comp linha=3.594032899578824
-Comp linha=3.595847523522512
-Comp linha=3.5999999046325684
-Comp linha=3.6021708724752584
-Comp linha=3.6353304301675493
-Comp linha=3.664122965846145
-Comp linha=3.665256685763426
-Comp linha=3.6680499730358664
-Comp linha=3.6860033947406285
-Comp linha=3.702999272242713
-Comp linha=3.7232376973486794
-Comp linha=3.7300002574920654
-Comp linha=3.7513868291068473
-Comp linha=3.7608511960088467
-Comp linha=3.7667663091432204
-Comp linha=3.766997301183806
-Comp linha=3.795813447321625
-Comp linha=3.8116582121771154
-Comp linha=3.812033622657465
-Comp linha=3.843657291045064
-Comp linha=3.8651775339073295
-Comp linha=3.912300747243129
-Comp linha=3.9217329520839006
-Comp linha=3.9535583391267077
-Comp linha=4.016689951795373
-Comp linha=4.017959740213453
-Comp linha=4.0344761580026285
-Comp linha=4.0803062856351815
-Comp linha=4.090355118092354
-Comp linha=4.106446031231385
-Comp linha=4.111437856825063
-Comp linha=4.120012271432491
-Comp linha=4.137558829543434
-Comp linha=4.150469520573677
-Comp linha=4.160155413915787
-Comp linha=4.179054311460371
-Comp linha=4.179417137811037
-Comp linha=4.201190483445777
-Comp linha=4.2060226293953695
-Comp linha=4.220000267028809
-Comp linha=4.239858619474173
-Comp linha=4.250443058167124
-Comp linha=4.2636293341061435
-Comp linha=4.267551795497852
-Comp linha=4.270000457763672
-Comp linha=4.274918604315741
-Comp linha=4.280431973392139
-Comp linha=4.305000200504212
-Comp linha=4.370471594349546
-Comp linha=4.380102738455831
-Comp linha=4.382510633613495
-Comp linha=4.393566498073171
-Comp linha=4.406914042937242
-Comp linha=4.428476396249485
-Comp linha=4.448910329276522
-Comp linha=4.525925392135258
-Comp linha=4.540496099880605
-Comp linha=4.540705706200175
-Comp linha=4.572460738326891
-Comp linha=4.579280498706741
-Comp linha=4.583650174974558
-Comp linha=4.585280726407274
-Comp linha=4.61517215329144
-Comp linha=4.622608400567603
-Comp linha=4.624546044129422
-Comp linha=4.660549630293223
-Comp linha=4.75618617544582
-Comp linha=4.759717305558395
-Comp linha=4.76707610503749
-Comp linha=4.842664626173403
-Comp linha=4.851030601793022
-Comp linha=4.854080371483669
-Comp linha=4.857378386115343
-Comp linha=4.889213686035943
-Comp linha=4.894295488261425
-Comp linha=4.925444711658563
-Comp linha=4.9299008760488485
-Comp linha=4.9719464168444185
-Comp linha=5.017888056256362
-Comp linha=5.200000047683716
-Comp linha=5.2194349919844285
-Comp linha=5.229999542236328
-Comp linha=5.231493114952193
-Comp linha=5.25023809052052
-Comp linha=5.255120118544121
-Comp linha=5.270635470707243
-Comp linha=5.279111186079667
-Comp linha=5.279111179079458
-Comp linha=5.281988797598848
-Comp linha=5.354144798255924
-Comp linha=5.367096285417786
-Comp linha=5.383588705151018
-Comp linha=5.400083312663531
-Comp linha=5.402616638983651
-Comp linha=5.402724159617818
-Comp linha=5.463414358225559
-Comp linha=5.488396858491006
-Comp linha=5.509129325270575
-Comp linha=5.522028137328795
-Comp linha=5.563677485963462
-Comp linha=5.572073691222455
-Comp linha=5.579686002288371
-Comp linha=5.58805862455602
-Comp linha=5.647529142616277
-Comp linha=5.677860345327609
-Comp linha=5.698930020644519
-Comp linha=5.731848702179653
-Comp linha=5.804965674654524
-Comp linha=5.833919291258152
-Comp linha=5.860164230221266
-Comp linha=5.872625022107916
-Comp linha=5.891911003356603
-Comp linha=5.898153520171523
-Comp linha=5.960041852818531
-Comp linha=5.993680015672501
-Comp linha=6.002699387625698
-Comp linha=6.012129634370717
-Comp linha=6.024093440046237
-Comp linha=6.084620188784077
-Comp linha=6.1028050626543235
-Comp linha=6.1078714075729525
-Comp linha=6.151138797709149
-Comp linha=6.2350006103515625
-Comp linha=6.26309773480976
-Comp linha=6.295634375388843
-Comp linha=6.328508085735403
-Comp linha=6.334934808987276
-Comp linha=6.348820040339623
-Comp linha=6.382054923213631
-Comp linha=6.427721096688823
-Comp linha=6.453189432231685
-Comp linha=6.458050374240804
-Comp linha=6.50906590110702
-Comp linha=6.532183025099261
-Comp linha=6.602379485088207
-Comp linha=6.626653945425079
-Comp linha=6.646858050304591
-Comp linha=6.652713365942874
-Comp linha=6.727145798047544
-Comp linha=6.729107719804139
-Comp linha=6.759068121890352
-Comp linha=6.768493374673617
-Comp linha=6.769072684876555
-Comp linha=6.821953821863613
-Comp linha=6.838018158103374
-Comp linha=6.868390811709646
-Comp linha=6.974998063213669
-Comp linha=7.016825720095193
-Comp linha=7.079035477200947
-Comp linha=7.092963212396904
-Comp linha=7.117585191555293
-Comp linha=7.200250758096016
-Comp linha=7.219487573107436
-Comp linha=7.266863738435413
-Comp linha=7.331534551127629
-Comp linha=7.360950523110711
-Comp linha=7.426525963197238
-Comp linha=7.434674692585892
-Comp linha=7.5097626573161715
-Comp linha=7.726194786734878
-Comp linha=7.735504511042549
-Comp linha=7.75731940103198
-Comp linha=7.8092531822079465
-Comp linha=7.827291969914682
-Comp linha=7.838737061577621
-Comp linha=7.859999656677246
-Comp linha=7.909286731433991
-Comp linha=7.945746658007181
-Comp linha=7.971809053370367
-Comp linha=7.976643445226575
-Comp linha=8.024823347696474
-Comp linha=8.11000677556511
-Comp linha=8.149362552638314
-Comp linha=8.302061680391637
-Comp linha=8.34539409423434
-Comp linha=8.44602256011389
-Comp linha=8.479999542236342
-Comp linha=8.521151118488962
-Comp linha=8.617796494994478
-Comp linha=8.72702056592888
-Comp linha=8.816371836683807
-Comp linha=8.921918300650537
-Comp linha=9.045446602511767
-Comp linha=9.121075338850735
-Comp linha=9.229887154159066
-Comp linha=9.40019205923901
-Comp linha=9.60590565384824
-Comp linha=9.821324432195894
-Comp linha=10.02018009366586
-Comp linha=10.036821935190238
-Comp linha=10.041061156202057
-Comp linha=10.136938754800337
-Comp linha=10.173045783796589
-Comp linha=10.40297160303728
-Comp linha=10.679999351501476
-Comp linha=10.695737769319788
-Comp linha=10.921190971711875
-Comp linha=11.00205981065494
-Comp linha=11.23278287594634
-Comp linha=11.529913739512839
-Comp linha=13.117638306772918
-Comp linha=13.19576500185946
-Comp linha=13.725120540207753
-Comp linha=13.753495042894704
-Comp linha=13.946586751733237
-Comp linha=14.292457839539345
-Comp linha=14.583294202025495
-Comp linha=16.13954548620623
-Comp linha=16.781019511367962
-Comp linha=17.2353652975924
-Comp linha=17.880100783505686
+Aviso de diálogo de settings
+MESSAGE SENT WITH SUCCESS. ID: 480193.
+
+MESSAGE TO BE PROCESSED
+------------------------------------------
+	Id: 480193
+	Message type: response
+	Info identifier: getTarefa
+	To topic: planeadorTopic
+	From topic: ERPTopic
+	Data format: application/xml
+	Priority: 1
+	Content: <?xml version="1.0" encoding="utf-16"?>
+<ArrayOfTarefa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>1</LinhaOrdem>
+    <Produto>50002020200050A</Produto>
+    <Quantidade>4</Quantidade>
+    <Origem>13.A.0.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>2</LinhaOrdem>
+    <Produto>501020101001242</Produto>
+    <Quantidade>6</Quantidade>
+    <Origem>13.A.3.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>3</LinhaOrdem>
+    <Produto>760010100049</Produto>
+    <Quantidade>7</Quantidade>
+    <Origem>13.A.0.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>4</LinhaOrdem>
+    <Produto>501020101000909</Produto>
+    <Quantidade>8</Quantidade>
+    <Origem>13.A.3.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>5</LinhaOrdem>
+    <Produto>760010100050</Produto>
+    <Quantidade>12</Quantidade>
+    <Origem>13.A.2.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>6</LinhaOrdem>
+    <Produto>500020101000398</Produto>
+    <Quantidade>19</Quantidade>
+    <Origem>13.A.3.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>7</LinhaOrdem>
+    <Produto>500020201000570</Produto>
+    <Quantidade>27</Quantidade>
+    <Origem>13.A.2.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>8</LinhaOrdem>
+    <Produto>500020201000363</Produto>
+    <Quantidade>33</Quantidade>
+    <Origem>13.A.2.06</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>9</LinhaOrdem>
+    <Produto>500020101001244</Produto>
+    <Quantidade>39</Quantidade>
+    <Origem>13.A.0.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>10</LinhaOrdem>
+    <Produto>500020202001365</Produto>
+    <Quantidade>40</Quantidade>
+    <Origem>13.A.1.06</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+</ArrayOfTarefa>
+------------------------------------------
+RESPONSE message ready to be processed.
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfTarefa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>1</LinhaOrdem>
+    <Produto>50002020200050A</Produto>
+    <Quantidade>4</Quantidade>
+    <Origem>13.A.0.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>2</LinhaOrdem>
+    <Produto>501020101001242</Produto>
+    <Quantidade>6</Quantidade>
+    <Origem>13.A.3.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>3</LinhaOrdem>
+    <Produto>760010100049</Produto>
+    <Quantidade>7</Quantidade>
+    <Origem>13.A.0.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>4</LinhaOrdem>
+    <Produto>501020101000909</Produto>
+    <Quantidade>8</Quantidade>
+    <Origem>13.A.3.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>5</LinhaOrdem>
+    <Produto>760010100050</Produto>
+    <Quantidade>12</Quantidade>
+    <Origem>13.A.2.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>6</LinhaOrdem>
+    <Produto>500020101000398</Produto>
+    <Quantidade>19</Quantidade>
+    <Origem>13.A.3.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>7</LinhaOrdem>
+    <Produto>500020201000570</Produto>
+    <Quantidade>27</Quantidade>
+    <Origem>13.A.2.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>8</LinhaOrdem>
+    <Produto>500020201000363</Produto>
+    <Quantidade>33</Quantidade>
+    <Origem>13.A.2.06</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>9</LinhaOrdem>
+    <Produto>500020101001244</Produto>
+    <Quantidade>39</Quantidade>
+    <Origem>13.A.0.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>10</LinhaOrdem>
+    <Produto>500020202001365</Produto>
+    <Quantidade>40</Quantidade>
+    <Origem>13.A.1.06</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+</ArrayOfTarefa>
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfTarefa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>1</LinhaOrdem>
+    <Produto>50002020200050A</Produto>
+    <Quantidade>4</Quantidade>
+    <Origem>13.A.0.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>2</LinhaOrdem>
+    <Produto>501020101001242</Produto>
+    <Quantidade>6</Quantidade>
+    <Origem>13.A.3.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>3</LinhaOrdem>
+    <Produto>760010100049</Produto>
+    <Quantidade>7</Quantidade>
+    <Origem>13.A.0.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>4</LinhaOrdem>
+    <Produto>501020101000909</Produto>
+    <Quantidade>8</Quantidade>
+    <Origem>13.A.3.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>5</LinhaOrdem>
+    <Produto>760010100050</Produto>
+    <Quantidade>12</Quantidade>
+    <Origem>13.A.2.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>6</LinhaOrdem>
+    <Produto>500020101000398</Produto>
+    <Quantidade>19</Quantidade>
+    <Origem>13.A.3.08</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>7</LinhaOrdem>
+    <Produto>500020201000570</Produto>
+    <Quantidade>27</Quantidade>
+    <Origem>13.A.2.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>8</LinhaOrdem>
+    <Produto>500020201000363</Produto>
+    <Quantidade>33</Quantidade>
+    <Origem>13.A.2.06</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>9</LinhaOrdem>
+    <Produto>500020101001244</Produto>
+    <Quantidade>39</Quantidade>
+    <Origem>13.A.0.07</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+  <Tarefa>
+    <Ordem>Encomenda 859637</Ordem>
+    <LinhaOrdem>10</LinhaOrdem>
+    <Produto>500020202001365</Produto>
+    <Quantidade>40</Quantidade>
+    <Origem>13.A.1.06</Origem>
+    <Destino>13.S.0.0</Destino>
+  </Tarefa>
+</ArrayOfTarefa>
+Received 10 products from ERP
+Succesfully saved tarefa.xml
