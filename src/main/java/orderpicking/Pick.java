@@ -1,5 +1,7 @@
 package orderpicking;
 
+import whgraph.ARWGraphNode;
+
 public class Pick {
     private String id;
     private String order;
@@ -7,6 +9,8 @@ public class Pick {
     private String quantity;
     private String origin;  // nome da área de origem do pick
     private String destiny; // nome da área de destino do pick
+    //ÚLTIMA ALTERAÇÃO
+    ARWGraphNode node;
 
     public Pick(
             String order,
@@ -79,6 +83,14 @@ public class Pick {
 
     public void setDestiny(String destiny) {
         this.destiny = destiny;
+    }
+
+    public ARWGraphNode getNode() {
+        return node;
+    }
+
+    public void setNode(ARWGraphNode node) {
+        this.node = node;
     }
 
     public String toString(){

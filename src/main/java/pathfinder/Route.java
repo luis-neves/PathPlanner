@@ -7,7 +7,7 @@ public class Route {
     private final List route;
     private final double cost;
 
-    Route(List route, double cost){
+    public Route(List route, double cost){
         this.route=route;
         this.cost=cost;
     }

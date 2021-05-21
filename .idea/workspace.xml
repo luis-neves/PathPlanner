@@ -30,52 +30,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="Inclusão das tags wmsCode&#10;Fix do play">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ClassLib_ClassLib_j4n_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ClassLib_ClassLib_j4n_1_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/Algorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/DynamicProgrammingOneAgentPerExit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/Problem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/Maven__net_sf_jni4net_jni4net_j_0_8_8_0/jni4net.j-0.8.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_gen_aut.xml" beforeDir="false" afterPath="$PROJECT_DIR$/graph_gen_aut.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logPathPlanner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logPathPlanner.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/arwdatastruct/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/arwdatastruct/Agent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/arwdatastruct/DataStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/arwdatastruct/DataStruct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/arwdatastruct/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/arwdatastruct/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/arwdatastruct/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/arwdatastruct/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/PathPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/PathPlanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/TestNewWarehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/TestNewWarehouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/TestaGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/TestaGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/BackgroundSurface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/BackgroundSurface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/GraphEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/GraphEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/GraphSurface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/GraphSurface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newwarehouse/Prefab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newWarehouse/Prefab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newwarehouse/Prefabtype.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newWarehouse/Prefabtype.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newwarehouse/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newWarehouse/Warehouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/orderpicking/Pick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orderpicking/Pick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/orderpicking/PickingOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orderpicking/PickingOrders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whgraph/ARWGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/whgraph/ARWGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/whgraph/GraphGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/whgraph/GraphGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orderpicking/SingleOrderDyn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/SingleOrderDyn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pathfinder/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pathfinder/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tsp/TspDynamicProgrammingIterative.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tsp/TspDynamicProgrammingIterative.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tarefa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tarefa.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/arwdatastruct/Agent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/arwdatastruct/Agent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/arwdatastruct/DataStruct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/arwdatastruct/DataStruct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/arwdatastruct/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/arwdatastruct/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/arwdatastruct/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/arwdatastruct/Task.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner$CheckERP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner$CheckERP.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner$CheckXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner$CheckXML.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/TestNewWarehouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/TestNewWarehouse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/TestaGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/TestaGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/utils/BackgroundSurface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/utils/BackgroundSurface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/utils/GraphEditor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/utils/GraphEditor$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/utils/GraphEditor$GraphSurfaceEd.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/utils/GraphEditor$GraphSurfaceEd.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/utils/GraphEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/utils/GraphEditor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/utils/GraphSurface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/utils/GraphSurface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/newwarehouse/Prefab.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newwarehouse/Prefab.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/newwarehouse/Prefabtype.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newwarehouse/Prefabtype.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/newwarehouse/Warehouse$LineComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newwarehouse/Warehouse$LineComparator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/newwarehouse/Warehouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newwarehouse/Warehouse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/orderpicking/Pick.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orderpicking/Pick.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/orderpicking/PickingOrders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orderpicking/PickingOrders.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/whgraph/ARWGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/whgraph/ARWGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/whgraph/GraphGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/whgraph/GraphGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/orderpicking/SingleOrderDyn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pathfinder/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pathfinder/Route.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tsp/TspDynamicProgrammingIterative.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tsp/TspDynamicProgrammingIterative.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taskreceived.xml" beforeDir="false" afterPath="$PROJECT_DIR$/taskreceived.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,24 +166,18 @@
       <recent name="gui" />
       <recent name="utils.warehouse" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="algorithms" />
+      <recent name="gui" />
+      <recent name="ga.KMeans" />
+      <recent name="utils.warehouse" />
+      <recent name="ga.geneticOperators" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Aulas\I&amp;D\ArwarePathFinder\src\main\resources\META-INF" />
       <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\" />
       <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo" />
       <recent name="C:\Users\Nekki\Desktop\Aulas\PROJ FINAL\OneDrive_1_19-02-2019\GeneticAlgorithm_completo\src\gui" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java\gui\utils" />
-      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java\gui" />
-      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java\whgraph\Graphs" />
-      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java" />
-      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java\arwdatastruct" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="gui" />
-      <recent name="ga.KMeans" />
-      <recent name="utils.warehouse" />
-      <recent name="ga.geneticOperators" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="gui.utils" />
@@ -212,6 +185,13 @@
       <recent name="ga" />
       <recent name="utils.warehouse" />
       <recent name="ga.geneticOperators" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java\gui\utils" />
+      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java\gui" />
+      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java\whgraph\Graphs" />
+      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java" />
+      <recent name="C:\Users\luis.neves\IdeaProjects\NPathPlanner\src\main\java\arwdatastruct" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -723,7 +703,13 @@
       <workItem from="1619627331292" duration="1829000" />
       <workItem from="1619629204995" duration="3885000" />
       <workItem from="1619773958816" duration="1694000" />
-      <workItem from="1619775794920" duration="333000" />
+      <workItem from="1619775794920" duration="1817000" />
+      <workItem from="1619816176086" duration="9000" />
+      <workItem from="1620983263860" duration="13568000" />
+      <workItem from="1621024679665" duration="621000" />
+      <workItem from="1621335701632" duration="14649000" />
+      <workItem from="1621353620385" duration="12000" />
+      <workItem from="1621588043875" duration="3954000" />
     </task>
     <task id="LOCAL-00001" summary="forgot">
       <created>1582509185139</created>
@@ -1047,7 +1033,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617573058276</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Correções formais 0">
+      <created>1619776789033</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1619776789033</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1067,7 +1060,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="09/03/2020&#10;Backup" />
     <MESSAGE value="21/09/2020&#10;bug fixes ¯\_(ツ)_/¯" />
     <MESSAGE value="11/10/2020&#10;Experiments done" />
     <MESSAGE value="24/10/2020&#10;Drawing" />
@@ -1092,58 +1084,76 @@
     <MESSAGE value="Geração automática de Grafo" />
     <MESSAGE value="Últims stualização" />
     <MESSAGE value="Geração automática de Grafo e de armazéns" />
-    <option name="LAST_COMMIT_MESSAGE" value="Geração automática de Grafo e de armazéns" />
+    <MESSAGE value="Correções formais 0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correções formais 0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617968969583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617968969583" />
-    <state x="446" y="24" key="#com.intellij.ide.util.MemberChooser" timestamp="1619096038264">
+    <state x="669" y="37" key="#com.intellij.ide.util.MemberChooser" timestamp="1621348902255">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="446" y="24" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1621004681832" />
+    <state x="669" y="37" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1621348902255" />
+    <state x="424" y="235" width="432" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1620983488834">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="24" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1619096038264" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1619775012233">
+    <state x="424" y="235" width="432" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1620983488834" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1621003911889">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1619775012233" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1621003911889" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619169545400" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1621348993017">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621348993017" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1617969175552">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617969175552" />
-    <state width="1237" height="161" key="GridCell.Tab.0.bottom" timestamp="1619776024743">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1877" height="187" key="GridCell.Tab.0.bottom" timestamp="1621591798327">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1237" height="161" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1619776024743" />
-    <state width="1877" height="464" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617969178003" />
-    <state width="1237" height="161" key="GridCell.Tab.0.center" timestamp="1619776024743">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="91" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1621019115125" />
+    <state width="1877" height="187" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621591798327" />
+    <state width="1877" height="187" key="GridCell.Tab.0.center" timestamp="1621591798327">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1237" height="161" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1619776024743" />
-    <state width="1877" height="464" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617969178003" />
-    <state width="1237" height="161" key="GridCell.Tab.0.left" timestamp="1619776024742">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="91" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1621019115124" />
+    <state width="1877" height="187" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621591798327" />
+    <state width="1877" height="187" key="GridCell.Tab.0.left" timestamp="1621591798327">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1237" height="161" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1619776024742" />
-    <state width="1877" height="464" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617969178003" />
-    <state width="1237" height="161" key="GridCell.Tab.0.right" timestamp="1619776024743">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="91" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1621019115123" />
+    <state width="1877" height="187" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621591798327" />
+    <state width="1877" height="187" key="GridCell.Tab.0.right" timestamp="1621591798327">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1237" height="161" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1619776024743" />
-    <state width="1877" height="464" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617969178003" />
+    <state width="1237" height="91" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1621019115124" />
+    <state width="1877" height="187" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621591798327" />
     <state x="174" y="118" width="1444" height="852" key="SettingsEditor" timestamp="1617969150005">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="174" y="118" width="1444" height="852" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617969150005" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1621591552751">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1621591552751" />
+    <state x="233" y="60" key="Vcs.Push.Dialog.v2" timestamp="1619776801559">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="60" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1619776801559" />
     <state x="93" y="93" width="1095" height="495" key="dock-window-1" timestamp="1619775097041">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="93" y="93" width="1095" height="495" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1619775097041" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1617891361322">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1621590506215">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617891361322" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1621590506215" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1619091336961">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -1214,7 +1224,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/gui/PathPlanner.java</url>
-          <line>501</line>
+          <line>538</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
