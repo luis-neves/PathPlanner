@@ -2,15 +2,16 @@ package arwdatastruct;
 
 import orderpicking.Pick;
 
+import java.util.HashMap;
 import java.util.Hashtable;
 
 public class Order {
     private String id;
-    private Hashtable<String, Pick> picks;
+    private HashMap<String, Pick> picks;
 
     public Order() {
         this.id = "";
-        this.picks = new Hashtable<>();
+        this.picks = new HashMap<>();
     }
 
     public void addPick(Pick pick){
@@ -27,11 +28,11 @@ public class Order {
         this.id = id;
     }
 
-    public Hashtable<String, Pick> getPicks() {
+    public HashMap<String, Pick> getPicks() {
         return picks;
     }
 
-    public void setPicks(Hashtable<String, Pick> picks) {
+    public void setPicks(HashMap<String, Pick> picks) {
         this.picks = picks;
     }
 }

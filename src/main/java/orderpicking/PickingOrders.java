@@ -20,10 +20,7 @@ import java.io.IOException;
 import java.io.StringReader;
 
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 //Não faz sentido a Order e as Picking Orders estarem na mesma package?
 public class PickingOrders {
@@ -89,7 +86,7 @@ public class PickingOrders {
     //WMS == código que identifica a área de origem de um pick
     //Este método não está a ser usado
     public ArrayList<String> getWms(String orderId){
-        Hashtable<String, Pick> picks = getOrder(orderId).getPicks();
+        HashMap<String, Pick> picks = getOrder(orderId).getPicks();
         Set<String> pickKeys = picks.keySet();
         ArrayList<String> wms = new ArrayList<>();
         for (String pickKey : pickKeys) {
@@ -100,7 +97,7 @@ public class PickingOrders {
     }
 
     public String toString(String orderId){
-        Hashtable<String, Pick> picks = getOrder(orderId).getPicks();
+        HashMap<String, Pick> picks = getOrder(orderId).getPicks();
         Set<String> pickKeys = picks.keySet();
         String xmlString = "<?xml version=\"1.0\" encoding=\"utf-16\"?>\n" +
                 "<ArrayOfTarefa xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">";

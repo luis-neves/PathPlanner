@@ -8,9 +8,9 @@ import tsp.TspDynamicProgrammingIterative;
 import java.util.*;
 
 //This algorithm assumes that that there is only one agent available
-public class SingleOrderDyn{
+public class SingleOrderDyn extends Algorithm<OneExitProblem>{
 
-    public Solution solve(Problem problem){
+    public Solution solve(OneExitProblem problem){
 
         RouteFinder routeFinder = new RouteFinder<>(problem.getGraph(), new DistanceScorer(), new DistanceScorer());
         //Constroi matriz de distâncias com m x m, m = nnosproduto + entrada+saída
@@ -24,7 +24,7 @@ public class SingleOrderDyn{
         for (double[] row : distanceMatrix)
             Arrays.fill(row, 100000);
 
-        Agent agent = problem.getAgents().get(0);
+        Agent agent = problem.getAgent();
 
         for (int i = 1; i < numNos - 1; i++){
 

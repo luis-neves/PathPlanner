@@ -385,11 +385,8 @@ public class PathPlanner extends JFrame {
     }
 
     public void ConcluiTarefa(String xmlstring) {
-
         this.Consola.append("Enviada a conclusão de tarefa\n");
         cm.SendMessageAsync(Util.GenerateId(), "response", TOPIC_CONCLUDETASK, ERP_ID, "application/xml", xmlstring, "1");
-
-
     }
 
     public void handleMessages(BusMessage busMessage) {
@@ -490,20 +487,23 @@ public class PathPlanner extends JFrame {
                         System.out.println(xml_str);//Provisoriamente para teste
                         Consola.setText("Operador concluiu tarefa\n");
                         split = busMessage.getFromTopic().split("Topic");
-
+                        //Identifica o agente
+                        agentID = split[0];
                         try {
-                            PickingOrders concludedpicks = new PickingOrders();
-                            concludedpicks.parseXMLERPRequest(xml_str);
-                            for (Order order : concludedpicks.getOrders())
-                                dados.concludeOrder(order.getId());
-                            xml_str = concludedpicks.toXML();
+                            PickingOrders concludedPicks = new PickingOrders();
+                            concludedPicks.parseXMLERPRequest(xml_str);
+                            for (Order order : concludedPicks.getOrders()) {
+                                dados.concludeOrder(order.getId(), agentID);
+                            }
 
+                            xml_str = concludedPicks.toXML();
                             write_xml_to_file("tarefa_concluida.xml", xml_str);
                             //Esta escrita em ficheiro pode vir a ser eliminada
 
                             ConcluiTarefa(xml_str);
 
                             System.out.println("Succesfully saved concluded task>");
+
                         } catch (IOException e) {
                             System.out.println("Error while saving concluded task");
                             System.out.println(e.getMessage());

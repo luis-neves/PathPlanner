@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Task xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" agent-id="ra2" id="java.util.Hashtable$Enumerator@34dedf8c">
+<Task xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" agent-id="ra2" id="java.util.Hashtable$Enumerator@574c6c11">
 <Path>
 <Node id="18">
 <Position>
@@ -71,65 +71,49 @@
 <z>0.0</z>
 </Position>
 <Tarefa>
-<Ordem>Encomenda 554515</Ordem>
-<LinhaOrdem>5</LinhaOrdem>
-<Produto>500020101000398</Produto>
-<Quantidade>24</Quantidade>
-<Origem>13.A.3.08</Origem>
-<Destino>13.S.0.0</Destino>
-</Tarefa>
-<Tarefa>
-<Ordem>Encomenda 554515</Ordem>
-<LinhaOrdem>4</LinhaOrdem>
+<Ordem>Encomenda 713802</Ordem>
+<LinhaOrdem>3</LinhaOrdem>
 <Produto>760010100050</Produto>
-<Quantidade>15</Quantidade>
+<Quantidade>9</Quantidade>
 <Origem>13.A.2.08</Origem>
 <Destino>13.S.0.0</Destino>
 </Tarefa>
 <Tarefa>
-<Ordem>Encomenda 554515</Ordem>
-<LinhaOrdem>2</LinhaOrdem>
-<Produto>501020101001229</Produto>
-<Quantidade>8</Quantidade>
-<Origem>13.A.0.08</Origem>
+<Ordem>Encomenda 713802</Ordem>
+<LinhaOrdem>4</LinhaOrdem>
+<Produto>500020101000398</Produto>
+<Quantidade>12</Quantidade>
+<Origem>13.A.3.08</Origem>
 <Destino>13.S.0.0</Destino>
 </Tarefa>
 </Node>
-<Node id="38">
+<Node id="37">
 <Position>
 <x>18,24</x>
 <y>1,00</y>
 <z>0.0</z>
 </Position>
 <Tarefa>
-<Ordem>Encomenda 554515</Ordem>
-<LinhaOrdem>8</LinhaOrdem>
-<Produto>500020101001244</Produto>
-<Quantidade>45</Quantidade>
+<Ordem>Encomenda 713802</Ordem>
+<LinhaOrdem>1</LinhaOrdem>
+<Produto>500020201000418</Produto>
+<Quantidade>6</Quantidade>
 <Origem>13.A.0.07</Origem>
 <Destino>13.S.0.0</Destino>
 </Tarefa>
 <Tarefa>
-<Ordem>Encomenda 554515</Ordem>
-<LinhaOrdem>6</LinhaOrdem>
+<Ordem>Encomenda 713802</Ordem>
+<LinhaOrdem>5</LinhaOrdem>
 <Produto>500020201000570</Produto>
-<Quantidade>30</Quantidade>
+<Quantidade>14</Quantidade>
 <Origem>13.A.2.07</Origem>
 <Destino>13.S.0.0</Destino>
 </Tarefa>
 <Tarefa>
-<Ordem>Encomenda 554515</Ordem>
-<LinhaOrdem>3</LinhaOrdem>
-<Produto>760010100061</Produto>
-<Quantidade>10</Quantidade>
-<Origem>13.A.1.07</Origem>
-<Destino>13.S.0.0</Destino>
-</Tarefa>
-<Tarefa>
-<Ordem>Encomenda 554515</Ordem>
-<LinhaOrdem>1</LinhaOrdem>
-<Produto>500020201000418</Produto>
-<Quantidade>7</Quantidade>
+<Ordem>Encomenda 713802</Ordem>
+<LinhaOrdem>7</LinhaOrdem>
+<Produto>500020101001244</Produto>
+<Quantidade>26</Quantidade>
 <Origem>13.A.0.07</Origem>
 <Destino>13.S.0.0</Destino>
 </Tarefa>
@@ -141,26 +125,34 @@
 <z>0.0</z>
 </Position>
 </Node>
-<Node id="37">
+<Node id="38">
 <Position>
 <x>21,00</x>
 <y>1,00</y>
 <z>0.0</z>
 </Position>
 <Tarefa>
-<Ordem>Encomenda 554515</Ordem>
-<LinhaOrdem>9</LinhaOrdem>
-<Produto>500020202001365</Produto>
-<Quantidade>52</Quantidade>
-<Origem>13.A.1.06</Origem>
+<Ordem>Encomenda 713802</Ordem>
+<LinhaOrdem>2</LinhaOrdem>
+<Produto>501020101001330</Produto>
+<Quantidade>8</Quantidade>
+<Origem>13.A.3.06</Origem>
 <Destino>13.S.0.0</Destino>
 </Tarefa>
 <Tarefa>
-<Ordem>Encomenda 554515</Ordem>
-<LinhaOrdem>7</LinhaOrdem>
+<Ordem>Encomenda 713802</Ordem>
+<LinhaOrdem>6</LinhaOrdem>
 <Produto>500020201000363</Produto>
-<Quantidade>38</Quantidade>
+<Quantidade>21</Quantidade>
 <Origem>13.A.2.06</Origem>
+<Destino>13.S.0.0</Destino>
+</Tarefa>
+<Tarefa>
+<Ordem>Encomenda 713802</Ordem>
+<LinhaOrdem>8</LinhaOrdem>
+<Produto>500020202001365</Produto>
+<Quantidade>31</Quantidade>
+<Origem>13.A.1.06</Origem>
 <Destino>13.S.0.0</Destino>
 </Tarefa>
 </Node>

@@ -29,32 +29,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="Inclusão das tags wmsCode&#10;Fix do play">
-      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/Algorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/DynamicProgrammingOneAgentPerExit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/Problem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/Solution.java" afterDir="false" />
+    <list default="true" id="30f1fc5e-b7d1-491f-90d6-e044eea9e023" name="Default" comment="Alterações:&#10;- Alterámos classe Agent&#10;- Alterámos classe Pick&#10;- Criámos classe Problem&#10;- Criámos classe Solution&#10;- Criámos classe DynamicProgrammingOneAgentPerExit&#10;- Alterámos PathPlanner de modo a lidar com vários agentes &#10;- Estamos a meio da alteração da classe Datastruct de modo a esta lide com vários agentes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/MultiExitProblem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/OneExitProblem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logPathPlanner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logPathPlanner.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/arwdatastruct/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/arwdatastruct/Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/DynamicProgrammingOneAgentPerExit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/DynamicProgrammingOneAgentPerExit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/Problem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/SingleOrderDyn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/SingleOrderDyn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/arwdatastruct/DataStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/arwdatastruct/DataStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/arwdatastruct/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/arwdatastruct/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/PathPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/PathPlanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/orderpicking/Pick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orderpicking/Pick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/orderpicking/SingleOrderDyn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/SingleOrderDyn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pathfinder/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pathfinder/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tsp/TspDynamicProgrammingIterative.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tsp/TspDynamicProgrammingIterative.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orderpicking/PickingOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orderpicking/PickingOrders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tarefa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tarefa.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/arwdatastruct/Agent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/arwdatastruct/Agent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/arwdatastruct/DataStruct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/arwdatastruct/DataStruct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner$CheckERP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner$CheckERP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner$CheckXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner$CheckXML.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/arwdatastruct/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/arwdatastruct/Order.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/PathPlanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PathPlanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/orderpicking/Pick.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orderpicking/Pick.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/orderpicking/SingleOrderDyn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pathfinder/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pathfinder/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tsp/TspDynamicProgrammingIterative.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tsp/TspDynamicProgrammingIterative.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/orderpicking/PickingOrders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orderpicking/PickingOrders.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taskreceived.xml" beforeDir="false" afterPath="$PROJECT_DIR$/taskreceived.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -297,6 +288,17 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -709,7 +711,8 @@
       <workItem from="1621024679665" duration="621000" />
       <workItem from="1621335701632" duration="14649000" />
       <workItem from="1621353620385" duration="12000" />
-      <workItem from="1621588043875" duration="3954000" />
+      <workItem from="1621588043875" duration="6114000" />
+      <workItem from="1622126065289" duration="11509000" />
     </task>
     <task id="LOCAL-00001" summary="forgot">
       <created>1582509185139</created>
@@ -1040,7 +1043,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619776789033</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Alterações:&#10;- Alterámos classe Agent&#10;- Alterámos classe Pick&#10;- Criámos classe Problem&#10;- Criámos classe Solution&#10;- Criámos classe DynamicProgrammingOneAgentPerExit&#10;- Alterámos PathPlanner de modo a lidar com vários agentes &#10;- Estamos a meio da alteração da classe Datastruct de modo a esta lide com vários agentes">
+      <created>1621592191788</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1621592191788</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1060,7 +1070,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="21/09/2020&#10;bug fixes ¯\_(ツ)_/¯" />
     <MESSAGE value="11/10/2020&#10;Experiments done" />
     <MESSAGE value="24/10/2020&#10;Drawing" />
     <MESSAGE value="31/10/2020&#10;Drawing + XML" />
@@ -1085,18 +1094,19 @@
     <MESSAGE value="Últims stualização" />
     <MESSAGE value="Geração automática de Grafo e de armazéns" />
     <MESSAGE value="Correções formais 0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correções formais 0" />
+    <MESSAGE value="Alterações:&#10;- Alterámos classe Agent&#10;- Alterámos classe Pick&#10;- Criámos classe Problem&#10;- Criámos classe Solution&#10;- Criámos classe DynamicProgrammingOneAgentPerExit&#10;- Alterámos PathPlanner de modo a lidar com vários agentes &#10;- Estamos a meio da alteração da classe Datastruct de modo a esta lide com vários agentes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterações:&#10;- Alterámos classe Agent&#10;- Alterámos classe Pick&#10;- Criámos classe Problem&#10;- Criámos classe Solution&#10;- Criámos classe DynamicProgrammingOneAgentPerExit&#10;- Alterámos PathPlanner de modo a lidar com vários agentes &#10;- Estamos a meio da alteração da classe Datastruct de modo a esta lide com vários agentes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617968969583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617968969583" />
-    <state x="669" y="37" key="#com.intellij.ide.util.MemberChooser" timestamp="1621348902255">
+    <state x="669" y="37" key="#com.intellij.ide.util.MemberChooser" timestamp="1622133094392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="446" y="24" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1621004681832" />
-    <state x="669" y="37" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1621348902255" />
+    <state x="669" y="37" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1622133094392" />
     <state x="424" y="235" width="432" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1620983488834">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -1114,26 +1124,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617969175552" />
-    <state width="1877" height="187" key="GridCell.Tab.0.bottom" timestamp="1621591798327">
+    <state width="1877" height="126" key="GridCell.Tab.0.bottom" timestamp="1622135887490">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="91" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1621019115125" />
-    <state width="1877" height="187" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621591798327" />
-    <state width="1877" height="187" key="GridCell.Tab.0.center" timestamp="1621591798327">
+    <state width="1877" height="126" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622135887490" />
+    <state width="1877" height="126" key="GridCell.Tab.0.center" timestamp="1622135887490">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="91" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1621019115124" />
-    <state width="1877" height="187" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621591798327" />
-    <state width="1877" height="187" key="GridCell.Tab.0.left" timestamp="1621591798327">
+    <state width="1877" height="126" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622135887490" />
+    <state width="1877" height="126" key="GridCell.Tab.0.left" timestamp="1622135887490">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="91" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1621019115123" />
-    <state width="1877" height="187" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621591798327" />
-    <state width="1877" height="187" key="GridCell.Tab.0.right" timestamp="1621591798327">
+    <state width="1877" height="126" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622135887490" />
+    <state width="1877" height="126" key="GridCell.Tab.0.right" timestamp="1622135887490">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="91" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1621019115124" />
-    <state width="1877" height="187" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621591798327" />
+    <state width="1877" height="126" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622135887490" />
     <state x="174" y="118" width="1444" height="852" key="SettingsEditor" timestamp="1617969150005">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
