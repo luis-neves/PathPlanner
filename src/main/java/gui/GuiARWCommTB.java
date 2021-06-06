@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Random;
 
 import xmlutils.XMLfuncs;
 import classlib.BusMessage;
@@ -32,8 +33,7 @@ public class GuiARWCommTB extends JFrame {
     private JButton ExitButton;
     private JMenuBar menuBar;
 
-
-    public static final String CLIENT_ID = "ra2";
+    public static final String CLIENT_ID_PREFIX = "ra";
     public static final String ERP_ID = "ERP";
     public static final String RA_ID = "ra";
     public static final String LOC_APROX_ID = "locaproximada";
@@ -55,6 +55,10 @@ public class GuiARWCommTB extends JFrame {
     esb_callbacks Checkbus;
     String Last_tarefa;
 
+    int agentNum;
+
+    private String taskReceivedXML;
+
     public GuiARWCommTB() {
         super("ARWARE Gui Comm TestBed");
 
@@ -62,6 +66,8 @@ public class GuiARWCommTB extends JFrame {
 
         setSize(900, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        agentNum = 0;
     }
 
     private void initComponents() {
@@ -122,17 +128,7 @@ public class GuiARWCommTB extends JFrame {
         oper_concluded.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                // delegate to event handler method
-                try{
-                    String xmlString=read_xml_from_file("taskreceived.xml");
-                    cm.SendMessageAsync(Util.GenerateId(), "request", "endTask", "planeador", "application/xml", xmlString, "1");
-                }
-                catch (IOException e) {
-                    System.out.println("Error while reading tasksim.xml");
-                    System.out.println(e.getMessage());
-
-                }
-
+                cm.SendMessageAsync(Util.GenerateId(), "request", "endTask", "planeador", "application/xml", taskReceivedXML, "1");
             }
         });
 
@@ -145,7 +141,10 @@ public class GuiARWCommTB extends JFrame {
         });
 
         Checkbus = new esb_callbacks();
-        cm = new CommunicationManager(CLIENT_ID, new TopicsConfiguration(), Checkbus);
+
+        String clientID = CLIENT_ID_PREFIX + (Math.abs((new Random()).nextInt()) - 1);
+
+        cm = new CommunicationManager(clientID, new TopicsConfiguration(), Checkbus);
         Checkbus.SetCommunicationManager(cm); // Está imbricado. Tentar ver se é possível alterar!
         Checkbus.addPropertyChangeListener(new PropertyChangeListener() {
                                                @Override
@@ -157,15 +156,13 @@ public class GuiARWCommTB extends JFrame {
 
         //cm.SubscribeContentAsync("mod_updateXML",MODELADOR_ID);
 
-
-        System.out.println("CLIENT_ID: " + CLIENT_ID);
+        System.out.println("CLIENT_ID: " + clientID);
         System.out.println("ERP_ID: " + ERP_ID);
         System.out.println("RA_ID: " + RA_ID + "[MAC]");
         System.out.println("LOC_APROX_ID: " + LOC_APROX_ID);
         System.out.println("MODELADOR_ID: " + MODELADOR_ID);
 
     }
-
 
 
     public void Executa_EnviaXML(){
@@ -204,7 +201,7 @@ public class GuiARWCommTB extends JFrame {
 
     public void Executa_ConcluiTarefa(){
         try{
-            String xmlString=read_xml_from_file("tarefa.xml");
+            String xmlString = read_xml_from_file("tarefa.xml");
             this.Consola.append(xmlString+'\n');
             cm.SendMessageAsync(Util.GenerateId(), "response", "taskconcluded", ERP_ID, "application/xml", xmlString, "1");
         }
@@ -274,11 +271,8 @@ public class GuiARWCommTB extends JFrame {
                         break;
                     case TOPIC_NEWTASK:
                         xml_str = busMessage.getContent();
-                        try {
-                            write_modelador_xml_to_file("taskreceived.xml",xml_str);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                        taskReceivedXML = xml_str;
+
                         System.out.println(xml_str);//Provisoriamente para teste
                         System.out.println("Tarefa bem recebida");
                         //Tratar Json para saber se tarefa ficou atribuída
@@ -289,7 +283,7 @@ public class GuiARWCommTB extends JFrame {
                 System.out.println("RESPONSE message ready to be processed.");
                 if (busMessage.getInfoIdentifier().equals("getTarefa") && busMessage.getDataFormat().equals("application/xml")) {
                     //GET ALL ORDERS FROM ERP
-                    Last_tarefa=busMessage.getContent();
+                    Last_tarefa = busMessage.getContent();
                     this.Consola.setText(Last_tarefa);
                     try {
                         write_modelador_xml_to_file("tarefa.xml", Last_tarefa);
@@ -416,21 +410,15 @@ public class GuiARWCommTB extends JFrame {
         }
     }
 
-    public void write_modelador_xml_to_file(String fileName, String str)
-            throws IOException {
+    public void write_modelador_xml_to_file(String fileName, String str) throws IOException {
         FileOutputStream outputStream = new FileOutputStream(fileName);
         byte[] strToBytes = str.getBytes();
         outputStream.write(strToBytes);
         outputStream.close();
     }
 
-    public String read_xml_from_file(String fileName)
-            throws IOException {
-        String contents="";
-        contents = new String(Files.readAllBytes(Paths.get(fileName)));
-
-
-        return contents;
+    public String read_xml_from_file(String fileName) throws IOException {
+        return new String(Files.readAllBytes(Paths.get(fileName)));
     }
 
 

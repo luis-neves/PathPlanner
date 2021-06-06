@@ -14,11 +14,11 @@ public class esb_callbacks implements ICommunicationManagerCallbacks {
     private final PropertyChangeSupport support;
 
     public esb_callbacks(){
-        support=new PropertyChangeSupport(this);
+        support = new PropertyChangeSupport(this);
     }
 
     public esb_callbacks(CommunicationManager cm, PropertyChangeListener pcl){
-        support=new PropertyChangeSupport(this);
+        support = new PropertyChangeSupport(this);
         this.SetCommunicationManager(cm);
         this.addPropertyChangeListener(pcl);
     }
@@ -30,10 +30,8 @@ public class esb_callbacks implements ICommunicationManagerCallbacks {
 
     @Override
     public void SetCommunicationManager(CommunicationManager communicationManager) {
-        cm=communicationManager;
+        cm = communicationManager;
     }
-
-
 
     @Override
     public void InitializationDoneEvent(boolean b) {
@@ -89,7 +87,7 @@ public class esb_callbacks implements ICommunicationManagerCallbacks {
         System.out.println("\tContent: " + busMessage.getContent());
         System.out.println("------------------------------------------");
         support.firePropertyChange("busMessage",this.busMessage, busMessage);
-        this.busMessage=busMessage;
+        this.busMessage = busMessage;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener pcl) {

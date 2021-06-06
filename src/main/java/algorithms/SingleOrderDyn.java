@@ -1,58 +1,58 @@
 package algorithms;
 
 import arwdatastruct.Agent;
+import arwdatastruct.OneAgentOneDestinyTask;
 import orderpicking.DistanceScorer;
 import pathfinder.*;
 import tsp.TspDynamicProgrammingIterative;
 
 import java.util.*;
 
-//This algorithm assumes that that there is only one agent available
-public class SingleOrderDyn extends Algorithm<OneExitProblem>{
+public class SingleOrderDyn extends Algorithm<OneAgentOneDestinyTask>{
 
-    public Solution solve(OneExitProblem problem){
+    public Solution solve(OneAgentOneDestinyTask task){
 
-        RouteFinder routeFinder = new RouteFinder<>(problem.getGraph(), new DistanceScorer(), new DistanceScorer());
+        RouteFinder routeFinder = new RouteFinder<>(task.getGraph(), new DistanceScorer(), new DistanceScorer());
         //Constroi matriz de distâncias com m x m, m = nnosproduto + entrada+saída
         //a 1ª linha serve para a distância entre o nó de partida e cada um dos nós de produto
         //a última linha tem a distância entre cada um dos nós de produto e a saída
         //as distâncias têm de ser introduzidas nos 2 sentidos.
 
-        int numNos = problem.getPicks().size() + 2;
+        int numNos = task.getPicks().size() + 2;
         double[][] distanceMatrix = new double[numNos][numNos];
         List[][] rotas = new List[numNos][numNos];
         for (double[] row : distanceMatrix)
             Arrays.fill(row, 100000);
 
-        Agent agent = problem.getAgent();
+        Agent agent = task.getAgent();
 
         for (int i = 1; i < numNos - 1; i++){
 
-            String nodeID1 = new Integer(problem.getPicks().get(i - 1).getNode().getGraphNodeId()).toString();
+            String nodeID1 = new Integer(task.getPicks().get(i - 1).getNode().getGraphNodeId()).toString();
 
             //Determina rota e custos entre o nó inicial e todos os nós de produto
             Route r = routeFinder.findRoute(
-                    problem.getGraph().getNode(agent.getStartNode()),
-                    problem.getGraph().getNode(nodeID1));
+                    task.getGraph().getNode(agent.getStartNode()),
+                    task.getGraph().getNode(nodeID1));
             distanceMatrix[0][i] = r.getCost();
-            rotas[0][i] = r.getRoute();
+            rotas[0][i] = r.getNodes();
             //Determina rota e custos entre cada nó de produto e o nó de saída
             r = routeFinder.findRoute(
-                    problem.getGraph().getNode(nodeID1),
-                    problem.getGraph().getNode(agent.getEndNode()));
+                    task.getGraph().getNode(nodeID1),
+                    task.getGraph().getNode(agent.getEndNode()));
             distanceMatrix[i][numNos-1] = r.getCost();
-            rotas[i][numNos - 1] = r.getRoute();
+            rotas[i][numNos - 1] = r.getNodes();
             for(int j = i + 1; j < numNos - 1; j++){
                 if (i != j) {
                     //Determina rota e custos entre nós de produto usando o A*
 
-                    String nodeID2 = new Integer(problem.getPicks().get(j - 1).getNode().getGraphNodeId()).toString();
+                    String nodeID2 = new Integer(task.getPicks().get(j - 1).getNode().getGraphNodeId()).toString();
 
                     r = routeFinder.findRoute(
-                            problem.getGraph().getNode(nodeID1),
-                            problem.getGraph().getNode(nodeID2));
+                            task.getGraph().getNode(nodeID1),
+                            task.getGraph().getNode(nodeID2));
                     distanceMatrix[i][j] = r.getCost();
-                    rotas[i][j] = r.getRoute();
+                    rotas[i][j] = r.getNodes();
                     distanceMatrix[j][i] = r.getCost();
                     rotas[j][i] = routeFinder.reverseRoute(r);
                 }

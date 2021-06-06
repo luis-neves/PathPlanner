@@ -895,33 +895,6 @@
         </entry>
       </shelves>
     </entry>
-    <entry>
-      <prefabID>3</prefabID>
-      <rCode>RC0004</rCode>
-      <rCodeD>Rack entrega 2</rCodeD>
-      <positionX>15.7</positionX>
-      <positionY>7.25</positionY>
-      <positionZ>0</positionZ>
-      <rotationX>0</rotationX>
-      <rotationY>0</rotationY>
-      <rotationZ>0</rotationZ>
-      <row>0</row>
-      <shelves>
-        <entry>
-          <sPrefabID>1</sPrefabID>
-          <sCode>SF000</sCode>
-          <sCodeD>shelf 000</sCodeD>
-          <areas>
-            <entry>
-              <aPrefabID>0</aPrefabID>
-              <aCode>AC000</aCode>
-              <aCodeD>area0</aCodeD>
-              <wmsCode>14.S.0.0</wmsCode>
-            </entry>
-          </areas>
-        </entry>
-      </shelves>
-    </entry>
   </racks>
   <structures>
     <entry>

@@ -26,10 +26,10 @@ public class TestNewWarehouse extends JFrame {
         setSize(950, 500);
         setLayout(new BorderLayout());
 
-        newwarehouse=new Warehouse();
+        newwarehouse = new Warehouse();
         newwarehouse.geraWarehouse(40f,30f,2f,3f,3,8,1f);
 
-            newwarehouse.Print();
+        newwarehouse.Print();
 
         ARWGraph grafo = new ARWGraph();
 
@@ -40,14 +40,13 @@ public class TestNewWarehouse extends JFrame {
         JLayer<JPanel> jlayer = new JLayer<>(background, graphsurface);
         add(jlayer, BorderLayout.CENTER);
 
-        String xmlstring=grafo.generateXMLGraphString();
+        String xmlstring = grafo.generateXMLGraphString();
 
         write_xml_to_file("graph_gen_aut.xml",xmlstring);
         repaint();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
 
     public static void main(String[] args) {
         try {

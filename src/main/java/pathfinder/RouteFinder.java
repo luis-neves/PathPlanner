@@ -37,7 +37,7 @@ public class RouteFinder<T extends GraphNode> {
                 } while (current != null);
 
                 //System.out.println("Route: " + route);
-                Route rota=new Route(route,next.getRouteScore());
+                Route rota = new Route(route,next.getRouteScore());
                 return rota;
             }
 
@@ -61,7 +61,7 @@ public class RouteFinder<T extends GraphNode> {
     }
 
     public ArrayList<T> reverseRoute(Route r){
-        ArrayList<T> reverse = new ArrayList(r.getRoute());
+        ArrayList<T> reverse = new ArrayList(r.getNodes());
         Collections.reverse(reverse);
         return reverse;
     }

@@ -4,20 +4,21 @@ import arwdatastruct.Agent;
 import pathfinder.Route;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Solution {
 
-    private HashMap<Agent, Route> routes;
+    private Map<Agent, Route> routes;
 
     public Solution(){
         this.routes = new HashMap<>();
     }
 
-    public HashMap<Agent, Route> getRoutes() {
+    public Map<Agent, Route> getRoutes() {
         return routes;
     }
 
-    public void setRoutes(HashMap<Agent, Route> routes) {
+    public void setRoutes(Map<Agent, Route> routes) {
         this.routes = routes;
     }
 

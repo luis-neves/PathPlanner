@@ -4,9 +4,9 @@ public class Agent {
     private String id;
     private float initialX;
     private float initialY;
-    //ÚLTIMA ALTERAÇÃO
-    String startNode;
-    String endNode;
+    private String startNode;
+    private String endNode;
+    private Task task;
 
     public Agent(String id, float initialX, float initialY) {
         this.id = id;
@@ -52,5 +52,13 @@ public class Agent {
 
     public void setEndNode(String endNode) {
         this.endNode = endNode;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
     }
 }

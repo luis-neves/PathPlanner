@@ -15,9 +15,8 @@ public class TestaGenerator {
 
     public static String read_xml_from_file(String fileName)
             throws IOException {
-        String contents="";
+        String contents = "";
         contents = new String(Files.readAllBytes(Paths.get(fileName)));
-
 
         return contents;
     }
@@ -33,19 +32,18 @@ public class TestaGenerator {
 
     public static void main(String[] args) {
 
-        Warehouse newwarehouse=new Warehouse();
+        Warehouse newWarehouse = new Warehouse();
         try {
-            String xmlcontent=read_xml_from_file("warehouse_model_lab.xml");
-            newwarehouse.createFromXML(xmlcontent);
+            String xmlContent = read_xml_from_file("warehouse_model_lab.xml");
+            newWarehouse.createFromXML(xmlContent);
 
+            GraphGenerator gerador = new GraphGenerator(newWarehouse,new ArrayList<GNode>(),0.4f);
+            ARWGraph graph = gerador.createGraph();
+            String xmlString = graph.generateXMLGraphString();
 
-            GraphGenerator gerador=new GraphGenerator(newwarehouse,new ArrayList<GNode>(),0.4f);
-            ARWGraph grafo = gerador.createGraph();
-            String xmlstring=grafo.generateXMLGraphString();
+            write_modelador_xml_to_file("graph_gen_lab.xml",xmlString);
 
-            write_modelador_xml_to_file("graph_gen_lab.xml",xmlstring);
-
-            newwarehouse.Print();
+            newWarehouse.Print();
 
         } catch (IOException e) {
             e.printStackTrace();

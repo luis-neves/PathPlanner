@@ -31,9 +31,11 @@ public class ARWGraph {
     private List<ARWGraphNode> nodes;
     private List<Edge> edges;
 
+    private static final double MIN_NODE_DISTANCE = 50e-2;
+
     public ARWGraph() {
         nodes = new ArrayList<>();
-        edges = new ArrayList<Edge>();
+        edges = new ArrayList<>();
     }
 
     public List<Edge> getEdges() {
@@ -260,10 +262,10 @@ public class ARWGraph {
 
     public ARWGraphNode insertNode(ARWGraphNode node){
 
-        double distance=1e6;
-        double nx=0,ny=0,bestx=0,besty=0,m;
+        double distance = 1e6;
+        double nx = 0, ny = 0, bestx = 0, besty = 0, m;
         double size;
-        Edge closestedge=null;
+        Edge closestedge = null;
         for (Edge edge : edges) {
             double x1=edge.getStart().getLocation().getX();
             double y1=edge.getStart().getLocation().getY();
@@ -290,23 +292,21 @@ public class ARWGraph {
                 besty=ny;
             }
         }
-        if (closestedge!=null) {
+        if (closestedge != null) {
             node.setLocation(new Point2D.Float((float) bestx, (float) besty));
 
             ARWGraphNode existente = findClosestNode(node.getX(), node.getY());
 
-            if ((Math.abs(existente.getX() -node.getX())>50e-2) || (Math.abs(existente.getY() - node.getY())>50e-2)) {
+            if ((Math.abs(existente.getX() - node.getX()) > MIN_NODE_DISTANCE) || (Math.abs(existente.getY() - node.getY()) > MIN_NODE_DISTANCE)) {
                 Edge novo1 = new Edge(closestedge.getStart(), node, 0, 1);
                 createGraphNode(node);
                 createEdge(novo1);
                 novo1 = new Edge(node,closestedge.getEnd(), 0, 1);
                 createEdge(novo1);
                 edges.remove(closestedge);
-
             }
             else
                 return existente;
-
         }
         return node;
     }

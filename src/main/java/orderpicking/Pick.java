@@ -1,25 +1,25 @@
 package orderpicking;
 
+import pathfinder.GraphNode;
 import whgraph.ARWGraphNode;
 
 public class Pick {
     private String id;
-    private String order;
+    private String orderID;
     private String orderLine;
     private String quantity;
     private String origin;  // nome da área de origem do pick
     private String destiny; // nome da área de destino do pick
-    //ÚLTIMA ALTERAÇÃO
-    ARWGraphNode node;
+    private ARWGraphNode node;
 
     public Pick(
-            String order,
+            String orderID,
             String orderLine,
             String id,
             String quantity,
             String origin,
             String destiny) {
-        this.order = order;
+        this.orderID = orderID;
         this.orderLine = orderLine;
         this.id = id;
         this.quantity = quantity;
@@ -45,12 +45,12 @@ public class Pick {
         this.id = id;
     }
 
-    public String getOrder() {
-        return order;
+    public String getOrderID() {
+        return orderID;
     }
 
-    public void setOrder(String order) {
-        this.order = order;
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
     }
 
     public String getOrderLine() {
@@ -94,10 +94,15 @@ public class Pick {
     }
 
     public String toString(){
-        String xmlString = "\t<Produto>" + id + "</Produto>\n"
+        String xmlString =
+                "<Tarefa>\n"
+                + "\t<Ordem>" + orderID + "</Ordem>\n"
+                + "\t<LinhaOrdem>" + orderLine + "</LinhaOrdem>\n"
+                + "\t<Produto>" + id + "</Produto>\n"
                 + "\t<Quantidade>" + quantity + "</Quantidade>\n"
                 + "\t<Origem>"+ origin +"</Origem>\n"
-                + "\t<Destino>" + destiny + "</Destino>\n";
+                + "\t<Destino>" + destiny + "</Destino>\n"
+                + "</Tarefa>\n";
         return xmlString;
     }
 }

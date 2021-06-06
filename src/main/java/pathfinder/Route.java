@@ -4,21 +4,20 @@ package pathfinder;
 import java.util.List;
 
 public class Route {
-    private final List route;
+    private final List nodes;
     private final double cost;
 
-    public Route(List route, double cost){
-        this.route=route;
-        this.cost=cost;
+    public Route(List nodes, double cost){
+        this.nodes = nodes;
+        this.cost = cost;
     }
 
-    public List getRoute() {
-        return route;
+    public List getNodes() {
+        return nodes;
     }
 
     public double getCost() {
         return cost;
     }
-
 
 }

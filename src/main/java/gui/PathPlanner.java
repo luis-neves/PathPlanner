@@ -16,20 +16,22 @@ import java.nio.file.Files;
 
 import java.nio.file.StandardCopyOption;
 import java.util.*;
+import java.util.List;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
 import arwdatastruct.Agent;
 
-import arwdatastruct.DataStruct;
-import arwdatastruct.Order;
+import arwdatastruct.RequestsManager;
+import arwdatastruct.Task;
 import newWarehouse.Warehouse;
 
 import gui.utils.*;
 import net.sf.jni4net.Bridge;
 
 
-import orderpicking.PickingOrders;
+import orderpicking.Pick;
+import orderpicking.Request;
 import org.json.JSONObject;
 
 import classlib.BusMessage;
@@ -54,30 +56,29 @@ public class PathPlanner extends JFrame {
     private final GraphSurface graphsurface;
 
     private final JTextArea Consola;
-    private final JTextField numtasks;
-    private final JTextField numops;
-    private final JLabel alertanovoxml;
+    private final JTextField numTasks;
+    private final JTextField numOps;
+    private final JLabel alertaNovoXML;
     private final Warehouse warehouse;
     private final ARWGraph arwgraph;
-    Timer time, timexml;
-    String idxml = "";
+    Timer time, timeXML;
+    String idXML = "";
     Boolean xmlReceived;
     PacManSurface pacmanSurface;
     CommunicationManager cm;
     esb_callbacks Checkbus;
-    String Last_tarefa;
-    DataStruct dados;
+    String lastTask;
+    RequestsManager requestsManager;
     static PrintStream printOut;
 
     public static String CLIENT_ID = "planeador";
 
-    private static float corridorwidth = 1f;
+    private static float corridorWidth = 1f;
 
     public static final String ERP_ID = "ERP";
     public static final String RA_ID = "ra";
     public static final String LOC_APROX_ID = "locaproximada";
     public static final String MODELADOR_ID = "modelador";
-    //public static final int NUM_OPERATORS = 1;
     public static final String WAREHOUSE_FILE = "warehouse_model.xml";
     public static final String GRAPH_FILE = "graph2.xml";
     public static final String TOPIC_UPDATEXML = "mod_updateXML";
@@ -105,17 +106,17 @@ public class PathPlanner extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        dados = new DataStruct();
+        requestsManager = new RequestsManager();
         arwgraph = new ARWGraph();
 
         background = new BackgroundSurface(warehouse, false, 950);
-        dados.setWarehouse(warehouse);
+        requestsManager.setWarehouse(warehouse);
 
         File file = new File(GRAPH_FILE);
         //VERIFICAR COMO TESTAR PARA ERRO
         arwgraph.readGraphFile(file);
 
-        dados.setGraph(arwgraph);
+        requestsManager.setGraph(arwgraph);
         graphsurface = new GraphSurface(arwgraph, warehouse, 5);
         pacmanSurface = new PacManSurface(background, 15);
         JLayer<JPanel> jlayer = new JLayer<>(background, graphsurface);
@@ -133,25 +134,24 @@ public class PathPlanner extends JFrame {
 
         JLabel et_tasks = new JLabel("Tarefas pendentes");
         JLabel et_ops = new JLabel("Operadores disponíveis");
-        numtasks = new JTextField("0");
-        numops = new JTextField("0");
-        numtasks.setEditable(false);
-        numops.setEditable(false);
-        alertanovoxml = new JLabel("");
+        numTasks = new JTextField("0");
+        numOps = new JTextField("0");
+        numTasks.setEditable(false);
+        numOps.setEditable(false);
+        alertaNovoXML = new JLabel("");
 
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
         panel.add(et_tasks);
-        panel.add(numtasks);
+        panel.add(numTasks);
         panel.add(new JLabel("      "));
         panel.add(et_ops);
-        panel.add(numops);
-        panel.add(alertanovoxml);
+        panel.add(numOps);
+        panel.add(alertaNovoXML);
 
         add(panel, BorderLayout.NORTH);
         //add(pacmansurface,BorderLayout.CENTER);
         add(jlayer, BorderLayout.CENTER);
-
 
         add(scrollpane, BorderLayout.PAGE_END);
 
@@ -171,13 +171,13 @@ public class PathPlanner extends JFrame {
     }
 
     private void avisaNovoXML() {
-        alertanovoxml.setText("Novo Modelo de armazem disponível");
-        alertanovoxml.setForeground(Color.red);
+        alertaNovoXML.setText("Novo Modelo de armazem disponível");
+        alertaNovoXML.setForeground(Color.red);
     }
 
     private void retiravisoXML() {
-        alertanovoxml.setText("");
-        alertanovoxml.setForeground(Color.gray);
+        alertaNovoXML.setText("");
+        alertaNovoXML.setForeground(Color.gray);
     }
 
     private void setupMenuBar() {
@@ -185,90 +185,74 @@ public class PathPlanner extends JFrame {
         JMenuItem menuItem;
         JMenuBar menubar = new JMenuBar();
 
-//Build the first menu.
+        //Build the first menu.
         menu = new JMenu("Data");
         menu.setMnemonic(KeyEvent.VK_D);
-        menu.getAccessibleContext().setAccessibleDescription(
-                "File options");
+        menu.getAccessibleContext().setAccessibleDescription("File options");
         menubar.add(menu);
 
-//a group of JMenuItems
-        menuItem = new JMenuItem("Load Warehouse",
-                KeyEvent.VK_W);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "Load Warehouse Model");
+        //a group of JMenuItems
+        menuItem = new JMenuItem("Load Warehouse", KeyEvent.VK_W);
+        menuItem.getAccessibleContext().setAccessibleDescription("Load Warehouse Model");
         menu.add(menuItem);
-        menuItem.addActionListener(e -> LoadWarehouse());
+        menuItem.addActionListener(e -> loadWarehouse());
 
-        menuItem = new JMenuItem("Generate graph",
-                KeyEvent.VK_G);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "Generate new graph of path nodes");
+        menuItem = new JMenuItem("Generate graph", KeyEvent.VK_G);
+        menuItem.getAccessibleContext().setAccessibleDescription("Generate new graph of path nodes");
         menuItem.addActionListener(e -> autoGraph());
         menu.add(menuItem);
 
-        menuItem = new JMenuItem("Load graph",
-                KeyEvent.VK_L);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "Load graph of path nodes");
-        menuItem.addActionListener(e -> LoadGraph());
+        menuItem = new JMenuItem("Load graph", KeyEvent.VK_L);
+        menuItem.getAccessibleContext().setAccessibleDescription("Load graph of path nodes");
+        menuItem.addActionListener(e -> loadGraph());
         menu.add(menuItem);
 
-        menuItem = new JMenuItem("Edit graph",
-                KeyEvent.VK_E);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "Edit graph of path nodes");
+        menuItem = new JMenuItem("Edit graph", KeyEvent.VK_E);
+        menuItem.getAccessibleContext().setAccessibleDescription("Edit graph of path nodes");
         menuItem.addActionListener(e -> editGraph());
 
         menu.add(menuItem);
 
-        menuItem = new JMenuItem("Load Tasksim",
-                KeyEvent.VK_S);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "Load Simulated Task");
+        menuItem = new JMenuItem("Load Tasksim", KeyEvent.VK_S);
+        menuItem.getAccessibleContext().setAccessibleDescription("Load Simulated Task");
         menu.add(menuItem);
         menuItem.addActionListener(e -> loadTasksim());
 
         //Build the settings menu.
         menuItem = new JMenuItem("Settings");
         menuItem.setMnemonic(KeyEvent.VK_D);
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "Settings");
+        menuItem.getAccessibleContext().setAccessibleDescription("Settings");
         menubar.add(menuItem);
         menuItem.addActionListener(e -> openSettings());
         this.setJMenuBar(menubar);
     }
 
     private void autoGraph() {
-        arwgraph.createGraph(warehouse, corridorwidth);
+        arwgraph.createGraph(warehouse, corridorWidth);
         repaint();
     }
 
     private void updateDados() {
-
-        numtasks.setText(dados.getNumberOfPendingOrders().toString());
-        numops.setText(dados.getNumberOfAvailableAgents().toString());
+        numTasks.setText(requestsManager.getNumberOfPendingOrders().toString());
+        numOps.setText(requestsManager.getNumberOfAvailableAgents().toString());
         repaint();
     }
 
     private void editGraph() {
-        GraphEditor frame = new GraphEditor(warehouse, arwgraph, corridorwidth);
+        GraphEditor frame = new GraphEditor(warehouse, arwgraph, corridorWidth);
         repaint();
     }
 
-
     public void openSettings() {
-
         System.out.println("Aviso de diálogo de settings");
-        SettingsDialog settingsDialog = new SettingsDialog(CHECK_ERP_PERIOD, corridorwidth, CLIENT_ID);
+        SettingsDialog settingsDialog = new SettingsDialog(CHECK_ERP_PERIOD, corridorWidth, CLIENT_ID);
 
         CHECK_ERP_PERIOD = settingsDialog.CHECK_ERP_PERIOD;
-        corridorwidth = settingsDialog.corridorwidth;
+        corridorWidth = settingsDialog.corridorwidth;
         CLIENT_ID = settingsDialog.CLIENT_ID;
         //time.cancel();
         time.schedule(new CheckERP(), 0, TimeUnit.MINUTES.toMillis(CHECK_ERP_PERIOD));
         repaint();
-
     }
 
     public void loadTasksim() {
@@ -280,10 +264,9 @@ public class PathPlanner extends JFrame {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
-
     }
 
-    private void LoadWarehouse() {
+    private void loadWarehouse() {
 
         JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
         fc.setSelectedFile(new File(WAREHOUSE_FILE));
@@ -294,7 +277,7 @@ public class PathPlanner extends JFrame {
             try {
                 String xmlcontent = read_xml_from_file(fc.getSelectedFile().getName());
                 warehouse.createFromXML(xmlcontent);
-                arwgraph.createGraph(warehouse, corridorwidth);
+                arwgraph.createGraph(warehouse, corridorWidth);
                 File source = new File(fc.getSelectedFile().getName());
                 File dest = new File(WAREHOUSE_FILE);
 
@@ -307,10 +290,9 @@ public class PathPlanner extends JFrame {
             retiravisoXML();
             repaint();
         }
-
     }
 
-    private void LoadGraph() {
+    private void loadGraph() {
 
         JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
         fc.setSelectedFile(new File(GRAPH_FILE));
@@ -320,9 +302,7 @@ public class PathPlanner extends JFrame {
         try {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fc.getSelectedFile();
-
                 arwgraph.readGraphFile(file);
-
                 repaint();
             }
         } catch (NoSuchElementException e2) {
@@ -330,7 +310,6 @@ public class PathPlanner extends JFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
         repaint();
-
     }
 
     private void initComponents() {
@@ -350,19 +329,16 @@ public class PathPlanner extends JFrame {
 
         cm.SubscribeContentAsync(TOPIC_UPDATEXML, MODELADOR_ID);
 
-
         System.out.println("CLIENT_ID: " + CLIENT_ID);
         System.out.println("ERP_ID: " + ERP_ID);
         System.out.println("RA_ID: " + RA_ID + "[MAC]");
         System.out.println("LOC_APROX_ID: " + LOC_APROX_ID);
         System.out.println("MODELADOR_ID: " + MODELADOR_ID);
 
-
         time = new Timer(); // Instantiate Timer Object
 
         //Faz um pedido ao ERP a cada 5 minutos - VER SE SERÁ O TEMPO ADEQUADO
         time.schedule(new CheckERP(), 0, TimeUnit.MINUTES.toMillis(CHECK_ERP_PERIOD));
-
     }
 
     public void PedeTarefa() {
@@ -371,7 +347,6 @@ public class PathPlanner extends JFrame {
             this.cm.SendMessageAsync(Util.GenerateId(), "request", TOPIC_GETTASK, ERP_ID, "PlainText", "Dá-me uma tarefa!", "1");
         }
     }
-
 
     public void EnviaTarefa(String agentid, String xmlstring) {
         try {
@@ -390,11 +365,13 @@ public class PathPlanner extends JFrame {
     }
 
     public void handleMessages(BusMessage busMessage) {
+
         String xml_str;
         Float[] position = {(float) 0.0, (float) 0.0};
-        switch (busMessage.getMessageType()) {
-            case "request":
 
+        switch (busMessage.getMessageType()) {
+
+            case "request":
                 System.out.println("REQUEST message ready to be processed.");
                 String identificador = busMessage.getInfoIdentifier();
 
@@ -426,10 +403,10 @@ public class PathPlanner extends JFrame {
                             //return?? Como houve problemas, devia saltar fora...
                         }
 
-                        if (dados.checkOccupiedAgent(agentID)) {
-                            dados.releaseAgent(agentID, position[0], position[1]);
+                        if (requestsManager.checkOccupiedAgent(agentID)) {
+                            requestsManager.releaseAgent(agentID, position[0], position[1]);
                         } else {
-                            dados.addAvailableAgent(new Agent(agentID, position[0], position[1]));
+                            requestsManager.addAvailableAgent(new Agent(agentID, position[0], position[1]));
                         }
 
                         cm.SendMessageAsync(
@@ -441,10 +418,14 @@ public class PathPlanner extends JFrame {
                                 "{'response':'ACK'}",
                                 "1");
 
-                        HashMap<Agent, String> tasksAssignment = dados.handlePendingOrders();
-                        if (tasksAssignment != null) {
-                            for (Agent agent : tasksAssignment.keySet()) {
-                                EnviaTarefa(agent.getId(), tasksAssignment.get(agent));
+                        Map<Agent, String> tasks = requestsManager.handlePendingTasks();
+
+                        if (tasks != null) {
+                            for (Agent agent : tasks.keySet()) {
+                                System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+                                System.out.println(tasks.get(agent));
+                                System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+                                EnviaTarefa(agent.getId(), tasks.get(agent));
                             }
                         } else
                             PedeTarefa();
@@ -459,7 +440,7 @@ public class PathPlanner extends JFrame {
                         split = busMessage.getFromTopic().split("Topic");
                         agentID = split[0];
 
-                        try {//Falta o processo de envio em bocados
+                        try { //Falta o processo de envio em bocados
                             String xml_armazem = read_xml_from_file(WAREHOUSE_FILE);
                             cm.SendMessageAsync(
                                     (Integer.parseInt(busMessage.getId()) + 1) + "",
@@ -490,19 +471,15 @@ public class PathPlanner extends JFrame {
                         //Identifica o agente
                         agentID = split[0];
                         try {
-                            PickingOrders concludedPicks = new PickingOrders();
-                            concludedPicks.parseXMLERPRequest(xml_str);
-                            for (Order order : concludedPicks.getOrders()) {
-                                dados.concludeOrder(order.getId(), agentID);
+                            List<Pick> solvedPicks = Task.parseXMLConcludedTask(xml_str);
+                            Request request = requestsManager.closeTask(agentID, solvedPicks);
+                            if(request != null){
+                                xml_str = request.concludedPicksToXML();
+                                write_xml_to_file("tarefa_concluida.xml", xml_str);
+                                ConcluiTarefa(xml_str);
                             }
 
-                            xml_str = concludedPicks.toXML();
-                            write_xml_to_file("tarefa_concluida.xml", xml_str);
-                            //Esta escrita em ficheiro pode vir a ser eliminada
-
-                            ConcluiTarefa(xml_str);
-
-                            System.out.println("Succesfully saved concluded task>");
+                            System.out.println("Succesfully saved concluded task");
 
                         } catch (IOException e) {
                             System.out.println("Error while saving concluded task");
@@ -524,7 +501,7 @@ public class PathPlanner extends JFrame {
                         split = busMessage.getFromTopic().split("Topic");
                         if (xmlReceived) {
                             String xmlanswer = new JSONObject()
-                                    .put("id", idxml)
+                                    .put("id", idXML)
                                     .put("ack", "OK").toString();
 
                             cm.SendMessageAsync(
@@ -538,7 +515,7 @@ public class PathPlanner extends JFrame {
                             xmlReceived = false;
                         } else {
                             String xmlanswer = new JSONObject()
-                                    .put("id", idxml)
+                                    .put("id", idXML)
                                     .put("ack", "ERROR").toString();
                             cm.SendMessageAsync(
                                     Util.GenerateId(),
@@ -551,7 +528,7 @@ public class PathPlanner extends JFrame {
                             Consola.append("Erro com a receção de XML");
                             System.out.println("Houve Erro com a receção de XML!");
                         }
-                        timexml.cancel();
+                        timeXML.cancel();
                 }
                 break;
 
@@ -559,11 +536,11 @@ public class PathPlanner extends JFrame {
                 System.out.println("RESPONSE message ready to be processed.");
                 if (busMessage.getInfoIdentifier().equals(TOPIC_GETTASK) && busMessage.getDataFormat().equals("application/xml")) {
                     //GET ALL ORDERS FROM ERP
-                    Last_tarefa = busMessage.getContent();
-                    System.out.println(Last_tarefa);
+                    lastTask = busMessage.getContent();
+                    System.out.println(lastTask);
                     //this.Consola.setText(Last_tarefa);
                     try {
-                        handleTask(Last_tarefa);
+                        handleTask(lastTask);
                         System.out.println("Succesfully saved tarefa.xml");
                     } catch (IOException e) {
                         System.out.println("Error while saving tarefa.xml");
@@ -620,7 +597,7 @@ public class PathPlanner extends JFrame {
             xmlparts = new Hashtable<>();
             lastid = id;
         }
-        idxml = id;
+        idXML = id;
         if ((!xmlparts.containsKey(npart)) && id.equals(lastid)) {
             xmlparts.put(npart, part);
             if (xmlparts.size() == totalparts) {
@@ -635,8 +612,8 @@ public class PathPlanner extends JFrame {
 
                 xmlReceived = true;
 
-                timexml = new Timer();
-                timexml.schedule(new CheckXML(), 0, TimeUnit.MINUTES.toMillis(1));
+                timeXML = new Timer();
+                timeXML.schedule(new CheckXML(), 0, TimeUnit.MINUTES.toMillis(1));
                 xmlparts = null;
                 lastid = "";
                 try {
@@ -677,11 +654,13 @@ public class PathPlanner extends JFrame {
         }
     }
 
+    //Grilo: Método que é chamado para que se guarde um request do ERP
     public void handleTask(String xmlString) throws IOException {
         String agentid = "ra1";//Serve para ter um nome mas será substituido em HandleTasks.
-        dados.addOrdersToPendingOrders(xmlString);
+
+        requestsManager.addRequest(xmlString);
         write_xml_to_file("tarefa.xml", xmlString);
-        HashMap<Agent, String> tasksAssignment = dados.handlePendingOrders();
+        Map<Agent, String> tasksAssignment = requestsManager.handlePendingTasks();
         if (tasksAssignment != null) {
             for (Agent agent : tasksAssignment.keySet()) {
                 EnviaTarefa(agent.getId(), tasksAssignment.get(agent));
@@ -689,7 +668,6 @@ public class PathPlanner extends JFrame {
         }
         updateDados();
     }
-
 
     public class CheckERP extends TimerTask {
         public void run() {
@@ -792,6 +770,5 @@ public class PathPlanner extends JFrame {
             }
         }
         new PathPlanner().setVisible(true);
-
     }
 }

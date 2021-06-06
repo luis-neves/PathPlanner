@@ -1,6 +1,8 @@
 package algorithms;
 
-public abstract class Algorithm <P extends Problem>{
+import arwdatastruct.Task;
 
-    public abstract Solution solve(P problem);
+public abstract class Algorithm <T extends Task>{
+
+    public abstract Solution solve(T task);
 }

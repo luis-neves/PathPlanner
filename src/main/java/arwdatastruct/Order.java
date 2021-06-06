@@ -1,38 +1,34 @@
 package arwdatastruct;
 
 import orderpicking.Pick;
+import orderpicking.Request;
 
-import java.util.HashMap;
-import java.util.Hashtable;
+import java.util.*;
 
 public class Order {
     private String id;
-    private HashMap<String, Pick> picks;
+    private Request request;
+    private List<Pick> picks;
 
-    public Order() {
-        this.id = "";
-        this.picks = new HashMap<>();
+    public Order(String id, Request request) {
+        this.id = id;
+        this.picks = new ArrayList<>();
+        this.request = request;
     }
 
     public void addPick(Pick pick){
-        if (!picks.containsKey(pick.getOrderLine())) {
-            picks.put(pick.getOrderLine(), pick);
-        }
+        picks.add(pick);
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public HashMap<String, Pick> getPicks() {
+    public List<Pick> getPicks() {
         return picks;
     }
 
-    public void setPicks(HashMap<String, Pick> picks) {
-        this.picks = picks;
+    public Request getRequest() {
+        return request;
     }
 }
